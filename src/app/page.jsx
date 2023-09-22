@@ -29,7 +29,7 @@ export default function Home() {
 			<Section id="projects" title="Projects" subtitle="Things I’ve built so far">
 				<div className="grid grid-cols-1 gap-[45px] gap-y-[20px] md:grid-cols-2 md:gap-y-[40px] lg:grid-cols-3">
 					{projects.map((project) => (
-						<Card project={project}></Card>
+						<Card key={project.id} project={project}></Card>
 					))}
 				</div>
 			</Section>
