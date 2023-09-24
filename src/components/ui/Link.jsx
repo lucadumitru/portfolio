@@ -11,6 +11,7 @@ const Link = ({ href, img, children, className, onClick, imgWidth, imgHeight }) 
 		>
 			{img && (
 				<Image
+					style={{ width: "auto", height: "auto" }}
 					width={imgWidth}
 					height={imgHeight}
 					src={img}

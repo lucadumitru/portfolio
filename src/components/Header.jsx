@@ -1,9 +1,13 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import { Container, NavLinks, Socials, Logo, useDarkMode } from ".";
 
+//Ui
 import { Fade as Hamburger } from "hamburger-react";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
+
+import useFetch from "@/hooks/useFetch";
 
 const Header = () => {
 	const [isOpen, setOpen] = useState(false);

@@ -20,14 +20,14 @@ const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<html lang="en" className="scroll-smooth">
-			<body className={`${poppins.className} dark:bg-bgDark bg-white `}>
-				<DarkModeProvider>
+		<DarkModeProvider>
+			<html lang="en" className="scroll-smooth">
+				<body className={`${poppins.className} dark:bg-bgDark bg-white `}>
 					<Header></Header>
 					{children}
 					<Footer id={"contact"}></Footer>
-				</DarkModeProvider>
-			</body>
-		</html>
+				</body>
+			</html>
+		</DarkModeProvider>
 	);
 }

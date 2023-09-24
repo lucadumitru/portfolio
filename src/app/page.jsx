@@ -20,6 +20,7 @@ export default function Home() {
 							className="justify-self-center"
 							width={120}
 							height={120}
+							style={{ width: "auto", height: "auto" }}
 							src={el.icon}
 							alt={el.name + "icon"}
 						></Image>

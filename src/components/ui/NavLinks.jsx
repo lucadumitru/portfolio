@@ -2,8 +2,9 @@
 
 import { dmSans } from "@/app/layout";
 import Link from "./Link";
+import useFetch from "@/hooks/useFetch";
 
-const NavLinks = ({ isOpen, setOpen }) => {
+const NavLinks = ({ isOpen, setOpen, data }) => {
 	const links = [
 		{
 			name: "Home",

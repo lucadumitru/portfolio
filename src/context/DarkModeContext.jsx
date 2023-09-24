@@ -5,20 +5,21 @@ import { createContext, useContext, useEffect, useState } from "react";
 const DarkModeContext = createContext();
 
 export const DarkModeProvider = ({ children }) => {
-	// Retrieve dark mode preference from localStorage
-	const isLocalStorageAvailable = typeof localStorage !== "undefined";
-	const storedDarkMode = isLocalStorageAvailable ? localStorage.getItem("darkMode") : undefined;
-	const [isDarkMode, setIsDarkMode] = useState(() => {
-		if (storedDarkMode) {
-			return storedDarkMode;
-		}
-		if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-			return "dark";
-		}
-		return "light"; // Default to light mode
-	});
+	const [isDarkMode, setIsDarkMode] = useState(null);
 
 	// Apply dark mode class to HTML element when isDarkMode changes
+	useEffect(() => {
+		setIsDarkMode(() => {
+			if (localStorage.getItem("darkMode")) {
+				return localStorage.getItem("darkMode");
+			}
+			if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+				return "dark";
+			}
+			return "light";
+		});
+	});
+
 	useEffect(() => {
 		const html = document.querySelector("html");
 		if (isDarkMode === "dark") {
