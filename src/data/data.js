@@ -3,7 +3,6 @@ export const technologies = [
 	{ name: "css", icon: "/icons/stack/css.svg" },
 	{ name: "js", icon: "/icons/stack/js.svg" },
 	{ name: "react", icon: "/icons/stack/react.svg" },
-	{ name: "redux", icon: "/icons/stack/redux.svg" },
 	{ name: "next", icon: "/icons/stack/next.webp" },
 	{ name: "tailwind", icon: "/icons/stack/tailwind.svg" },
 	{ name: "sass", icon: "/icons/stack/sass.svg" },

@@ -7,8 +7,6 @@ import { Container, NavLinks, Socials, Logo, useDarkMode } from ".";
 import { Fade as Hamburger } from "hamburger-react";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 
-import useFetch from "@/hooks/useFetch";
-
 const Header = () => {
 	const [isOpen, setOpen] = useState(false);
 	const { isDarkMode, toggleDarkMode } = useDarkMode();
@@ -20,7 +18,7 @@ const Header = () => {
 
 	return (
 		<header className="dark:bg-bgDark fixed  z-10 w-full bg-white">
-			<Container className="mx-auto flex items-center justify-between gap-5 py-[10px] md:py-[20px]">
+			<Container className="mx-auto flex items-center justify-between gap-5 py-[10px] md:py-[15px]">
 				<Logo></Logo>
 				<div className="flex items-center md:gap-x-[50px]">
 					<NavLinks {...{ isOpen, setOpen }}></NavLinks>

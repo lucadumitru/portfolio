@@ -3,9 +3,9 @@
 import { Logo, Container, Link, Socials } from ".";
 import { dmSans } from "@/app/layout";
 
-const Footer = ({ id }) => {
+const Footer = () => {
 	return (
-		<footer id={id}>
+		<footer id="contact">
 			<Container className="pt-[20px] md:pt-[100px]">
 				{/* Top */}
 				<div

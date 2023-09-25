@@ -2,7 +2,6 @@
 
 import { dmSans } from "@/app/layout";
 import Link from "./Link";
-import useFetch from "@/hooks/useFetch";
 
 const NavLinks = ({ isOpen, setOpen, data }) => {
 	const links = [
@@ -35,7 +34,7 @@ const NavLinks = ({ isOpen, setOpen, data }) => {
 	return (
 		<nav>
 			<div
-				className={`dark:before:bg-bgDark dark:bg-bgDark fixed top-0 h-full  w-full bg-white before:fixed before:top-0 before:h-[70px] before:w-full before:border-b-[2px] before:border-solid before:border-gray/30 before:bg-white before:content-[''] md:relative md:left-0 md:bg-transparent md:before:hidden ${
+				className={`dark:before:bg-bgDark dark:bg-bgDark fixed top-0 h-full  w-full bg-white before:fixed before:top-0 before:h-[76px] before:w-full before:border-b-[2px] before:border-solid before:border-gray/30 before:bg-white before:content-[''] md:relative md:left-0 md:bg-transparent md:before:hidden ${
 					dmSans.className
 				} ${
 					!isOpen
