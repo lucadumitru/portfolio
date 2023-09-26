@@ -1,0 +1,26 @@
+{
+	"nav": {
+		"home": "Acasă",
+		"about": "Despre",
+		"stack": "Tehnologie",
+		"projects": "Proiecte",
+		"contact": "Contact"
+	},
+	"hero": {
+		"title1": "Salut 👋, Mă numesc",
+		"name": "Dumitru",
+		"title2": "Construiesc",
+		"sequence1": "lucruri pentru web",
+		"sequence2": "site-uri web responsive",
+		"sequence3": "aplicații web interactive",
+		"sequence4": "interfețe prietenoase pentru utilizatori"
+	},
+	"stack": {
+		"title": "Tehnologiile Mele",
+		"subtitle": "Tehnologii cu care am lucrat recent"
+	},
+	"projects": {
+		"title": "Proiecte",
+		"subtitle": "Lucrările pe care le-am construit până acum"
+	}
+}

@@ -1,28 +1,31 @@
 "use client";
 
-import { dmSans } from "@/app/layout";
+import { dmSans } from "./../../../src/app/[locale]/layout";
 import Link from "./Link";
+import LocaleSwitcher from "./LocaleSwitcher";
+import { useTranslations } from "next-intl";
 
-const NavLinks = ({ isOpen, setOpen, data }) => {
+const NavLinks = ({ isOpen, setOpen }) => {
+	const t = useTranslations("nav");
 	const links = [
 		{
-			name: "Home",
+			name: t("home"),
 			href: "#home",
 		},
 		{
-			name: "About",
+			name: t("about"),
 			href: "#about",
 		},
 		{
-			name: "Tech Stack",
+			name: t("stack"),
 			href: "#tech",
 		},
 		{
-			name: "Projects",
+			name: t("projects"),
 			href: "#projects",
 		},
 		{
-			name: "Contact",
+			name: t("contact"),
 			href: "#contact",
 		},
 	];
@@ -34,7 +37,7 @@ const NavLinks = ({ isOpen, setOpen, data }) => {
 	return (
 		<nav>
 			<div
-				className={`dark:before:bg-bgDark dark:bg-bgDark fixed top-0 h-full  w-full bg-white before:fixed before:top-0 before:h-[76px] before:w-full before:border-b-[2px] before:border-solid before:border-gray/30 before:bg-white before:content-[''] md:relative md:left-0 md:bg-transparent md:before:hidden ${
+				className={`fixed top-0 h-full w-full bg-white  before:fixed before:top-0 before:h-[76px] before:w-full before:border-b-[2px] before:border-solid before:border-gray/30 before:bg-white before:content-[''] dark:bg-bgDark dark:before:bg-bgDark md:relative md:left-0 md:bg-transparent md:before:hidden ${
 					dmSans.className
 				} ${
 					!isOpen
@@ -55,6 +58,7 @@ const NavLinks = ({ isOpen, setOpen, data }) => {
 						</li>
 					))}
 				</ul>
+				{isOpen && <LocaleSwitcher></LocaleSwitcher>}
 			</div>
 		</nav>
 	);

@@ -2,7 +2,8 @@
 import Container from "./Container";
 import Header from "./Header";
 import Hero from "./Hero";
-import Section from "./Section";
+import Stack from "./Stack";
+import Projects from "./Projects";
 import Footer from "./Footer";
 
 // UI Components
@@ -26,9 +27,10 @@ export {
 	Container,
 	Title,
 	Hero,
-	Section,
+	Projects,
 	Card,
 	Footer,
 	Logo,
 	useDarkMode,
+	Stack,
 };

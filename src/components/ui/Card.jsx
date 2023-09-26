@@ -14,7 +14,7 @@ import gitIconWhite from "/public/icons/git-small-white.svg";
 const Card = ({ project }) => {
 	const { isDarkMode, toggleDarkMode } = useDarkMode();
 	return (
-		<article className="m-width-full shadow-custom shadow-card relative  overflow-hidden rounded-[20px] bg-white dark:bg-[#363636]">
+		<article className="m-width-full shadow-custom relative overflow-hidden  rounded-[20px] bg-white shadow-card dark:bg-[#363636]">
 			<a href={project.preview}>
 				<Image
 					className="obje h-[200px] w-full  object-cover transition hover:scale-105 md:h-[260px]"
@@ -28,10 +28,10 @@ const Card = ({ project }) => {
 				<h5 className="text-[20px] font-medium dark:text-[#CCCCCC] md:text-[28px]">
 					<Link href={project.preview}>{project.title}</Link>
 				</h5>
-				<p className="mt-[15px] text-[18px] font-light text-[gray] dark:text-[#CCCCCC]">
+				<p className="mt-[15px] text-[16px] font-light text-[gray] dark:text-[#CCCCCC]">
 					{project.text}
 				</p>
-				<div className="text-textSecondary mt-[12px] dark:text-[#CCCCCC]">
+				<div className="mt-[12px] text-textSecondary dark:text-[#CCCCCC]">
 					Tech stack: <span className="font-light">{project.stack}</span>
 				</div>
 				<div className="mt-[12px] flex w-full items-center justify-between gap-x-[5px] text-[14px] dark:text-white md:mt-[20px]">

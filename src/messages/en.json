@@ -1,0 +1,26 @@
+{
+	"nav": {
+		"home": "Home",
+		"about": "About",
+		"stack": "Tech Stack",
+		"projects": "Projects",
+		"contact": "Contact"
+	},
+	"hero": {
+		"title1": "Hi 👋, My name is",
+		"name": "Dumitru",
+		"title2": "I build",
+		"sequence1": "things for web",
+		"sequence2": "responsive websites",
+		"sequence3": "interactive web apps",
+		"sequence4": "user-friendly interfaces"
+	},
+	"stack": {
+		"title": "My Tech Stack",
+		"subtitle": "Technologies I’ve been working with recently"
+	},
+	"projects": {
+		"title": "Projects",
+		"subtitle": "Things I’ve built so far"
+	}
+}

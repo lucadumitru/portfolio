@@ -7,7 +7,7 @@ export const technologies = [
 	{ name: "tailwind", icon: "/icons/stack/tailwind.svg" },
 	{ name: "sass", icon: "/icons/stack/sass.svg" },
 	{ name: "vs-code", icon: "/icons/stack/vscode.svg" },
-	{ name: "git-hub", icon: "/icons/stack/git-hub.svg" },
+	{ name: "git-hub", icon: "/icons/stack/git-hub.svg", iconDark: "/icons/stack/git-white.svg" },
 ];
 
 export const projects = [

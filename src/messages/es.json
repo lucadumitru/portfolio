@@ -1,0 +1,26 @@
+{
+	"nav": {
+		"home": "Inicio",
+		"about": "Acerca de",
+		"stack": "Tecnología",
+		"projects": "Proyectos",
+		"contact": "Contacto"
+	},
+	"hero": {
+		"title1": "Hola 👋, Mi nombre es",
+		"name": "Dumitru",
+		"title2": "Construyo",
+		"sequence1": "cosas para la web",
+		"sequence2": "sitios web receptivos",
+		"sequence3": "aplicaciones web interactivas",
+		"sequence4": "interfaces de usuario amigables"
+	},
+	"stack": {
+		"title": "Mi Pila Tecnológica",
+		"subtitle": "Tecnologías con las que he estado trabajando recientemente"
+	},
+	"projects": {
+		"title": "Proyectos",
+		"subtitle": "Cosas que he construido hasta ahora"
+	}
+}

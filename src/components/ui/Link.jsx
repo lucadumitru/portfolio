@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const Link = ({ href, img, children, className, onClick, imgWidth, imgHeight }) => {
+const Link = ({ href, img, children, className, onClick, imgWidth, imgHeight, alt = "Image" }) => {
 	return (
 		<a
 			onClick={onClick}
@@ -11,11 +11,10 @@ const Link = ({ href, img, children, className, onClick, imgWidth, imgHeight }) 
 		>
 			{img && (
 				<Image
-					style={{ width: "auto", height: "auto" }}
 					width={imgWidth}
 					height={imgHeight}
 					src={img}
-					alt="Image"
+					alt={alt}
 					className={`transform transition duration-200 ease-in-out ${
 						!children && "hover:scale-110"
 					}`}

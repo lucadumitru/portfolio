@@ -1,17 +1,18 @@
-'use client';
+"use client";
 
-import Link from './Link';
-import logo from '/public/logo.svg';
+import Link from "./Link";
+import logo from "/public/logo.svg";
 
 const Logo = ({ className }) => {
 	return (
 		<>
 			<Link
-				imgWidth={40}
-				imgHeight={40}
-				className={`z-10  ${className || ''}`}
+				imgWidth={35}
+				imgHeight={35}
+				className={`z-10  ${className || ""}`}
 				img={logo}
-				href={'#'}
+				href={"#"}
+				alt="logo"
 			></Link>
 		</>
 	);

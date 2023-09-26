@@ -1,7 +1,7 @@
 "use client";
 
 import { Logo, Container, Link, Socials } from ".";
-import { dmSans } from "@/app/layout";
+import { dmSans } from "./../../src/app/[locale]/layout";
 
 const Footer = () => {
 	return (
@@ -9,7 +9,7 @@ const Footer = () => {
 			<Container className="pt-[20px] md:pt-[100px]">
 				{/* Top */}
 				<div
-					className={`flex items-center gap-2 ${dmSans.className} text-textSecondary justify-center gap-2 border-b-[2px] border-solid border-gray/30 pb-7 pt-7 font-medium md:justify-between`}
+					className={`flex items-center gap-2 ${dmSans.className} justify-center gap-2 border-b-[2px] border-solid border-gray/30 pb-7 pt-7 font-medium text-textSecondary md:justify-between`}
 				>
 					<Logo className="hidden md:block"></Logo>
 					<div className="sm: flex flex-col items-center justify-center justify-between gap-6 sm:w-full sm:flex-row md:w-max">
