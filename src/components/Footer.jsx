@@ -1,7 +1,7 @@
 "use client";
 
 import { Logo, Container, Link, Socials } from ".";
-import { dmSans } from "./../../src/app/[locale]/layout";
+import { dmSans } from "../app/[locale]/fonts";
 
 const Footer = () => {
 	return (

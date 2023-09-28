@@ -1,21 +1,12 @@
 import { NextIntlClientProvider } from "next-intl";
-import { Poppins, DM_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
 
 import { Header, Footer } from "./../../components";
+
 import { DarkModeProvider } from "./../../context/DarkModeContext";
 
 import "./globals.css";
-
-export const poppins = Poppins({
-	subsets: ["latin"],
-	weight: ["300", "400", "500", "600", "700"],
-});
-
-export const dmSans = DM_Sans({
-	subsets: ["latin"],
-	weight: ["400", "500", "600", "700"],
-});
+import { poppins } from "./fonts";
 
 export function generateStaticParams() {
 	return [{ locale: "en" }, { locale: "es" }, { locale: "ru" }, { locale: "ro" }];
@@ -24,7 +15,7 @@ export function generateStaticParams() {
 export default async function LocaleLayout({ children, params: { locale } }) {
 	let messages;
 	try {
-		messages = (await import(`../../messages/${locale}.json`)).default;
+		messages = (await import(`./../../../messages/${locale}.json`)).default;
 	} catch (error) {
 		notFound();
 	}

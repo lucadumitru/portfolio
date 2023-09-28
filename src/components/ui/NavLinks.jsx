@@ -1,6 +1,6 @@
 "use client";
 
-import { dmSans } from "./../../../src/app/[locale]/layout";
+import { dmSans } from "../../app/[locale]/fonts";
 import Link from "./Link";
 import LocaleSwitcher from "./LocaleSwitcher";
 import { useTranslations } from "next-intl";

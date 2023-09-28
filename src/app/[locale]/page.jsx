@@ -1,3 +1,5 @@
+// "use client";
+
 import { Hero, Stack, Projects } from "./../../components";
 
 export const metadata = {
