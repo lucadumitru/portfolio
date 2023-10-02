@@ -13,7 +13,7 @@ export const technologies = [
 export const projects = [
 	{
 		id: 1,
-		title: "Project Tile goes here",
+		title: "Project 1",
 		text: "This is sample project description random things are here in description This is sample project lorem ipsum generator for dummy content",
 		img: "/projects/01.jpg",
 		stack: "HTML , JavaScript, SASS, React",
@@ -22,8 +22,8 @@ export const projects = [
 	},
 	{
 		id: 2,
-		title: "Project Tile goes here",
-		text: "This is sample project description random things are here in description This is sample project lorem ipsum generator for dummy content",
+		title: "Project 2",
+		text: "Small text",
 		img: "/projects/01.jpg",
 		stack: "HTML , JavaScript, SASS, React",
 		git: "http://github.com",
@@ -31,7 +31,7 @@ export const projects = [
 	},
 	{
 		id: 3,
-		title: "Project Tile goes here",
+		title: "Project 3",
 		text: "This is sample project description random things are here in description This is sample project lorem ipsum generator for dummy content",
 		img: "/projects/01.jpg",
 		stack: "HTML , JavaScript, SASS, React",
@@ -40,7 +40,7 @@ export const projects = [
 	},
 	{
 		id: 4,
-		title: "Project Tile goes here",
+		title: "Project 4",
 		text: "This is sample project description random things are here in description This is sample project lorem ipsum generator for dummy content",
 		img: "/projects/01.jpg",
 		stack: "HTML , JavaScript, SASS, React",
@@ -49,7 +49,7 @@ export const projects = [
 	},
 	{
 		id: 5,
-		title: "Project Tile goes here",
+		title: "Project 5",
 		text: "This is sample project description random things are here in description This is sample project lorem ipsum generator for dummy content",
 		img: "/projects/01.jpg",
 		stack: "HTML , JavaScript, SASS, React",
@@ -58,7 +58,7 @@ export const projects = [
 	},
 	{
 		id: 6,
-		title: "Project Tile goes here",
+		title: "Project 6",
 		text: "This is sample project description random things are here in description This is sample project lorem ipsum generator for dummy content",
 		img: "/projects/01.jpg",
 		stack: "HTML , JavaScript, SASS, React",

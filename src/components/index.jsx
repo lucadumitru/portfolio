@@ -13,9 +13,11 @@ import Socials from "./ui/Socials";
 import Title from "./ui/Title";
 import Card from "./ui/Card";
 import Logo from "./ui/Logo";
+import ThemeSwitcher from "./ui/ThemeSwitcher";
+import ThemedImg from "./ui/ThemedImg";
 
 //Context
-
+import Providers from "./../context/Providers";
 //Hooks
 import { useDarkMode } from "./../context/DarkModeContext";
 
@@ -33,4 +35,7 @@ export {
 	Logo,
 	useDarkMode,
 	Stack,
+	Providers,
+	ThemeSwitcher,
+	ThemedImg,
 };

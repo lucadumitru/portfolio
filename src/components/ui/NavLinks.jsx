@@ -4,6 +4,7 @@ import { dmSans } from "../../app/[locale]/fonts";
 import Link from "./Link";
 import LocaleSwitcher from "./LocaleSwitcher";
 import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 
 const NavLinks = ({ isOpen, setOpen }) => {
 	const t = useTranslations("nav");
@@ -18,7 +19,7 @@ const NavLinks = ({ isOpen, setOpen }) => {
 		},
 		{
 			name: t("stack"),
-			href: "#tech",
+			href: "#stack",
 		},
 		{
 			name: t("projects"),
@@ -34,8 +35,10 @@ const NavLinks = ({ isOpen, setOpen }) => {
 			setOpen(!isOpen);
 		}
 	};
+	const pathname = usePathname();
+	const projectsPath = pathname.includes("/projects/");
 	return (
-		<nav>
+		<nav className="flex items-center md:gap-x-[50px]">
 			<div
 				className={`fixed top-0 h-full w-full bg-white  before:fixed before:top-0 before:h-[76px] before:w-full before:border-b-[2px] before:border-solid before:border-gray/30 before:bg-white before:content-[''] dark:bg-bgDark dark:before:bg-bgDark md:relative md:left-0 md:bg-transparent md:before:hidden ${
 					dmSans.className
@@ -46,17 +49,27 @@ const NavLinks = ({ isOpen, setOpen }) => {
 				}`}
 			>
 				<ul className=" flex flex-col gap-x-[10px] gap-y-[20px] md:flex-row md:flex-wrap md:gap-x-[40px]  md:gap-y-[0px] lg:gap-x-[60px] ">
-					{links.map((link, index) => (
-						<li key={index}>
-							<Link
-								className={`dark:text-white ${isOpen && "text-[25px]"}`}
-								onClick={handleMenu}
-								href={link.href}
-							>
-								{link.name}
-							</Link>
-						</li>
-					))}
+					{!projectsPath ? (
+						links.map((link, index) => (
+							<li key={index}>
+								<Link
+									className={`dark:text-white ${isOpen && "text-[25px]"}`}
+									onClick={handleMenu}
+									href={link.href}
+								>
+									{link.name}
+								</Link>
+							</li>
+						))
+					) : (
+						<Link
+							className={`dark:text-white ${isOpen && "text-[25px]"}`}
+							onClick={handleMenu}
+							href="/"
+						>
+							{t("back")}
+						</Link>
+					)}
 				</ul>
 				{isOpen && <LocaleSwitcher></LocaleSwitcher>}
 			</div>

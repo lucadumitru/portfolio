@@ -1,5 +1,3 @@
-// "use client";
-
 import { Hero, Stack, Projects } from "./../../components";
 
 export const metadata = {
@@ -11,7 +9,8 @@ export const metadata = {
 
 export default function Home() {
 	return (
-		<main className="pt-[110px] md:pt-[200px]">
+		//pt-[110px] md:pt-[200px]
+		<main className="">
 			<Hero></Hero>
 			<Stack></Stack>
 			<Projects></Projects>

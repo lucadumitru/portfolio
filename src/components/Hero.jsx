@@ -8,9 +8,9 @@ import { TypeAnimation } from "react-type-animation";
 const Hero = () => {
 	const t = useTranslations("hero");
 	return (
-		<section id="home" className="scroll-mt-[200px]">
-			<Container className="flex flex-col items-center justify-center justify-between gap-[10px] sm:flex-row md:items-start">
-				<div className="min-h-[250px] w-full  md:w-[750px]">
+		<section id="home" className="min-h-screen ">
+			<Container className="flex h-full h-screen min-h-[700px] flex-col items-center justify-center gap-[10px] sm:flex-row md:justify-between ">
+				<div className="min-h-[300px] w-full md:w-[750px]">
 					<Title
 						className=" text-[32px] font-bold md:text-left md:text-[40px] lg:text-[55px]"
 						tag="h1"
@@ -39,13 +39,13 @@ const Hero = () => {
 					</Title>
 				</div>
 				<div className="shrink-0 rounded-full bg-gradient-to-r from-cyan-500  to-fuchsia-500">
-					{/* <Image
+					<Image
 						className="h-[250px] w-[250px] rounded-full p-2 sm:h-[300px] sm:w-[300px] md:h-[350px] md:w-[350px]"
 						width={350}
 						height={350}
 						src="/hero-img.jpg"
 						alt="Hero img"
-					></Image> */}
+					></Image>
 				</div>
 			</Container>
 		</section>

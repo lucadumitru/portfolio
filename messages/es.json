@@ -1,10 +1,11 @@
 {
 	"nav": {
 		"home": "Inicio",
-		"about": "Acerca de",
+		"about": "Sobre mi",
 		"stack": "Tecnología",
 		"projects": "Proyectos",
-		"contact": "Contacto"
+		"contact": "Contacto",
+		"back": "Atras"
 	},
 	"hero": {
 		"title1": "Hola 👋, Mi nombre es",

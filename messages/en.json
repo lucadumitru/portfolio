@@ -1,10 +1,11 @@
 {
 	"nav": {
 		"home": "Home",
-		"about": "About",
+		"about": "About Me",
 		"stack": "Tech Stack",
 		"projects": "Projects",
-		"contact": "Contact"
+		"contact": "Contact",
+		"back": "Back"
 	},
 	"hero": {
 		"title1": "Hi 👋, My name is",
@@ -22,5 +23,12 @@
 	"projects": {
 		"title": "Projects",
 		"subtitle": "Things I’ve built so far"
+	},
+	"project": {
+		"project1": {
+			"title": "Title",
+			"text": "Text",
+			"stack": "Stack"
+		}
 	}
 }

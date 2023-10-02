@@ -1,10 +1,11 @@
 {
 	"nav": {
 		"home": "Acasă",
-		"about": "Despre",
+		"about": "Despre mine",
 		"stack": "Tehnologie",
 		"projects": "Proiecte",
-		"contact": "Contact"
+		"contact": "Contact",
+		"back": "Înapoi"
 	},
 	"hero": {
 		"title1": "Salut 👋, Mă numesc",

@@ -11,7 +11,7 @@ const Logo = ({ className }) => {
 				imgHeight={35}
 				className={`z-10  ${className || ""}`}
 				img={logo}
-				href={"#"}
+				href={"/"}
 				alt="logo"
 			></Link>
 		</>
