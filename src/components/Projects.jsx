@@ -1,11 +1,67 @@
 "use client";
 
 import { Container, Title, Card } from ".";
-import { projects } from "./../data/data";
 import { useTranslations } from "next-intl";
 
 const Projects = () => {
-	const t = useTranslations("projects");
+	const t = useTranslations("projects-section");
+	const p = useTranslations("projects");
+	const projects = [
+		{
+			id: 1,
+			title: "The Box",
+			text: p("the-box"),
+			img: "/projects/the-box.jpg",
+			stack: "HTML , JavaScript, SASS, React",
+			git: "https://github.com/lucadumitru/the-box",
+			preview: "https://the-box.lucadevelop.com/",
+		},
+		{
+			id: 2,
+			title: "Freaks of Nature",
+			text: p("freaks"),
+			img: "/projects/freaks.jpg",
+			stack: "HTML , JavaScript, SASS",
+			git: "https://github.com/lucadumitru/freaks-landing",
+			preview: "http://freaksofnature.lucadevelop.com/",
+		},
+		{
+			id: 3,
+			title: "Quickfit",
+			text: p("quickfit"),
+			img: "/projects/quickfit.jpg",
+			stack: "HTML , JavaScript, SASS, Spline",
+			git: "http://github.https://github.com/lucadumitru/quickfitcom",
+			preview: "http://quickfit.lucadevelop.com/",
+		},
+		{
+			id: 4,
+			title: "NFT Marketplace",
+			text: p("nft"),
+			img: "/projects/nft.jpg",
+			stack: "HTML , JavaScript, SASS",
+			git: "https://github.com/lucadumitru/nft-marketplace",
+			preview: "http://nft.lucadevelop.com/",
+		},
+		{
+			id: 5,
+			title: "Funiro",
+			text: p("funiro"),
+			img: "/projects/funiro.jpg",
+			stack: "HTML , JavaScript, SASS",
+			git: "https://github.com/lucadumitru/funiro",
+			preview: "http://funiro.lucadevelop.com/",
+		},
+		{
+			id: 6,
+			title: "FarmVest",
+			text: p("funiro"),
+			img: "/projects/farmvest.jpg",
+			stack: "HTML , JavaScript, SASS",
+			git: "https://github.com/lucadumitru/farm-vest",
+			preview: "http://farm-vest.lucadevelop.com/",
+		},
+	];
 	return (
 		<section
 			id="projects"

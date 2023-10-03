@@ -1,9 +1,12 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 import { Logo, Container, Link, Socials } from ".";
 import { dmSans } from "../app/[locale]/fonts";
 
 const Footer = () => {
+	const t = useTranslations("footer");
 	return (
 		<footer id="contact" className="mt-auto">
 			<Container className="pt-[20px] md:pt-[100px]">
@@ -26,13 +29,13 @@ const Footer = () => {
 				</div>
 				{/* Bottom */}
 				<div className="flex flex-wrap justify-center gap-x-1 py-4 pr-2 text-gray md:justify-end  md:py-7">
-					Built by
+					{t("build")}
 					<span className="bg-gradient-to-r from-cyan-500  to-fuchsia-500 bg-clip-text text-transparent">
-						Luca Dumitru
+						{t("name")}
 					</span>
 					<span>
-						with <span className="text-fuchsia-600">Love</span> & {""}
-						<span className="text-fuchsia-800">Coffee</span>
+						{t("with")} <span className="text-fuchsia-600">{t("love")}</span> {t("and")} {""}
+						<span className="text-fuchsia-800">{t("coffee")}</span>
 					</span>
 				</div>
 			</Container>

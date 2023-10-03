@@ -9,7 +9,6 @@ export const metadata = {
 
 export default function Home() {
 	return (
-		//pt-[110px] md:pt-[200px]
 		<main className="">
 			<Hero></Hero>
 			<Stack></Stack>

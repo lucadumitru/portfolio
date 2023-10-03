@@ -20,8 +20,29 @@
 		"title": "Tehnologiile Mele",
 		"subtitle": "Tehnologii cu care am lucrat recent"
 	},
-	"projects": {
+	"projects-section": {
 		"title": "Proiecte",
 		"subtitle": "Lucrările pe care le-am construit până acum"
+	},
+	"projects": {
+		"the-box": "Am realizat acest proiect pentru o companie de construcții folosind React.",
+		"freaks": "Acesta este o pagină de aterizare pe care am creat-o pentru festivalul de muzică 'Freaks of Nature'.",
+		"quickfit": "Aceasta este o pagină de aterizare pe care am creat-o pentru portofoliul meu folosind un machet Figma. În acest proiect, am implementat grafică 3D Spline.",
+		"nft": "O pagină de aterizare pentru portofoliul meu realizată doar cu HTML, SCSS, JS, cu unele animații și fără niciun cadru de lucru.",
+		"funiro": "Pagina de magazin pentru portofoliul meu, realizată folosind doar JavaScript, HTML și CSS.",
+		"farm-vest": "O pagină de aterizare pentru portofoliul meu cu animații de derulare și animații de cursor."
+	},
+	"card": {
+		"stack": "Stiva tehnologică",
+		"preview": "Previzualizare",
+		"code": "Vizualizare cod"
+	},
+	"footer": {
+		"build": "Realizat de",
+		"name": "Luca Dumitru",
+		"with": "cu",
+		"love": "Dragoste",
+		"and": "și",
+		"coffee": "Cafea"
 	}
 }

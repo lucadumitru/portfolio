@@ -40,7 +40,7 @@ const Hero = () => {
 				</div>
 				<div className="shrink-0 rounded-full bg-gradient-to-r from-cyan-500  to-fuchsia-500">
 					<Image
-						className="h-[250px] w-[250px] rounded-full p-2 sm:h-[300px] sm:w-[300px] md:h-[350px] md:w-[350px]"
+						className="h-[250px] w-[250px] rounded-full object-cover p-2 sm:h-[300px] sm:w-[300px] md:h-[350px] md:w-[350px]"
 						width={350}
 						height={350}
 						src="/hero-img.jpg"

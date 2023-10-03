@@ -19,7 +19,6 @@ export default async function LocaleLayout({ children, params: { locale } }) {
 		notFound();
 	}
 	return (
-		// <DarkModeProvider>
 		<html lang={locale} className="scroll-smooth" suppressHydrationWarning>
 			<body
 				className={`${poppins.className} flex min-h-screen flex-col bg-white dark:bg-bgDark`}
@@ -33,6 +32,5 @@ export default async function LocaleLayout({ children, params: { locale } }) {
 				</NextIntlClientProvider>
 			</body>
 		</html>
-		// </DarkModeProvider>
 	);
 }

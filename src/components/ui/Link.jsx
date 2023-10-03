@@ -3,6 +3,7 @@ import Image from "next/image";
 const Link = ({ href, img, children, className, onClick, imgWidth, imgHeight, alt = "Image" }) => {
 	return (
 		<a
+			target="_blank"
 			onClick={onClick}
 			href={href}
 			className={`${

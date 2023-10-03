@@ -20,8 +20,29 @@
 		"title": "Mi Pila Tecnológica",
 		"subtitle": "Tecnologías con las que he estado trabajando recientemente"
 	},
-	"projects": {
+	"projects-section": {
 		"title": "Proyectos",
 		"subtitle": "Cosas que he construido hasta ahora"
+	},
+	"projects": {
+		"the-box": "Realicé este proyecto para una empresa de construcción utilizando React.",
+		"freaks": "Esta es una página de aterrizaje que hice para el festival de música 'Freaks of Nature'.",
+		"quickfit": "Esta es una página de aterrizaje que hice para mi portafolio utilizando un diseño de Figma. En este proyecto, implementé gráficos 3D Spline.",
+		"nft": "Una página de aterrizaje para mi portafolio hecha solo con HTML, SCSS, JS, con algunas animaciones y sin ningún marco de trabajo.",
+		"funiro": "Página de tienda para mi portafolio hecha con JavaScript puro, HTML y CSS.",
+		"farm-vest": "Una página de aterrizaje para mi portafolio con animaciones de desplazamiento y animaciones de cursor."
+	},
+	"card": {
+		"stack": "Tecnologías",
+		"preview": "Vista previa",
+		"code": "Ver código"
+	},
+	"footer": {
+		"build": "Creado por",
+		"name": "Luca Dumitru",
+		"with": "con",
+		"love": "Amor",
+		"and": "y",
+		"coffee": "Café"
 	}
 }

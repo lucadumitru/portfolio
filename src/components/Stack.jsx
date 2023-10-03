@@ -1,13 +1,12 @@
 "use client";
 
-import { Container, Title, useDarkMode, ThemedImg } from ".";
+import { Container, Title, ThemedImg } from ".";
 import { useTranslations } from "next-intl";
 import { technologies } from "./../data/data";
 import { useTheme } from "next-themes";
-import Image from "next/image";
+
 const Stack = () => {
 	const { resolvedTheme } = useTheme();
-	// const { isDarkMode, toggleDarkMode } = useDarkMode();
 	const t = useTranslations("stack");
 	return (
 		<section id="stack" className="mdscroll-mt-[120px] mt-[50px] scroll-mt-[80px]  md:mt-[200px]">
@@ -29,14 +28,6 @@ const Stack = () => {
 							srcLight={el.icon}
 							alt={el.name + " icon"}
 						></ThemedImg>
-						// <Image
-						// 	key={index}
-						// 	className="justify-self-center"
-						// 	width={120}
-						// 	height={120}
-						// 	src={resolvedTheme === "dark" && el.iconDark ? el.iconDark : el.icon}
-						// 	alt={el.name + "icon"}
-						// ></Image>
 					))}
 				</div>
 			</Container>

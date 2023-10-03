@@ -20,15 +20,29 @@
 		"title": "My Tech Stack",
 		"subtitle": "Technologies I’ve been working with recently"
 	},
-	"projects": {
+	"projects-section": {
 		"title": "Projects",
 		"subtitle": "Things I’ve built so far"
 	},
-	"project": {
-		"project1": {
-			"title": "Title",
-			"text": "Text",
-			"stack": "Stack"
-		}
+	"projects": {
+		"the-box": "I made this project for a contruction company using React.",
+		"freaks": "This is a landing page that I made for the 'Freaks of Nature' music festival.",
+		"quickfit": "This is a landing page that I made for my portfolio using a Figma mockup. In this project, I implemented Spline 3D graphics.",
+		"nft": "A landing page for my portfolio using only HTML, SCSS, JS, with some animations and without any framework.",
+		"funiro": "Shop landing page for my portfolio using pure vanilla JS, HTML, and CSS",
+		"farm-vest": "A landing page for my portfolio with scrolling and cursor animations"
+	},
+	"card": {
+		"stack": "Tech stack",
+		"preview": "Live Preview",
+		"code": "View Code"
+	},
+	"footer": {
+		"build": "Built by",
+		"name": "Luca Dumitru",
+		"with": "with",
+		"love": "Love",
+		"and": "&",
+		"coffee": "Coffee"
 	}
 }

@@ -18,8 +18,6 @@ import ThemedImg from "./ui/ThemedImg";
 
 //Context
 import Providers from "./../context/Providers";
-//Hooks
-import { useDarkMode } from "./../context/DarkModeContext";
 
 export {
 	Header,
@@ -33,7 +31,6 @@ export {
 	Card,
 	Footer,
 	Logo,
-	useDarkMode,
 	Stack,
 	Providers,
 	ThemeSwitcher,
