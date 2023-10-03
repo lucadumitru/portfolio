@@ -13,10 +13,10 @@ const NavLinks = ({ isOpen, setOpen }) => {
 			name: t("home"),
 			href: "#home",
 		},
-		{
-			name: t("about"),
-			href: "#about",
-		},
+		// {
+		// 	name: t("about"),
+		// 	href: "#about",
+		// },
 		{
 			name: t("stack"),
 			href: "#stack",
