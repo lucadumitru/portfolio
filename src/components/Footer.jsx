@@ -28,15 +28,23 @@ const Footer = () => {
 					</div>
 				</div>
 				{/* Bottom */}
-				<div className="flex flex-wrap justify-center gap-x-1 py-4 pr-2 text-gray md:justify-end  md:py-7">
-					{t("build")}
-					<span className="bg-gradient-to-r from-cyan-500  to-fuchsia-500 bg-clip-text text-transparent">
-						{t("name")}
-					</span>
-					<span>
-						{t("with")} <span className="text-fuchsia-600">{t("love")}</span> {t("and")} {""}
-						<span className="text-fuchsia-800">{t("coffee")}</span>
-					</span>
+				<div className="flex flex-wrap justify-center gap-x-1 py-4 pr-2 text-gray md:justify-between  md:py-7">
+					<div>
+						{t("designed")}{" "}
+						<a className="text-cyan-500 hover:underline" href="https://pavanmg.in/">
+							PavanMG
+						</a>
+					</div>
+					<div className="text-center">
+						{t("build")}{" "}
+						<span className="bg-gradient-to-r from-cyan-500  to-fuchsia-500 bg-clip-text text-transparent">
+							{t("name")}{" "}
+						</span>
+						<span>
+							{t("with")} <span className="text-fuchsia-600">{t("love")}</span> {t("and")}{" "}
+							<span className="text-fuchsia-800">{t("coffee")}</span>
+						</span>
+					</div>
 				</div>
 			</Container>
 		</footer>

@@ -8,11 +8,11 @@ import { TypeAnimation } from "react-type-animation";
 const Hero = () => {
 	const t = useTranslations("hero");
 	return (
-		<section id="home" className="min-h-screen">
-			<Container className="h-screen min-h-[600px] ">
-				<div className="flex  h-full flex-col items-center justify-center pt-10">
-					<div className="flex w-full grow flex-col items-center justify-center gap-[10px] sm:flex-row md:justify-between ">
-						<div className="min-h-[230px]  w-full md:w-[750px]">
+		<section id="home" className="mt-[-50px] min-h-screen">
+			<Container className="h-screen min-h-[700px] ">
+				<div className="flex h-full flex-col items-center justify-around pt-[120px] md:justify-center">
+					<div className="flex w-full flex-col  items-center justify-center gap-[10px] sm:flex-row md:grow md:justify-between ">
+						<div className="flex min-h-[300px] w-full grow items-start pt-[50px] md:w-[750px] md:items-center">
 							<Title
 								className=" text-[28px] font-bold md:text-left md:text-[40px] lg:text-[55px]"
 								tag="h1"
@@ -40,7 +40,7 @@ const Hero = () => {
 								/>
 							</Title>
 						</div>
-						<div className="mt-3 shrink-0 rounded-full bg-gradient-to-r from-cyan-500 to-fuchsia-500  md:mt-0 ">
+						<div className="shrink-0 rounded-full bg-gradient-to-r from-cyan-500 to-fuchsia-500  md:mt-0 ">
 							<Image
 								className="h-[230px] w-[230px] rounded-full object-cover p-2  sm:h-[300px] sm:w-[300px] md:h-[350px] md:w-[350px]"
 								width={350}
@@ -50,7 +50,7 @@ const Hero = () => {
 							></Image>
 						</div>
 					</div>
-					<ScrollDownBtn className="animate-bounce pb-8"></ScrollDownBtn>
+					<ScrollDownBtn className="mt-5 animate-bounce"></ScrollDownBtn>
 				</div>
 			</Container>
 		</section>
