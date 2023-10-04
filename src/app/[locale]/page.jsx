@@ -1,6 +1,9 @@
 import { Hero, Stack, Projects } from "./../../components";
 
 export const metadata = {
+	icons: {
+		icon: "@/../favicon.ico",
+	},
 	title: "Luca Dumitru | Front End Developer",
 	description: "Luca Dumitru's portfolio web page",
 	keywords:

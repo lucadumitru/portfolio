@@ -62,7 +62,7 @@ const Card = ({ project }) => {
 						></ThemedImg>
 					</a>
 					<a
-						href={project.preview}
+						href={project.git}
 						target="_blank"
 						className="flex flex-row-reverse gap-2 hover:underline"
 					>
