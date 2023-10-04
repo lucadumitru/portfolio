@@ -21,14 +21,6 @@ const ThemeSwitcher = () => {
 	if (!mounted) {
 		return null;
 	}
-	return (
-		<DarkModeSwitch
-			// checked={theme}
-			// onChange={setTheme("dark")}
-			checked={theme === "dark"}
-			onChange={toggleDarkMode}
-			size={30}
-		/>
-	);
+	return <DarkModeSwitch checked={theme === "dark"} onChange={toggleDarkMode} size={30} />;
 };
 export default ThemeSwitcher;

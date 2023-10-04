@@ -15,6 +15,7 @@ import Card from "./ui/Card";
 import Logo from "./ui/Logo";
 import ThemeSwitcher from "./ui/ThemeSwitcher";
 import ThemedImg from "./ui/ThemedImg";
+import ScrollDownBtn from "./ui/ScrollDownBtn";
 
 //Context
 import Providers from "./../context/Providers";
@@ -35,4 +36,5 @@ export {
 	Providers,
 	ThemeSwitcher,
 	ThemedImg,
+	ScrollDownBtn,
 };

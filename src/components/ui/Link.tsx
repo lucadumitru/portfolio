@@ -1,9 +1,31 @@
 import Image from "next/image";
 
-const Link = ({ href, img, children, className, onClick, imgWidth, imgHeight, alt = "Image" }) => {
+interface LinkProps {
+	href: string;
+	img?: string;
+	className?: string;
+	onClick?: () => void;
+	imgWidth?: number;
+	imgHeight?: number;
+	alt?: string;
+	children?: React.ReactNode;
+	target?: string;
+}
+
+const Link: React.FC<LinkProps> = ({
+	href,
+	img,
+	children,
+	className,
+	onClick,
+	imgWidth,
+	imgHeight,
+	alt = "Image",
+	target,
+}) => {
 	return (
 		<a
-			target="_blank"
+			target={target}
 			onClick={onClick}
 			href={href}
 			className={`${
