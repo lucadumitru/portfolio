@@ -10,7 +10,7 @@ const Hero = () => {
 	return (
 		<section id="home" className="min-h-screen">
 			<Container className="h-screen min-h-[600px] ">
-				<div className="flex  h-full flex-col items-center justify-center  ">
+				<div className="flex  h-full flex-col items-center justify-center pt-10">
 					<div className="flex w-full grow flex-col items-center justify-center gap-[10px] sm:flex-row md:justify-between ">
 						<div className="min-h-[230px]  w-full md:w-[750px]">
 							<Title
@@ -40,9 +40,9 @@ const Hero = () => {
 								/>
 							</Title>
 						</div>
-						<div className="shrink-0 rounded-full bg-gradient-to-r from-cyan-500  to-fuchsia-500">
+						<div className="mt-3 shrink-0 rounded-full bg-gradient-to-r from-cyan-500 to-fuchsia-500  md:mt-0 ">
 							<Image
-								className="h-[230px] w-[230px] rounded-full object-cover p-2 sm:h-[300px] sm:w-[300px] md:h-[350px] md:w-[350px]"
+								className="h-[230px] w-[230px] rounded-full object-cover p-2  sm:h-[300px] sm:w-[300px] md:h-[350px] md:w-[350px]"
 								width={350}
 								height={350}
 								src="/hero-img.jpg"
@@ -50,7 +50,7 @@ const Hero = () => {
 							></Image>
 						</div>
 					</div>
-					<ScrollDownBtn className="animate-bounce pb-2"></ScrollDownBtn>
+					<ScrollDownBtn className="animate-bounce pb-8"></ScrollDownBtn>
 				</div>
 			</Container>
 		</section>

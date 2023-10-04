@@ -3,10 +3,8 @@
 import { Container, Title, ThemedImg } from ".";
 import { useTranslations } from "next-intl";
 import { technologies } from "./../data/data";
-import { useTheme } from "next-themes";
 
 const Stack = () => {
-	const { resolvedTheme } = useTheme();
 	const t = useTranslations("stack");
 	return (
 		<section id="stack" className="mdscroll-mt-[120px] mt-[50px] scroll-mt-[80px]  md:mt-[200px]">
