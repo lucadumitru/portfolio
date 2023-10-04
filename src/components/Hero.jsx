@@ -8,13 +8,13 @@ import { TypeAnimation } from "react-type-animation";
 const Hero = () => {
 	const t = useTranslations("hero");
 	return (
-		<section id="home" className="min-h-screen ">
-			<Container className="h-screen min-h-[700px]">
+		<section id="home" className="min-h-screen">
+			<Container className="h-screen min-h-[700px] pt-[80px]">
 				<div className="flex  h-full flex-col items-center justify-center  ">
 					<div className="flex w-full grow flex-col items-center justify-center gap-[10px] sm:flex-row md:justify-between ">
-						<div className="min-h-[300px]  w-full md:w-[750px]">
+						<div className="min-h-[230px]  w-full md:w-[750px]">
 							<Title
-								className=" text-[32px] font-bold md:text-left md:text-[40px] lg:text-[55px]"
+								className=" text-[28px] font-bold md:text-left md:text-[40px] lg:text-[55px]"
 								tag="h1"
 							>
 								{t("title1")} <br></br>
@@ -42,7 +42,7 @@ const Hero = () => {
 						</div>
 						<div className="shrink-0 rounded-full bg-gradient-to-r from-cyan-500  to-fuchsia-500">
 							<Image
-								className="h-[250px] w-[250px] rounded-full object-cover p-2 sm:h-[300px] sm:w-[300px] md:h-[350px] md:w-[350px]"
+								className="h-[230px] w-[230px] rounded-full object-cover p-2 sm:h-[300px] sm:w-[300px] md:h-[350px] md:w-[350px]"
 								width={350}
 								height={350}
 								src="/hero-img.jpg"
@@ -50,7 +50,7 @@ const Hero = () => {
 							></Image>
 						</div>
 					</div>
-					<ScrollDownBtn className="animate-bounce pb-5"></ScrollDownBtn>
+					<ScrollDownBtn className="animate-bounce pb-8"></ScrollDownBtn>
 				</div>
 			</Container>
 		</section>
