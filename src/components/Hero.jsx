@@ -9,7 +9,7 @@ const Hero = () => {
 	const t = useTranslations("hero");
 	return (
 		<section id="home" className="min-h-screen">
-			<Container className="h-screen min-h-[700px] ">
+			<Container className="h-screen min-h-[600px] ">
 				<div className="flex  h-full flex-col items-center justify-center  ">
 					<div className="flex w-full grow flex-col items-center justify-center gap-[10px] sm:flex-row md:justify-between ">
 						<div className="min-h-[230px]  w-full md:w-[750px]">
@@ -50,7 +50,7 @@ const Hero = () => {
 							></Image>
 						</div>
 					</div>
-					<ScrollDownBtn className="animate-bounce pb-10"></ScrollDownBtn>
+					<ScrollDownBtn className="animate-bounce pb-2"></ScrollDownBtn>
 				</div>
 			</Container>
 		</section>
