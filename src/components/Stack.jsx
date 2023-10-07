@@ -7,7 +7,7 @@ import { technologies } from "./../data/data";
 const Stack = () => {
 	const t = useTranslations("stack");
 	return (
-		<section id="stack" className="mdscroll-mt-[120px] mt-[50px] scroll-mt-[80px]  md:mt-[200px]">
+		<section id="stack" className="scroll-mt-[80px] md:scroll-mt-[120px]  ">
 			<Container>
 				<Title tag="h2" className="text-center text-[24px] font-bold md:text-[48px]">
 					{t("title")}

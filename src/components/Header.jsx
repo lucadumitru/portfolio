@@ -1,18 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Container, NavLinks, Socials, Logo, useDarkMode, ThemeSwitcher } from ".";
+import { Container, NavLinks, Socials, Logo, ThemeSwitcher } from ".";
 
 //Ui
 import { Fade as Hamburger } from "hamburger-react";
 import LocaleSwitcher from "./ui/LocaleSwitcher";
 
-import { useTheme } from "next-themes";
-
 const Header = () => {
 	const [isOpen, setOpen] = useState(false);
-	// const { isDarkMode, toggleDarkMode } = useDarkMode();
-
 	useEffect(() => {
 		const html = document.querySelector("html");
 		isOpen ? html.classList.add("lock") : html.classList.remove("lock");

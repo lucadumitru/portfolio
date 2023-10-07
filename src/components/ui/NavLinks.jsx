@@ -36,7 +36,8 @@ const NavLinks = ({ isOpen, setOpen }) => {
 		}
 	};
 	const pathname = usePathname();
-	const projectsPath = pathname.includes("/projects/");
+	const projectsPath = pathname.includes("/projects");
+	const projectPath = pathname.includes("/projects/");
 	return (
 		<nav className="flex items-center md:gap-x-[50px]">
 			<div
@@ -49,7 +50,32 @@ const NavLinks = ({ isOpen, setOpen }) => {
 				}`}
 			>
 				<ul className=" flex flex-col gap-x-[10px] gap-y-[20px] md:flex-row md:flex-wrap md:gap-x-[40px]  md:gap-y-[0px] lg:gap-x-[60px] ">
-					{!projectsPath ? (
+					{projectPath ? (
+						<>
+							<Link
+								className={`dark:text-white ${isOpen && "text-[25px]"}`}
+								onClick={handleMenu}
+								href="/"
+							>
+								{t("home")}
+							</Link>
+							<Link
+								className={`dark:text-white ${isOpen && "text-[25px]"}`}
+								onClick={handleMenu}
+								href="/projects"
+							>
+								{t("projects")}
+							</Link>
+						</>
+					) : projectsPath ? (
+						<Link
+							className={`dark:text-white ${isOpen && "text-[25px]"}`}
+							onClick={handleMenu}
+							href="/"
+						>
+							{t("home")}
+						</Link>
+					) : (
 						links.map((link, index) => (
 							<li key={index}>
 								<Link
@@ -61,14 +87,6 @@ const NavLinks = ({ isOpen, setOpen }) => {
 								</Link>
 							</li>
 						))
-					) : (
-						<Link
-							className={`dark:text-white ${isOpen && "text-[25px]"}`}
-							onClick={handleMenu}
-							href="/"
-						>
-							{t("back")}
-						</Link>
 					)}
 				</ul>
 				{isOpen && <LocaleSwitcher></LocaleSwitcher>}

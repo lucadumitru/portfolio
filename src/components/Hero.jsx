@@ -50,7 +50,7 @@ const Hero = () => {
 							></Image>
 						</div>
 					</div>
-					<ScrollDownBtn className="mt-5 animate-bounce"></ScrollDownBtn>
+					<ScrollDownBtn className="mt-5 hidden animate-bounce md:flex"></ScrollDownBtn>
 				</div>
 			</Container>
 		</section>

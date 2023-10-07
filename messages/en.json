@@ -22,9 +22,11 @@
 	},
 	"projects-section": {
 		"title": "Projects",
-		"subtitle": "Things I’ve built so far"
+		"subtitle": "Things I’ve built so far",
+		"more-projects": "More projects"
 	},
 	"projects": {
+		"portfolio": "I completed this project using React.js, Next.js, and Tailwind CSS. I used React-type-animation to animate the text in the 'Hero' section. I implemented a dark theme and page translation into four languages using Next-Intl.",
 		"the-box": "I made this project for a contruction company using React.",
 		"freaks": "This is a landing page that I made for the 'Freaks of Nature' music festival.",
 		"quickfit": "This is a landing page that I made for my portfolio using a Figma mockup. In this project, I implemented Spline 3D graphics.",

@@ -25,6 +25,7 @@
 		"subtitle": "Lucrările pe care le-am construit până acum"
 	},
 	"projects": {
+		"portfolio": "Acest proiect l-am realizat folosind React.js Next.js si Tailwind CSS. Am folosit React-type-animation pentru a anima textul din sectia 'Hero'.  Am realizat tema intunecata si traducerea paginii in 4 limbi cu ajutorul la Next-Intl.",
 		"the-box": "Am realizat acest proiect pentru o companie de construcții folosind React.",
 		"freaks": "Acesta este o pagină de aterizare pe care am creat-o pentru festivalul de muzică 'Freaks of Nature'.",
 		"quickfit": "Aceasta este o pagină de aterizare pe care am creat-o pentru portofoliul meu folosind un machet Figma. În acest proiect, am implementat grafică 3D Spline.",

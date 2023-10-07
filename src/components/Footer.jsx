@@ -31,7 +31,11 @@ const Footer = () => {
 				<div className="flex flex-wrap justify-center gap-x-1 py-4 pr-2 text-gray md:justify-between  md:py-7">
 					<div>
 						{t("designed")}{" "}
-						<a className="text-cyan-500 hover:underline" href="https://pavanmg.in/">
+						<a
+							className="text-cyan-500 hover:underline"
+							href="https://pavanmg.in/"
+							target="_blank"
+						>
 							PavanMG
 						</a>
 					</div>

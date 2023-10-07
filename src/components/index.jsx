@@ -16,6 +16,8 @@ import Logo from "./ui/Logo";
 import ThemeSwitcher from "./ui/ThemeSwitcher";
 import ThemedImg from "./ui/ThemedImg";
 import ScrollDownBtn from "./ui/ScrollDownBtn";
+import LiveLink from "./ui/LiveLink";
+import CodeLink from "./ui/CodeLink";
 
 //Context
 import Providers from "./../context/Providers";
@@ -37,4 +39,6 @@ export {
 	ThemeSwitcher,
 	ThemedImg,
 	ScrollDownBtn,
+	LiveLink,
+	CodeLink,
 };

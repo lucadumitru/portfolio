@@ -22,9 +22,11 @@
 	},
 	"projects-section": {
 		"title": "Proyectos",
-		"subtitle": "Cosas que he construido hasta ahora"
+		"subtitle": "Cosas que he construido hasta ahora",
+		"more-projects": "Más proyectos"
 	},
 	"projects": {
+		"portfolio": "Completé este proyecto utilizando React.js, Next.js y Tailwind CSS. Utilicé React-type-animation para animar el texto en la sección 'Hero'. Implementé un tema oscuro y la traducción de la página a cuatro idiomas utilizando Next-Intl.",
 		"the-box": "Realicé este proyecto para una empresa de construcción utilizando React.",
 		"freaks": "Esta es una página de aterrizaje que hice para el festival de música 'Freaks of Nature'.",
 		"quickfit": "Esta es una página de aterrizaje que hice para mi portafolio utilizando un diseño de Figma. En este proyecto, implementé gráficos 3D Spline.",

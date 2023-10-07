@@ -43,7 +43,7 @@ const Link: React.FC<LinkProps> = ({
 					}`}
 				></Image>
 			)}
-			<span>{children}</span>
+			<span className="z-1 relative">{children}</span>
 		</a>
 	);
 };
