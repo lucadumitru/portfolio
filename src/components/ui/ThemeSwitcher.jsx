@@ -19,7 +19,7 @@ const ThemeSwitcher = () => {
 	}, []);
 
 	if (!mounted) {
-		return null;
+		return <div className="w-[30px]"></div>;
 	}
 	return <DarkModeSwitch checked={theme === "dark"} onChange={toggleDarkMode} size={30} />;
 };

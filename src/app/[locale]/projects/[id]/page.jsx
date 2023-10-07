@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Container, LiveLink, CodeLink } from "../../../../components";
 import { useProjects } from "../../../../data/data";
 
@@ -8,6 +9,7 @@ const Project = ({ params }) => {
 	const projects = useProjects();
 	const project = projects[params.id - 1];
 	const nextProject = projects[params.id];
+	const t = useTranslations("projects-section");
 	return (
 		<main className="-mb-[70px] pt-[110px]">
 			<Container className="flex flex-col items-center">
@@ -49,7 +51,7 @@ const Project = ({ params }) => {
 									className="intems-center group mx-auto flex max-w-[70%] flex-col text-center "
 									href={`/projects/${+params.id + 1}`}
 								>
-									<span className="text-gray">Next Project</span>
+									<span className="text-gray">{t("next-project")}</span>
 									<span className="-mb-5 mt-2 text-3xl font-semibold text-textSecondary transition group-hover:opacity-30 md:-mb-10 md:mt-5 md:text-8xl">
 										{nextProject.title}
 									</span>

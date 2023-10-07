@@ -22,7 +22,9 @@
 	},
 	"projects-section": {
 		"title": "Proiecte",
-		"subtitle": "Lucrările pe care le-am construit până acum"
+		"subtitle": "Lucrările pe care le-am construit până acum",
+		"more-projects": "Mai multe proiecte",
+		"next-project": "Următorul proiect"
 	},
 	"projects": {
 		"portfolio": "Acest proiect l-am realizat folosind React.js Next.js si Tailwind CSS. Am folosit React-type-animation pentru a anima textul din sectia 'Hero'.  Am realizat tema intunecata si traducerea paginii in 4 limbi cu ajutorul la Next-Intl.",

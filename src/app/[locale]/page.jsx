@@ -1,7 +1,7 @@
 import { Hero, Stack, Projects } from "./../../components";
 
 export const metadata = {
-	title: "Luca Dumitru | Front End Developer",
+	title: "Dumitru Luca  • Front End Developer",
 	description: "Luca Dumitru's portfolio web page",
 	keywords:
 		"portfolio, javascript, developer, front-end developer, react, nextjs, html, css, tailwind",

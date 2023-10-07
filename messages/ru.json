@@ -23,7 +23,8 @@
 	"projects-section": {
 		"title": "Проекты",
 		"subtitle": "То, что я уже создал",
-		"more-projects": "Больше проектов"
+		"more-projects": "Больше проектов",
+		"next-project": "Следующий проект"
 	},
 	"projects": {
 		"portfolio": "Я завершил этот проект, используя React.js, Next.js и Tailwind CSS. Для анимации текста в разделе 'Hero' я использовал React-type-animation. Также я реализовал темную тему и перевод страницы на четыре языка с помощью Next-Intl.",

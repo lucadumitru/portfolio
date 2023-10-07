@@ -15,7 +15,7 @@ const Header = () => {
 	}, [isOpen]);
 
 	return (
-		<header className="fixed z-10  w-full bg-white dark:bg-bgDark">
+		<header className="fixed z-50 w-full bg-white dark:bg-bgDark">
 			<Container className="mx-auto flex items-center justify-between gap-3 py-[10px] md:py-[15px]">
 				<Logo></Logo>
 				<NavLinks {...{ isOpen, setOpen }}></NavLinks>

@@ -23,7 +23,8 @@
 	"projects-section": {
 		"title": "Projects",
 		"subtitle": "Things I’ve built so far",
-		"more-projects": "More projects"
+		"more-projects": "More projects",
+		"next-project": "Next Project"
 	},
 	"projects": {
 		"portfolio": "I completed this project using React.js, Next.js, and Tailwind CSS. I used React-type-animation to animate the text in the 'Hero' section. I implemented a dark theme and page translation into four languages using Next-Intl.",
