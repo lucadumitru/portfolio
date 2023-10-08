@@ -23,10 +23,14 @@ const Projects = ({ allProjects }) => {
 				</div>
 				<div className="mt-[25px] grid grid-cols-1 gap-[45px] gap-y-[20px] md:mt-[80px] md:grid-cols-2 md:gap-y-[40px] lg:grid-cols-3 xl:mt-[120px]">
 					{allProjects
-						? projects.map((project) => <Card key={project.id} project={project}></Card>)
+						? projects.map((project, index) => (
+								<Card key={project.id} index={index} project={project}></Card>
+						  ))
 						: projects
 								.slice(0, 6)
-								.map((project) => <Card key={project.id} project={project}></Card>)}
+								.map((project, index) => (
+									<Card project={project} key={project.id} index={index}></Card>
+								))}
 				</div>
 				{!allProjects && (
 					<div className="text-center">

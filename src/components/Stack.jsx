@@ -3,6 +3,8 @@
 import { Container, Title, ThemedImg } from ".";
 import { useTranslations } from "next-intl";
 import { technologies } from "./../data/data";
+import { motion } from "framer-motion";
+import { fadeInAnimationVariants } from "./../animations/animations";
 
 const Stack = () => {
 	const t = useTranslations("stack");
@@ -15,19 +17,29 @@ const Stack = () => {
 				<div className="mt-[10px] text-center text-[18px] text-gray md:mt-[30px] md:text-[32px]">
 					{t("subtitle")}
 				</div>
-				<div className="mt-[25px] grid grid-cols-4 items-center  gap-[25px] md:mt-[80px] md:grid-cols-5 md:gap-[40px] xl:mt-[120px]">
+				<ul className="mt-[25px] grid grid-cols-4 items-center  gap-[25px] md:mt-[80px] md:grid-cols-5 md:gap-[40px] xl:mt-[120px]">
 					{technologies.map((el, index) => (
-						<ThemedImg
+						<motion.li
 							key={index}
-							className="justify-self-center"
-							width={120}
-							height={120}
-							srcDark={el.iconDark}
-							srcLight={el.icon}
-							alt={el.name + " icon"}
-						></ThemedImg>
+							variants={fadeInAnimationVariants}
+							initial="initial"
+							whileInView="animate"
+							viewport={{
+								once: true,
+							}}
+							custom={index}
+						>
+							<ThemedImg
+								className="justify-self-center"
+								width={120}
+								height={120}
+								srcDark={el.iconDark}
+								srcLight={el.icon}
+								alt={el.name + " icon"}
+							></ThemedImg>
+						</motion.li>
 					))}
-				</div>
+				</ul>
 			</Container>
 		</section>
 	);

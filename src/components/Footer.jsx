@@ -8,7 +8,7 @@ import { dmSans } from "../app/[locale]/fonts";
 const Footer = () => {
 	const t = useTranslations("footer");
 	return (
-		<footer id="contact" className="mt-auto">
+		<footer id="contact" className="z-5 relative mt-auto bg-white dark:bg-bgDark">
 			<Container className="pt-[20px] md:pt-[100px]">
 				{/* Top */}
 				<div

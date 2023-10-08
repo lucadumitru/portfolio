@@ -18,6 +18,7 @@ import ThemedImg from "./ui/ThemedImg";
 import ScrollDownBtn from "./ui/ScrollDownBtn";
 import LiveLink from "./ui/LiveLink";
 import CodeLink from "./ui/CodeLink";
+import NextProjectBtn from "./ui/NextProjectBtn";
 
 //Context
 import Providers from "./../context/Providers";
@@ -41,4 +42,5 @@ export {
 	ScrollDownBtn,
 	LiveLink,
 	CodeLink,
+	NextProjectBtn,
 };
