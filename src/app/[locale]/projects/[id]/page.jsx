@@ -12,7 +12,7 @@ const Project = ({ params }) => {
 		<main className="pt-[110px]">
 			<Container className="flex flex-col items-center">
 				<div>
-					<h1 className="text-center text-3xl font-bold text-textSecondary md:text-6xl">
+					<h1 className="text-center text-3xl font-bold text-textSecondary dark:text-white md:text-6xl">
 						{project.title}
 					</h1>
 					<p className="mt-3 max-w-4xl text-center text-gray md:mt-10">{project.text}</p>

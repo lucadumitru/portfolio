@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { relative } from "path";
 
 interface NextProjectBtnProps {
 	nextProjectImg: string;
@@ -29,10 +28,10 @@ const NextProjectBtn: React.FC<NextProjectBtnProps> = ({
 			<a
 				ref={ref}
 				className="intems-center group inline-flex max-w-[70%] flex-col"
-				href={`/projects/${+nextProjectId + 1}`}
+				href={`/projects/${+nextProjectId}`}
 			>
 				<span className="text-gray">{t("next-project")}</span>
-				<span className="-mb-5 mt-2 text-3xl font-semibold text-textSecondary transition group-hover:opacity-30 md:-mb-10 md:mt-5 md:text-8xl">
+				<span className="-mb-5 mt-2 text-3xl font-semibold text-textSecondary transition group-hover:opacity-30 dark:text-white md:-mb-10 md:mt-5 md:text-8xl">
 					{nextProjectTitle}
 				</span>
 				<motion.div

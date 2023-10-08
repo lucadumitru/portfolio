@@ -23,7 +23,7 @@ export function useProjects() {
 			img: "/projects/portfolio/img/portfolio.svg",
 			video: {
 				preview: "/projects/portfolio/video/portfolio-preview.mov",
-				macbook: "/projects/portfolio/video/portfolio-preview.mov",
+				// macbook: "/projects/portfolio/video/portfolio-preview.mov",
 			},
 			stack: "HTML , JavaScript, TS, React, Tailwind, Next, Next-Intl",
 			git: "https://github.com/lucadumitru/portfolio",

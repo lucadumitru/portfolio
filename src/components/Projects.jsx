@@ -21,7 +21,11 @@ const Projects = ({ allProjects }) => {
 				<div className="mt-[10px] text-center text-[18px] text-gray md:mt-[30px] md:text-[32px]">
 					{t("subtitle")}
 				</div>
-				<div className="mt-[25px] grid grid-cols-1 gap-[45px] gap-y-[20px] md:mt-[80px] md:grid-cols-2 md:gap-y-[40px] lg:grid-cols-3 xl:mt-[120px]">
+				<div
+					className={`mt-[25px] grid grid-cols-1 gap-[45px] gap-y-[20px] md:mt-[80px] md:grid-cols-2 md:gap-y-[40px] lg:grid-cols-3 xl:mt-[120px] ${
+						allProjects && "pb-[100px]"
+					}`}
+				>
 					{allProjects
 						? projects.map((project, index) => (
 								<Card key={project.id} index={index} project={project}></Card>
