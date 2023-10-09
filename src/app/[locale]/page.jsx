@@ -1,4 +1,4 @@
-import { Hero, Stack, Projects } from "./../../components";
+import { Hero, Stack, Projects, Contact } from "./../../components";
 
 export const metadata = {
 	title: "Dumitru Luca  • Front End Developer",
@@ -13,6 +13,7 @@ export default function Home() {
 			<Hero></Hero>
 			<Stack></Stack>
 			<Projects></Projects>
+			<Contact></Contact>
 		</main>
 	);
 }

@@ -30,7 +30,7 @@ const Link: React.FC<LinkProps> = ({
 			href={href}
 			className={`${
 				className || ""
-			} flex items-center  justify-center gap-[10px] md:hover:underline`}
+			} flex items-center justify-center gap-[10px] md:hover:underline `}
 		>
 			{img && (
 				<Image
@@ -43,7 +43,7 @@ const Link: React.FC<LinkProps> = ({
 					}`}
 				></Image>
 			)}
-			<span className="z-1 relative">{children}</span>
+			<span className="z-1 relative ">{children}</span>
 		</a>
 	);
 };

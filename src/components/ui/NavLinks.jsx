@@ -2,9 +2,9 @@
 
 import { dmSans } from "../../app/[locale]/fonts";
 import Link from "./Link";
-import LocaleSwitcher from "./LocaleSwitcher";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
+import Socials from "./Socials";
 
 const NavLinks = ({ isOpen, setOpen }) => {
 	const t = useTranslations("nav");
@@ -36,7 +36,6 @@ const NavLinks = ({ isOpen, setOpen }) => {
 		}
 	};
 	const pathname = usePathname();
-	const projectsPath = pathname.includes("/projects");
 	const projectPath = pathname.includes("/projects/");
 	return (
 		<nav className="flex items-center md:gap-x-[50px]">
@@ -50,32 +49,7 @@ const NavLinks = ({ isOpen, setOpen }) => {
 				}`}
 			>
 				<ul className=" flex flex-col gap-x-[10px] gap-y-[20px] md:flex-row md:flex-wrap md:gap-x-[40px]  md:gap-y-[0px] lg:gap-x-[60px] ">
-					{projectPath ? (
-						<>
-							<Link
-								className={`dark:text-white ${isOpen && "text-[25px]"}`}
-								onClick={handleMenu}
-								href="/"
-							>
-								{t("home")}
-							</Link>
-							<Link
-								className={`dark:text-white ${isOpen && "text-[25px]"}`}
-								onClick={handleMenu}
-								href="/projects"
-							>
-								{t("projects")}
-							</Link>
-						</>
-					) : projectsPath ? (
-						<Link
-							className={`dark:text-white ${isOpen && "text-[25px]"}`}
-							onClick={handleMenu}
-							href="/"
-						>
-							{t("home")}
-						</Link>
-					) : (
+					{!projectPath &&
 						links.map((link, index) => (
 							<li key={index}>
 								<Link
@@ -86,10 +60,9 @@ const NavLinks = ({ isOpen, setOpen }) => {
 									{link.name}
 								</Link>
 							</li>
-						))
-					)}
+						))}
 				</ul>
-				{isOpen && <LocaleSwitcher></LocaleSwitcher>}
+				{isOpen && <Socials className="mt-7"></Socials>}
 			</div>
 		</nav>
 	);

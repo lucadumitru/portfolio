@@ -26,6 +26,9 @@
 		"more-projects": "Más proyectos",
 		"next-project": "Próximo proyecto"
 	},
+	"contact": {
+		"mail": "Para cualquier pregunta, por favor escríbame a:"
+	},
 	"projects": {
 		"portfolio": "Completé este proyecto utilizando React.js, Next.js y Tailwind CSS. Utilicé React-type-animation para animar el texto en la sección 'Hero'. Implementé un tema oscuro y la traducción de la página a cuatro idiomas utilizando Next-Intl.",
 		"the-box": "Realicé este proyecto para una empresa de construcción utilizando React.",

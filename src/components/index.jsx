@@ -4,6 +4,7 @@ import Header from "./Header";
 import Hero from "./Hero";
 import Stack from "./Stack";
 import Projects from "./Projects";
+import Contact from "./Contact";
 import Footer from "./Footer";
 
 // UI Components
@@ -26,6 +27,7 @@ import Providers from "./../context/Providers";
 export {
 	Header,
 	Link,
+	Contact,
 	NavLinks,
 	Socials,
 	Container,
