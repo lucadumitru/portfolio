@@ -9,7 +9,10 @@ const useProjects = () => {
 			id: 1,
 			title: "FarmVest",
 			text: p("funiro"),
-			img: "/projects/farmvest/img/farmvest.svg",
+			img: {
+				svg: "/projects/farmvest/img/farmvest.svg",
+				jpg: "/projects/farmvest/img/farmvest.jpg",
+			},
 			stack: "HTML , JavaScript, SASS",
 			git: "https://github.com/lucadumitru/farm-vest",
 			preview: "http://farm-vest.lucadevelop.com/",
@@ -18,7 +21,10 @@ const useProjects = () => {
 			id: 2,
 			title: "Funiro",
 			text: p("funiro"),
-			img: "/projects/funiro/img/funiro.svg",
+			img: {
+				svg: "/projects/funiro/img/funiro.svg",
+				jpg: "/projects/funiro/img/funiro.jpg",
+			},
 			stack: "HTML , JavaScript, SASS",
 			git: "https://github.com/lucadumitru/funiro",
 			preview: "http://funiro.lucadevelop.com/",
@@ -27,7 +33,10 @@ const useProjects = () => {
 			id: 3,
 			title: "NFT Marketplace",
 			text: p("nft"),
-			img: "/projects/nft/img/nft.svg",
+			img: {
+				svg: "/projects/nft/img/nft.svg",
+				jpg: "/projects/nft/img/nft.jpg",
+			},
 			video: {
 				macbook: "/projects/quickfit/video/quickfit-hero.mp4",
 			},
@@ -39,7 +48,10 @@ const useProjects = () => {
 			id: 4,
 			title: "Quickfit",
 			text: p("quickfit"),
-			img: "/projects/quickfit/img/quickfit.svg",
+			img: {
+				svg: "/projects/quickfit/img/quickfit.svg",
+				jpg: "/projects/quickfit/img/quickfit.jpg",
+			},
 			video: {
 				macbook: "/projects/quickfit/video/quickfit-hero.mp4",
 			},
@@ -51,7 +63,10 @@ const useProjects = () => {
 			id: 5,
 			title: "Freaks of Nature",
 			text: p("freaks"),
-			img: "/projects/freaks/img/freaks.svg",
+			img: {
+				svg: "/projects/freaks/img/freaks.svg",
+				jpg: "/projects/freaks/img/freaks.jpg",
+			},
 			video: {
 				preview: "/projects/freaks/video/freaks-preview.mov",
 				macbook: "/projects/freaks/video/freaks-hero.mp4",
@@ -64,7 +79,10 @@ const useProjects = () => {
 			id: 6,
 			title: "The Box",
 			text: p("the-box"),
-			img: "/projects/the-box/img/the-box.svg",
+			img: {
+				svg: "/projects/the-box/img/the-box.svg",
+				jpg: "/projects/the-box/img/the-box.jpg",
+			},
 			stack: "HTML , JavaScript, SASS, React",
 			git: "https://github.com/lucadumitru/the-box",
 			preview: "https://the-box.lucadevelop.com/",
@@ -73,7 +91,10 @@ const useProjects = () => {
 			id: 7,
 			title: "Portfolio",
 			text: p("portfolio"),
-			img: "/projects/portfolio/img/portfolio.svg",
+			img: {
+				svg: "/projects/portfolio/img/portfolio.svg",
+				jpg: "/projects/portfolio/img/portfolio.jpg",
+			},
 			video: {
 				preview: "/projects/portfolio/video/portfolio-preview.mov",
 				// macbook: "/projects/portfolio/video/portfolio-preview.mov",

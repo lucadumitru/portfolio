@@ -24,7 +24,7 @@ const Project = ({ params }) => {
 				<div className="mt-[5%] flex w-full flex-col  gap-[50px] md:gap-[100px]">
 					<Image
 						className="rounded-xl"
-						src={project.img}
+						src={project.img.svg}
 						alt={project.title + " img"}
 						width={1200}
 						height={200}
@@ -46,7 +46,7 @@ const Project = ({ params }) => {
 						{params.id != 1 && (
 							<NextProjectBtn
 								nextProjectId={nextProject.id}
-								nextProjectImg={nextProject.img}
+								nextProjectImg={nextProject.img.jpg}
 								nextProjectTitle={nextProject.title}
 							></NextProjectBtn>
 						)}
