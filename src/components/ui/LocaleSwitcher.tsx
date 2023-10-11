@@ -19,7 +19,7 @@ export default function LocaleSwitcher({ className }) {
 	}
 
 	return (
-		<div className={className}>
+		<div className={`${className}`}>
 			{" "}
 			<label
 				className={clsx(
@@ -28,7 +28,7 @@ export default function LocaleSwitcher({ className }) {
 				)}
 			>
 				<select
-					className="inline-flex bg-transparent py-3 pl-2 pr-2 dark:text-white"
+					className="inline-flex cursor-pointer bg-transparent py-3 pl-2 pr-2 dark:text-white"
 					defaultValue={locale}
 					disabled={isPending}
 					onChange={onSelectChange}

@@ -25,6 +25,7 @@ const Link: React.FC<LinkProps> = ({
 }) => {
 	return (
 		<a
+			tabIndex={1}
 			target={target}
 			onClick={onClick}
 			href={href}
