@@ -1,13 +1,12 @@
 "use client";
 
-import { Container, Title, Card, Link } from ".";
+import { Container, Title, Card, Link, getProjects } from ".";
 import { useTranslations } from "next-intl";
-import { useProjects } from "../data/data";
 import { useState } from "react";
 
 const Projects = () => {
+	const projects = getProjects();
 	const t = useTranslations("projects-section");
-	const projects = useProjects();
 	const [projectsShowLength, setProjectsShowLength] = useState(6);
 	const [hideBtn, setHideBtn] = useState(false);
 	function showAllProjects() {
@@ -26,9 +25,12 @@ const Projects = () => {
 				<div
 					className={`mt-[25px] grid grid-cols-1 gap-[45px] gap-y-[20px] md:mt-[80px] md:grid-cols-2 md:gap-y-[40px] lg:grid-cols-3 xl:mt-[120px]`}
 				>
-					{projects.slice(0, projectsShowLength).map((project, index) => (
-						<Card project={project} key={project.id} index={index}></Card>
-					))}
+					{projects
+						.reverse()
+						.slice(0, projectsShowLength)
+						.map((project, index) => (
+							<Card project={project} key={project.id} index={index}></Card>
+						))}
 				</div>
 				<div className="text-center">
 					<Link

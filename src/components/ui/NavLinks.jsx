@@ -40,7 +40,7 @@ const NavLinks = ({ isOpen, setOpen }) => {
 	return (
 		<nav className="flex items-center md:gap-x-[50px]">
 			<div
-				className={`fixed top-0 h-full w-full bg-white  before:fixed before:top-0 before:h-[76px] before:w-full before:border-b-[2px] before:border-solid before:border-gray/30 before:bg-white before:content-[''] dark:bg-bgDark dark:before:bg-bgDark md:relative md:left-0 md:bg-transparent md:before:hidden ${
+				className={`fixed top-0 h-full w-full bg-white  before:fixed before:top-0 before:z-20 before:h-[76px] before:w-full before:border-b-[2px] before:border-solid before:border-gray/30 before:bg-white before:content-[''] dark:bg-bgDark dark:before:bg-bgDark md:relative md:left-0 md:bg-transparent md:before:hidden ${
 					dmSans.className
 				} ${
 					!isOpen

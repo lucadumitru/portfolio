@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { Container, LiveLink, CodeLink, NextProjectBtn } from "../../../../components";
-import { useProjects } from "../../../../data/data";
+import { Container, LiveLink, CodeLink, NextProjectBtn, Contact, getProjects } from "../components";
 
 const Project = ({ params }) => {
-	const projects = useProjects();
-	const project = projects[params.id - 1];
-	const nextProject = projects[params.id];
+	const projects = getProjects();
+	const projectId = +params.id;
+	const project = projects.find((project) => project.id === projectId);
+	const nextProject = projects.find((project) => project.id === projectId - 1);
 	return (
 		<main className="pt-[110px]">
 			<Container className="flex flex-col items-center">
@@ -43,7 +43,7 @@ const Project = ({ params }) => {
 						</div>
 					)}
 					<div className="relative mt-10 flex flex-col justify-center">
-						{projects.length != params.id && (
+						{params.id != 1 && (
 							<NextProjectBtn
 								nextProjectId={nextProject.id}
 								nextProjectImg={nextProject.img}
@@ -51,6 +51,7 @@ const Project = ({ params }) => {
 							></NextProjectBtn>
 						)}
 					</div>
+					<Contact></Contact>
 				</div>
 			</Container>
 		</main>

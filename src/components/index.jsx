@@ -4,6 +4,7 @@ import Header from "./Header";
 import Hero from "./Hero";
 import Stack from "./Stack";
 import Projects from "./Projects";
+import Project from "./Project";
 import Contact from "./Contact";
 import Footer from "./Footer";
 
@@ -20,9 +21,13 @@ import ScrollDownBtn from "./ui/ScrollDownBtn";
 import LiveLink from "./ui/LiveLink";
 import CodeLink from "./ui/CodeLink";
 import NextProjectBtn from "./ui/NextProjectBtn";
+import BackBtn from "./ui/BackBtn";
 
 //Context
 import Providers from "./../context/Providers";
+
+//Data
+import getProjects from "./../data/getProjects";
 
 export {
 	Header,
@@ -34,6 +39,7 @@ export {
 	Title,
 	Hero,
 	Projects,
+	Project,
 	Card,
 	Footer,
 	Logo,
@@ -45,4 +51,6 @@ export {
 	LiveLink,
 	CodeLink,
 	NextProjectBtn,
+	BackBtn,
+	getProjects,
 };

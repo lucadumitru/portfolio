@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Container, NavLinks, Socials, Logo, ThemeSwitcher, Link } from ".";
+import { Container, NavLinks, Socials, Logo, ThemeSwitcher, Link, BackBtn } from ".";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 
@@ -22,7 +22,7 @@ const Header = () => {
 	return (
 		<header className="fixed z-50 w-full bg-white dark:bg-bgDark">
 			<Container className="mx-auto flex items-center justify-between gap-3 py-[10px] md:py-[15px]">
-				{!projectPath ? <Logo></Logo> : <Link href="/">{t("back")}</Link>}
+				{!projectPath ? <Logo></Logo> : <BackBtn href="/"></BackBtn>}
 				<NavLinks {...{ isOpen, setOpen }}></NavLinks>
 				<div className="flex items-center gap-5">
 					<Socials className="hidden md:flex"></Socials>

@@ -24,10 +24,10 @@ const NextProjectBtn: React.FC<NextProjectBtnProps> = ({
 	});
 	const bottomToTop = useTransform(scrollYProgress, [0, 1], [150, 0]);
 	return (
-		<div className="relative text-center before:absolute before:bottom-0 before:left-[50%] before:z-10 before:h-[2px] before:w-[90%] before:-translate-x-[50%] before:bg-gray/30 before:content-[''] sm:before:w-[70%]">
+		<div className="relative text-center before:absolute before:-bottom-[100px] before:left-0 before:z-10  before:h-[100px] before:w-full before:border-t-[2px] before:border-gray/30 before:bg-white before:content-[''] before:dark:bg-bgDark">
 			<a
 				ref={ref}
-				className="intems-center group inline-flex max-w-[70%] flex-col"
+				className="intems-center group inline-flex w-[70%] flex-col"
 				href={`/projects/${+nextProjectId}`}
 			>
 				<span className="text-gray">{t("next-project")}</span>

@@ -27,7 +27,7 @@
 		"next-project": "Următorul proiect"
 	},
 	"contact": {
-		"mail": "Pentru orice întrebare, vă rog să mă contactați la adresa de email:"
+		"cta": "Doriți să creați ceva?"
 	},
 	"projects": {
 		"portfolio": "Acest proiect l-am realizat folosind React.js Next.js si Tailwind CSS. Am folosit React-type-animation pentru a anima textul din sectia 'Hero'.  Am realizat tema intunecata si traducerea paginii in 4 limbi cu ajutorul la Next-Intl.",

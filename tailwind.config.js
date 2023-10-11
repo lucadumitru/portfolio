@@ -24,6 +24,15 @@ module.exports = {
 				imac: "url('/devices/imac.png')",
 				iphone: "url('/devices/iphone14.png')",
 			},
+			keyframes: {
+				back: {
+					from: { translate: "5px 0" },
+					to: { translate: "0 0" },
+				},
+			},
+			animation: {
+				back: "back 0.4s cubic-bezier(0, 0, 0.2, 1) ",
+			},
 		},
 	},
 	plugins: [],

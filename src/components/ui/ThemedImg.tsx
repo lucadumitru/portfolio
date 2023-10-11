@@ -32,7 +32,7 @@ const ThemedImg: React.FC<ThemedImgProps> = ({
 		return null;
 	}
 
-	let src;
+	let src: string;
 	switch (resolvedTheme) {
 		case "light":
 			src = srcLight;
