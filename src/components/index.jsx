@@ -27,7 +27,7 @@ import BackBtn from "./ui/BackBtn";
 import Providers from "./../context/Providers";
 
 //Data
-import getProjects from "./../data/getProjects";
+import useProjects from "../data/useProjects";
 
 export {
 	Header,
@@ -52,5 +52,5 @@ export {
 	CodeLink,
 	NextProjectBtn,
 	BackBtn,
-	getProjects,
+	useProjects,
 };

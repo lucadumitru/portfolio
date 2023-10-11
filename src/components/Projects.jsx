@@ -1,11 +1,11 @@
 "use client";
 
-import { Container, Title, Card, Link, getProjects } from ".";
+import { Container, Title, Card, Link, useProjects } from ".";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 const Projects = () => {
-	const projects = getProjects();
+	const projects = useProjects();
 	const t = useTranslations("projects-section");
 	const [projectsShowLength, setProjectsShowLength] = useState(6);
 	const [hideBtn, setHideBtn] = useState(false);

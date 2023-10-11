@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 
-const getProjects = () => {
+const useProjects = () => {
 	const p = useTranslations("projects");
 	return [
 		{
@@ -84,4 +84,4 @@ const getProjects = () => {
 		},
 	];
 };
-export default getProjects;
+export default useProjects;

@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { Container, LiveLink, CodeLink, NextProjectBtn, Contact, getProjects } from "../components";
+import { Container, LiveLink, CodeLink, NextProjectBtn, Contact, useProjects } from "../components";
 
 const Project = ({ params }) => {
-	const projects = getProjects();
+	const projects = useProjects();
 	const projectId = +params.id;
 	const project = projects.find((project) => project.id === projectId);
 	const nextProject = projects.find((project) => project.id === projectId - 1);
