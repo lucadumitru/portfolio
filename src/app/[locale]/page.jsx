@@ -4,7 +4,7 @@ export const metadata = {
 	title: "Dumitru Luca  • Front End Developer",
 	description: "Luca Dumitru's portfolio web page",
 	keywords:
-		"portfolio, javascript, developer, front-end developer, react, nextjs, html, css, tailwind",
+		"lucadevelop, portfolio, javascript, developer, front-end developer, react, nextjs, html, css, tailwind",
 	openGraph: {
 		images: "/hero-img.jpg",
 		description: "Luca Dumitru's portfolio web page",

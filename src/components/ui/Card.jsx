@@ -27,7 +27,7 @@ const Card = ({ project, index }) => {
 						className="h-[200px] w-full  object-cover transition hover:scale-105 md:h-[260px]"
 						width="200"
 						height="200"
-						src={project.img.jpg}
+						src={project.img.svg}
 						alt={project.title + " img"}
 					></Image>
 				) : (
