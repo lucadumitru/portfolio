@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Project } from "../../../../components";
+import { Project, useProjects } from "../../../../components";
 import { projectsTitles } from "../../../../data/data";
 
 type Props = {
@@ -8,6 +8,8 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const projectTitle = projectsTitles[+params.id - 1];
+	const projects = useProjects;
+	console.log(projects);
 	return {
 		title: `${projectTitle} - Luca Dumitru`,
 	};

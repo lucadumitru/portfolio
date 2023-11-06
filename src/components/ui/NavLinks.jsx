@@ -3,10 +3,10 @@
 import { dmSans } from "../../app/[locale]/fonts";
 import Link from "./Link";
 import { useTranslations } from "next-intl";
-import { usePathname } from "next/navigation";
 import Socials from "./Socials";
+import ResumeBtn from "./ResumeBtn";
 
-const NavLinks = ({ isOpen, setOpen }) => {
+const NavLinks = ({ isOpen, setOpen, locale }) => {
 	const t = useTranslations("nav");
 	const links = [
 		{
@@ -35,8 +35,6 @@ const NavLinks = ({ isOpen, setOpen }) => {
 			setOpen(!isOpen);
 		}
 	};
-	const pathname = usePathname();
-	const projectPath = pathname.includes("/projects/");
 	return (
 		<nav className="flex items-center md:gap-x-[50px]">
 			<div
@@ -48,21 +46,25 @@ const NavLinks = ({ isOpen, setOpen }) => {
 						: "left-0 overflow-scroll p-[30px] pt-[110px] text-center transition-[left] before:left-0 before:transition-[left]"
 				}`}
 			>
-				<ul className=" flex flex-col gap-x-[10px] gap-y-[20px] md:flex-row md:flex-wrap md:gap-x-[40px]  md:gap-y-[0px] lg:gap-x-[60px] ">
-					{!projectPath &&
-						links.map((link, index) => (
-							<li key={index}>
-								<Link
-									className={`dark:text-white ${isOpen && "text-[25px]"}`}
-									onClick={handleMenu}
-									href={link.href}
-								>
-									{link.name}
-								</Link>
-							</li>
-						))}
+				<ul className=" inline-flex flex-col gap-x-[10px] gap-y-[20px] md:flex-row md:flex-wrap md:gap-x-[30px]  md:gap-y-[0px] ">
+					{links.map((link, index) => (
+						<li key={index}>
+							<Link
+								className={`dark:text-white ${isOpen && "text-[25px]"}`}
+								onClick={handleMenu}
+								href={link.href}
+							>
+								{link.name}
+							</Link>
+						</li>
+					))}
 				</ul>
-				{isOpen && <Socials className="mt-7"></Socials>}
+				{isOpen && (
+					<div className="mt-5 flex flex-col items-center gap-7">
+						<ResumeBtn locale={locale}></ResumeBtn>
+						<Socials></Socials>
+					</div>
+				)}
 			</div>
 		</nav>
 	);

@@ -22,6 +22,7 @@ import LiveLink from "./ui/LiveLink";
 import CodeLink from "./ui/CodeLink";
 import NextProjectBtn from "./ui/NextProjectBtn";
 import BackBtn from "./ui/BackBtn";
+import ResumeBtn from "./ui/ResumeBtn";
 
 //Context
 import Providers from "./../context/Providers";
@@ -53,4 +54,5 @@ export {
 	NextProjectBtn,
 	BackBtn,
 	useProjects,
+	ResumeBtn,
 };

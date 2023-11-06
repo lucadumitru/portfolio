@@ -5,7 +5,8 @@
 		"stack": "Tehnologie",
 		"projects": "Proiecte",
 		"contact": "Contact",
-		"back": "Înapoi"
+		"back": "Înapoi",
+		"resume": "CV"
 	},
 	"hero": {
 		"title1": "Salut 👋, Mă numesc",
@@ -44,11 +45,11 @@
 		"code": "Vizualizare cod"
 	},
 	"footer": {
-		"designed": "Proiectat de",
+		"designed": "Designul",
 		"build": "Realizat de",
 		"name": "Luca Dumitru",
 		"with": "cu",
-		"love": "Dragoste",
+		"love": "Straduință",
 		"and": "și",
 		"coffee": "Cafea"
 	}

@@ -19,4 +19,5 @@ export const projectsTitles = [
 	"Freaks of Nature",
 	"The Box",
 	"Portfolio",
+	"Rick and Morty",
 ];

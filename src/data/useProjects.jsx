@@ -103,6 +103,22 @@ const useProjects = () => {
 			git: "https://github.com/lucadumitru/portfolio",
 			preview: "https://lucadevelop.com/",
 		},
+		{
+			id: 8,
+			title: "Rick and Morty",
+			text: "In course...",
+			img: {
+				svg: "/projects/rickandmorty/img/rickandmorty.svg",
+				jpg: "/projects/rickandmorty/img/rickandmorty.jpg",
+			},
+			video: {
+				// preview: "/projects/portfolio/video/portfolio-preview.mov",
+				// macbook: "/projects/portfolio/video/portfolio-preview.mov",
+			},
+			stack: "HTML , JavaScript, TS, React, Tailwind, Next, API, SWR, Eslint",
+			git: "https://github.com/lucadumitru/rickandmorty",
+			preview: "https://rickandmorty.lucadevelop.com/",
+		},
 	];
 };
 export default useProjects;

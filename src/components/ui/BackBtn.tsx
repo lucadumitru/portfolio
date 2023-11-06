@@ -3,16 +3,18 @@ import ThemedImg from "./ThemedImg";
 import backArrow from "/public/icons/back-arrow.svg";
 import backArrowWhite from "/public/icons/back-arrow-white.svg";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 
 interface BackBtnProps {
 	href: string;
 }
 
-const BackBtn: React.FC<BackBtnProps> = ({ href }) => {
+const BackBtn: React.FC<BackBtnProps> = () => {
 	const t = useTranslations("nav");
+	const router = useRouter();
 	return (
-		<a
-			href={href}
+		<button
+			onClick={() => router.back()}
 			className={`${dmSans.className} group flex items-center gap-3 hover:underline`}
 		>
 			<ThemedImg
@@ -22,7 +24,7 @@ const BackBtn: React.FC<BackBtnProps> = ({ href }) => {
 				alt="Back arrow icon"
 			></ThemedImg>
 			<span>{t("back")}</span>
-		</a>
+		</button>
 	);
 };
 export default BackBtn;

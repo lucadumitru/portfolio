@@ -23,7 +23,7 @@ const Footer = () => {
 						{t("designed")}{" "}
 						<a
 							className="text-cyan-500 hover:underline"
-							href="https://pavanmg.in/"
+							href="https://www.figma.com/file/UD0kJT0EqQMk2wzxgwrYPo/Developer-Portfolio-Design-(Community)-(Copy)?type=design&node-id=0-1&mode=design&t=7Rmo8zH6QAL3CWkU-0"
 							target="_blank"
 						>
 							PavanMG

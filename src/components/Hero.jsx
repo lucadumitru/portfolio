@@ -45,7 +45,7 @@ const Hero = () => {
 								className="h-[230px] w-[230px] rounded-full object-cover p-2  sm:h-[300px] sm:w-[300px] md:h-[350px] md:w-[350px]"
 								width={350}
 								height={350}
-								src="/hero-img.jpg"
+								src="/profile2.jpg"
 								alt="Hero img"
 							></Image>
 						</div>
