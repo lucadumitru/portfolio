@@ -21,7 +21,7 @@ const Header = ({ locale }) => {
 				{!projectPath ? <Logo></Logo> : <BackBtn></BackBtn>}
 				{!projectPath && (
 					<>
-						<NavLinks {...{ isOpen, setOpen }}></NavLinks>
+						<NavLinks {...{ isOpen, setOpen, locale }}></NavLinks>
 						<div className="hidden md:block">
 							<ResumeBtn locale={locale}></ResumeBtn>
 						</div>
