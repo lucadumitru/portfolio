@@ -106,7 +106,7 @@ const useProjects = () => {
 		{
 			id: 8,
 			title: "Rick and Morty",
-			text: "In course...",
+			text: p("rickandmorty"),
 			img: {
 				svg: "/projects/rickandmorty/img/rickandmorty.svg",
 				jpg: "/projects/rickandmorty/img/rickandmorty.jpg",

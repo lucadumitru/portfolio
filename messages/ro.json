@@ -31,6 +31,7 @@
 		"cta": "Doriți să creați ceva?"
 	},
 	"projects": {
+		"rickandmorty": "Explorați pagina web Rick and Morty, unde am utilizat API-ul Rick and Morty, React.js, Next.js și TypeScript pentru a crea o experiență captivantă. Cu ajutorul Tailwind CSS, am creat un design elegant și responsiv care dă viață lumii Rick and Morty. Una dintre caracteristicile remarcabile ale acestui proiect este Rendering-ul pe partea serverului (SSR), asigurând o livrare rapidă și optimizată a conținutului. Pe măsură ce navigați pe site, veți experimenta timpi de încărcare fulgerători și tranziții fluide, datorită încărcării scheletului, care oferă o experiență utilizator fără întreruperi. Acest proiect este o dovadă a expertizei mele în dezvoltarea web, evidențiind fuziunea tehnologiei și creativității în lumea lui Rick și Morty. Explorați multiversul, descoperiți personajele preferate și bucurați-vă de un site web captivant și dinamic!",
 		"portfolio": "Acest proiect l-am realizat folosind React.js Next.js si Tailwind CSS. Am folosit React-type-animation pentru a anima textul din sectia 'Hero'.  Am realizat tema intunecata si traducerea paginii in 4 limbi cu ajutorul la Next-Intl.",
 		"the-box": "Am realizat acest proiect pentru o companie de construcții folosind React.",
 		"freaks": "Acesta este o pagină de aterizare pe care am creat-o pentru festivalul de muzică 'Freaks of Nature'.",
