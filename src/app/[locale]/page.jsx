@@ -1,14 +1,14 @@
 import { Hero, Stack, Projects, Contact } from "./../../components";
 
 export const metadata = {
-	title: "Dumitru Luca  • Front End Developer",
+	title: "Lucadevelop",
 	description: "Luca Dumitru's portfolio web page",
 	keywords:
 		"lucadevelop, portfolio, javascript, developer, front-end developer, react, nextjs, html, css, tailwind",
 	openGraph: {
 		images: "/hero-img.jpg",
 		description: "Luca Dumitru's portfolio web page",
-		title: "Dumitru Luca  • Front End Developer",
+		title: "Lucadevelop",
 		type: "website",
 	},
 };

@@ -5,16 +5,12 @@ import backArrowWhite from "/public/icons/back-arrow-white.svg";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 
-interface BackBtnProps {
-	href: string;
-}
-
-const BackBtn: React.FC<BackBtnProps> = () => {
+const BackBtn = () => {
 	const t = useTranslations("nav");
 	const router = useRouter();
 	return (
 		<button
-			onClick={() => router.back()}
+			onClick={() => router.push("/#projects")}
 			className={`${dmSans.className} group flex items-center gap-3 hover:underline`}
 		>
 			<ThemedImg

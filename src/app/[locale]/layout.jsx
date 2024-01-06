@@ -17,7 +17,7 @@ export default async function LocaleLayout({ children, params: { locale } }) {
 		notFound();
 	}
 	return (
-		<html lang={locale} className="scroll-smooth" suppressHydrationWarning>
+		<html lang={locale} className="min-w-[320px] scroll-smooth" suppressHydrationWarning>
 			<body
 				className={`${poppins.className} flex min-h-screen flex-col bg-white dark:bg-bgDark`}
 			>

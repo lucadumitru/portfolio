@@ -33,15 +33,15 @@ const Projects = () => {
 						))}
 				</div>
 				<div className="text-center">
-					<Link
+					<button
 						onClick={showAllProjects}
 						className={`${
 							hideBtn && "!hidden"
-						} text-md before:content-[' ']  relative mt-10 cursor-pointer overflow-hidden whitespace-nowrap rounded-[100px] border border-gray from-cyan-500 to-fuchsia-500 p-4 transition-all before:absolute before:h-full before:w-full before:bg-gradient-to-r before:opacity-0 before:transition-opacity hover:border-white hover:text-white hover:before:opacity-100 sm:inline-flex md:p-5 md:text-lg md:hover:no-underline`}
+						} text-md before:content-[' '] relative mt-10 inline-flex  cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap rounded-[100px] border border-gray from-cyan-500 to-fuchsia-500 p-4 transition-all before:absolute before:h-full before:w-full before:bg-gradient-to-r before:opacity-0 before:transition-opacity hover:border-white hover:text-white hover:before:opacity-100 sm:inline-flex md:p-5 md:text-lg md:hover:no-underline`}
 					>
-						{t("more-projects")}
+						<span className="z-1 relative">{t("more-projects")}</span>
 						<sup className="text-s ml-1">{projects.length - projectsShowLength}</sup>{" "}
-					</Link>
+					</button>
 				</div>
 			</Container>
 		</section>
