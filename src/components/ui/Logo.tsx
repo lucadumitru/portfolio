@@ -1,7 +1,7 @@
 import { Link } from ".";
 import logo from "/public/logo.svg";
 
-export const Logo = ({ className }) => {
+export const Logo = ({ className }: { className?: string }) => {
 	return (
 		<>
 			<Link
