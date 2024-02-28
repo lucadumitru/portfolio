@@ -9,6 +9,10 @@ const nextConfig = {
 			},
 		],
 	},
+	compiler: {
+		removeConsole: { exclude: ["info", "error", "warn"] },
+		styledComponents: true,
+	},
 };
 
 module.exports = nextConfig;

@@ -1,5 +1,4 @@
-import { ThemedImg } from "..";
-import { useTranslations } from "next-intl";
+import { ThemedImg } from ".";
 
 // Icons
 import gitIcon from "/public/icons/git-small.svg";
@@ -10,17 +9,15 @@ interface CodeLinkProps {
 	className?: string;
 }
 
-const CodeLink: React.FC<CodeLinkProps> = ({ href, className }) => {
-	const t = useTranslations("card");
+export const CodeLink: React.FC<CodeLinkProps> = ({ href, className }) => {
 	return (
 		<a
 			href={href}
 			target="_blank"
 			className={`flex flex-row-reverse items-center gap-2 text-xs hover:underline sm:text-sm ${className}`}
 		>
-			<span>{t("code")}</span>
+			<span>View Code</span>
 			<ThemedImg srcDark={gitIconWhite} srcLight={gitIcon} alt="Git icon"></ThemedImg>
 		</a>
 	);
 };
-export default CodeLink;

@@ -1,22 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 interface NextProjectBtnProps {
 	nextProjectImg: string;
 	nextProjectTitle: string;
-	nextProjectId: number;
+	nextProjectSlug: string;
 }
 
-const NextProjectBtn: React.FC<NextProjectBtnProps> = ({
+export const NextProjectBtn: React.FC<NextProjectBtnProps> = ({
 	nextProjectImg,
 	nextProjectTitle,
-	nextProjectId,
+	nextProjectSlug,
 }) => {
-	const t = useTranslations("projects-section");
 	const ref = useRef(null);
 	const { scrollYProgress } = useScroll({
 		target: ref,
@@ -28,9 +26,9 @@ const NextProjectBtn: React.FC<NextProjectBtnProps> = ({
 			<a
 				ref={ref}
 				className="intems-center group inline-flex w-[70%] flex-col"
-				href={`/projects/${+nextProjectId}`}
+				href={`/projects/${nextProjectSlug}`}
 			>
-				<span className="text-gray">{t("next-project")}</span>
+				<span className="text-gray">Next project</span>
 				<span className="-mb-5 mt-2 text-3xl font-semibold text-textSecondary transition group-hover:opacity-30 dark:text-white md:-mb-10 md:mt-5 md:text-8xl">
 					{nextProjectTitle}
 				</span>
@@ -52,4 +50,3 @@ const NextProjectBtn: React.FC<NextProjectBtnProps> = ({
 		</div>
 	);
 };
-export default NextProjectBtn;

@@ -10,9 +10,10 @@ interface LinkProps {
 	alt?: string;
 	children?: React.ReactNode;
 	target?: string;
+	itemProp?: string;
 }
 
-const Link: React.FC<LinkProps> = ({
+export const Link: React.FC<LinkProps> = ({
 	href,
 	img,
 	children,
@@ -22,9 +23,11 @@ const Link: React.FC<LinkProps> = ({
 	imgHeight,
 	alt = "Image",
 	target,
+	itemProp,
 }) => {
 	return (
 		<a
+			itemProp={itemProp}
 			tabIndex={1}
 			target={target}
 			onClick={onClick}
@@ -48,5 +51,3 @@ const Link: React.FC<LinkProps> = ({
 		</a>
 	);
 };
-
-export default Link;
