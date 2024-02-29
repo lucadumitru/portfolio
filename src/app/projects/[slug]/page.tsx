@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { Project } from "@/components/sections";
 import { projects } from "@/data/data";
+import { notFound } from "next/navigation";
 
 interface ProjectPageProps {
 	params: { slug: string };
@@ -8,6 +9,13 @@ interface ProjectPageProps {
 
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
 	const project = projects.find((project) => project.slug === params.slug) as Project;
+
+	if (!project) {
+		return {
+			title: "404 - Page not found",
+		};
+	}
+
 	return {
 		title: `${project.title} - Luca Dumitru's web project`,
 		description: `${project.description}`,
@@ -24,7 +32,12 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 
 const ProjectPage: React.FC<ProjectPageProps> = ({ params }) => {
 	const currentProject = projects.find((project) => project.slug === params.slug) as Project;
-	const nextProject = projects[+currentProject.id - 2] as Project;
+	const nextProject = currentProject && (projects[+currentProject.id - 2] as Project);
+
+	if (!currentProject) {
+		return notFound();
+	}
+
 	const jsonLd = {
 		"@context": "https://schema.org",
 		"@type": "WebPage",

@@ -45,11 +45,12 @@ export const NavLinks: React.FC<NavLinksProps> = ({ isOpen, setOpen }) => {
 				}`}
 			>
 				<ul
+					itemScope
 					itemType="https://schema.org/SiteNavigationElement"
 					className=" inline-flex flex-col gap-x-[10px] gap-y-[20px] md:flex-row md:flex-wrap md:gap-x-[30px]  md:gap-y-[0px] "
 				>
 					{links.map((link, index) => (
-						<li itemProp="name" key={index}>
+						<li key={index}>
 							<Link
 								itemProp="url"
 								className={`dark:text-white ${isOpen && "text-[25px]"}`}

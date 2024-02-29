@@ -18,17 +18,10 @@ export const Projects = () => {
 			className={`scroll-mt-[80px] md:scroll-mt-[120px] `}
 		>
 			<Container>
-				<Title
-					tag="h2"
-					itemProp="name"
-					className="text-center text-[24px] font-bold md:text-[48px]"
-				>
+				<Title tag="h2" className="text-center text-[24px] font-bold md:text-[48px]">
 					Projects
 				</Title>
-				<div
-					itemProp="description"
-					className="mt-[10px] text-center text-[18px] text-gray md:mt-[30px] md:text-[32px]"
-				>
+				<div className="mt-[10px] text-center text-[18px] text-gray md:mt-[30px] md:text-[32px]">
 					Things I’ve built so far
 				</div>
 				<div

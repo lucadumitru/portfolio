@@ -2,9 +2,9 @@ import { Container } from "@/components/ui";
 
 export const Contact = () => {
 	return (
-		<section id="contact" className="mb-[50px] mt-[50px] text-center md:mb-[100px] md:mt-[80px]">
+		<section id="contact" className="my-[50px] text-center md:my-[100px]">
 			<Container>
-				<h2 className="text-lg font-semibold text-textSecondary dark:text-white md:text-5xl ">
+				<h2 className="text-2xl font-semibold text-textSecondary dark:text-white md:text-5xl ">
 					Want to create something?
 				</h2>
 				<a

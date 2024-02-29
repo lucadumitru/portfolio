@@ -1,5 +1,6 @@
 import { Header, Footer } from "@/components/layout";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.css";
 import { poppins } from "./fonts";
@@ -40,6 +41,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 					<Footer></Footer>
 				</Provider>
 				<Analytics />
+				<SpeedInsights />
 			</body>
 		</html>
 	);

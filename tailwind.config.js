@@ -33,13 +33,6 @@ module.exports = {
 			animation: {
 				back: "back 0.4s cubic-bezier(0, 0, 0.2, 1) ",
 			},
-			listStyleType: {
-				none: "none",
-				disc: "disc",
-				decimal: "decimal",
-				square: "square",
-				roman: "upper-roman",
-			},
 		},
 	},
 	plugins: [],

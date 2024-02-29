@@ -10,7 +10,7 @@ interface ProjectProps {
 
 export const Project: React.FC<ProjectProps> = ({ project, nextProject }) => {
 	return (
-		<main className="mb-[100px] pt-[110px]">
+		<main className="pt-[110px]">
 			<Container className="flex flex-col items-center">
 				<div>
 					<h1 className="text-center text-3xl font-bold text-textSecondary dark:text-white md:text-6xl">
@@ -20,8 +20,8 @@ export const Project: React.FC<ProjectProps> = ({ project, nextProject }) => {
 						{project.description}
 					</p>
 					<div className="mt-10 flex justify-between gap-5">
-						<LiveLink href={project.preview}></LiveLink>
-						<CodeLink href={project.git}></CodeLink>
+						<LiveLink variant="button" href={project.preview}></LiveLink>
+						<CodeLink variant="button" href={project.git}></CodeLink>
 					</div>
 				</div>
 				<div className="mt-[5%] flex w-full flex-col  gap-[50px] md:gap-[100px]">
@@ -60,15 +60,15 @@ export const Project: React.FC<ProjectProps> = ({ project, nextProject }) => {
 							</ul>
 						</div>
 					)}
-					<div className="relative mt-10 flex flex-col justify-center">
-						{project.id !== 1 && (
+					{project.id !== 1 && (
+						<div className="relative mb-[100px] mt-10 flex flex-col justify-center">
 							<NextProjectBtn
 								nextProjectSlug={nextProject.slug || ""}
 								nextProjectImg={nextProject.img?.jpg || ""}
 								nextProjectTitle={nextProject.title || ""}
 							></NextProjectBtn>
-						)}
-					</div>
+						</div>
+					)}
 				</div>
 			</Container>
 		</main>

@@ -48,9 +48,6 @@ export const projects = [
 			svg: "/projects/nft/img/nft.svg",
 			jpg: "/projects/nft/img/nft.jpg",
 		},
-		video: {
-			macbook: "/projects/quickfit/video/quickfit-hero.mp4",
-		},
 		stack: "HTML , JavaScript, SASS",
 		git: "https://github.com/lucadumitru/nft-marketplace",
 		preview: "http://nft.lucadevelop.com/",
