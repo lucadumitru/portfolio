@@ -3,7 +3,7 @@
 import { Container, Title, ThemedImg } from "@/components/ui";
 import { technologies } from "../../data/data";
 import { motion } from "framer-motion";
-import { fadeInAnimationVariants } from "../../animations/animations";
+import { fadeInAnimationVariants } from "../animations/animations";
 
 export const Stack = () => {
 	return (

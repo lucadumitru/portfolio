@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Link, LiveLink, CodeLink } from "@/components/ui";
 
 import { motion } from "framer-motion";
-import { fadeInAnimationVariants } from "@/animations/animations";
+import { fadeInAnimationVariants } from "@/components/animations/animations";
 
 interface CardProps {
 	project: Project;

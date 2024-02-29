@@ -12,11 +12,7 @@ export const Projects = () => {
 	}
 
 	return (
-		<section
-			itemType="https://schema.org/ItemList"
-			id="projects"
-			className={`scroll-mt-[80px] md:scroll-mt-[120px] `}
-		>
+		<section id="projects" className={`scroll-mt-[80px] md:scroll-mt-[120px] `}>
 			<Container>
 				<Title tag="h2" className="text-center text-[24px] font-bold md:text-[48px]">
 					Projects
