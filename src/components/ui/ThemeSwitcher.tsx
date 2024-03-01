@@ -7,12 +7,10 @@ import { useState, useEffect } from "react";
 export const ThemeSwitcher = () => {
 	const { theme, setTheme } = useTheme();
 	const [mounted, setMounted] = useState(false);
+	const systemDark =
+		theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches;
 	function toggleDarkMode() {
-		if (theme === "dark") {
-			setTheme("light");
-		} else {
-			setTheme("dark");
-		}
+		setTheme(theme === "dark" ? "light" : "dark");
 	}
 	useEffect(() => {
 		setMounted(true);
@@ -21,5 +19,12 @@ export const ThemeSwitcher = () => {
 	if (!mounted) {
 		return <div className="w-[30px]"></div>;
 	}
-	return <DarkModeSwitch checked={theme === "dark"} onChange={toggleDarkMode} size={30} />;
+
+	return (
+		<DarkModeSwitch
+			checked={(mounted && theme === "dark") || systemDark}
+			onChange={systemDark ? () => setTheme("light") : toggleDarkMode}
+			size={30}
+		/>
+	);
 };
