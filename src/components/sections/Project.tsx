@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Container, LiveLink, CodeLink, NextProjectBtn } from "@/components/ui";
+import Link from "next/link";
 
 interface ProjectProps {
 	project: Project;
@@ -25,13 +26,15 @@ export const Project: React.FC<ProjectProps> = ({ project, nextProject }) => {
 					</div>
 				</div>
 				<div className="mt-[5%] flex w-full flex-col  gap-[50px] md:gap-[100px]">
-					<Image
-						className="rounded-xl"
-						src={project.img?.svg || ""}
-						alt={project.title + " img"}
-						width={1200}
-						height={200}
-					></Image>
+					<Link href={project.preview}>
+						<Image
+							className="rounded-xl"
+							src={project.img?.svg || ""}
+							alt={project.title + " img"}
+							width={1200}
+							height={200}
+						></Image>
+					</Link>
 					{project.video && project.video.macbook && (
 						<div className="relative  w-full  bg-macbook bg-contain bg-no-repeat pb-[51%]">
 							<video

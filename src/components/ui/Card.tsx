@@ -47,7 +47,7 @@ export const Card: React.FC<CardProps> = ({ project, index }) => {
 			</a>
 			<div className="flex grow flex-col items-start  p-[25px]">
 				<h5 className="text-[20px] font-medium dark:text-[#CCCCCC] md:text-[28px]">
-					<Link href={`/projects/${project.id}`}>{project.title}</Link>
+					<Link href={`/projects/${project.slug}`}>{project.title}</Link>
 				</h5>
 				<p className="mt-[15px] flex grow text-[16px] font-light text-[gray] dark:text-[#CCCCCC]">
 					{project.description.length >= 150
