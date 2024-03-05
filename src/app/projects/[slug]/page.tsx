@@ -19,13 +19,24 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 	return {
 		title: `${project.title} - Luca Dumitru's web project`,
 		description: `${project.description}`,
-		keywords: `${project.stack}`,
+		keywords: [
+			`${project.stack}`,
+			`${project.title}`,
+			"lucadevelop",
+			"portfolio",
+			"projects",
+			"nextjs",
+			"reactjs",
+		],
 		openGraph: {
 			images: `${project.img?.jpg || ""}`,
 			description: `${project.description}`,
 			title: `${project.title} - Luca Dumitru's web project`,
 			type: "website",
 			url: `https://lucadevelop.com/projects/${project.slug}`,
+		},
+		alternates: {
+			canonical: `/projects/${project.slug}`,
 		},
 	};
 }
