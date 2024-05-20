@@ -5,7 +5,7 @@ import { fadeInAnimationVariants } from "../animations/animations";
 
 export const Stack = () => {
 	return (
-		<section id="stack" className="scroll-mt-[80px] md:scroll-mt-[120px]">
+		<section id="stack" className="scroll-mt-[80px] overflow-hidden md:scroll-mt-[120px]">
 			<Container>
 				<Title tag="h2" className="text-center text-[24px] font-bold md:text-[48px]">
 					My Tech Stack

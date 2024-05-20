@@ -94,13 +94,13 @@ export const projects = [
 		],
 		stack: "HTML, JavaScript, SCSS, Gulp, Webpack",
 		git: "https://github.com/lucadumitru/freaks-landing",
-		preview: "http://freaksofnature.lucadevelop.com/",
+		preview: "https://freaksofnature.me/",
 	},
 	{
 		id: 6,
 		title: "The Box",
 		slug: "the-box",
-		description: "I made this project for a contruction company using React.",
+		description: "I made this project for a construction company using React.",
 		img: {
 			svg: "/projects/the-box/img/the-box.svg",
 			jpg: "/projects/the-box/img/the-box.jpg",
@@ -114,7 +114,7 @@ export const projects = [
 		title: "Portfolio",
 		slug: "portfolio",
 		description:
-			"I create this portfolio web page to have posibility to show all my works in one place and to improve my abilities for using React and Next.js",
+			"I create this portfolio web page to have possibility to show all my works in one place and to improve my abilities for using React and Next.js",
 		img: {
 			svg: "/projects/portfolio/img/portfolio.svg",
 			jpg: "/projects/portfolio/img/portfolio.jpg",
