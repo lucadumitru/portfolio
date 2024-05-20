@@ -11,6 +11,9 @@ module.exports = {
 	darkMode: "class",
 	theme: {
 		extend: {
+			screens: {
+				short: { raw: "(max-height: 680px)" },
+			},
 			colors: {
 				gray: "#666",
 				textSecondary: "#42446E",

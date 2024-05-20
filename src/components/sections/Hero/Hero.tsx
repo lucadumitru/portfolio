@@ -6,10 +6,10 @@ const heroImg = "/profile_2.jpg";
 
 export const Hero = () => {
 	return (
-		<section id="home" className="flex min-h-[calc(100vh-70px)] py-[30px]">
+		<section id="home" className="screen short:py-0 flex min-h-[calc(100vh-70px)] py-[40px]">
 			<Container className="flex min-h-full w-full flex-col justify-between">
 				<div className="flex grow flex-col gap-2 md:grid md:grid-cols-2 md:items-center">
-					<div className="min-h-[200px]">
+					<div className="min-h-[170px]">
 						<HeroTitle />
 					</div>
 					<div className="flex justify-center">
@@ -25,7 +25,7 @@ export const Hero = () => {
 						</div>
 					</div>
 				</div>
-				<div className="flex items-center justify-center">
+				<div className="mt-4 flex items-center justify-center">
 					<ScrollDownBtn className="inline animate-bounce text-center"></ScrollDownBtn>
 				</div>
 			</Container>
