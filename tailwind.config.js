@@ -12,7 +12,7 @@ module.exports = {
 	theme: {
 		extend: {
 			screens: {
-				short: { raw: "(max-height: 680px)" },
+				short: { raw: "(min-height: 680px)" },
 			},
 			colors: {
 				gray: "#666",
