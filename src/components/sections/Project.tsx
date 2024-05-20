@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { Container, LiveLink, CodeLink, NextProjectBtn } from "@/components/ui";
 import Link from "next/link";
@@ -25,7 +23,7 @@ export const Project: React.FC<ProjectProps> = ({ project, nextProject }) => {
 						<CodeLink variant="button" href={project.git}></CodeLink>
 					</div>
 				</div>
-				<div className="mt-[5%] flex w-full flex-col  gap-[50px] md:gap-[100px]">
+				<div className="mt-[5%] flex w-full flex-col gap-[50px] md:gap-[100px]">
 					<Link href={project.preview}>
 						<Image
 							className="rounded-xl"
@@ -36,7 +34,7 @@ export const Project: React.FC<ProjectProps> = ({ project, nextProject }) => {
 						></Image>
 					</Link>
 					{project.video && project.video.macbook && (
-						<div className="relative  w-full  bg-macbook bg-contain bg-no-repeat pb-[51%]">
+						<div className="relative w-full bg-macbook bg-contain bg-no-repeat pb-[51%]">
 							<video
 								autoPlay
 								className="absolute left-1/2 top-[2px] z-[-1] w-[75%]  -translate-x-2/4 rounded-t-[4%] "

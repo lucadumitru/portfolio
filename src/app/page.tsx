@@ -6,9 +6,9 @@ const Home = () => {
 		"@type": "Person",
 		name: "Dumitru Luca",
 		jobTitle: "Frontend Developer",
-		image: "/public/profile-1000.jpg",
-		url: "https://lucadevelop.com",
-		email: "luca.dumitru25@gmail.com",
+		image: "/profile_2.jpg",
+		url: "https://www.lucadevelop.com",
+		email: "luca.dumitru25@icloud.com",
 		gender: "Male",
 		sameAs: [
 			"https://www.linkedin.com/in/dumitru-luca-4a91821ba/",
@@ -19,11 +19,11 @@ const Home = () => {
 		memberOf: {
 			"@type": "Organization",
 			name: "Lucadevelop",
-			url: "https://lucadevelop.com",
+			url: "https://www.lucadevelop.com",
 		},
 	};
 	return (
-		<main className="flex flex-col gap-[50px] md:gap-[150px]">
+		<main className="mt-[70px] flex flex-col gap-[50px] md:gap-[150px]">
 			<script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

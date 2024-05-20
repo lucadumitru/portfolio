@@ -1,4 +1,4 @@
-import { Container, Title, Card, Link, useProjects } from "@/components/ui";
+import { Container, Title, Card } from "@/components/ui";
 import { useState } from "react";
 import { projects } from "@/data/data";
 
@@ -31,15 +31,15 @@ export const Projects = () => {
 						))}
 				</div>
 				<div className="text-center">
-					<Link
+					<button
 						onClick={showAllProjects}
 						className={`${
 							hideBtn && "!hidden"
-						} text-md before:content-[' ']  relative mt-10 cursor-pointer overflow-hidden whitespace-nowrap rounded-[100px] border border-gray from-cyan-500 to-fuchsia-500 p-4 transition-all before:absolute before:h-full before:w-full before:bg-gradient-to-r before:opacity-0 before:transition-opacity hover:border-white hover:text-white hover:before:opacity-100 sm:inline-flex md:p-5 md:text-lg md:hover:no-underline`}
+						} text-md before:content-[' '] relative mt-10 flex w-full cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap rounded-[100px] border border-gray from-cyan-500 to-fuchsia-500 p-4 transition-all before:absolute before:h-full before:w-full before:bg-gradient-to-r before:opacity-0 before:transition-opacity hover:border-white hover:text-white hover:before:opacity-100 sm:inline-flex md:w-auto md:p-5 md:text-lg md:hover:no-underline`}
 					>
-						More projects
+						<span className=" relative z-10">More projects</span>
 						<sup className="text-s ml-1">{projects.length - projectsShowLength}</sup>{" "}
-					</Link>
+					</button>
 				</div>
 			</Container>
 		</section>

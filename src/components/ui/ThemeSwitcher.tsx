@@ -22,6 +22,8 @@ export const ThemeSwitcher = () => {
 
 	return (
 		<DarkModeSwitch
+			onKeyDown={(e) => e.key === "Enter" && toggleDarkMode()}
+			tabIndex={0}
 			checked={(mounted && theme === "dark") || systemDark}
 			onChange={systemDark ? () => setTheme("light") : toggleDarkMode}
 			size={30}

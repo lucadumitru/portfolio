@@ -1,5 +1,3 @@
-"use client";
-
 import { Logo, Container } from "@/components/ui";
 import { Socials } from "@/components/common";
 import { dmSans } from "@/app/fonts";
@@ -8,15 +6,13 @@ export const Footer = () => {
 	return (
 		<footer className="z-5 relative mt-auto">
 			<Container className="pt-[20px] ">
-				{/* Top */}
 				<div
 					className={`flex items-center gap-2 ${dmSans.className} justify-center gap-2 border-b-[2px] border-solid border-gray/30 pb-7 pt-7 font-medium text-textSecondary md:justify-between`}
 				>
 					<Logo className="hidden md:block"></Logo>
 					<Socials></Socials>
 				</div>
-				{/* Bottom */}
-				<div className="flex flex-wrap justify-center gap-x-1 py-4 pr-2 text-gray md:justify-between  md:py-7">
+				<div className="flex flex-wrap justify-center gap-x-1 py-4 pr-2 text-gray md:justify-between md:py-7">
 					<div>
 						Designed by{" "}
 						<a
@@ -29,7 +25,7 @@ export const Footer = () => {
 					</div>
 					<div className="text-center">
 						Built by{" "}
-						<span className="bg-gradient-to-r from-cyan-500  to-fuchsia-500 bg-clip-text text-transparent">
+						<span className="bg-gradient-to-r from-cyan-500 to-fuchsia-500 bg-clip-text text-transparent">
 							Luca Dumitru{" "}
 						</span>
 						<span>

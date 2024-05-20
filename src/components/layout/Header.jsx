@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 
 import { Container, NavLinks, Logo, ThemeSwitcher, BackBtn, ResumeBtn } from "@/components/ui";
@@ -28,7 +26,7 @@ export const Header = () => {
 					<ThemeSwitcher></ThemeSwitcher>
 					{!projectPath && (
 						<div className="md:hidden">
-							<Hamburger toggled={isOpen} toggle={setOpen} />
+							<Hamburger label="menu button" toggled={isOpen} toggle={setOpen} />
 						</div>
 					)}
 				</div>

@@ -12,14 +12,26 @@ interface SocialsProps {
 export const Socials: React.FC<SocialsProps> = ({ className }) => {
 	return (
 		<div className={`flex items-center justify-center gap-x-[10px] md:gap-x-[20px] ${className}`}>
-			<Link href="https://t.me/dumitruluca" target="_blank" img={telegramIcon}></Link>
-			<Link href="https://github.com/lucadumitru" img={gitIcon} target="_blank"></Link>
 			<Link
+				aria-label="Telegram link"
+				href="https://t.me/dumitruluca"
+				target="_blank"
+				img={telegramIcon}
+			></Link>
+			<Link
+				aria-label="Github link"
+				href="https://github.com/lucadumitru"
+				img={gitIcon}
+				target="_blank"
+			></Link>
+			<Link
+				aria-label="LinkedIn link"
 				href="https://www.linkedin.com/in/dumitru-luca-4a91821ba/"
 				img={linkedInIcon}
 				target="_blank"
 			></Link>
 			<Link
+				aria-label="Instagram link"
 				href="https://www.instagram.com/dumitru_luca25/"
 				img={instagramIcon}
 				target="_blank"

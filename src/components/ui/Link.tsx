@@ -28,13 +28,11 @@ export const Link: React.FC<LinkProps> = ({
 	return (
 		<a
 			itemProp={itemProp}
-			tabIndex={1}
+			tabIndex={0}
 			target={target}
 			onClick={onClick}
 			href={href}
-			className={`${
-				className || ""
-			} flex items-center justify-center gap-[10px] md:hover:underline `}
+			className={`${className || ""} flex items-center justify-center md:hover:underline `}
 		>
 			{img && (
 				<Image
