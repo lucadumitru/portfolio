@@ -6,37 +6,31 @@ import { Link, Socials, ResumeBtn } from "@/components/ui";
 interface NavLinksProps {
 	isOpen: boolean;
 	setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-	locale: string;
 }
+const navLinks = [
+	{
+		name: "Home",
+		href: "#home",
+	},
+	{
+		name: "Stack",
+		href: "#stack",
+	},
+	{
+		name: "Projects",
+		href: "#projects",
+	},
+	{
+		name: "Contact",
+		href: "#contact",
+	},
+];
 
 export const NavLinks: React.FC<NavLinksProps> = ({ isOpen, setOpen }) => {
-	const links = [
-		{
-			name: "Home",
-			href: "#home",
-		},
-		{
-			name: "Stack",
-			href: "#stack",
-		},
-		{
-			name: "Projects",
-			href: "#projects",
-		},
-		{
-			name: "Contact",
-			href: "#contact",
-		},
-	];
-	const handleMenu = () => {
-		if (isOpen) {
-			setOpen(!isOpen);
-		}
-	};
 	return (
 		<nav className="flex items-center md:gap-x-[50px]">
 			<div
-				className={`fixed top-0 h-full w-full bg-white  before:fixed before:top-0 before:z-20 before:h-[76px] before:w-full before:border-b-[2px] before:border-solid before:border-gray/30 before:bg-white before:content-[''] dark:bg-bgDark dark:before:bg-bgDark md:relative md:left-0 md:bg-transparent md:before:hidden ${
+				className={`fixed top-0 h-full w-full bg-white before:fixed before:top-0 before:z-20 before:h-[76px] before:w-full before:border-b-[2px] before:border-solid before:border-gray/30 before:bg-white before:content-[''] dark:bg-bgDark dark:before:bg-bgDark md:relative md:left-0 md:bg-transparent md:before:hidden ${
 					dmSans.className
 				} ${
 					!isOpen
@@ -49,15 +43,15 @@ export const NavLinks: React.FC<NavLinksProps> = ({ isOpen, setOpen }) => {
 					itemType="https://schema.org/SiteNavigationElement"
 					className=" inline-flex flex-col gap-x-[10px] gap-y-[20px] md:flex-row md:flex-wrap md:gap-x-[30px]  md:gap-y-[0px] "
 				>
-					{links.map((link, index) => (
+					{navLinks.map((navLink, index) => (
 						<li key={index}>
 							<Link
 								itemProp="url"
 								className={`dark:text-white ${isOpen && "text-[25px]"}`}
-								onClick={handleMenu}
-								href={link.href}
+								onClick={() => setOpen((prev) => prev === true && false)}
+								href={navLink.href}
 							>
-								{link.name}
+								{navLink.name}
 							</Link>
 						</li>
 					))}

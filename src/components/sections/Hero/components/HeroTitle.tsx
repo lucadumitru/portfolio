@@ -3,13 +3,14 @@ import { TypeAnimation } from "react-type-animation";
 
 export const HeroTitle = () => {
 	return (
-		<Title className=" text-[28px] font-bold md:text-left md:text-[40px] lg:text-[55px]" tag="h1">
+		<Title className="text-[28px] font-bold md:text-left md:text-[40px] lg:text-[55px]" tag="h1">
 			Hi 👋, My name is <br></br>
-			<span className="bg-gradient-to-r from-cyan-500 to-fuchsia-500 bg-clip-text text-transparent">
-				<strong>Luca Dumitru</strong>
-			</span>{" "}
+			<strong className="bg-gradient-to-r from-cyan-500 to-fuchsia-500 bg-clip-text text-transparent">
+				Luca Dumitru
+			</strong>
 			<br />I build{" "}
 			<TypeAnimation
+				className="will-change-content"
 				sequence={[
 					"things for web",
 					1000,
