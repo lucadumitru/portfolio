@@ -2,7 +2,7 @@ export * from "./BackBtn";
 export * from "./Card";
 export * from "./CodeLink";
 export * from "./Container";
-export * from "./Logo";
+export * from "./LogoLink";
 export * from "./Link";
 export * from "./LiveLink";
 export * from "./NavLinks";

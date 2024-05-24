@@ -1,4 +1,4 @@
-import { Logo, Container } from "@/components/ui";
+import { Container, LogoLink } from "@/components/ui";
 import { Socials } from "@/components/common";
 import { dmSans } from "@/app/fonts";
 
@@ -9,7 +9,7 @@ export const Footer = () => {
 				<div
 					className={`flex items-center gap-2 ${dmSans.className} justify-center gap-2 border-b-[2px] border-solid border-gray/30 pb-7 pt-7 font-medium text-textSecondary md:justify-between`}
 				>
-					<Logo className="hidden md:block"></Logo>
+					<LogoLink className="hidden md:block" />
 					<Socials></Socials>
 				</div>
 				<div className="flex flex-wrap justify-center gap-x-1 py-4 pr-2 text-gray md:justify-between md:py-7">
