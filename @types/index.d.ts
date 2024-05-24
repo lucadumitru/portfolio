@@ -21,3 +21,5 @@ type Project = {
 	git: string;
 	preview: string;
 };
+
+type ReactTagProps<T> = import("react").ComponentPropsWithRef<T>;
