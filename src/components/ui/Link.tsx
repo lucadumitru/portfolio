@@ -10,9 +10,10 @@ interface LinkProps {
 	alt?: string;
 	children?: React.ReactNode;
 	target?: string;
+	itemProp?: string;
 }
 
-const Link: React.FC<LinkProps> = ({
+export const Link: React.FC<LinkProps> = ({
 	href,
 	img,
 	children,
@@ -22,16 +23,16 @@ const Link: React.FC<LinkProps> = ({
 	imgHeight,
 	alt = "Image",
 	target,
+	itemProp,
 }) => {
 	return (
 		<a
-			tabIndex={1}
+			itemProp={itemProp}
+			tabIndex={0}
 			target={target}
 			onClick={onClick}
 			href={href}
-			className={`${
-				className || ""
-			} flex items-center justify-center gap-[10px] md:hover:underline `}
+			className={`${className || ""} flex items-center justify-center md:hover:underline `}
 		>
 			{img && (
 				<Image
@@ -48,5 +49,3 @@ const Link: React.FC<LinkProps> = ({
 		</a>
 	);
 };
-
-export default Link;

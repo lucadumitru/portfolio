@@ -11,14 +11,16 @@ interface ThemedImgProps {
 	srcLight: string;
 	srcDark: string;
 	alt: string;
+	src?: string;
 }
 
-const ThemedImg: React.FC<ThemedImgProps> = ({
+export const ThemedImg: React.FC<ThemedImgProps> = ({
 	className,
 	width,
 	height,
 	srcLight,
 	srcDark,
+	src,
 	alt,
 }) => {
 	const { resolvedTheme } = useTheme();
@@ -32,7 +34,6 @@ const ThemedImg: React.FC<ThemedImgProps> = ({
 		return null;
 	}
 
-	let src: string;
 	switch (resolvedTheme) {
 		case "light":
 			src = srcLight;
@@ -42,6 +43,13 @@ const ThemedImg: React.FC<ThemedImgProps> = ({
 			break;
 	}
 
-	return <Image className={className} width={width} height={height} src={src} alt={alt}></Image>;
+	return (
+		<Image
+			className={className}
+			width={width}
+			height={height}
+			src={src || srcLight}
+			alt={alt}
+		></Image>
+	);
 };
-export default ThemedImg;
