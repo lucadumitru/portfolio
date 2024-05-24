@@ -1,15 +1,16 @@
 import { Container, Title, Card } from "@/components/ui";
 import { useState } from "react";
 import { projects } from "@/data/data";
+import { LazyMotion, domAnimation } from "framer-motion";
 
 export const Projects = () => {
 	const [projectsShowLength, setProjectsShowLength] = useState(6);
 	const [hideBtn, setHideBtn] = useState(false);
 	const dataProjects = [...projects];
-	function showAllProjects() {
+	const showAllProjects = () => {
 		setProjectsShowLength(projects.length);
 		setHideBtn(true);
-	}
+	};
 
 	return (
 		<section id="projects" className={`scroll-mt-[80px] md:scroll-mt-[120px] `}>
@@ -20,16 +21,18 @@ export const Projects = () => {
 				<div className="mt-[10px] text-center text-[18px] text-gray md:mt-[30px] md:text-[32px]">
 					Things I’ve built so far
 				</div>
-				<div
-					className={`mt-[25px] grid grid-cols-1 gap-[45px] gap-y-[20px] md:mt-[80px] md:grid-cols-2 md:gap-y-[40px] lg:grid-cols-3 xl:mt-[120px]`}
-				>
-					{dataProjects
-						.reverse()
-						.slice(0, projectsShowLength)
-						.map((project, index) => (
-							<Card project={project} key={project.id} index={index}></Card>
-						))}
-				</div>
+				<LazyMotion features={domAnimation}>
+					<div
+						className={`mt-[25px] grid grid-cols-1 gap-[45px] gap-y-[20px] md:mt-[80px] md:grid-cols-2 md:gap-y-[40px] lg:grid-cols-3 xl:mt-[120px]`}
+					>
+						{dataProjects
+							.reverse()
+							.slice(0, projectsShowLength)
+							.map((project, index) => (
+								<Card project={project} key={project.id} index={index}></Card>
+							))}
+					</div>
+				</LazyMotion>
 				<div className="text-center">
 					<button
 						onClick={showAllProjects}
