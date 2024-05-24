@@ -7,14 +7,14 @@ const jsonLd: Person = {
 	name: "Dumitru Luca",
 	jobTitle: "Frontend Developer",
 	image: "/profile_2.jpg",
-	url: "https://www.lucadevelop.com",
+	url: "https://lucadevelop.com",
 	email: "luca.dumitru25@icloud.com",
 	gender: "Male",
 	sameAs: [
-		"https://www.linkedin.com/in/dumitru-luca-4a91821ba/",
+		"https://linkedin.com/in/dumitru-luca-4a91821ba/",
 		"https://github.com/lucadumitru",
 		"https://t.me/dumitruluca",
-		"https://www.instagram.com/dumitru_luca25/",
+		"https://instagram.com/dumitru_luca25/",
 	],
 	brand: "Lucadevelop",
 	address: {
