@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { Link, LiveLink, CodeLink } from "@/components/ui";
 
-import { motion } from "framer-motion";
-import { fadeInAnimationVariants } from "@/components/animations/animations";
+import { m } from "framer-motion";
+import { fadeInAnimationVariants } from "@/animations/animations";
+
+import type { Article } from "schema-dts";
 
 interface CardProps {
 	project: Project;
@@ -10,10 +12,25 @@ interface CardProps {
 }
 
 export const Card: React.FC<CardProps> = ({ project, index }) => {
+	const jsonLd: Article = {
+		"@type": "Article",
+		name: project.title,
+		description: project.description,
+		image: project.img?.svg,
+		url: `https://lucadevelop.com`,
+		keywords: project.stack,
+		about: {
+			"@type": "Project",
+			name: project.title,
+			description: project.description,
+			image: project.img?.svg,
+			url: `https://lucadevelop.com/projects/${project.slug}`,
+		},
+		articleBody: project.description,
+		inLanguage: "en",
+	};
 	return (
-		<motion.article
-			itemScope
-			itemType="https://schema.org/ListItem"
+		<m.article
 			variants={fadeInAnimationVariants}
 			initial="initial"
 			whileInView="animate"
@@ -23,6 +40,10 @@ export const Card: React.FC<CardProps> = ({ project, index }) => {
 			custom={index}
 			className="m-width-full shadow-custom relative flex flex-col overflow-hidden rounded-[20px] bg-white shadow-card dark:bg-[#363636]"
 		>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+			/>
 			<a aria-label={project.title + " link"} href={`/projects/${project.slug}`}>
 				{!project.video || !project.video.preview ? (
 					<Image
@@ -31,6 +52,7 @@ export const Card: React.FC<CardProps> = ({ project, index }) => {
 						height="200"
 						src={project.img?.svg || ""}
 						alt={project.title + " img"}
+						style={{ width: "auto", height: "auto" }}
 					></Image>
 				) : (
 					<video
@@ -68,6 +90,6 @@ export const Card: React.FC<CardProps> = ({ project, index }) => {
 					<CodeLink href={project.git}></CodeLink>
 				</div>
 			</div>
-		</motion.article>
+		</m.article>
 	);
 };

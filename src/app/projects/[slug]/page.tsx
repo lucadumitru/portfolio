@@ -49,27 +49,10 @@ const ProjectPage: React.FC<ProjectPageProps> = ({ params }) => {
 		return notFound();
 	}
 
-	const jsonLd = {
-		"@context": "https://schema.org",
-		"@type": "WebPage",
-		name: `${currentProject.title}`,
-		description: `${currentProject.description}`,
-		url: `https://lucadevelop.com/projects/${currentProject.slug}`,
-		author: {
-			"@type": "Person",
-			name: "Luca Dumitru",
-			url: "https://lucadevelop.com",
-		},
-		keywords: `${currentProject.stack}`,
-	};
 	return (
-		<div>
-			<script
-				type="application/ld+json"
-				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-			/>
+		<>
 			<Project project={currentProject} nextProject={nextProject}></Project>
-		</div>
+		</>
 	);
 };
 export default ProjectPage;

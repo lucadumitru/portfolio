@@ -2,14 +2,37 @@ import Image from "next/image";
 import { Container, LiveLink, CodeLink, NextProjectBtn } from "@/components/ui";
 import Link from "next/link";
 
+import type { Article } from "schema-dts";
+
 interface ProjectProps {
 	project: Project;
 	nextProject: Project;
 }
 
 export const Project: React.FC<ProjectProps> = ({ project, nextProject }) => {
+	const jsonLd: Article = {
+		"@type": "Article",
+		name: project.title,
+		description: project.description,
+		image: project.img?.svg,
+		url: `https://lucadevelop.com/projects/${project.slug}`,
+		keywords: project.stack,
+		about: {
+			"@type": "Project",
+			name: project.title,
+			description: project.description,
+			image: project.img?.svg,
+			url: `https://lucadevelop.com/projects/${project.slug}`,
+		},
+		articleBody: project.description,
+		inLanguage: "en",
+	};
 	return (
 		<main className="pt-[110px]">
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+			/>
 			<Container className="flex flex-col items-center">
 				<div>
 					<h1 className="text-center text-3xl font-bold text-textSecondary dark:text-white md:text-6xl">
