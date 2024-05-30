@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Link, LiveLink, CodeLink } from "@/components/ui";
 
 import { m } from "framer-motion";
-import { fadeInAnimationVariants } from "@/animations/animations";
+import { fadeInAnimationVariants } from "@/utils";
 
 import type { Article } from "schema-dts";
 

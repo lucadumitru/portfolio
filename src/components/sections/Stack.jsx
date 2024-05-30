@@ -1,7 +1,7 @@
 import { Container, Title, ThemedImg } from "@/components/ui";
 import { technologies } from "@/data/data";
 import { LazyMotion, domAnimation, m } from "framer-motion";
-import { fadeInAnimationVariants } from "@/animations/animations";
+import { fadeInAnimationVariants } from "@/utils";
 
 export const Stack = () => {
 	return (
