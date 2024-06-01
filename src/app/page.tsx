@@ -27,6 +27,8 @@ const jsonLd: Person = {
 };
 const heroImg = '/profile_2.jpg';
 
+export const dynamic = 'force-dynamic';
+
 const Home = async () => {
 	const { base64 } = await getBase64(heroImg);
 
