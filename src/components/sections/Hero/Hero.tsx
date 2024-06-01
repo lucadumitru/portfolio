@@ -1,10 +1,15 @@
-import { Container, ScrollDownBtn } from "@/components/ui";
-import Image from "next/image";
-import { HeroTitle } from "./components/HeroTitle";
+import { Container, ScrollDownBtn } from '@/components/ui';
+import { HeroTitle } from './components/HeroTitle';
+import Image from 'next/image';
+import React from 'react';
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
-const heroImg = "/profile_2.jpg";
+interface HeroProps {
+	base64?: string;
+	imgSrc: string | StaticImport;
+}
 
-export const Hero = () => {
+export const Hero: React.FC<HeroProps> = ({ base64, imgSrc }) => {
 	return (
 		<section id="home" className="flex min-h-[calc(100dvh-70px)] scroll-m-[40px] short:py-[40px]">
 			<Container className="flex min-h-full w-full flex-col justify-between">
@@ -19,9 +24,11 @@ export const Hero = () => {
 								className="h-[350px] w-[350px] shrink-0 rounded-full object-cover"
 								width={350}
 								height={350}
-								src={heroImg}
+								src={imgSrc}
+								placeholder={base64 ? 'blur' : 'empty'}
 								alt="Luca Dumitru profile img"
-							></Image>
+								blurDataURL={base64}
+							/>
 						</div>
 					</div>
 				</div>
