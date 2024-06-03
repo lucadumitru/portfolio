@@ -40,7 +40,6 @@ export const Card: React.FC<CardProps> = ({ project, index }) => {
 			}}
 			custom={index}
 			className="shadow-custom relative flex flex-col overflow-hidden rounded-[20px] bg-white shadow-card dark:bg-[#363636]"
-			className="shadow-custom relative flex flex-col overflow-hidden rounded-[20px] bg-white shadow-card dark:bg-[#363636]"
 		>
 			<script
 				type="application/ld+json"
