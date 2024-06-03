@@ -1,6 +1,5 @@
 import { Hero, Stack, Projects, Contact } from '@/components/sections';
 import type { Person } from 'schema-dts';
-import { getBase64 } from './api/requests';
 
 const jsonLd: Person = {
 	'@type': 'Person',
@@ -25,20 +24,15 @@ const jsonLd: Person = {
 		postalCode: '41009',
 	},
 };
-const heroImg = '/profile_2.jpg';
-
-export const dynamic = 'force-dynamic';
 
 const Home = async () => {
-	const { base64 } = await getBase64(heroImg);
-
 	return (
 		<main className="mt-[70px] flex flex-col gap-[50px] md:gap-[150px]">
 			<script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
-			<Hero base64={base64} imgSrc={heroImg}></Hero>
+			<Hero></Hero>
 			<Stack></Stack>
 			<Projects></Projects>
 			<Contact></Contact>
