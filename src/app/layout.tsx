@@ -35,11 +35,11 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 			<body
 				className={`${poppins.className} flex min-h-screen min-w-[390px] flex-col bg-white dark:bg-bgDark`}
 			>
-				{/* <Provider> */}
-				<Header></Header>
-				{children}
-				<Footer></Footer>
-				{/* </Provider> */}
+				<Provider>
+					<Header></Header>
+					{children}
+					<Footer></Footer>
+				</Provider>
 				<Analytics />
 				<SpeedInsights />
 			</body>
