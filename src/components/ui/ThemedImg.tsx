@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { useTheme } from "next-themes";
-import { useState, useEffect } from "react";
+import Image from 'next/image';
+import { useTheme } from 'next-themes';
+import { useState, useEffect } from 'react';
 
 interface ThemedImgProps {
 	className?: string;
@@ -35,16 +35,17 @@ export const ThemedImg: React.FC<ThemedImgProps> = ({
 	}
 
 	switch (resolvedTheme) {
-		case "light":
+		case 'light':
 			src = srcLight;
 			break;
-		case "dark":
+		case 'dark':
 			src = srcDark ? srcDark : srcLight;
 			break;
 	}
 
 	return (
 		<Image
+			priority
 			className={className}
 			width={width}
 			height={height}

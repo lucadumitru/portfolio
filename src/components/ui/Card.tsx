@@ -1,10 +1,10 @@
-import Image from "next/image";
-import { Link, LiveLink, CodeLink } from "@/components/ui";
+import Image from 'next/image';
+import { Link, LiveLink, CodeLink } from '@/components/ui';
 
-import { m } from "framer-motion";
-import { fadeInAnimationVariants } from "@/utils";
+import { m } from 'framer-motion';
+import { fadeInAnimationVariants } from '@/utils';
 
-import type { Article } from "schema-dts";
+import type { Article } from 'schema-dts';
 
 interface CardProps {
 	project: Project;
@@ -13,22 +13,23 @@ interface CardProps {
 
 export const Card: React.FC<CardProps> = ({ project, index }) => {
 	const jsonLd: Article = {
-		"@type": "Article",
+		'@type': 'Article',
 		name: project.title,
 		description: project.description,
 		image: project.img?.svg,
 		url: `https://lucadevelop.com`,
 		keywords: project.stack,
 		about: {
-			"@type": "Project",
+			'@type': 'Project',
 			name: project.title,
 			description: project.description,
 			image: project.img?.svg,
 			url: `https://lucadevelop.com/projects/${project.slug}`,
 		},
 		articleBody: project.description,
-		inLanguage: "en",
+		inLanguage: 'en',
 	};
+
 	return (
 		<m.article
 			variants={fadeInAnimationVariants}
@@ -39,20 +40,21 @@ export const Card: React.FC<CardProps> = ({ project, index }) => {
 			}}
 			custom={index}
 			className="shadow-custom relative flex flex-col overflow-hidden rounded-[20px] bg-white shadow-card dark:bg-[#363636]"
+			className="shadow-custom relative flex flex-col overflow-hidden rounded-[20px] bg-white shadow-card dark:bg-[#363636]"
 		>
 			<script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
-			<a aria-label={project.title + " link"} href={`/projects/${project.slug}`}>
+			<a aria-label={project.title + ' link'} href={`/projects/${project.slug}`}>
 				{!project.video || !project.video.preview ? (
 					<Image
 						className="max-h-[200px] min-w-full object-cover transition hover:scale-105 "
 						width="200"
 						height="200"
-						src={project.img?.svg || ""}
-						alt={project.title + " img"}
-						style={{ width: "auto", height: "auto" }}
+						src={project.img?.svg || ''}
+						alt={project.title + ' img'}
+						style={{ width: 'auto', height: 'auto' }}
 					></Image>
 				) : (
 					<video
@@ -74,14 +76,14 @@ export const Card: React.FC<CardProps> = ({ project, index }) => {
 				</h3>
 				<p className="mt-[15px] flex grow text-[16px] font-light text-[gray] dark:text-[#CCCCCC]">
 					{project.description.length >= 150
-						? project.description.substring(0, 150) + "..."
+						? project.description.substring(0, 150) + '...'
 						: project.description}
 				</p>
 				<div className="mt-[12px] text-textSecondary dark:text-[#CCCCCC]">
-					Tech stack:{" "}
+					Tech stack:{' '}
 					<span className="font-light">
 						{project.stack && project.stack.length >= 60
-							? project.stack.substring(0, 60) + "..."
+							? project.stack.substring(0, 60) + '...'
 							: project.stack}
 					</span>
 				</div>
