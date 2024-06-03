@@ -1,18 +1,20 @@
-import { useState } from "react";
+'use client';
 
-import { Container, NavLinks, LogoLink, ThemeSwitcher, BackBtn, ResumeBtn } from "@/components/ui";
-import { Socials } from "@/components/common";
-import { usePathname } from "next/navigation";
-import { Fade as Hamburger } from "hamburger-react";
+import { useState } from 'react';
+
+import { Container, NavLinks, LogoLink, ThemeSwitcher, BackBtn, ResumeBtn } from '@/components/ui';
+import { Socials } from '@/components/common';
+import { usePathname } from 'next/navigation';
+import { Fade as Hamburger } from 'hamburger-react';
 
 export const Header = () => {
 	const [isOpen, setOpen] = useState(false);
 	const pathname = usePathname();
-	const projectPath = pathname.includes("/projects/");
+	const projectPath = pathname.includes('/projects/');
 
 	const onClick = () => {
 		setOpen(!isOpen);
-		document.body.classList.toggle("overflow-hidden");
+		document.body.classList.toggle('overflow-hidden');
 	};
 
 	return (

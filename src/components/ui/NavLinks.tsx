@@ -1,7 +1,8 @@
 "use client";
 
 import { dmSans } from "@/app/fonts";
-import { Link, Socials, ResumeBtn } from "@/components/ui";
+import { Link, ResumeBtn } from "@/components/ui";
+import { Socials } from "../common";
 
 interface NavLinksProps {
 	isOpen: boolean;

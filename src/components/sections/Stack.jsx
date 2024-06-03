@@ -1,7 +1,7 @@
-import { Container, Title, ThemedImg } from "@/components/ui";
-import { technologies } from "@/data/data";
-import { LazyMotion, domAnimation, m } from "framer-motion";
-import { fadeInAnimationVariants } from "@/animations/animations";
+import { Container, Title, ThemedImg } from '@/components/ui';
+import { technologies } from '@/data/data';
+import { LazyMotion, domAnimation, m } from 'framer-motion';
+import { fadeInAnimationVariants } from '@/utils';
 
 export const Stack = () => {
 	return (
@@ -32,8 +32,8 @@ export const Stack = () => {
 									height={120}
 									srcDark={el.iconDark}
 									srcLight={el.icon}
-									alt={el.name + " icon"}
-								></ThemedImg>
+									alt={el.name + ' icon'}
+								/>
 							</m.li>
 						))}
 					</ul>
