@@ -38,7 +38,7 @@ export const Card: React.FC<CardProps> = ({ project, index }) => {
 				once: true,
 			}}
 			custom={index}
-			className="m-width-full shadow-custom relative flex flex-col overflow-hidden rounded-[20px] bg-white shadow-card dark:bg-[#363636]"
+			className="shadow-custom relative flex flex-col overflow-hidden rounded-[20px] bg-white shadow-card dark:bg-[#363636]"
 		>
 			<script
 				type="application/ld+json"
@@ -47,7 +47,7 @@ export const Card: React.FC<CardProps> = ({ project, index }) => {
 			<a aria-label={project.title + " link"} href={`/projects/${project.slug}`}>
 				{!project.video || !project.video.preview ? (
 					<Image
-						className="h-[200px] w-full object-cover transition hover:scale-105 md:h-[260px]"
+						className="max-h-[200px] min-w-full object-cover transition hover:scale-105 "
 						width="200"
 						height="200"
 						src={project.img?.svg || ""}
@@ -57,7 +57,7 @@ export const Card: React.FC<CardProps> = ({ project, index }) => {
 				) : (
 					<video
 						autoPlay
-						className="h-[200px] w-full object-cover transition hover:scale-105 md:h-[260px]"
+						className="max-h-[200px] w-full object-cover transition hover:scale-105"
 						loop
 						playsInline
 						muted
