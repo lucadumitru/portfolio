@@ -5,6 +5,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import { poppins } from './fonts';
 import Provider from './provider';
+import { Contact } from '@/components/layout';
 
 export const metadata = {
 	metadataBase: new URL('https://lucadevelop.com'),
@@ -36,9 +37,10 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 				className={`${poppins.className} flex min-h-screen min-w-[390px] flex-col bg-white dark:bg-bgDark`}
 			>
 				<Provider>
-					<Header></Header>
+					<Header />
 					{children}
-					<Footer></Footer>
+					<Contact />
+					<Footer />
 				</Provider>
 				<Analytics />
 				<SpeedInsights />

@@ -1,8 +1,10 @@
-import Image from "next/image";
-import { Container, LiveLink, CodeLink, NextProjectBtn } from "@/components/ui";
-import Link from "next/link";
+'use client';
 
-import type { Article } from "schema-dts";
+import Image from 'next/image';
+import { Container, LiveLink, CodeLink, NextProjectBtn } from '@/components/ui';
+import Link from 'next/link';
+
+import type { Article } from 'schema-dts';
 
 interface ProjectProps {
 	project: Project;
@@ -11,21 +13,21 @@ interface ProjectProps {
 
 export const Project: React.FC<ProjectProps> = ({ project, nextProject }) => {
 	const jsonLd: Article = {
-		"@type": "Article",
+		'@type': 'Article',
 		name: project.title,
 		description: project.description,
 		image: project.img?.svg,
 		url: `https://lucadevelop.com/projects/${project.slug}`,
 		keywords: project.stack,
 		about: {
-			"@type": "Project",
+			'@type': 'Project',
 			name: project.title,
 			description: project.description,
 			image: project.img?.svg,
 			url: `https://lucadevelop.com/projects/${project.slug}`,
 		},
 		articleBody: project.description,
-		inLanguage: "en",
+		inLanguage: 'en',
 	};
 	return (
 		<main className="pt-[110px]">
@@ -41,17 +43,25 @@ export const Project: React.FC<ProjectProps> = ({ project, nextProject }) => {
 					<p className="mt-3 max-w-4xl text-center text-gray md:mt-10">
 						{project.description}
 					</p>
-					<div className="mt-10 flex justify-between gap-5">
-						<LiveLink variant="button" href={project.preview}></LiveLink>
-						<CodeLink variant="button" href={project.git}></CodeLink>
+					<div
+						className={`mt-10 flex  gap-5 ${
+							project.preview ? 'justify-between' : 'justify-center'
+						} `}
+					>
+						{project.preview && <LiveLink variant="button" href={project.preview}></LiveLink>}
+						<CodeLink
+							variant="button"
+							className="justify-self-center"
+							href={project.git}
+						></CodeLink>
 					</div>
 				</div>
 				<div className="mt-[5%] flex w-full flex-col gap-[50px] md:gap-[100px]">
-					<Link href={project.preview}>
+					<Link href={project.preview || ''}>
 						<Image
 							className="rounded-xl"
-							src={project.img?.svg || ""}
-							alt={project.title + " img"}
+							src={project.img?.svg || ''}
+							alt={project.title + ' img'}
 							width={1200}
 							height={200}
 						></Image>
@@ -76,7 +86,7 @@ export const Project: React.FC<ProjectProps> = ({ project, nextProject }) => {
 								{project.keyfeatures.map((keyfeature, index) => (
 									<li key={index} className="inline-block text-gray">
 										<span className="font-bold">
-											● {`${keyfeature.key ? keyfeature.key + ":" : ""}`}{" "}
+											● {`${keyfeature.key ? keyfeature.key + ':' : ''}`}{' '}
 										</span>
 										<p className="inline">{keyfeature.description}</p>
 									</li>
@@ -87,9 +97,9 @@ export const Project: React.FC<ProjectProps> = ({ project, nextProject }) => {
 					{project.id !== 1 && (
 						<div className="relative mb-[100px] mt-10 flex flex-col justify-center">
 							<NextProjectBtn
-								nextProjectSlug={nextProject.slug || ""}
-								nextProjectImg={nextProject.img?.jpg || ""}
-								nextProjectTitle={nextProject.title || ""}
+								nextProjectSlug={nextProject.slug || ''}
+								nextProjectImg={nextProject.img?.jpg || ''}
+								nextProjectTitle={nextProject.title || ''}
 							></NextProjectBtn>
 						</div>
 					)}

@@ -1,4 +1,4 @@
-import { Hero, Stack, Projects, Contact } from '@/components/sections';
+import { Hero, Stack, Projects } from '@/components/sections';
 import type { Person } from 'schema-dts';
 
 const jsonLd: Person = {
@@ -27,7 +27,7 @@ const jsonLd: Person = {
 
 const Home = async () => {
 	return (
-		<main className="mt-[70px] flex flex-col gap-[50px] md:gap-[150px]">
+		<main className="mb-1 flex flex-col gap-[50px] pt-[70px]  md:gap-[150px]">
 			<script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -35,7 +35,6 @@ const Home = async () => {
 			<Hero></Hero>
 			<Stack></Stack>
 			<Projects></Projects>
-			<Contact></Contact>
 		</main>
 	);
 };

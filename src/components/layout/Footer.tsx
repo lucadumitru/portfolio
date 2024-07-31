@@ -1,6 +1,8 @@
-import { Container, LogoLink } from "@/components/ui";
-import { Socials } from "@/components/common";
-import { dmSans } from "@/app/fonts";
+'use client';
+
+import { Container, LogoLink } from '@/components/ui';
+import { Socials } from '@/components/common';
+import { dmSans } from '@/app/fonts';
 
 export const Footer = () => {
 	return (
@@ -14,7 +16,7 @@ export const Footer = () => {
 				</div>
 				<div className="flex flex-wrap justify-center gap-x-1 py-4 pr-2 text-gray md:justify-between md:py-7">
 					<div>
-						Designed by{" "}
+						Designed by{' '}
 						<a
 							className="text-cyan-500 hover:underline"
 							href="https://www.figma.com/file/UD0kJT0EqQMk2wzxgwrYPo/Developer-Portfolio-Design-(Community)-(Copy)?type=design&node-id=0-1&mode=design&t=7Rmo8zH6QAL3CWkU-0"
@@ -24,12 +26,12 @@ export const Footer = () => {
 						</a>
 					</div>
 					<div className="text-center">
-						Built by{" "}
+						Built by{' '}
 						<span className="bg-gradient-to-r from-cyan-500 to-fuchsia-500 bg-clip-text text-transparent">
-							Luca Dumitru{" "}
+							Luca Dumitru{' '}
 						</span>
 						<span>
-							with <span className="text-fuchsia-600">Love</span> and{" "}
+							with <span className="text-fuchsia-600">Love</span> and{' '}
 							<span className="text-fuchsia-800">Coffee</span>
 						</span>
 					</div>

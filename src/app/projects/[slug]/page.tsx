@@ -1,7 +1,7 @@
-import { Metadata } from "next";
-import { Project } from "@/components/sections";
-import { projects } from "@/data/data";
-import { notFound } from "next/navigation";
+import { Metadata } from 'next';
+import { Project } from '@/components/sections';
+import { projects } from '@/data/data';
+import { notFound } from 'next/navigation';
 
 interface ProjectPageProps {
 	params: { slug: string };
@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 
 	if (!project) {
 		return {
-			title: "404 - Page not found",
+			title: '404 - Page not found',
 		};
 	}
 
@@ -22,17 +22,17 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 		keywords: [
 			`${project.stack}`,
 			`${project.title}`,
-			"lucadevelop",
-			"portfolio",
-			"projects",
-			"nextjs",
-			"reactjs",
+			'lucadevelop',
+			'portfolio',
+			'projects',
+			'nextjs',
+			'reactjs',
 		],
 		openGraph: {
-			images: `${project.img?.jpg || ""}`,
+			images: `${project.img?.jpg || ''}`,
 			description: `${project.description}`,
 			title: `${project.title} - Luca Dumitru's web project`,
-			type: "website",
+			type: 'website',
 			url: `https://lucadevelop.com/projects/${project.slug}`,
 		},
 		alternates: {
