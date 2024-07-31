@@ -13,13 +13,15 @@ type Project = {
 		jpg: string;
 	};
 	video?: {
-		preview: string;
-		macbook: string;
+		preview?: string;
+		macbook?: string;
 	};
 	keyfeatures?: KeyFeature[];
 	stack?: string;
 	git: string;
-	preview: string;
+	preview?: string;
+	designImg?: string;
+	designLink?: string;
 };
 
 type ReactTagProps<T> = import("react").ComponentPropsWithRef<T>;

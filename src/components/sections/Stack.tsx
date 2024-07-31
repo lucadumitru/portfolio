@@ -1,3 +1,5 @@
+'use client';
+
 import { Container, Title, ThemedImg } from '@/components/ui';
 import { technologies } from '@/data/data';
 import { LazyMotion, domAnimation, m } from 'framer-motion';
@@ -14,7 +16,7 @@ export const Stack = () => {
 					Technologies I’ve been working with recently
 				</div>
 				<LazyMotion features={domAnimation}>
-					<ul className="mt-[25px] grid min-h-[280px] grid-cols-4 items-center  gap-[25px]  md:mt-[80px] md:grid-cols-5 md:gap-[40px] xl:mt-[120px]">
+					<ul className="mt-[25px] grid min-h-[280px] grid-cols-4 items-center gap-[25px] md:mt-[80px] md:grid-cols-5 md:gap-[40px] xl:mt-[120px]">
 						{technologies.map((el, index) => (
 							<m.li
 								key={index}
@@ -30,7 +32,7 @@ export const Stack = () => {
 									className="justify-self-center"
 									width={120}
 									height={120}
-									srcDark={el.iconDark}
+									srcDark={el.iconDark || ''}
 									srcLight={el.icon}
 									alt={el.name + ' icon'}
 								/>

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 interface LinkProps {
 	href: string;
-	img?: string;
+	img?: string ;
 	className?: string;
 	onClick?: () => void;
 	imgWidth?: number;

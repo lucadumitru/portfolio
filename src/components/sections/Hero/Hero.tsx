@@ -1,3 +1,5 @@
+'use client';
+
 import { Container, ScrollDownBtn } from '@/components/ui';
 import { HeroTitle } from './components/HeroTitle';
 import Image from 'next/image';
