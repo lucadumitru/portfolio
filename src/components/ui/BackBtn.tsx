@@ -1,23 +1,21 @@
-import { dmSans } from "@/app/fonts";
-import { ThemedImg } from ".";
-import backArrow from "/public/icons/back-arrow.svg";
-import backArrowWhite from "/public/icons/back-arrow-white.svg";
-import { useRouter } from "next/navigation";
+import { dmSans } from '@/app/fonts';
+import { Link } from '.';
 
 interface BackBtnProps {
-	href: string;
+	href?: string;
 }
 
-export const BackBtn: React.FC<BackBtnProps> = () => {
+export const BackBtn: React.FC<BackBtnProps> = ({ href = '/' }) => {
 	return (
-		<a href="/" className={`${dmSans.className} group flex items-center gap-3 hover:underline`}>
-			<ThemedImg
-				className="group-hover:animate-back"
-				srcLight={backArrow}
-				srcDark={backArrowWhite}
-				alt="Back arrow icon"
-			></ThemedImg>
-			<span>Main Page</span>
-		</a>
+		<Link
+			className={`flex items-center gap-2 ${dmSans.className}`}
+			href={href}
+			imgWidth={30}
+			imgHeight={30}
+			img="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Backhand%20Index%20Pointing%20Left.png"
+			alt="Scroll down icon"
+		>
+			Main Page
+		</Link>
 	);
 };

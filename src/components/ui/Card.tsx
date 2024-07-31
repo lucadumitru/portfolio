@@ -45,7 +45,11 @@ export const Card: React.FC<CardProps> = ({ project, index }) => {
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
-			<a aria-label={project.title + ' link'} href={`/projects/${project.slug}`}>
+			<a
+				className="overflow-hidden"
+				aria-label={project.title + ' link'}
+				href={`/projects/${project.slug}`}
+			>
 				{!project.video || !project.video.preview ? (
 					<Image
 						className="max-h-[200px] min-w-full object-cover transition hover:scale-105 "
@@ -73,21 +77,14 @@ export const Card: React.FC<CardProps> = ({ project, index }) => {
 				<h3 className="text-[20px] font-medium dark:text-[#CCCCCC] md:text-[28px]">
 					<Link href={`/projects/${project.slug}`}>{project.title}</Link>
 				</h3>
-				<p className="mt-[15px] flex grow text-[16px] font-light text-[gray] dark:text-[#CCCCCC]">
-					{project.description.length >= 150
-						? project.description.substring(0, 150) + '...'
-						: project.description}
+				<p className="mt-[15px] line-clamp-4 grow text-[16px] font-light text-[gray] dark:text-[#CCCCCC]">
+					{project.description}
 				</p>
 				<div className="mt-[12px] text-textSecondary dark:text-[#CCCCCC]">
-					Tech stack:{' '}
-					<span className="font-light">
-						{project.stack && project.stack.length >= 60
-							? project.stack.substring(0, 60) + '...'
-							: project.stack}
-					</span>
+					Tech stack: <span className="line-clamp-2 font-light">{project.stack}</span>
 				</div>
 				<div className="mt-[12px] flex w-full items-center justify-between gap-x-3 text-[14px] dark:text-white md:mt-[20px]">
-					<LiveLink href={project.preview}></LiveLink>
+					{project.preview && <LiveLink href={project.preview}></LiveLink>}
 					<CodeLink href={project.git}></CodeLink>
 				</div>
 			</div>
