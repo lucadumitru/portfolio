@@ -1,8 +1,8 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 interface LinkProps {
 	href: string;
-	img?: string ;
+	img?: string;
 	className?: string;
 	onClick?: () => void;
 	imgWidth?: number;
@@ -21,7 +21,7 @@ export const Link: React.FC<LinkProps> = ({
 	onClick,
 	imgWidth,
 	imgHeight,
-	alt = "Image",
+	alt = 'Image',
 	target,
 	itemProp,
 }) => {
@@ -32,7 +32,7 @@ export const Link: React.FC<LinkProps> = ({
 			target={target}
 			onClick={onClick}
 			href={href}
-			className={`${className || ""} flex items-center justify-center md:hover:underline `}
+			className={`${className || ''} flex items-center justify-center md:hover:underline `}
 		>
 			{img && (
 				<Image
@@ -41,9 +41,9 @@ export const Link: React.FC<LinkProps> = ({
 					src={img}
 					alt={alt}
 					className={`transform transition duration-200 ease-in-out ${
-						!children && "hover:scale-110"
+						!children && 'hover:scale-110'
 					}`}
-				></Image>
+				/>
 			)}
 			<span className="z-1 relative ">{children}</span>
 		</a>

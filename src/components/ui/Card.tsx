@@ -1,17 +1,19 @@
 import Image from 'next/image';
-import { Link, LiveLink, CodeLink } from '@/components/ui';
+import { LiveLink, CodeLink } from '@/components/ui';
 
 import { m } from 'framer-motion';
-import { fadeInAnimationVariants } from '@/utils';
+import { fadeInAnimationVariants } from '@/src/lib/animations';
 
 import type { Article } from 'schema-dts';
+import Link from 'next/link';
 
 interface CardProps {
 	project: Project;
 	index: number;
+	blurredImage?: string;
 }
 
-export const Card: React.FC<CardProps> = ({ project, index }) => {
+export const Card = ({ project, index, blurredImage }: CardProps) => {
 	const jsonLd: Article = {
 		'@type': 'Article',
 		name: project.title,
@@ -45,20 +47,21 @@ export const Card: React.FC<CardProps> = ({ project, index }) => {
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
-			<a
+			<Link
 				className="overflow-hidden"
-				aria-label={project.title + ' link'}
+				aria-label={`${project.title} link'`}
 				href={`/projects/${project.slug}`}
 			>
 				{!project.video || !project.video.preview ? (
 					<Image
+						blurDataURL={blurredImage}
+						placeholder="blur"
 						className="max-h-[200px] min-w-full object-cover transition hover:scale-105 "
-						width="200"
-						height="200"
-						src={project.img?.svg || ''}
-						alt={project.title + ' img'}
-						style={{ width: 'auto', height: 'auto' }}
-					></Image>
+						width={200}
+						height={200}
+						src={project.img.svg}
+						alt={`${project.title} img'`}
+					/>
 				) : (
 					<video
 						autoPlay
@@ -69,23 +72,23 @@ export const Card: React.FC<CardProps> = ({ project, index }) => {
 						preload="auto"
 					>
 						<source src={project.video.preview} />
-						<track kind="captions"></track>
+						<track kind="captions" />
 					</video>
 				)}
-			</a>
+			</Link>
 			<div className="flex grow flex-col items-start p-[25px]">
 				<h3 className="text-[20px] font-medium dark:text-[#CCCCCC] md:text-[28px]">
 					<Link href={`/projects/${project.slug}`}>{project.title}</Link>
 				</h3>
-				<p className="mt-[15px] line-clamp-4 grow text-[16px] font-light text-[gray] dark:text-[#CCCCCC]">
+				<p className="mt-[15px] line-clamp-4 grow text-[16px] font-light text-black dark:text-[#CCCCCC]">
 					{project.description}
 				</p>
 				<div className="mt-[12px] text-textSecondary dark:text-[#CCCCCC]">
 					Tech stack: <span className="line-clamp-2 font-light">{project.stack}</span>
 				</div>
 				<div className="mt-[12px] flex w-full items-center justify-between gap-x-3 text-[14px] dark:text-white md:mt-[20px]">
-					{project.preview && <LiveLink href={project.preview}></LiveLink>}
-					<CodeLink href={project.git}></CodeLink>
+					{project.preview && <LiveLink href={project.preview} />}
+					<CodeLink href={project.git} />
 				</div>
 			</div>
 		</m.article>

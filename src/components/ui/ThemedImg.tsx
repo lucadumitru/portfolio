@@ -1,8 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 interface ThemedImgProps {
 	className?: string;
@@ -14,7 +14,7 @@ interface ThemedImgProps {
 	src?: string;
 }
 
-export const ThemedImg: React.FC<ThemedImgProps> = ({
+export const ThemedImg = ({
 	className,
 	width,
 	height,
@@ -22,7 +22,7 @@ export const ThemedImg: React.FC<ThemedImgProps> = ({
 	srcDark,
 	src,
 	alt,
-}) => {
+}: ThemedImgProps) => {
 	const { resolvedTheme } = useTheme();
 	const [mounted, setMounted] = useState(false);
 
@@ -41,6 +41,8 @@ export const ThemedImg: React.FC<ThemedImgProps> = ({
 		case 'dark':
 			src = srcDark ? srcDark : srcLight;
 			break;
+
+		default:
 	}
 
 	return (
@@ -51,6 +53,6 @@ export const ThemedImg: React.FC<ThemedImgProps> = ({
 			height={height}
 			src={src || srcLight}
 			alt={alt}
-		></Image>
+		/>
 	);
 };

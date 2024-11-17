@@ -1,4 +1,3 @@
 export * from './Hero/Hero';
-export * from './Stack';
-export * from './Projects';
-export * from './Project';
+export * from './Stack/Stack';
+export * from './Projects/Projects';

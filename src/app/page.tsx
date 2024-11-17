@@ -27,14 +27,14 @@ const jsonLd: Person = {
 
 const Home = async () => {
 	return (
-		<main className="mb-1 flex flex-col gap-[50px] pt-[70px]  md:gap-[150px]">
+		<main className="flex flex-col gap-[50px] pt-[70px] md:gap-[150px]">
 			<script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
-			<Hero></Hero>
-			<Stack></Stack>
-			<Projects></Projects>
+			<Hero />
+			<Stack />
+			<Projects />
 		</main>
 	);
 };
