@@ -28,7 +28,7 @@ export const Socials = ({ className }: SocialsProps) => {
 				<Link
 					key={link.label}
 					aria-label={`${link.label} link`}
-					href="https://t.me/dumitruluca"
+					href={link.href}
 					target="_blank"
 				>
 					<Image alt={`${link.label} icon`} src={link.icon} />
