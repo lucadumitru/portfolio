@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import Link from 'next/link';
 
 interface NextProjectBtnProps {
 	nextProjectImg: string;
@@ -23,7 +24,7 @@ export const NextProjectBtn: React.FC<NextProjectBtnProps> = ({
 	const bottomToTop = useTransform(scrollYProgress, [0, 1], [150, 0]);
 	return (
 		<div className="relative text-center before:absolute before:-bottom-[100px] before:left-0 before:z-10  before:h-[100px] before:w-full before:border-t-[2px] before:border-gray/30 before:bg-white before:content-[''] before:dark:bg-bgDark">
-			<a
+			<Link
 				ref={ref}
 				className="group inline-flex w-[70%] flex-col items-center"
 				href={`/projects/${nextProjectSlug}`}
@@ -39,14 +40,14 @@ export const NextProjectBtn: React.FC<NextProjectBtnProps> = ({
 					}}
 				>
 					<Image
-						className="mx-auto translate-y-10 rounded-xl transition group-hover:translate-y-2 md:translate-y-16"
+						className="mx-auto  translate-y-10 rounded-xl transition group-hover:translate-y-2 md:translate-y-16"
 						src={nextProjectImg}
 						width={300}
 						height={200}
-						alt={nextProjectTitle + ' img'}
-					></Image>
+						alt={`${nextProjectTitle} img`}
+					/>
 				</motion.div>
-			</a>
+			</Link>
 		</div>
 	);
 };

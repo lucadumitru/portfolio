@@ -3,14 +3,18 @@
 import { useState } from 'react';
 
 import { Container, NavLinks, LogoLink, ThemeSwitcher, BackBtn, ResumeBtn } from '@/components/ui';
-import { Socials } from '@/components/common';
 import { usePathname } from 'next/navigation';
 import { Fade as Hamburger } from 'hamburger-react';
 
-export const Header = () => {
+interface HeaderProps {
+	children?: React.ReactNode;
+}
+
+export const Header = ({ children }: HeaderProps) => {
 	const [isOpen, setOpen] = useState(false);
 	const pathname = usePathname();
-	const projectPath = pathname.includes('/projects/');
+
+	const isHomePage = pathname === '/';
 
 	const onClick = () => {
 		setOpen(!isOpen);
@@ -20,19 +24,19 @@ export const Header = () => {
 	return (
 		<header className="fixed z-50 w-full bg-white dark:bg-bgDark">
 			<Container className="mx-auto flex items-center justify-between gap-3 py-[10px] md:py-[15px]">
-				{!projectPath ? <LogoLink className="relative z-10" /> : <BackBtn></BackBtn>}
-				{!projectPath && (
+				{isHomePage ? <LogoLink className="relative z-10" /> : <BackBtn />}
+				{isHomePage && (
 					<>
-						<NavLinks {...{ isOpen, setOpen }}></NavLinks>
+						<NavLinks {...{ isOpen, setOpen }} />
 						<div className="hidden md:block">
-							<ResumeBtn></ResumeBtn>
+							<ResumeBtn />
 						</div>
 					</>
 				)}
 				<div className="flex items-center gap-5">
-					<Socials className="hidden md:flex"></Socials>
-					<ThemeSwitcher></ThemeSwitcher>
-					{!projectPath && (
+					{children}
+					<ThemeSwitcher />
+					{isHomePage && (
 						<div className="md:hidden">
 							<Hamburger label="menu button" toggled={isOpen} toggle={onClick} />
 						</div>

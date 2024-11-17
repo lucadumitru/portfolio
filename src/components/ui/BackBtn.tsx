@@ -1,4 +1,4 @@
-import { dmSans } from '@/app/fonts';
+import { dmSans } from '@/src/app/fonts';
 import { Link } from '.';
 
 interface BackBtnProps {

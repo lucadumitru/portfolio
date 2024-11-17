@@ -1,3 +1,5 @@
+'use client';
+
 import { Title } from '@/components/ui';
 import Image from 'next/image';
 import { TypeAnimation } from 'react-type-animation';
@@ -7,6 +9,7 @@ export const HeroTitle = () => {
 		<Title className="text-[28px] font-bold md:text-left md:text-[40px] lg:text-[55px]" tag="h1">
 			Hi{' '}
 			<Image
+				unoptimized
 				className="inline h-10 w-10 md:h-14 md:w-14"
 				src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png"
 				alt="Waving Hand"

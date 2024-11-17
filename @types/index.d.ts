@@ -8,7 +8,7 @@ type Project = {
 	title: string;
 	slug: string;
 	description: string;
-	img?: {
+	img: {
 		svg: string;
 		jpg: string;
 	};
@@ -24,4 +24,6 @@ type Project = {
 	designLink?: string;
 };
 
-type ReactTagProps<T> = import("react").ComponentPropsWithRef<T>;
+type Technology = { name: string; icon: string; iconDark?: string };
+
+type ReactTagProps<T> = import('react').ComponentPropsWithRef<T>;

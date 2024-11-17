@@ -1,11 +1,11 @@
-import { Header, Footer } from '@/components/layout';
+import { Header, Footer, Contact } from '@/components/layout';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import './globals.css';
 import { poppins } from './fonts';
-import Provider from './provider';
-import { Contact } from '@/components/layout';
+import { Provider } from './provider';
+import { Socials } from '../components';
 
 export const metadata = {
 	metadataBase: new URL('https://lucadevelop.com'),
@@ -34,10 +34,12 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<html suppressHydrationWarning className="scroll-smooth" lang="en-US">
 			<body
-				className={`${poppins.className} flex min-h-screen min-w-[390px] flex-col bg-white dark:bg-bgDark`}
+				className={`${poppins.className} flex min-h-screen min-w-[390px] flex-col bg-white antialiased dark:bg-bgDark`}
 			>
 				<Provider>
-					<Header />
+					<Header>
+						<Socials className="hidden md:flex" />
+					</Header>
 					{children}
 					<Contact />
 					<Footer />

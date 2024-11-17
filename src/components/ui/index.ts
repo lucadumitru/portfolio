@@ -8,7 +8,6 @@ export * from './LiveLink';
 export * from './NavLinks';
 export * from './NextProjectBtn';
 export * from './ResumeBtn';
-export * from './ScrollDownBtn';
 export * from './ThemeSwitcher';
 export * from './ThemedImg';
 export * from './Title';
