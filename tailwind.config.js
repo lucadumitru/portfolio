@@ -28,26 +28,17 @@ module.exports = {
 				iphone: "url('/devices/iphone14.png')",
 			},
 			keyframes: {
-				back: {
-					from: { transform: '5px 0' },
-					to: { translate: '0 0' },
-				},
-				'small-rotate': {
-					from: {
-						transform: {
-							rotate: '0deg',
-						},
+				wiggle: {
+					'0%, 100%': {
+						transform: 'rotate(-5deg)',
 					},
-					to: {
-						transform: {
-							rotate: '120deg',
-						},
+					'50%': {
+						transform: 'rotate(5deg)',
 					},
 				},
 			},
 			animation: {
-				back: 'back 0.4s cubic-bezier(0, 0, 0.2, 1) ',
-				'small-rotate': 'small-rotate 0.4s cubic-bezier(0, 0, 0.2, 1) ',
+				wiggle: 'wiggle 0.3s ease-in-out',
 			},
 		},
 	},

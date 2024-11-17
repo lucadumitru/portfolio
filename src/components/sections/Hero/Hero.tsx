@@ -3,7 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
 
-import heroImg from '@/public/profile-small.webp';
+import heroImg from '@/public/profile.webp';
 
 export const Hero = () => {
 	return (

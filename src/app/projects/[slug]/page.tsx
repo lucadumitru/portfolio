@@ -1,10 +1,11 @@
 import { Metadata } from 'next';
 import { projects } from '@/src/data/data';
 import { notFound } from 'next/navigation';
-import { CodeLink, Container, Link, LiveLink, NextProjectBtn } from '@/components/ui';
+import { CodeLink, Container, LiveLink, NextProjectBtn } from '@/components/ui';
 import Image from 'next/image';
 import { Article } from 'schema-dts';
 import { getBase64 } from '@/src/lib/getBase64';
+import Link from 'next/link';
 
 interface ProjectPageProps {
 	params: Promise<{ slug: string }>;
@@ -105,12 +106,14 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 					</div>
 				</div>
 				<div className="mt-[5%] flex w-full flex-col gap-[50px] md:gap-[100px]">
-					<Link href={currentProject?.preview ?? ''}>
+					<Link
+						className="mx-auto overflow-hidden rounded-2xl"
+						href={currentProject?.preview ?? ''}
+					>
 						<Image
 							blurDataURL={blurredImage}
 							placeholder="blur"
 							priority
-							className="rounded-xl"
 							src={currentProject.img.svg}
 							alt={`${currentProject.title} img`}
 							width={1000}
