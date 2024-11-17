@@ -26,6 +26,7 @@ export const Socials = ({ className }: SocialsProps) => {
 		<div className={`flex items-center justify-center gap-x-[10px] md:gap-x-[20px] ${className}`}>
 			{socialLinks.map((link) => (
 				<Link
+					className="transition-transform hover:scale-110"
 					key={link.label}
 					aria-label={`${link.label} link`}
 					href={link.href}

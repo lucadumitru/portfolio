@@ -1,8 +1,9 @@
 'use client';
 
 import { dmSans } from '@/src/app/fonts';
-import { Link, ResumeBtn } from '@/components/ui';
+import { ResumeBtn } from '@/components/ui';
 import { Socials } from '../common';
+import Link from 'next/link';
 
 interface NavLinksProps {
 	isOpen: boolean;
@@ -48,7 +49,7 @@ export const NavLinks: React.FC<NavLinksProps> = ({ isOpen, setOpen }) => {
 						<li key={index}>
 							<Link
 								itemProp="url"
-								className={`dark:text-white ${isOpen && 'text-[25px]'}`}
+								className={`hover:underline dark:text-white ${isOpen && 'text-[25px]'}`}
 								onClick={() => setOpen((prev) => prev === true && false)}
 								href={navLink.href}
 							>

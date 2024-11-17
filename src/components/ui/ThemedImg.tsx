@@ -1,7 +1,6 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 interface ThemedImgProps {
@@ -24,15 +23,6 @@ export const ThemedImg = ({
 	alt,
 }: ThemedImgProps) => {
 	const { resolvedTheme } = useTheme();
-	const [mounted, setMounted] = useState(false);
-
-	useEffect(() => {
-		setMounted(true);
-	}, []);
-
-	if (!mounted) {
-		return null;
-	}
 
 	switch (resolvedTheme) {
 		case 'light':
