@@ -1,74 +1,74 @@
-import Image from 'next/image';
-import { LiveLink, CodeLink } from '@/components/ui';
-
-import { m } from 'framer-motion';
-import { fadeInAnimationVariants } from '@/src/lib/animations';
-
 import type { Article } from 'schema-dts';
+import { m } from 'framer-motion';
+
+import Image from 'next/image';
 import Link from 'next/link';
 
+import { CodeLink, LiveLink } from '@/components/ui';
+import { fadeInAnimationVariants } from '@/src/lib/animations';
+
 interface CardProps {
-	project: Project;
-	index: number;
 	blurredImage?: string;
+	index: number;
+	project: Project;
 }
 
-export const Card = ({ project, index, blurredImage }: CardProps) => {
+export const Card = ({ blurredImage, index, project }: CardProps) => {
 	const jsonLd: Article = {
 		'@type': 'Article',
-		name: project.title,
-		description: project.description,
-		image: project.img?.svg,
-		url: `https://lucadevelop.com`,
-		keywords: project.stack,
 		about: {
 			'@type': 'Project',
-			name: project.title,
 			description: project.description,
 			image: project.img?.svg,
+			name: project.title,
 			url: `https://lucadevelop.com/projects/${project.slug}`,
 		},
 		articleBody: project.description,
+		description: project.description,
+		image: project.img?.svg,
 		inLanguage: 'en',
+		keywords: project.stack,
+		name: project.title,
+		url: `https://lucadevelop.com`,
 	};
 
 	return (
 		<m.article
-			variants={fadeInAnimationVariants}
-			initial="initial"
-			whileInView="animate"
 			viewport={{
 				once: true,
 			}}
-			custom={index}
 			className="relative flex flex-col rounded-[20px] bg-white shadow-card will-change-transform   dark:bg-[#363636]"
+			custom={index}
+			initial="initial"
+			variants={fadeInAnimationVariants}
+			whileInView="animate"
 		>
 			<script
-				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+				type="application/ld+json"
 			/>
 			<Link
-				className="overflow-hidden rounded-t-[20px] "
 				aria-label={`${project.title} link'`}
+				className="overflow-hidden rounded-t-[20px] "
 				href={`/projects/${project.slug}`}
 			>
 				{!project.video || !project.video.preview ? (
 					<Image
-						blurDataURL={blurredImage}
-						placeholder="blur"
-						className="max-h-[200px] min-w-full object-cover  transition hover:scale-105 "
-						width={200}
-						height={200}
-						src={project.img.svg}
 						alt={`${project.title} img'`}
+						blurDataURL={blurredImage}
+						className="max-h-[200px] min-w-full object-cover  transition hover:scale-105 "
+						height={200}
+						placeholder="blur"
+						src={project.img.svg}
+						width={200}
 					/>
 				) : (
 					<video
 						autoPlay
-						className="max-h-[200px] w-full object-cover transition hover:scale-105"
 						loop
-						playsInline
 						muted
+						playsInline
+						className="max-h-[200px] w-full object-cover transition hover:scale-105"
 						preload="auto"
 					>
 						<source src={project.video.preview} />

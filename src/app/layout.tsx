@@ -1,11 +1,12 @@
-import { Header, Footer, Contact } from '@/components/layout';
+/* eslint-disable perfectionist/sort-objects */
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
-import './globals.css';
-import { poppins } from './fonts';
-import { Provider } from './provider';
+import { Contact, Footer, Header } from '@/components/layout';
 import { Socials } from '../components';
+import { poppins } from './fonts';
+import { Providers } from './providers';
+import './globals.css';
 
 export const metadata = {
 	metadataBase: new URL('https://lucadevelop.com'),
@@ -36,14 +37,14 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 			<body
 				className={`${poppins.className} flex min-h-screen min-w-[390px] flex-col bg-white antialiased dark:bg-bgDark`}
 			>
-				<Provider>
+				<Providers>
 					<Header>
 						<Socials className="hidden md:flex" />
 					</Header>
 					{children}
 					<Contact />
 					<Footer />
-				</Provider>
+				</Providers>
 				<Analytics />
 				<SpeedInsights />
 			</body>

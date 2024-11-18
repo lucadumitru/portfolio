@@ -1,11 +1,12 @@
-import { Metadata } from 'next';
-import { projects } from '@/src/data/data';
+/* eslint-disable perfectionist/sort-objects */
+import type { Metadata } from 'next';
+import type { Article } from 'schema-dts';
+import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CodeLink, Container, LiveLink, NextProjectBtn } from '@/components/ui';
-import Image from 'next/image';
-import { Article } from 'schema-dts';
+import { projects } from '@/src/data/data';
 import { getBase64 } from '@/src/lib/getBase64';
-import Link from 'next/link';
 
 interface ProjectPageProps {
 	params: Promise<{ slug: string }>;
@@ -79,8 +80,8 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 	return (
 		<main className="pt-[110px]">
 			<script
-				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+				type="application/ld+json"
 			/>
 			<Container className="flex flex-col items-center">
 				<div>
@@ -96,12 +97,12 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 						} `}
 					>
 						{currentProject.preview && (
-							<LiveLink variant="button" href={currentProject.preview}></LiveLink>
+							<LiveLink href={currentProject.preview} variant="button"></LiveLink>
 						)}
 						<CodeLink
-							variant="button"
 							className="justify-self-center"
 							href={currentProject.git}
+							variant="button"
 						/>
 					</div>
 				</div>
@@ -111,25 +112,25 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 						href={currentProject?.preview ?? ''}
 					>
 						<Image
-							blurDataURL={blurredImage}
-							placeholder="blur"
 							priority
-							src={currentProject.img.svg}
 							alt={`${currentProject.title} img`}
-							width={1000}
+							blurDataURL={blurredImage}
 							height={700}
+							placeholder="blur"
+							src={currentProject.img.svg}
+							width={1000}
 						/>
 					</Link>
 					{currentProject.video && currentProject.video.macbook && (
 						<div className="relative w-full bg-macbook bg-contain bg-no-repeat pb-[51%]">
 							<video
 								autoPlay
-								className="absolute left-1/2 top-[2px] z-[-1] w-[75%]  -translate-x-2/4 rounded-t-[4%] "
-								src={currentProject.video.macbook}
 								loop
-								playsInline
 								muted
+								playsInline
+								className="absolute left-1/2 top-[2px] z-[-1] w-[75%]  -translate-x-2/4 rounded-t-[4%] "
 								preload="auto"
+								src={currentProject.video.macbook}
 							/>
 						</div>
 					)}
@@ -140,7 +141,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 								{currentProject.keyfeatures.map((keyfeature, index) => (
 									<li key={index} className="inline-block text-gray">
 										<span className="font-bold">
-											● {`${keyfeature.key ? keyfeature.key + ':' : ''}`}{' '}
+											● {`${keyfeature.key ? `${keyfeature.key}:` : ''}`}{' '}
 										</span>
 										<p className="inline">{keyfeature.description}</p>
 									</li>
@@ -151,8 +152,8 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 					{currentProject.id !== 1 && (
 						<div className="relative mb-[100px] mt-10 flex flex-col justify-center">
 							<NextProjectBtn
-								nextProjectSlug={nextProject?.slug ?? ''}
 								nextProjectImg={nextProject?.img?.jpg ?? ''}
+								nextProjectSlug={nextProject?.slug ?? ''}
 								nextProjectTitle={nextProject?.title ?? ''}
 							/>
 						</div>

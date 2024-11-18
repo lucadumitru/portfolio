@@ -1,9 +1,9 @@
 'use client';
 
-import { Container, LogoLink } from '@/components/ui';
-import { Socials } from '@/components/common';
-import { dmSans } from '@/src/app/fonts';
 import Link from 'next/link';
+import { Socials } from '@/components/common';
+import { Container, LogoLink } from '@/components/ui';
+import { dmSans } from '@/src/app/fonts';
 
 export const Footer = () => {
 	return (

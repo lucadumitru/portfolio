@@ -1,10 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-
-import { Container, NavLinks, LogoLink, ThemeSwitcher, BackBtn, ResumeBtn } from '@/components/ui';
-import { usePathname } from 'next/navigation';
 import { Fade as Hamburger } from 'hamburger-react';
+
+import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+import { BackBtn, Container, LogoLink, NavLinks, ResumeBtn, ThemeSwitcher } from '@/components/ui';
 
 interface HeaderProps {
 	children?: React.ReactNode;
@@ -38,7 +38,7 @@ export const Header = ({ children }: HeaderProps) => {
 					<ThemeSwitcher />
 					{isHomePage && (
 						<div className="md:hidden">
-							<Hamburger label="menu button" toggled={isOpen} toggle={onClick} />
+							<Hamburger label="menu button" toggle={onClick} toggled={isOpen} />
 						</div>
 					)}
 				</div>

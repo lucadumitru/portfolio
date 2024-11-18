@@ -1,25 +1,25 @@
 'use client';
 
-import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
+import { useRef } from 'react';
 
 interface NextProjectBtnProps {
 	nextProjectImg: string;
-	nextProjectTitle: string;
 	nextProjectSlug: string;
+	nextProjectTitle: string;
 }
 
 export const NextProjectBtn: React.FC<NextProjectBtnProps> = ({
 	nextProjectImg,
-	nextProjectTitle,
 	nextProjectSlug,
+	nextProjectTitle,
 }) => {
 	const ref = useRef(null);
 	const { scrollYProgress } = useScroll({
-		target: ref,
 		offset: ['0 1', '1.5 1'],
+		target: ref,
 	});
 	const bottomToTop = useTransform(scrollYProgress, [0, 1], [150, 0]);
 	return (
@@ -34,17 +34,17 @@ export const NextProjectBtn: React.FC<NextProjectBtnProps> = ({
 					{nextProjectTitle}
 				</span>
 				<motion.div
-					className="relative"
 					style={{
 						top: bottomToTop,
 					}}
+					className="relative"
 				>
 					<Image
+						alt={`${nextProjectTitle} img`}
 						className="mx-auto  translate-y-10 rounded-xl transition group-hover:translate-y-2 md:translate-y-16"
+						height={200}
 						src={nextProjectImg}
 						width={300}
-						height={200}
-						alt={`${nextProjectTitle} img`}
 					/>
 				</motion.div>
 			</Link>

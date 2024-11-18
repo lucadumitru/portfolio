@@ -1,12 +1,12 @@
 import { Container, Title } from '@/components/ui';
-import { StackItems } from './components/StackItems';
 import { technologies } from '@/src/data/data';
+import { StackItems } from './components/StackItems';
 
 export const Stack = () => {
 	return (
-		<section id="stack" className="scroll-mt-[80px] md:scroll-mt-[150px]">
+		<section className="scroll-mt-[80px] md:scroll-mt-[150px]" id="stack">
 			<Container>
-				<Title tag="h2" className="text-center text-[24px] font-bold md:text-[48px]">
+				<Title className="text-center text-[24px] font-bold md:text-[48px]" tag="h2">
 					My Tech Stack
 				</Title>
 				<div className="mt-[10px] text-center text-[18px] text-gray md:mt-[30px] md:text-[32px]">

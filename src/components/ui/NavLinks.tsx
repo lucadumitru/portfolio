@@ -1,9 +1,9 @@
 'use client';
 
-import { dmSans } from '@/src/app/fonts';
-import { ResumeBtn } from '@/components/ui';
-import { Socials } from '../common';
 import Link from 'next/link';
+import { ResumeBtn } from '@/components/ui';
+import { dmSans } from '@/src/app/fonts';
+import { Socials } from '../common';
 
 interface NavLinksProps {
 	isOpen: boolean;
@@ -11,20 +11,20 @@ interface NavLinksProps {
 }
 const navLinks = [
 	{
-		name: 'Home',
 		href: '#home',
+		name: 'Home',
 	},
 	{
-		name: 'Stack',
 		href: '#stack',
+		name: 'Stack',
 	},
 	{
-		name: 'Projects',
 		href: '#projects',
+		name: 'Projects',
 	},
 	{
-		name: 'Contact',
 		href: '#contact',
+		name: 'Contact',
 	},
 ];
 
@@ -42,16 +42,16 @@ export const NavLinks: React.FC<NavLinksProps> = ({ isOpen, setOpen }) => {
 			>
 				<ul
 					itemScope
-					itemType="https://schema.org/SiteNavigationElement"
 					className=" inline-flex flex-col gap-x-[10px] gap-y-[20px] md:flex-row md:flex-wrap md:gap-x-[30px]  md:gap-y-[0px] "
+					itemType="https://schema.org/SiteNavigationElement"
 				>
-					{navLinks.map((navLink, index) => (
-						<li key={index}>
+					{navLinks.map((navLink) => (
+						<li key={navLink.href}>
 							<Link
-								itemProp="url"
 								className={`hover:underline dark:text-white ${isOpen && 'text-[25px]'}`}
-								onClick={() => setOpen((prev) => prev === true && false)}
 								href={navLink.href}
+								itemProp="url"
+								onClick={() => setOpen((prev) => prev === true && false)}
 							>
 								{navLink.name}
 							</Link>

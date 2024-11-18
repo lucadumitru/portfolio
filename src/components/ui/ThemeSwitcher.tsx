@@ -1,10 +1,16 @@
 'use client';
 
 import { useTheme } from 'next-themes';
+import React from 'react';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 
 export const ThemeSwitcher = () => {
-	const { theme, setTheme } = useTheme();
+	const [isMounted, setIsMounted] = React.useState(false);
+	const { setTheme, theme } = useTheme();
+
+	React.useEffect(() => {
+		setIsMounted(true);
+	}, []);
 
 	const systemDark =
 		theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -12,12 +18,20 @@ export const ThemeSwitcher = () => {
 		setTheme(theme === 'dark' ? 'light' : 'dark');
 	}
 
+	if (!isMounted) {
+		return <div className="w-[30px]" />;
+	}
+
 	return (
-		<button aria-label="theme switcher" onKeyDown={(e) => e.key === 'Enter' && toggleDarkMode()}>
+		<button
+			aria-label="theme switcher"
+			type="button"
+			onKeyDown={(e) => e.key === 'Enter' && toggleDarkMode()}
+		>
 			<DarkModeSwitch
 				checked={theme === 'dark' || systemDark}
-				onChange={systemDark ? () => setTheme('light') : toggleDarkMode}
 				size={30}
+				onChange={systemDark ? () => setTheme('light') : toggleDarkMode}
 			/>
 		</button>
 	);

@@ -1,27 +1,29 @@
 'use client';
 
-import { useTheme } from 'next-themes';
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
+import React from 'react';
 
 interface ThemedImgProps {
-	className?: string;
-	width?: number;
-	height?: number;
-	srcLight: string;
-	srcDark: string;
 	alt: string;
+	className?: string;
+	height?: number;
 	src?: string;
+	srcDark: string;
+	srcLight: string;
+	width?: number;
 }
 
 export const ThemedImg = ({
-	className,
-	width,
-	height,
-	srcLight,
-	srcDark,
-	src,
 	alt,
+	className,
+	height,
+	src,
+	srcDark,
+	srcLight,
+	width,
 }: ThemedImgProps) => {
+	const [isMounted, setIsMounted] = React.useState(false);
 	const { resolvedTheme } = useTheme();
 
 	switch (resolvedTheme) {
@@ -29,20 +31,28 @@ export const ThemedImg = ({
 			src = srcLight;
 			break;
 		case 'dark':
-			src = srcDark ? srcDark : srcLight;
+			src = srcDark || srcLight;
 			break;
 
 		default:
 	}
 
+	React.useEffect(() => {
+		setIsMounted(true);
+	}, []);
+
+	if (!isMounted) {
+		return null;
+	}
+
 	return (
 		<Image
 			priority
+			alt={alt}
 			className={className}
-			width={width}
 			height={height}
 			src={src || srcLight}
-			alt={alt}
+			width={width}
 		/>
 	);
 };
