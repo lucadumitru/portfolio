@@ -1,3 +1,4 @@
+/* eslint-disable perfectionist/sort-objects */
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
