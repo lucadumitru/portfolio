@@ -29,9 +29,9 @@ export const Socials = ({ className }: SocialsProps) => {
 				<Link
 					key={link.label}
 					aria-label={`${link.label} link`}
-					className="transition-transform hover:scale-110"
+					className='transition-transform hover:scale-110'
 					href={link.href}
-					target="_blank"
+					target='_blank'
 				>
 					<Image alt={`${link.label} icon`} src={link.icon} />
 				</Link>

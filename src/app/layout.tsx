@@ -33,13 +33,13 @@ export const metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
-		<html suppressHydrationWarning className="scroll-smooth" lang="en-US">
+		<html className='scroll-smooth' lang='en-US'>
 			<body
 				className={`${poppins.className} flex min-h-screen min-w-[390px] flex-col bg-white antialiased dark:bg-bgDark`}
 			>
 				<Providers>
 					<Header>
-						<Socials className="hidden md:flex" />
+						<Socials className='hidden md:flex' />
 					</Header>
 					{children}
 					<Contact />

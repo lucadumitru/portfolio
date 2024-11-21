@@ -7,8 +7,8 @@ interface LogoLinkProps extends React.HtmlHTMLAttributes<HTMLAnchorElement> {
 
 export const LogoLink: React.FC<LogoLinkProps> = ({ className, href = '/' }) => {
 	return (
-		<Link aria-label="logo" className={`${className} hover:animate-wiggle`} href={href}>
-			<LogoIcon className="h-10 w-10" />
+		<Link aria-label='logo' className={`${className} hover:animate-wiggle`} href={href}>
+			<LogoIcon className='h-10 w-10' />
 		</Link>
 	);
 };

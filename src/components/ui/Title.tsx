@@ -6,5 +6,5 @@ interface TitleProps {
 
 export const Title: React.FC<TitleProps> = ({ children, className, tag }) => {
 	const Tag = tag || 'div';
-	return <Tag className={`${className} + text-textSecondary dark:text-white `}>{children}</Tag>;
+	return <Tag className={`${className} + text-textSecondary dark:text-white`}>{children}</Tag>;
 };

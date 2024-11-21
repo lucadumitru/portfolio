@@ -7,7 +7,6 @@ export default eslint({
 	next: true,
 	react: true,
 	typescript: true,
-
 	rules: {
 		'jsonc/sort-keys': 'off',
 		'perfectionist/sort-objects': 'off',

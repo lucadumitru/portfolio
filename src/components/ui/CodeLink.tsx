@@ -19,14 +19,14 @@ export const CodeLink: React.FC<CodeLinkProps> = ({ className, href, variant }) 
 		'p-3 border rounded-full hover:shadow-md transition-shadow dark:hover:shadow-white';
 	return (
 		<Link
-			className={`flex flex-row-reverse  items-center gap-2 text-xs sm:text-sm ${
+			className={`flex flex-row-reverse items-center gap-2 text-xs sm:text-sm ${
 				variant === 'button' ? buttonStyle : linkStyle
-			}  ${className}`}
+			} ${className}`}
 			href={href}
-			target="_blank"
+			target='_blank'
 		>
 			<span>View Code</span>
-			<ThemedImg alt="Git icon" srcDark={gitIconWhite} srcLight={gitIcon} />
+			<ThemedImg alt='Git icon' srcDark={gitIconWhite} srcLight={gitIcon} />
 		</Link>
 	);
 };

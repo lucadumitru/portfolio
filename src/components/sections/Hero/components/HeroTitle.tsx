@@ -6,18 +6,18 @@ import { Title } from '@/components/ui';
 
 export const HeroTitle = () => {
 	return (
-		<Title className="text-[28px] font-bold md:text-left md:text-[40px] lg:text-[55px]" tag="h1">
+		<Title className='text-[28px] font-bold md:text-left md:text-[40px] lg:text-[55px]' tag='h1'>
 			Hi{' '}
 			<Image
 				unoptimized
-				alt="Waving Hand"
-				className="inline h-10 w-10 md:h-14 md:w-14"
-				height="25"
-				src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png"
-				width="25"
+				alt='Waving Hand'
+				className='inline h-10 w-10 md:h-14 md:w-14'
+				height='25'
+				src='https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png'
+				width='25'
 			/>
 			, My name is <br />
-			<strong className="bg-gradient-to-r from-cyan-500 to-fuchsia-500 bg-clip-text text-transparent">
+			<strong className='bg-gradient-to-r from-cyan-500 to-fuchsia-500 bg-clip-text text-transparent'>
 				Luca Dumitru
 			</strong>
 			<br />I build{' '}
@@ -32,10 +32,10 @@ export const HeroTitle = () => {
 					'user-friendly interfaces',
 					1000,
 				]}
-				className="will-change-content"
+				className='will-change-content'
 				repeat={Infinity}
 				speed={50}
-				wrapper="span"
+				wrapper='span'
 			/>
 		</Title>
 	);

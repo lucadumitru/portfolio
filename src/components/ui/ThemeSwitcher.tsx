@@ -19,13 +19,13 @@ export const ThemeSwitcher = () => {
 	}
 
 	if (!isMounted) {
-		return <div className="w-[30px]" />;
+		return <div className='w-[30px]' />;
 	}
 
 	return (
 		<button
-			aria-label="theme switcher"
-			type="button"
+			aria-label='theme switcher'
+			type='button'
 			onKeyDown={(e) => e.key === 'Enter' && toggleDarkMode()}
 		>
 			<DarkModeSwitch

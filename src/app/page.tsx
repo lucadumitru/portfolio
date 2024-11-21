@@ -28,10 +28,10 @@ const jsonLd: Person = {
 
 const Home = async () => {
 	return (
-		<main className="flex flex-col gap-[50px] pt-[70px] md:gap-[150px]">
+		<main className='flex flex-col gap-[50px] pt-[70px] md:gap-[150px]'>
 			<script
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-				type="application/ld+json"
+				type='application/ld+json'
 			/>
 			<Hero />
 			<Stack />

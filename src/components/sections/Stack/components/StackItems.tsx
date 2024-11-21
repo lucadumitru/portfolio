@@ -11,22 +11,22 @@ interface StackItemsProps {
 export const StackItems = ({ technologies }: StackItemsProps) => {
 	return (
 		<LazyMotion features={domAnimation}>
-			<ul className="mt-[25px] grid min-h-[280px] grid-cols-4 items-center gap-[25px] md:mt-[80px] md:grid-cols-5 md:gap-[40px] xl:mt-[120px]">
+			<ul className='mt-[25px] grid min-h-[280px] grid-cols-4 items-center gap-[25px] md:mt-[80px] md:grid-cols-5 md:gap-[40px] xl:mt-[120px]'>
 				{technologies.map((technology, index) => (
 					<m.li
 						key={technology.name}
 						viewport={{
 							once: true,
 						}}
-						className="will-change-transform"
+						className='will-change-transform'
 						custom={index}
-						initial="initial"
+						initial='initial'
 						variants={fadeInAnimationVariants}
-						whileInView="animate"
+						whileInView='animate'
 					>
 						<ThemedImg
 							alt={`${technology.name} icon`}
-							className="justify-self-center"
+							className='justify-self-center'
 							height={120}
 							srcDark={technology.iconDark ?? ''}
 							srcLight={technology.icon}
