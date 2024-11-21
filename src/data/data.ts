@@ -1,3 +1,4 @@
+/* eslint-disable perfectionist/sort-objects */
 export const technologies = [
 	{ name: 'html', icon: '/icons/stack/html.svg' },
 	{ name: 'css', icon: '/icons/stack/css.svg' },

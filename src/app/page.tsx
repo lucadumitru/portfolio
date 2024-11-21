@@ -1,5 +1,6 @@
-import { Hero, Stack, Projects } from '@/components/sections';
+/* eslint-disable perfectionist/sort-objects */
 import type { Person } from 'schema-dts';
+import { Hero, Projects, Stack } from '@/components/sections';
 
 const jsonLd: Person = {
 	'@type': 'Person',
@@ -27,10 +28,10 @@ const jsonLd: Person = {
 
 const Home = async () => {
 	return (
-		<main className="flex flex-col gap-[50px] pt-[70px] md:gap-[150px]">
+		<main className='flex flex-col gap-[50px] pt-[70px] md:gap-[150px]'>
 			<script
-				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+				type='application/ld+json'
 			/>
 			<Hero />
 			<Stack />

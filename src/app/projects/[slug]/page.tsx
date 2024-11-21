@@ -1,17 +1,24 @@
-import { Metadata } from 'next';
-import { projects } from '@/src/data/data';
+/* eslint-disable perfectionist/sort-objects */
+import type { Metadata } from 'next';
+import type { Article } from 'schema-dts';
+import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CodeLink, Container, LiveLink, NextProjectBtn } from '@/components/ui';
-import Image from 'next/image';
-import { Article } from 'schema-dts';
-import { getBase64 } from '@/src/lib/getBase64';
-import Link from 'next/link';
+import { projects } from '@/src/data/data';
+import { getBase64 } from '@/src/lib/utils';
 
 interface ProjectPageProps {
 	params: Promise<{ slug: string }>;
 }
 
-export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
+export const generateStaticParams = () => {
+	return projects.map((project) => ({
+		slug: project.slug,
+	}));
+};
+
+export const generateMetadata = async ({ params }: ProjectPageProps): Promise<Metadata> => {
 	const { slug } = await params;
 	const project = projects.find((project) => project.slug === slug);
 
@@ -44,7 +51,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 			canonical: `/projects/${project.slug}`,
 		},
 	};
-}
+};
 
 const ProjectPage = async ({ params }: ProjectPageProps) => {
 	const { slug } = await params;
@@ -77,82 +84,80 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 	};
 
 	return (
-		<main className="pt-[110px]">
+		<main className='pt-[110px]'>
 			<script
-				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+				type='application/ld+json'
 			/>
-			<Container className="flex flex-col items-center">
+			<Container className='flex flex-col items-center'>
 				<div>
-					<h1 className="text-center text-3xl font-bold text-textSecondary dark:text-white md:text-6xl">
+					<h1 className='text-center text-3xl font-bold text-textSecondary dark:text-white md:text-6xl'>
 						{currentProject.title}
 					</h1>
-					<p className="mt-3 max-w-4xl text-center text-gray md:mt-10">
+					<p className='mt-3 max-w-4xl text-center text-gray md:mt-10'>
 						{currentProject.description}
 					</p>
-					<div
-						className={`mt-10 flex  gap-5 ${
-							currentProject.preview ? 'justify-between' : 'justify-center'
-						} `}
-					>
+					<div className='mt-10 flex justify-between gap-5'>
 						{currentProject.preview && (
-							<LiveLink variant="button" href={currentProject.preview}></LiveLink>
+							<LiveLink href={currentProject.preview} variant='button'></LiveLink>
 						)}
-						<CodeLink
-							variant="button"
-							className="justify-self-center"
-							href={currentProject.git}
-						/>
+						{currentProject.git && (
+							<CodeLink
+								className='justify-self-center'
+								href={currentProject.git}
+								variant='button'
+							/>
+						)}
 					</div>
 				</div>
-				<div className="mt-[5%] flex w-full flex-col gap-[50px] md:gap-[100px]">
+				<div className='mt-[5%] flex w-full flex-col gap-[50px] md:gap-[100px]'>
 					<Link
-						className="mx-auto overflow-hidden rounded-2xl"
+						className='mx-auto overflow-hidden rounded-2xl'
 						href={currentProject?.preview ?? ''}
 					>
 						<Image
-							blurDataURL={blurredImage}
-							placeholder="blur"
 							priority
-							src={currentProject.img.svg}
 							alt={`${currentProject.title} img`}
-							width={1000}
+							blurDataURL={blurredImage}
 							height={700}
+							placeholder='blur'
+							src={currentProject.img.svg}
+							width={1000}
 						/>
 					</Link>
 					{currentProject.video && currentProject.video.macbook && (
-						<div className="relative w-full bg-macbook bg-contain bg-no-repeat pb-[51%]">
+						<div className='relative w-full bg-macbook bg-contain bg-no-repeat pb-[51%]'>
 							<video
 								autoPlay
-								className="absolute left-1/2 top-[2px] z-[-1] w-[75%]  -translate-x-2/4 rounded-t-[4%] "
-								src={currentProject.video.macbook}
 								loop
-								playsInline
 								muted
-								preload="auto"
+								playsInline
+								className='absolute left-1/2 top-[2px] z-[-1] w-[75%] -translate-x-2/4 rounded-t-[4%]'
+								preload='auto'
+								src={currentProject.video.macbook}
 							/>
 						</div>
 					)}
 					{currentProject.keyfeatures && (
 						<>
-							<div className="mb-3 text-center text-2xl font-semibold">Key features:</div>
-							<ul className="flex list-inside list-disc flex-col gap-3">
+							<div className='mb-3 text-center text-2xl font-semibold'>Key features:</div>
+							<ul className='flex list-inside list-disc flex-col gap-3'>
 								{currentProject.keyfeatures.map((keyfeature, index) => (
-									<li key={index} className="inline-block text-gray">
-										<span className="font-bold">
-											● {`${keyfeature.key ? keyfeature.key + ':' : ''}`}{' '}
+									<li key={index} className='inline-block text-gray'>
+										<span className='font-bold'>
+											● {`${keyfeature.key ? `${keyfeature.key}:` : ''}`}{' '}
 										</span>
-										<p className="inline">{keyfeature.description}</p>
+										<p className='inline'>{keyfeature.description}</p>
 									</li>
 								))}
 							</ul>
 						</>
 					)}
 					{currentProject.id !== 1 && (
-						<div className="relative mb-[100px] mt-10 flex flex-col justify-center">
+						<div className='relative mb-[100px] mt-10 flex flex-col justify-center'>
 							<NextProjectBtn
-								nextProjectSlug={nextProject?.slug ?? ''}
 								nextProjectImg={nextProject?.img?.jpg ?? ''}
+								nextProjectSlug={nextProject?.slug ?? ''}
 								nextProjectTitle={nextProject?.title ?? ''}
 							/>
 						</div>
