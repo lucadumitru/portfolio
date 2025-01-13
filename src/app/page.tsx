@@ -1,4 +1,3 @@
-/* eslint-disable perfectionist/sort-objects */
 import type { Person } from 'schema-dts';
 import { Hero, Projects, Stack } from '@/components/sections';
 

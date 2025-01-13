@@ -1,4 +1,3 @@
-/* eslint-disable perfectionist/sort-objects */
 import Image from 'next/image';
 
 import Link from 'next/link';

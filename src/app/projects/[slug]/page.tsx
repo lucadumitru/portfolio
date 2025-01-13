@@ -1,4 +1,3 @@
-/* eslint-disable perfectionist/sort-objects */
 import type { Metadata } from 'next';
 import type { Article } from 'schema-dts';
 import Image from 'next/image';

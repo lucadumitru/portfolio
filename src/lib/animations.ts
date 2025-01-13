@@ -1,4 +1,3 @@
-/* eslint-disable perfectionist/sort-objects */
 export const fadeInAnimationVariants = {
 	initial: {
 		opacity: 0,
