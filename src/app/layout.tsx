@@ -32,7 +32,7 @@ export const metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
-		<html className='scroll-smooth' lang='en-US'>
+		<html suppressHydrationWarning className='scroll-smooth' lang='en-US'>
 			<body
 				className={`${poppins.className} flex min-h-screen min-w-[390px] flex-col bg-white antialiased dark:bg-bgDark`}
 			>
@@ -44,8 +44,12 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 					<Contact />
 					<Footer />
 				</Providers>
-				<Analytics />
-				<SpeedInsights />
+				{process.env.NODE_ENV === 'production' && (
+					<>
+						<Analytics />
+						<SpeedInsights />
+					</>
+				)}
 			</body>
 		</html>
 	);
