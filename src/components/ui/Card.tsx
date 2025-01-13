@@ -1,6 +1,6 @@
 import type { Article } from 'schema-dts';
-import { m } from 'framer-motion';
 
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -33,42 +33,40 @@ export const Card = ({ blurredImage, index, project }: CardProps) => {
 	};
 
 	return (
-		<m.article
-			viewport={{
-				once: true,
-			}}
+		<motion.article
 			className='relative flex flex-col rounded-[20px] bg-white shadow-card will-change-transform dark:bg-[#363636]'
-			custom={index}
 			initial='initial'
 			variants={fadeInAnimationVariants}
 			whileInView='animate'
+			transition={{ delay: index * 0.3 }}
+			viewport={{ once: true }}
 		>
 			<script
-				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 				type='application/ld+json'
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
 			<Link
+				href={`/projects/${project.slug}`}
 				aria-label={`${project.title} link'`}
 				className='overflow-hidden rounded-t-[20px]'
-				href={`/projects/${project.slug}`}
 			>
 				{!project.video || !project.video.preview ? (
 					<Image
 						alt={`${project.title} img'`}
 						blurDataURL={blurredImage}
-						className='max-h-[200px] min-w-full object-cover transition hover:scale-105'
+						className='aspect-video max-h-[200px] min-w-full object-cover transition hover:scale-105'
 						height={200}
-						placeholder='blur'
 						src={project.img.svg}
 						width={200}
+						placeholder='blur'
 					/>
 				) : (
 					<video
-						autoPlay
-						loop
 						muted
 						playsInline
-						className='max-h-[200px] w-full object-cover transition hover:scale-105'
+						className='aspect-video max-h-[200px] w-full object-cover transition hover:scale-105'
+						autoPlay
+						loop
 						preload='auto'
 					>
 						<source src={project.video.preview} />
@@ -78,7 +76,7 @@ export const Card = ({ blurredImage, index, project }: CardProps) => {
 			</Link>
 			<div className='flex grow flex-col items-start p-[25px]'>
 				<h3 className='text-[20px] font-medium dark:text-[#CCCCCC] md:text-[28px]'>
-					<Link className='hover:underline' href={`/projects/${project.slug}`}>
+					<Link href={`/projects/${project.slug}`} className='hover:underline'>
 						{project.title}
 					</Link>
 				</h3>
@@ -90,9 +88,9 @@ export const Card = ({ blurredImage, index, project }: CardProps) => {
 				</div>
 				<div className='mt-[12px] flex w-full items-center justify-between gap-x-3 text-[14px] dark:text-white md:mt-[20px]'>
 					{project.preview && <LiveLink href={project.preview} />}
-					<CodeLink href={project.git} />
+					{project.git && <CodeLink href={project.git} />}
 				</div>
 			</div>
-		</m.article>
+		</motion.article>
 	);
 };
