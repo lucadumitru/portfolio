@@ -1,17 +1,15 @@
 'use client';
 
-import Image from 'next/image';
+import type { ImageProps } from 'next/image';
+
 import { useTheme } from 'next-themes';
+import Image from 'next/image';
 import React from 'react';
 
-interface ThemedImgProps {
-	alt: string;
-	className?: string;
-	height?: number;
+interface ThemedImgProps extends Omit<ImageProps, 'src'> {
 	src?: string;
 	srcDark: string;
 	srcLight: string;
-	width?: number;
 }
 
 export const ThemedImg = ({
@@ -22,6 +20,7 @@ export const ThemedImg = ({
 	srcDark,
 	srcLight,
 	width,
+	...props
 }: ThemedImgProps) => {
 	const [isMounted, setIsMounted] = React.useState(false);
 	const { resolvedTheme } = useTheme();
@@ -47,12 +46,13 @@ export const ThemedImg = ({
 
 	return (
 		<Image
-			priority
 			alt={alt}
 			className={className}
 			height={height}
 			src={src || srcLight}
 			width={width}
+			priority
+			{...props}
 		/>
 	);
 };
