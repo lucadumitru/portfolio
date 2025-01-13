@@ -87,8 +87,8 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 	return (
 		<main className='pt-[110px]'>
 			<script
-				type='application/ld+json'
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+				type='application/ld+json'
 			/>
 			<Container className='flex flex-col items-center'>
 				<div>
@@ -101,41 +101,41 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 					<div className='mt-10 flex justify-between gap-5'>
 						{currentProject.preview && (
 							<LiveLink
-								href={currentProject.preview}
 								className='mx-auto'
+								href={currentProject.preview}
 								variant='button'
 							></LiveLink>
 						)}
 						{currentProject.git && (
-							<CodeLink href={currentProject.git} className='mx-auto' variant='button' />
+							<CodeLink className='mx-auto' href={currentProject.git} variant='button' />
 						)}
 					</div>
 				</div>
 				<div className='mt-[5%] flex w-full flex-col gap-[50px] md:gap-[100px]'>
 					<Link
-						href={currentProject?.preview ?? ''}
 						className='mx-auto overflow-hidden rounded-2xl'
+						href={currentProject?.preview ?? ''}
 					>
 						<Image
 							alt={`${currentProject.title} img`}
 							blurDataURL={blurredImage}
 							height={700}
-							src={currentProject.img.svg}
-							width={1000}
 							placeholder='blur'
 							priority
+							src={currentProject.img.svg}
+							width={1000}
 						/>
 					</Link>
 					{currentProject.video && currentProject.video.macbook && (
 						<div className='relative w-full bg-macbook bg-contain bg-no-repeat pb-[51%]'>
 							<video
+								autoPlay
+								className='absolute left-1/2 top-[2px] z-[-1] w-[75%] -translate-x-2/4 rounded-t-[4%]'
+								loop
 								muted
 								playsInline
-								className='absolute left-1/2 top-[2px] z-[-1] w-[75%] -translate-x-2/4 rounded-t-[4%]'
-								src={currentProject.video.macbook}
-								autoPlay
-								loop
 								preload='auto'
+								src={currentProject.video.macbook}
 							/>
 						</div>
 					)}
@@ -144,7 +144,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 							<div className='mb-3 text-center text-2xl font-semibold'>Key features:</div>
 							<ul className='flex list-inside list-disc flex-col gap-3'>
 								{currentProject.keyfeatures.map((keyfeature, index) => (
-									<li key={index} className='inline-block text-gray'>
+									<li className='inline-block text-gray' key={index}>
 										<span className='font-bold'>
 											● {`${keyfeature.key ? `${keyfeature.key}:` : ''}`}{' '}
 										</span>

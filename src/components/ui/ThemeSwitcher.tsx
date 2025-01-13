@@ -26,13 +26,13 @@ export const ThemeSwitcher = () => {
 	return (
 		<button
 			aria-label='theme switcher'
-			type='button'
 			onKeyDown={(e) => e.key === 'Enter' && toggleDarkMode()}
+			type='button'
 		>
 			<DarkModeSwitch
 				checked={theme === 'dark' || systemDark}
-				size={30}
 				onChange={systemDark ? () => setTheme('light') : toggleDarkMode}
+				size={30}
 			/>
 		</button>
 	);

@@ -23,6 +23,18 @@ export default eslint(
 				},
 			],
 			'no-extra-boolean-cast': 'off',
+			'perfectionist/sort-jsx-props': [
+				'error',
+				{
+					type: 'alphabetical',
+					order: 'asc',
+					ignoreCase: true,
+					specialCharacters: 'keep',
+					ignorePattern: [],
+					groups: [],
+					customGroups: {},
+				},
+			],
 		},
 	},
 );

@@ -2,9 +2,11 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { Contact, Footer, Header } from '@/components/layout';
+
 import { Socials } from '../components';
 import { poppins } from './fonts';
 import { Providers } from './providers';
+
 import './globals.css';
 
 export const metadata = {
@@ -32,7 +34,7 @@ export const metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
-		<html suppressHydrationWarning className='scroll-smooth' lang='en-US'>
+		<html className='scroll-smooth' lang='en-US' suppressHydrationWarning>
 			<body
 				className={`${poppins.className} flex min-h-screen min-w-[390px] flex-col bg-white antialiased dark:bg-bgDark`}
 			>

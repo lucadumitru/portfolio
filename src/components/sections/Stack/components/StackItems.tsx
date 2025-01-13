@@ -14,15 +14,15 @@ export const StackItems = ({ technologies }: StackItemsProps) => {
 		<motion.ul className='mt-[25px] grid min-h-[370px] grid-cols-3 items-center gap-[25px] md:mt-[80px] md:grid-cols-5 md:gap-[40px] xl:mt-[120px]'>
 			{technologies.map((technology, index) => (
 				<motion.li
-					key={technology.name}
 					className='will-change-transform [&:nth-of-type(10n-1)]:hidden md:[&:nth-of-type(10n-1)]:block'
-					initial='initial'
-					variants={fadeInAnimationVariants}
-					whileInView='animate'
 					custom={index}
+					initial='initial'
+					key={technology.name}
+					variants={fadeInAnimationVariants}
 					viewport={{
 						once: true,
 					}}
+					whileInView='animate'
 				>
 					<ThemedImg
 						alt={`${technology.name} icon`}

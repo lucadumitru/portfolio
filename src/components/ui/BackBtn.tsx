@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+
 import { dmSans } from '@/src/app/fonts';
 
 interface BackBtnProps {
