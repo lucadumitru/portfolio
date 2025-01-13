@@ -14,9 +14,10 @@ export const ThemeSwitcher = () => {
 
 	const systemDark =
 		theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches;
-	function toggleDarkMode() {
+
+	const toggleDarkMode = () => {
 		setTheme(theme === 'dark' ? 'light' : 'dark');
-	}
+	};
 
 	if (!isMounted) {
 		return <div className='w-[30px]' />;
