@@ -1,7 +1,8 @@
 import Link from 'next/link';
 
-import linkIcon from '@/public/icons/link.svg';
 import linkIconWhite from '@/public/icons/link-white.svg';
+import linkIcon from '@/public/icons/link.svg';
+
 import { ThemedImg } from '.';
 
 interface LiveLinkProps {

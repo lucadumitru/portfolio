@@ -1,9 +1,9 @@
 'use client';
 
 import { Fade as Hamburger } from 'hamburger-react';
-
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+
 import { BackBtn, Container, LogoLink, NavLinks, ResumeBtn, ThemeSwitcher } from '@/components/ui';
 
 interface HeaderProps {

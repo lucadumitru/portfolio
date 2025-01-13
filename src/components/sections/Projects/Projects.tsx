@@ -1,6 +1,7 @@
 import { Container, Title } from '@/components/ui';
 import { projects } from '@/src/data/data';
 import { getBase64 } from '@/src/lib/utils';
+
 import { ProjectCards } from './components/ProjectCards';
 
 export const Projects = async () => {

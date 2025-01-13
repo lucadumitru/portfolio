@@ -1,7 +1,6 @@
-/* eslint-disable perfectionist/sort-objects */
 import Image from 'next/image';
-
 import Link from 'next/link';
+
 import gitIcon from '@/public/icons/git.svg';
 import instagramIcon from '@/public/icons/instagram.svg';
 import linkedInIcon from '@/public/icons/linkedin.svg';
@@ -27,10 +26,10 @@ export const Socials = ({ className }: SocialsProps) => {
 		<div className={`flex items-center justify-center gap-x-[10px] md:gap-x-[20px] ${className}`}>
 			{socialLinks.map((link) => (
 				<Link
-					key={link.label}
 					aria-label={`${link.label} link`}
 					className='transition-transform hover:scale-110'
 					href={link.href}
+					key={link.label}
 					target='_blank'
 				>
 					<Image alt={`${link.label} icon`} src={link.icon} />

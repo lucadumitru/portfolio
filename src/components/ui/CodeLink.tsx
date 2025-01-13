@@ -1,11 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { ThemedImg } from '@/components/ui';
 
+import { ThemedImg } from '@/components/ui';
+import gitIconWhite from '@/public/icons/git-small-white.svg';
 // Icons
 import gitIcon from '@/public/icons/git-small.svg';
-import gitIconWhite from '@/public/icons/git-small-white.svg';
 
 interface CodeLinkProps {
 	className?: string;

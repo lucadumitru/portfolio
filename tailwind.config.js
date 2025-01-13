@@ -1,4 +1,3 @@
-/* eslint-disable perfectionist/sort-objects */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	future: {

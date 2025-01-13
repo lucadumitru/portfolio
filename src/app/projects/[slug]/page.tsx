@@ -1,9 +1,10 @@
-/* eslint-disable perfectionist/sort-objects */
 import type { Metadata } from 'next';
 import type { Article } from 'schema-dts';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+
 import { CodeLink, Container, LiveLink, NextProjectBtn } from '@/components/ui';
 import { projects } from '@/src/data/data';
 import { getBase64 } from '@/src/lib/utils';
@@ -99,14 +100,14 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 					</p>
 					<div className='mt-10 flex justify-between gap-5'>
 						{currentProject.preview && (
-							<LiveLink href={currentProject.preview} variant='button'></LiveLink>
+							<LiveLink
+								className='mx-auto'
+								href={currentProject.preview}
+								variant='button'
+							></LiveLink>
 						)}
 						{currentProject.git && (
-							<CodeLink
-								className='justify-self-center'
-								href={currentProject.git}
-								variant='button'
-							/>
+							<CodeLink className='mx-auto' href={currentProject.git} variant='button' />
 						)}
 					</div>
 				</div>
@@ -116,11 +117,11 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 						href={currentProject?.preview ?? ''}
 					>
 						<Image
-							priority
 							alt={`${currentProject.title} img`}
 							blurDataURL={blurredImage}
 							height={700}
 							placeholder='blur'
+							priority
 							src={currentProject.img.svg}
 							width={1000}
 						/>
@@ -129,10 +130,10 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 						<div className='relative w-full bg-macbook bg-contain bg-no-repeat pb-[51%]'>
 							<video
 								autoPlay
+								className='absolute left-1/2 top-[2px] z-[-1] w-[75%] -translate-x-2/4 rounded-t-[4%]'
 								loop
 								muted
 								playsInline
-								className='absolute left-1/2 top-[2px] z-[-1] w-[75%] -translate-x-2/4 rounded-t-[4%]'
 								preload='auto'
 								src={currentProject.video.macbook}
 							/>
@@ -143,7 +144,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 							<div className='mb-3 text-center text-2xl font-semibold'>Key features:</div>
 							<ul className='flex list-inside list-disc flex-col gap-3'>
 								{currentProject.keyfeatures.map((keyfeature, index) => (
-									<li key={index} className='inline-block text-gray'>
+									<li className='inline-block text-gray' key={index}>
 										<span className='font-bold'>
 											● {`${keyfeature.key ? `${keyfeature.key}:` : ''}`}{' '}
 										</span>

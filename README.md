@@ -55,6 +55,5 @@ Requirements:
 
 1. [ToDo app using React.js/SCSS/Redux-Toolkit](https://github.com/lucadumitru/todo.git);
 2. [Rick and Morty website using Next.js/React.js/Tailwind/TS/SWR/Eslint/Rick and Morty Api](https://github.com/lucadumitru/rickandmorty.git);
-3. [Freaks of Nature festvial landing in Vanilla JavaScript/SCSS](https://github.com/lucadumitru/freaksofnature.git);
-4. [NFT Marketplace landing in Vanilla JavaScript/SCSS](https://github.com/lucadumitru/nft-marketplace.git).
-5. [Funiro Market landing in Vanilla JavaScript/SCSS](https://github.com/lucadumitru/funiro.git).
+3. [NFT Marketplace landing in Vanilla JavaScript/SCSS](https://github.com/lucadumitru/nft-marketplace.git).
+4. [Funiro Market landing in Vanilla JavaScript/SCSS](https://github.com/lucadumitru/funiro.git).

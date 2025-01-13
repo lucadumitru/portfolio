@@ -1,4 +1,3 @@
-/* eslint-disable perfectionist/sort-objects */
 export const fadeInAnimationVariants = {
 	initial: {
 		opacity: 0,
@@ -8,7 +7,7 @@ export const fadeInAnimationVariants = {
 		opacity: 1,
 		y: 0,
 		transition: {
-			delay: 0.04 * index,
+			delay: 0.02 * index,
 		},
 	}),
 };

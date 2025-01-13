@@ -1,6 +1,6 @@
 import type { Article } from 'schema-dts';
-import { m } from 'framer-motion';
 
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -33,14 +33,12 @@ export const Card = ({ blurredImage, index, project }: CardProps) => {
 	};
 
 	return (
-		<m.article
-			viewport={{
-				once: true,
-			}}
+		<motion.article
 			className='relative flex flex-col rounded-[20px] bg-white shadow-card will-change-transform dark:bg-[#363636]'
-			custom={index}
 			initial='initial'
+			transition={{ delay: index * 0.3 }}
 			variants={fadeInAnimationVariants}
+			viewport={{ once: true }}
 			whileInView='animate'
 		>
 			<script
@@ -56,7 +54,7 @@ export const Card = ({ blurredImage, index, project }: CardProps) => {
 					<Image
 						alt={`${project.title} img'`}
 						blurDataURL={blurredImage}
-						className='max-h-[200px] min-w-full object-cover transition hover:scale-105'
+						className='aspect-video max-h-[200px] min-w-full object-cover transition hover:scale-105'
 						height={200}
 						placeholder='blur'
 						src={project.img.svg}
@@ -65,10 +63,10 @@ export const Card = ({ blurredImage, index, project }: CardProps) => {
 				) : (
 					<video
 						autoPlay
+						className='aspect-video max-h-[200px] w-full object-cover transition hover:scale-105'
 						loop
 						muted
 						playsInline
-						className='max-h-[200px] w-full object-cover transition hover:scale-105'
 						preload='auto'
 					>
 						<source src={project.video.preview} />
@@ -90,9 +88,9 @@ export const Card = ({ blurredImage, index, project }: CardProps) => {
 				</div>
 				<div className='mt-[12px] flex w-full items-center justify-between gap-x-3 text-[14px] dark:text-white md:mt-[20px]'>
 					{project.preview && <LiveLink href={project.preview} />}
-					<CodeLink href={project.git} />
+					{project.git && <CodeLink href={project.git} />}
 				</div>
 			</div>
-		</m.article>
+		</motion.article>
 	);
 };

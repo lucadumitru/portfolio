@@ -1,4 +1,3 @@
-/* eslint-disable perfectionist/sort-objects */
 export const technologies = [
 	{ name: 'html', icon: '/icons/stack/html.svg' },
 	{ name: 'css', icon: '/icons/stack/css.svg' },
@@ -94,7 +93,6 @@ export const projects: Project[] = [
 			},
 		],
 		stack: 'HTML, JavaScript, SCSS, Gulp, Webpack',
-		git: 'https://github.com/lucadumitru/freaks-landing',
 		preview: 'https://freaksofnature.me/',
 	},
 	{
@@ -215,7 +213,7 @@ export const projects: Project[] = [
 	},
 	{
 		id: 10,
-		title: "L'Interior",
+		title: 'L`Interior',
 		slug: 'linterior',
 		description:
 			'This is a freelance project for an interior design and architecture agency based in Seville.',
@@ -260,13 +258,17 @@ export const projects: Project[] = [
 					'The project was optimized using Next SEO, ensuring high search engine visibility. JSON-LD was used for SEO meta tags, and all metadata (title, description, image, author, etc.) was added to improve search engine optimization.',
 			},
 			{
-				key: 'Deployment',
+				key: 'CMS',
+				description:
+					'Strapi CMS was seamlessly integrated to handle backend functionalities, enabling efficient data management and content delivery. The CMS was deployed on the Render platform, ensuring optimal performance and reliability.',
+			},
+			{
+				key: 'Web Deployment',
 				description:
 					'Finally, the project was deployed on Vercel. Additionally, a custom domain name was added.',
 			},
 		],
-		stack: 'HTML, React.js, Next.js, Shadcn/UI, TailwindCSS, SEO, JSON-LD, Zod, React Hook Form, Prettier, ESLint',
-		git: 'https://github.com/lucadumitru/linterior-newdesign',
-		preview: 'https://linterior.lucadevelop.com/',
+		stack: 'React.js, Next.js,Strapi, Shadcn/UI, TailwindCSS, SEO, JSON-LD, Zod, React Hook Form, Prettier, ESLint',
+		preview: 'https://linterior.es',
 	},
 ];

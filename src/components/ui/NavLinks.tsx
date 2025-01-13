@@ -1,8 +1,10 @@
 'use client';
 
 import Link from 'next/link';
+
 import { ResumeBtn } from '@/components/ui';
 import { dmSans } from '@/src/app/fonts';
+
 import { Socials } from '../common';
 
 interface NavLinksProps {
@@ -41,8 +43,8 @@ export const NavLinks: React.FC<NavLinksProps> = ({ isOpen, setOpen }) => {
 				}`}
 			>
 				<ul
-					itemScope
 					className='inline-flex flex-col gap-x-[10px] gap-y-[20px] md:flex-row md:flex-wrap md:gap-x-[30px] md:gap-y-[0px]'
+					itemScope
 					itemType='https://schema.org/SiteNavigationElement'
 				>
 					{navLinks.map((navLink) => (

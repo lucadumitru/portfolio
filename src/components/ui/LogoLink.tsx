@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import { LogoIcon } from './icons';
 
 interface LogoLinkProps extends React.HtmlHTMLAttributes<HTMLAnchorElement> {

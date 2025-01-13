@@ -14,9 +14,10 @@ export const ThemeSwitcher = () => {
 
 	const systemDark =
 		theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches;
-	function toggleDarkMode() {
+
+	const toggleDarkMode = () => {
 		setTheme(theme === 'dark' ? 'light' : 'dark');
-	}
+	};
 
 	if (!isMounted) {
 		return <div className='w-[30px]' />;
@@ -25,13 +26,13 @@ export const ThemeSwitcher = () => {
 	return (
 		<button
 			aria-label='theme switcher'
-			type='button'
 			onKeyDown={(e) => e.key === 'Enter' && toggleDarkMode()}
+			type='button'
 		>
 			<DarkModeSwitch
 				checked={theme === 'dark' || systemDark}
-				size={30}
 				onChange={systemDark ? () => setTheme('light') : toggleDarkMode}
+				size={30}
 			/>
 		</button>
 	);

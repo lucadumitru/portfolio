@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+
 import heroImg from '@/public/profile.webp';
 
 import { HeroTitle } from './components/HeroTitle';
@@ -32,10 +33,10 @@ export const Hero = () => {
 					href='#stack'
 				>
 					<Image
-						unoptimized
 						alt='Scroll down icon'
 						height={40}
 						src='https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Backhand%20Index%20Pointing%20Down.png'
+						unoptimized
 						width={40}
 					/>
 				</Link>

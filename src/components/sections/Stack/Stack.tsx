@@ -1,5 +1,6 @@
 import { Container, Title } from '@/components/ui';
 import { technologies } from '@/src/data/data';
+
 import { StackItems } from './components/StackItems';
 
 export const Stack = () => {
