@@ -1,4 +1,3 @@
-/* eslint-disable perfectionist/sort-objects */
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
@@ -11,9 +10,7 @@ const nextConfig: NextConfig = {
 			},
 		],
 	},
-	experimental: {
-		ppr: 'incremental',
-	},
+	experimental: {},
 };
 
 export default nextConfig;
