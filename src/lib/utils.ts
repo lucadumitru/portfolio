@@ -4,9 +4,9 @@ import fs from 'node:fs/promises';
 import { getPlaiceholder } from 'plaiceholder';
 import { twMerge } from 'tailwind-merge';
 
-export function cn(...inputs: ClassValue[]) {
+export const cn = (...inputs: ClassValue[]) => {
 	return twMerge(clsx(inputs));
-}
+};
 
 export const getBase64 = async (imgPath: string) => {
 	try {
