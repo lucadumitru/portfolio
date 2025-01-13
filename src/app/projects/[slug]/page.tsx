@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import type { Article } from 'schema-dts';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+
 import { CodeLink, Container, LiveLink, NextProjectBtn } from '@/components/ui';
 import { projects } from '@/src/data/data';
 import { getBase64 } from '@/src/lib/utils';
@@ -85,8 +87,8 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 	return (
 		<main className='pt-[110px]'>
 			<script
-				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 				type='application/ld+json'
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
 			<Container className='flex flex-col items-center'>
 				<div>
@@ -98,42 +100,42 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 					</p>
 					<div className='mt-10 flex justify-between gap-5'>
 						{currentProject.preview && (
-							<LiveLink href={currentProject.preview} variant='button'></LiveLink>
+							<LiveLink
+								href={currentProject.preview}
+								className='mx-auto'
+								variant='button'
+							></LiveLink>
 						)}
 						{currentProject.git && (
-							<CodeLink
-								className='justify-self-center'
-								href={currentProject.git}
-								variant='button'
-							/>
+							<CodeLink href={currentProject.git} className='mx-auto' variant='button' />
 						)}
 					</div>
 				</div>
 				<div className='mt-[5%] flex w-full flex-col gap-[50px] md:gap-[100px]'>
 					<Link
-						className='mx-auto overflow-hidden rounded-2xl'
 						href={currentProject?.preview ?? ''}
+						className='mx-auto overflow-hidden rounded-2xl'
 					>
 						<Image
-							priority
 							alt={`${currentProject.title} img`}
 							blurDataURL={blurredImage}
 							height={700}
-							placeholder='blur'
 							src={currentProject.img.svg}
 							width={1000}
+							placeholder='blur'
+							priority
 						/>
 					</Link>
 					{currentProject.video && currentProject.video.macbook && (
 						<div className='relative w-full bg-macbook bg-contain bg-no-repeat pb-[51%]'>
 							<video
-								autoPlay
-								loop
 								muted
 								playsInline
 								className='absolute left-1/2 top-[2px] z-[-1] w-[75%] -translate-x-2/4 rounded-t-[4%]'
-								preload='auto'
 								src={currentProject.video.macbook}
+								autoPlay
+								loop
+								preload='auto'
 							/>
 						</div>
 					)}
