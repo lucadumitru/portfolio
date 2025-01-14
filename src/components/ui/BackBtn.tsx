@@ -14,6 +14,7 @@ export const BackBtn: React.FC<BackBtnProps> = ({ href = '/' }) => {
 				alt='Back icon'
 				height={30}
 				src='https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Backhand%20Index%20Pointing%20Left.png'
+				unoptimized
 				width={30}
 			/>
 			Main Page

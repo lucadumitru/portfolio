@@ -63,7 +63,7 @@ export const projects: Project[] = [
 			jpg: '/projects/quickfit/img/quickfit.jpg',
 		},
 		video: {
-			macbook: '/projects/quickfit/video/quickfit-hero.mp4',
+			macbook: '/projects/quickfit/video/quickfit-preview.mov',
 		},
 		stack: 'HTML , JavaScript, SASS, Spline',
 		git: 'http://github.https://github.com/lucadumitru/quickfit',
@@ -81,7 +81,7 @@ export const projects: Project[] = [
 		},
 		video: {
 			preview: '/projects/freaks/video/freaks-preview.mov',
-			macbook: '/projects/freaks/video/freaks-hero.mp4',
+			macbook: '/projects/freaks/video/freaks-hero.mov',
 		},
 		keyfeatures: [
 			{
@@ -268,7 +268,94 @@ export const projects: Project[] = [
 					'Finally, the project was deployed on Vercel. Additionally, a custom domain name was added.',
 			},
 		],
-		stack: 'React.js, Next.js,Strapi, Shadcn/UI, TailwindCSS, SEO, JSON-LD, Zod, React Hook Form, Prettier, ESLint',
+		stack: 'React.js, Next.js, Strapi, Shadcn/UI, TailwindCSS, SEO, JSON-LD, Zod, React Hook Form, Prettier, ESLint',
 		preview: 'https://linterior.es',
+	},
+	{
+		id: 11,
+		title: 'Petinder',
+		slug: 'petinder',
+		description:
+			'Petinder is a platform that connects pet lovers with adoption centers, animal shelters, and pet-friendly businesses. Its mission is to promote responsible pet ownership, support animal welfare organizations, and offer resources for pet care and pet-friendly spaces. As a volunteer frontend developer, I was dedicated to supporting Petinder’s mission by ensuring a high-quality, scalable, and user-friendly platform.',
+		img: {
+			jpg: '/projects/petinder/img/petinder.jpg',
+			svg: '/projects/petinder/img/petinder.svg',
+		},
+		video: {
+			macbook: '/projects/petinder/video/petinder-preview.mov',
+		},
+		keyfeatures: [
+			{
+				key: 'UI Component Development',
+				description:
+					'developed almost all UI components, ensuring visual consistency and a seamless user experience across mobile and desktop platforms.',
+			},
+			{
+				key: 'Design System Integration',
+				description:
+					'Aligned UI components with the platform’s design system, ensuring consistent use of typography, colors, and spacing throughout the site.',
+			},
+			{
+				key: 'Advanced Filtering System',
+				description:
+					'Implemented dynamic filtering functionality by categories like Outdoors and Lodging, enhancing user engagement with customizable search options.',
+			},
+			{
+				key: 'Pet Profile Page Implementation',
+				description:
+					'Developed an intuitive and informative Pet Profile Page to highlight adoptable pets, improving user interaction and navigation.',
+			},
+			{
+				key: 'Home Page Implementation',
+				description:
+					'Created a visually appealing and engaging Home Page with sections that contains carrousels with cards that contains relationated information to highlight pet adoption centers and shelters, attracting potential adopters.',
+			},
+			{
+				key: 'Bug Fixing & UI/UX Enhancements',
+				description: 'Resolved multiple UI/UX bugs.',
+			},
+			{
+				key: 'User Experience Enhancements',
+				description:
+					'Improved navigation and interactive components, including dropdown filters, carousel behavior, and proper alignment of UI elements.',
+			},
+			{
+				key: 'Code Quality & Project Structure',
+				description:
+					'Maintained high code quality by following best practices and enforcing a modular project structure, ensuring scalability and maintainability.',
+			},
+			{
+				key: 'Performance Optimization',
+				description:
+					'Maintained high code quality by following best practices and enforcing a modular project structure, ensuring scalability and maintainability.',
+			},
+			{
+				key: 'Accessibility Improvements',
+				description:
+					'Enhanced accessibility by implementing best practices for screen readers, keyboard navigation, and color contrast, making the platform inclusive for all users.',
+			},
+			{
+				key: 'Cross-Browser Compatibility',
+				description:
+					'Tested and refined components to ensure consistent functionality and appearance across major browsers.',
+			},
+			{
+				key: 'Internationalization with Next-Intl',
+				description:
+					'Implemented next-intl for internationalization, enabling seamless support for both English and Spanish languages, making the platform accessible to a wider audience.',
+			},
+			{
+				key: 'Global State Management with Zustand',
+				description:
+					'Utilized zustand for efficient global state management, providing a simple and scalable solution to handle shared states across different components.',
+			},
+			{
+				key: 'Testing with Vitest',
+				description:
+					'Employed vitest for unit and integration testing, ensuring the stability and reliability of the frontend by covering critical functionalities and edge cases.',
+			},
+		],
+		stack: 'React.js, Next.js, Shadcn/UI, TailwindCSS, Zod, React Hook Form, Prettier, ESLint, Vitest, Zustand',
+		preview: 'https://pet.petinder.online',
 	},
 ];

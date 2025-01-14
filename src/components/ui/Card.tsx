@@ -57,7 +57,7 @@ export const Card = ({ blurredImage, index, project }: CardProps) => {
 						className='aspect-video max-h-[200px] min-w-full object-cover transition hover:scale-105'
 						height={200}
 						placeholder='blur'
-						src={project.img.svg}
+						src={project.img.svg || project.img.jpg}
 						width={200}
 					/>
 				) : (
