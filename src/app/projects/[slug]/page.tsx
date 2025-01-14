@@ -91,13 +91,17 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 				type='application/ld+json'
 			/>
 			<Container className='flex flex-col items-center'>
-				<div>
+				<div className='max-w-4xl'>
 					<h1 className='text-center text-3xl font-bold text-textSecondary dark:text-white md:text-6xl'>
 						{currentProject.title}
 					</h1>
-					<p className='mt-3 max-w-4xl text-center text-gray md:mt-10'>
-						{currentProject.description}
-					</p>
+					{currentProject.stack && (
+						<div className='mt-10 text-center text-xl font-semibold text-textSecondary dark:text-white md:text-xl'>
+							{currentProject.stack}
+						</div>
+					)}
+					<p className='mt-3 text-justify text-gray md:mt-10'>{currentProject.description}</p>
+
 					<div className='mt-10 flex justify-between gap-5'>
 						{currentProject.preview && (
 							<LiveLink
@@ -111,7 +115,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 						)}
 					</div>
 				</div>
-				<div className='mt-[5%] flex w-full flex-col gap-[50px] md:gap-[100px]'>
+				<div className='mt-[5%] flex w-full flex-col gap-[50px] md:gap-[70px]'>
 					<Link
 						className='mx-auto overflow-hidden rounded-2xl'
 						href={currentProject?.preview ?? ''}
@@ -122,15 +126,15 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 							height={700}
 							placeholder='blur'
 							priority
-							src={currentProject.img.svg}
+							src={currentProject.img.svg ?? currentProject.img.jpg}
 							width={1000}
 						/>
 					</Link>
-					{currentProject.video && currentProject.video.macbook && (
-						<div className='relative w-full bg-macbook bg-contain bg-no-repeat pb-[51%]'>
+					{currentProject.video?.macbook && (
+						<div className='relative w-full bg-macbook bg-contain bg-no-repeat pb-[50%]'>
 							<video
 								autoPlay
-								className='absolute left-1/2 top-[2px] z-[-1] w-[75%] -translate-x-2/4 rounded-t-[4%]'
+								className='absolute left-1/2 top-[3%] z-[-1] aspect-video w-[80%] -translate-x-2/4 rounded-md'
 								loop
 								muted
 								playsInline
@@ -140,8 +144,8 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 						</div>
 					)}
 					{currentProject.keyfeatures && (
-						<>
-							<div className='mb-3 text-center text-2xl font-semibold'>Key features:</div>
+						<div className='space-y-5'>
+							<div className='text-center text-2xl font-semibold'>Key features:</div>
 							<ul className='flex list-inside list-disc flex-col gap-3'>
 								{currentProject.keyfeatures.map((keyfeature, index) => (
 									<li className='inline-block text-gray' key={index}>
@@ -152,7 +156,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 									</li>
 								))}
 							</ul>
-						</>
+						</div>
 					)}
 					{currentProject.id !== 1 && (
 						<div className='relative mb-[100px] mt-10 flex flex-col justify-center'>

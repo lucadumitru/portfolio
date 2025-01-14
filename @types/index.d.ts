@@ -16,7 +16,7 @@ interface Project {
 	title: string;
 	img: {
 		jpg: string;
-		svg: string;
+		svg?: string;
 	};
 	video?: {
 		macbook?: string;
