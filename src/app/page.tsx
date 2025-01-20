@@ -30,7 +30,7 @@ const jsonLd: Person = {
 
 const Home = () => {
 	return (
-		<main className='flex flex-col gap-[3.125rem] pt-[4.375rem] md:gap-[9.375rem]'>
+		<main className='flex flex-col gap-[3.125rem] pt-[4.375rem] md:gap-[9.375rem]' role='main'>
 			<script
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 				type='application/ld+json'

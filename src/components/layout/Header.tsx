@@ -28,7 +28,10 @@ export const Header = ({ children }: HeaderProps) => {
 	};
 
 	return (
-		<header className='fixed z-50 w-full border-b-[0.125rem] border-lightGray/15 bg-white dark:bg-bgDark'>
+		<header
+			className='fixed z-50 w-full border-b-[0.125rem] border-lightGray/15 bg-white dark:bg-bgDark'
+			role='banner'
+		>
 			<Container className='flex min-h-[4.5rem] items-center justify-between gap-3 py-3 md:py-4'>
 				{isHomePage ? (
 					<LogoLink className='relative z-10' />

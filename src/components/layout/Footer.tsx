@@ -6,7 +6,7 @@ import { dmSans } from '@/src/app/fonts';
 
 export const Footer = () => {
 	return (
-		<footer className='z-5 relative'>
+		<footer className='z-5 relative' role='contentinfo'>
 			<Container className='pt-5'>
 				<div
 					className={`flex items-center gap-2 ${dmSans.className} justify-center gap-2 border-b-[0.125rem] border-solid border-gray/30 pb-7 pt-7 font-medium text-textSecondary md:justify-between`}

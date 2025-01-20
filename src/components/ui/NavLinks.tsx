@@ -63,7 +63,7 @@ export const NavLinks = () => {
 	};
 
 	return (
-		<nav className='flex items-center md:min-w-[18.75rem] md:gap-x-12'>
+		<nav className='flex items-center md:min-w-[18.75rem] md:gap-x-12' role='navigation'>
 			<div
 				className={`fixed top-0 h-full w-full bg-white transition-[left] before:fixed before:top-0 before:z-20 before:h-[4.62rem] before:w-full before:border-b-[0.125rem] before:border-solid before:border-lightGray/15 before:bg-white before:transition-[left] before:content-[''] dark:bg-bgDark dark:before:bg-bgDark md:relative md:left-0 md:bg-transparent md:before:hidden ${
 					dmSans.className
