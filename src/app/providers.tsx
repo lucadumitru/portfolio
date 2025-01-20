@@ -1,18 +1,22 @@
 'use client';
 
 import type { ThemeProviderProps } from 'next-themes';
-// import dynamic from 'next/dynamic';
 
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import React from 'react';
 
-// const NextThemesProvider = dynamic(() => import('next-themes').then((e) => e.ThemeProvider), {
-// 	ssr: false,
-// });
+import { MenuContext } from '../contexts/MenuContext';
 
-export const Providers = ({ children, ...props }: ThemeProviderProps) => {
+interface ProvidersProps extends ThemeProviderProps {}
+
+export const Providers = ({ children, ...props }: ProvidersProps) => {
+	const [isOpen, setIsOpen] = React.useState(false);
+
 	return (
-		<NextThemesProvider attribute={'class'} {...props}>
-			{children}
-		</NextThemesProvider>
+		<MenuContext value={{ isOpen, toggleIsOpen: setIsOpen }}>
+			<NextThemesProvider attribute={'class'} {...props}>
+				{children}
+			</NextThemesProvider>
+		</MenuContext>
 	);
 };

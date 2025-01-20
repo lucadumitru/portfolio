@@ -1,13 +1,21 @@
+import type { Viewport } from 'next';
+
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { VercelToolbar } from '@vercel/toolbar/next';
 
-import { Contact, Footer, Header } from '@/components/layout';
+import { Cta, Footer, Header } from '@/components/layout';
 
 import { Socials } from '../components';
 import { poppins } from './fonts';
 import { Providers } from './providers';
 
 import './globals.css';
+
+export const viewport: Viewport = {
+	width: 'device-width',
+	initialScale: 1,
+};
 
 export const metadata = {
 	metadataBase: new URL('https://lucadevelop.com'),
@@ -34,24 +42,27 @@ export const metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
-		<html className='scroll-smooth' lang='en-US' suppressHydrationWarning>
+		<html className='overflow-x-hidden scroll-smooth' lang='en-US' suppressHydrationWarning>
 			<body
-				className={`${poppins.className} flex min-h-screen min-w-[390px] flex-col bg-white antialiased dark:bg-bgDark`}
+				className={`${poppins.className} flex min-h-screen min-w-[390px] flex-col overflow-x-hidden bg-white antialiased dark:bg-bgDark`}
 			>
 				<Providers>
 					<Header>
 						<Socials className='hidden md:flex' />
 					</Header>
 					{children}
-					<Contact />
+					<Cta />
 					<Footer />
 				</Providers>
+
 				{process.env.NODE_ENV === 'production' && (
 					<>
 						<Analytics />
 						<SpeedInsights />
 					</>
 				)}
+
+				{process.env.NODE_ENV === 'development' && <VercelToolbar />}
 			</body>
 		</html>
 	);

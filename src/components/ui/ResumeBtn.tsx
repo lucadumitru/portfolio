@@ -1,13 +1,28 @@
+import type { LinkProps } from 'next/link';
+
 import Link from 'next/link';
 
-export const ResumeBtn = () => {
+import { cn } from '@/src/lib/utils';
+
+import { buttonVariants } from './Button/Button';
+
+interface ResumeBtnProps extends Omit<LinkProps, 'href'> {
+	className?: string;
+	href?: string;
+}
+
+export const ResumeBtn = ({
+	href = '/resume/Resume_Luca_Dumitru-eng.pdf',
+	className,
+	...props
+}: ResumeBtnProps) => {
 	return (
 		<Link
+			{...props}
 			aria-label='download resume'
-			className='text-s rounded-3xl bg-green-200 px-4 py-1 text-green-900 transition hover:bg-[#018C0F] hover:text-[#D7FFE0]'
+			className={cn(className, buttonVariants({ variant: 'tertiary', size: 'small' }))}
 			download
-			href={`/resume/Resume_Luca_Dumitru-eng.pdf`}
-			tabIndex={0}
+			href={href}
 		>
 			Resume
 		</Link>

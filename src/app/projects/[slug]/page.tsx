@@ -5,9 +5,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-import { CodeLink, Container, LiveLink, NextProjectBtn } from '@/components/ui';
+import { buttonVariants, Container, NextProjectBtn } from '@/components/ui';
+import { GitIcon, LinkIcon } from '@/src/components/ui/icons';
 import { projects } from '@/src/data/data';
-import { getBase64 } from '@/src/lib/utils';
+import { cn, getBase64 } from '@/src/lib/utils';
 
 interface ProjectPageProps {
 	params: Promise<{ slug: string }>;
@@ -104,14 +105,28 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 
 					<div className='mt-10 flex justify-between gap-5'>
 						{currentProject.preview && (
-							<LiveLink
-								className='mx-auto'
+							<Link
+								className={cn(
+									'mx-auto flex items-center gap-2',
+									buttonVariants({ variant: 'primary', size: 'medium' }),
+								)}
 								href={currentProject.preview}
-								variant='button'
-							></LiveLink>
+							>
+								<LinkIcon className='size-5' />
+								Live Preview
+							</Link>
 						)}
 						{currentProject.git && (
-							<CodeLink className='mx-auto' href={currentProject.git} variant='button' />
+							<Link
+								className={cn(
+									'mx-auto flex items-center gap-2',
+									buttonVariants({ variant: 'primary', size: 'medium' }),
+								)}
+								href={currentProject.git}
+							>
+								<GitIcon className='size-5' />
+								View Code
+							</Link>
 						)}
 					</div>
 				</div>

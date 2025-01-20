@@ -9,7 +9,8 @@ import { HeroTitle } from './components/HeroTitle';
 export const Hero = () => {
 	return (
 		<section
-			className='flex min-h-[calc(100dvh-70px)] scroll-m-[40px] flex-col short:py-[40px]'
+			className='flex min-h-[calc(100dvh-4.5rem)] snap-center scroll-mt-20 flex-col short:py-[40px]'
+			data-section-title
 			id='home'
 		>
 			<div className='mx-auto my-0 flex w-full max-w-[1200px] grow flex-col gap-2 px-[15px] md:grid md:grid-cols-2 md:items-center'>

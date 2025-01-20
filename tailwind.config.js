@@ -16,8 +16,12 @@ module.exports = {
 			},
 			colors: {
 				gray: '#666',
+				lightGray: '#CCC',
 				textSecondary: '#42446E',
 				bgDark: '#191919',
+				telegram: '#0088cc',
+				linkedin: '#0E76A8',
+				instagram: '#DD2A7B',
 			},
 			boxShadow: {
 				card: '2px 2px 100px 0px rgba(0, 0, 0, 0.20)',

@@ -1,0 +1,18 @@
+import { Meta, IconGallery, IconItem } from '@storybook/blocks';
+
+import * as Icons from '@/components/ui/icons';
+
+<Meta title='Iconography' />
+
+# Iconography
+
+<IconGallery>
+	{Object.keys(Icons).map((iconName, index) => {
+		const IconComponent = Icons[iconName];
+		return (
+			<IconItem key={index} name={iconName}>
+				<IconComponent />
+			</IconItem>
+		);
+	})}
+</IconGallery>

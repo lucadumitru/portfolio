@@ -1,4 +1,4 @@
-export const LogoIcon: React.FC<ReactTagProps<'svg'>> = ({ ...props }) => (
+export const LogoIcon: React.FC<React.SVGAttributes<SVGSVGElement>> = ({ ...props }) => (
 	<svg
 		{...props}
 		fill='none'

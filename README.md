@@ -14,12 +14,12 @@
 
 ## Technology Stack
 
--  HTML5: Semantic tags,
--  TailwindCSS,
--  JavaScript: React, Next 13,
--  TypeScript,
--  React hooks,
--  Internationalization: Next-Intl,
+- HTML5: Semantic tags,
+- TailwindCSS,
+- JavaScript: React, Next 13,
+- TypeScript,
+- React hooks,
+- Internationalization: Next-Intl,
 
 ---
 
@@ -27,9 +27,9 @@
 
 Requirements:
 
--  npm >= 6.14;
+- npm >= 6.14;
 
--  Node js
+- Node js
 
 ### Launch:
 
@@ -37,17 +37,17 @@ Requirements:
 
 1. To do this on your local computer, execute the command:
 
--  `git clone https://github.com/lucadumitru/portfolio.git` - To copy the project to your local PC via https;
+- `git clone https://github.com/lucadumitru/portfolio.git` - To copy the project to your local PC via https;
 
 2. After that, in the console, you need to execute:
 
--  `npm install` - To install dependencies;
+- `npm install` - To install dependencies;
 
 3. For usage:
 
--  `npm start` - Command to launch the project;
--  `npm run build` - To build the project;
--  `npm run dev` - Develope mode;
+- `npm start` - Command to launch the project;
+- `npm run build` - To build the project;
+- `npm run dev` - Develope mode;
 
 ---
 

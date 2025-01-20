@@ -4,7 +4,12 @@ import { useTheme } from 'next-themes';
 import React from 'react';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 
-export const ThemeSwitcher = () => {
+import { cn } from '@/src/lib/utils';
+
+export const ThemeSwitcher = ({
+	className,
+	...props
+}: React.HtmlHTMLAttributes<HTMLButtonElement>) => {
 	const [isMounted, setIsMounted] = React.useState(false);
 	const { setTheme, theme } = useTheme();
 
@@ -20,19 +25,23 @@ export const ThemeSwitcher = () => {
 	};
 
 	if (!isMounted) {
-		return <div className='w-[30px]' />;
+		return <div className='size-8' />;
 	}
 
 	return (
 		<button
+			{...props}
 			aria-label='theme switcher'
-			onKeyDown={(e) => e.key === 'Enter' && toggleDarkMode()}
+			className={cn('size-8 overflow-hidden rounded-full', className)}
+			onKeyDown={(event) => event.key === 'Enter' && toggleDarkMode()}
 			type='button'
 		>
 			<DarkModeSwitch
 				checked={theme === 'dark' || systemDark}
+				className='*:fill-current'
+				color='currentColor'
 				onChange={systemDark ? () => setTheme('light') : toggleDarkMode}
-				size={30}
+				size={32}
 			/>
 		</button>
 	);
