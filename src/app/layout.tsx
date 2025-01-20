@@ -1,7 +1,7 @@
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
-import { Contact, Footer, Header } from '@/components/layout';
+import { Cta, Footer, Header } from '@/components/layout';
 
 import { Socials } from '../components';
 import { poppins } from './fonts';
@@ -43,9 +43,10 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 						<Socials className='hidden md:flex' />
 					</Header>
 					{children}
-					<Contact />
+					<Cta />
 					<Footer />
 				</Providers>
+
 				{process.env.NODE_ENV === 'production' && (
 					<>
 						<Analytics />
