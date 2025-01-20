@@ -1,11 +1,7 @@
-import { type ClassValue, clsx } from 'clsx';
+'use server';
+
 import fs from 'node:fs/promises';
 import { getPlaiceholder } from 'plaiceholder';
-import { twMerge } from 'tailwind-merge';
-
-export const cn = (...inputs: ClassValue[]) => {
-	return twMerge(clsx(inputs));
-};
 
 export const getBase64 = async (imgPath: string) => {
 	try {
