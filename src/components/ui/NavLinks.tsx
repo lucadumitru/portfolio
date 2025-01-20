@@ -1,16 +1,15 @@
 'use client';
 
 import Link from 'next/link';
+import React from 'react';
 
 import { ResumeBtn } from '@/components/ui';
 import { dmSans } from '@/src/app/fonts';
+import { MenuContext } from '@/src/contexts/MenuContext';
+import { cn } from '@/src/lib/utils';
 
 import { Socials } from '../common';
 
-interface NavLinksProps {
-	isOpen: boolean;
-	setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
 const navLinks = [
 	{
 		href: '#home',
@@ -30,30 +29,68 @@ const navLinks = [
 	},
 ];
 
-export const NavLinks: React.FC<NavLinksProps> = ({ isOpen, setOpen }) => {
+export const NavLinks = () => {
+	const { isOpen, toggleIsOpen } = React.useContext(MenuContext);
+	const [activeSection, setActiveSection] = React.useState('');
+
+	React.useEffect(() => {
+		const sectionsTitles = document.querySelectorAll('[data-section-title]');
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						setActiveSection(entry.target.id);
+					}
+				});
+			},
+			{ threshold: 1 },
+		);
+
+		sectionsTitles.forEach((sectionTitle) => observer.observe(sectionTitle));
+
+		return () => {
+			observer.disconnect();
+		};
+	}, []);
+
+	const onClick = () => {
+		if (isOpen) {
+			toggleIsOpen(!isOpen);
+		}
+
+		document.documentElement.classList.remove('overflow-y-hidden');
+	};
+
 	return (
-		<nav className='flex items-center md:gap-x-[50px]'>
+		<nav className='flex items-center md:min-w-[18.75rem] md:gap-x-12'>
 			<div
-				className={`fixed top-0 h-full w-full bg-white transition-[left] before:fixed before:top-0 before:z-20 before:h-[76px] before:w-full before:border-b-[2px] before:border-solid before:border-gray/30 before:bg-white before:transition-[left] before:content-[''] dark:bg-bgDark dark:before:bg-bgDark md:relative md:left-0 md:bg-transparent md:before:hidden ${
+				className={`fixed top-0 h-full w-full bg-white transition-[left] before:fixed before:top-0 before:z-20 before:h-[4.62rem] before:w-full before:border-b-[0.125rem] before:border-solid before:border-lightGray/15 before:bg-white before:transition-[left] before:content-[''] dark:bg-bgDark dark:before:bg-bgDark md:relative md:left-0 md:bg-transparent md:before:hidden ${
 					dmSans.className
 				} ${
 					!isOpen
 						? 'left-[-100%] before:left-[-100%]'
-						: 'left-0 overflow-scroll p-[30px] pt-[110px] text-center before:left-0'
+						: 'left-0 overflow-scroll p-7 pt-[6.875rem] text-center before:left-0'
 				}`}
 			>
 				<ul
-					className='inline-flex flex-col gap-x-[10px] gap-y-[20px] md:flex-row md:flex-wrap md:gap-x-[30px] md:gap-y-[0px]'
+					className='flex flex-col justify-between gap-x-3 gap-y-5 md:flex-row md:flex-wrap md:gap-x-5 md:gap-y-0'
 					itemScope
 					itemType='https://schema.org/SiteNavigationElement'
 				>
 					{navLinks.map((navLink) => (
 						<li key={navLink.href}>
 							<Link
-								className={`hover:underline dark:text-white ${isOpen && 'text-[25px]'}`}
+								aria-label={`${navLink.name} link`}
+								className={cn(
+									'relative block transition-all hover:underline dark:text-white',
+									isOpen && 'text-2xl',
+									navLink.name.toLowerCase() === activeSection &&
+										'scale-110 font-semibold text-textSecondary',
+								)}
 								href={navLink.href}
 								itemProp='url'
-								onClick={() => setOpen((prev) => prev === true && false)}
+								onClick={onClick}
 							>
 								{navLink.name}
 							</Link>

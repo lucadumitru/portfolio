@@ -29,5 +29,3 @@ interface Technology {
 	iconDark?: string;
 	name: string;
 }
-
-type ReactTagProps<T> = import('react').ComponentPropsWithRef<T>;

@@ -10,12 +10,17 @@ export const Projects = async () => {
 	const blurredImages = await Promise.all(images.map((image) => getBase64(image)));
 
 	return (
-		<section className='scroll-mt-[80px] pb-[100px] md:scroll-mt-[120px]' id='projects'>
+		<section className='pb-[6.25rem]'>
 			<Container className='flex flex-col'>
-				<Title className='text-center text-[24px] font-bold md:text-[48px]' tag='h2'>
+				<Title
+					className='scroll-mt-20 text-center text-2xl font-bold md:text-5xl'
+					data-section-title
+					id='projects'
+					tag='h2'
+				>
 					Projects
 				</Title>
-				<div className='mt-[10px] text-center text-[18px] text-gray md:mt-[30px] md:text-[32px]'>
+				<div className='mt-3 text-center text-[1.125rem] text-gray md:mt-8 md:text-[2rem]'>
 					Things I’ve built so far
 				</div>
 				<ProjectCards blurredImages={blurredImages} projects={revercedProjects} />
