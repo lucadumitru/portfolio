@@ -1,19 +1,16 @@
 import type { Article } from 'schema-dts';
 
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { CodeLink, LiveLink } from '@/components/ui';
-import { fadeInAnimationVariants } from '@/src/lib/animations';
+import { GitIcon, LinkIcon } from './icons';
 
-interface CardProps {
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 	blurredImage?: string;
-	index: number;
 	project: Project;
 }
 
-export const Card = ({ blurredImage, index, project }: CardProps) => {
+export const Card = ({ blurredImage, project, ...props }: CardProps) => {
 	const jsonLd: Article = {
 		'@type': 'Article',
 		about: {
@@ -33,13 +30,9 @@ export const Card = ({ blurredImage, index, project }: CardProps) => {
 	};
 
 	return (
-		<motion.article
-			className='relative flex flex-col rounded-[20px] bg-white shadow-card will-change-transform dark:bg-[#363636]'
-			initial='initial'
-			transition={{ delay: index * 0.3 }}
-			variants={fadeInAnimationVariants}
-			viewport={{ once: true }}
-			whileInView='animate'
+		<article
+			{...props}
+			className='relative flex flex-col rounded-2xl bg-white shadow-card will-change-transform dark:bg-[#363636]'
 		>
 			<script
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -47,23 +40,13 @@ export const Card = ({ blurredImage, index, project }: CardProps) => {
 			/>
 			<Link
 				aria-label={`${project.title} link'`}
-				className='overflow-hidden rounded-t-[20px]'
+				className='overflow-hidden rounded-t-2xl'
 				href={`/projects/${project.slug}`}
 			>
-				{!project.video || !project.video.preview ? (
-					<Image
-						alt={`${project.title} img'`}
-						blurDataURL={blurredImage}
-						className='aspect-video max-h-[200px] min-w-full object-cover transition hover:scale-105'
-						height={200}
-						placeholder='blur'
-						src={project.img.svg || project.img.jpg}
-						width={200}
-					/>
-				) : (
+				{project?.video?.preview ? (
 					<video
 						autoPlay
-						className='aspect-video max-h-[200px] w-full object-cover transition hover:scale-105'
+						className='aspect-video max-h-[12.5rem] w-full object-cover transition hover:scale-105'
 						loop
 						muted
 						playsInline
@@ -72,25 +55,45 @@ export const Card = ({ blurredImage, index, project }: CardProps) => {
 						<source src={project.video.preview} />
 						<track kind='captions' />
 					</video>
+				) : (
+					<Image
+						alt={`${project.title} img'`}
+						blurDataURL={blurredImage}
+						className='aspect-video max-h-[12.5rem] min-w-full object-cover transition hover:scale-105'
+						height={200}
+						placeholder='blur'
+						src={project.img.svg || project.img.jpg}
+						width={200}
+					/>
 				)}
 			</Link>
-			<div className='flex grow flex-col items-start p-[25px]'>
-				<h3 className='text-[20px] font-medium dark:text-[#CCCCCC] md:text-[28px]'>
+			<div className='flex grow flex-col items-start gap-3 p-6'>
+				<h3 className='text-xl font-medium dark:text-lightGray md:text-2xl'>
 					<Link className='hover:underline' href={`/projects/${project.slug}`}>
 						{project.title}
 					</Link>
 				</h3>
-				<p className='mt-[15px] line-clamp-4 grow text-[16px] font-light text-black dark:text-[#CCCCCC]'>
+				<p className='line-clamp-4 grow font-light dark:text-lightGray'>
 					{project.description}
 				</p>
-				<div className='mt-[12px] text-textSecondary dark:text-[#CCCCCC]'>
+				<div className='text-textSecondary dark:text-lightGray'>
 					Tech stack: <span className='line-clamp-2 font-light'>{project.stack}</span>
 				</div>
-				<div className='mt-[12px] flex w-full items-center justify-between gap-x-3 text-[14px] dark:text-white md:mt-[20px]'>
-					{project.preview && <LiveLink href={project.preview} />}
-					{project.git && <CodeLink href={project.git} />}
+				<div className='mt-1 flex w-full items-center justify-between gap-x-3 text-sm'>
+					{project.preview && (
+						<Link className='flex items-center gap-2 hover:underline' href={project.preview}>
+							<LinkIcon className='size-5' />
+							Live Preview
+						</Link>
+					)}
+					{project.git && (
+						<Link className='flex items-center gap-2 hover:underline' href={project.git}>
+							<GitIcon className='size-5' />
+							View Code
+						</Link>
+					)}
 				</div>
 			</div>
-		</motion.article>
+		</article>
 	);
 };
