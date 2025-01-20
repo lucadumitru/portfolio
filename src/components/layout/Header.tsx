@@ -35,7 +35,7 @@ export const Header = ({ children }: HeaderProps) => {
 				)}
 				<div className='flex items-center gap-5'>
 					{children}
-					<ThemeSwitcher />
+					<ThemeSwitcher className='relative text-yellow-500 transition-all hover:rotate-45 dark:text-white' />
 					{isHomePage && (
 						<div className='md:hidden'>
 							<Hamburger label='menu button' toggle={onClick} toggled={isOpen} />
