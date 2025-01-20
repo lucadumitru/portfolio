@@ -33,7 +33,7 @@
 		"react-toggle-dark-mode": "^1.1.1",
 		"react-type-animation": "^3.1.0",
 		"schema-dts": "^1.1.2",
-		"sharp": "^0.33.4",
+		"sharp": "^0.33.5",
 		"short-uuid": "^4.2.2",
 		"tailwind-merge": "^2.6.0"
 	},
