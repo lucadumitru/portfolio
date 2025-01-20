@@ -2,6 +2,7 @@ import type { Viewport } from 'next';
 
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { VercelToolbar } from '@vercel/toolbar/next';
 
 import { Cta, Footer, Header } from '@/components/layout';
 
@@ -14,7 +15,6 @@ import './globals.css';
 export const viewport: Viewport = {
 	width: 'device-width',
 	initialScale: 1,
-	maximumScale: 1,
 };
 
 export const metadata = {
@@ -61,6 +61,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 						<SpeedInsights />
 					</>
 				)}
+
+				{process.env.NODE_ENV === 'development' && <VercelToolbar />}
 			</body>
 		</html>
 	);
