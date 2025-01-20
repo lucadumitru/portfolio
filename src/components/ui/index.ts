@@ -1,4 +1,4 @@
-export * from './BackBtn';
+export * from './Button/Button';
 export * from './Card';
 export * from './CodeLink';
 export * from './Container';
