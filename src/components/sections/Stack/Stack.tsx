@@ -9,9 +9,9 @@ export const Stack = () => {
 			<Container>
 				<Title
 					className='scroll-mt-20 text-center text-[24px] font-bold md:text-[48px]'
-					data-section-title
 					id='stack'
 					tag='h2'
+					data-section-title
 				>
 					My Tech Stack
 				</Title>

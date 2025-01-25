@@ -32,5 +32,5 @@
 		"eslint.config.js",
 		"next.config.js"
 	],
-	"exclude": ["node_modules"]
+	"exclude": ["node_modules", "./src/notion-sdk/**/*.ts"]
 }

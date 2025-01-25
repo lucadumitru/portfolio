@@ -25,19 +25,19 @@ export const NextProjectBtn: React.FC<NextProjectBtnProps> = ({
 	return (
 		<div className="relative text-center before:absolute before:-bottom-[100px] before:left-0 before:z-10 before:h-[100px] before:w-full before:border-t-[2px] before:border-gray/30 before:bg-white before:content-[''] before:dark:bg-bgDark">
 			<Link
-				className='group inline-flex w-[70%] flex-col items-center'
 				href={`/projects/${nextProjectSlug}`}
 				ref={ref}
+				className='group inline-flex w-[70%] flex-col items-center'
 			>
 				<span className='text-gray'>Next project</span>
 				<span className='-mb-5 mt-2 text-3xl font-semibold text-textSecondary transition group-hover:opacity-30 dark:text-white md:-mb-10 md:mt-5 md:text-8xl'>
 					{nextProjectTitle}
 				</span>
 				<motion.div
-					className='relative'
 					style={{
 						top: bottomToTop,
 					}}
+					className='relative'
 				>
 					<Image
 						alt={`${nextProjectTitle} img`}
@@ -45,6 +45,7 @@ export const NextProjectBtn: React.FC<NextProjectBtnProps> = ({
 						height={200}
 						src={nextProjectImg}
 						width={300}
+						priority
 					/>
 				</motion.div>
 			</Link>

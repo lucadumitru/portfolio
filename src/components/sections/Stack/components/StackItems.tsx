@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 
 import { ThemedImg } from '@/components/ui';
-import { fadeInAnimationVariants } from '@/src/lib/animations';
+import { fadeInAnimationVariants } from '@/src/lib/constants/animations';
 
 interface StackItemsProps {
 	technologies: Technology[];
@@ -14,15 +14,15 @@ export const StackItems = ({ technologies }: StackItemsProps) => {
 		<motion.ul className='mt-6 grid min-h-[23.125rem] grid-cols-3 items-center gap-2 md:mt-20 md:grid-cols-5 md:gap-10 xl:mt-[7.5rem]'>
 			{technologies.map((technology, index) => (
 				<motion.li
-					className='will-change-transform [&:nth-of-type(10n-1)]:hidden md:[&:nth-of-type(10n-1)]:block'
-					custom={index}
-					initial='initial'
 					key={technology.name}
+					className='will-change-transform [&:nth-of-type(10n-1)]:hidden md:[&:nth-of-type(10n-1)]:block'
+					initial='initial'
 					variants={fadeInAnimationVariants}
+					whileInView='animate'
+					custom={index}
 					viewport={{
 						once: true,
 					}}
-					whileInView='animate'
 				>
 					<ThemedImg
 						alt={`${technology.name} icon`}

@@ -3,22 +3,28 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
+import type { ProjectsResponseDTO } from '@/src/notion-sdk/dbs/projects';
+
 import { Button, Card } from '@/components/ui';
-import { fadeInAnimationVariants } from '@/src/lib/animations';
+import { fadeInAnimationVariants } from '@/src/lib/constants/animations';
 
 interface ProjectCardsProps {
-	blurredImages: string[];
-	projects: Project[];
+	projects: ProjectsResponseDTO[] | undefined;
 }
 
-const INITIAL_PROJECTS_LEGTH = 6;
+const INITIAL_PROJECTS_LENGTH = 6;
 
-export const ProjectCards = ({ blurredImages, projects }: ProjectCardsProps) => {
-	const [projectsShowLength, setProjectsShowLength] = useState(INITIAL_PROJECTS_LEGTH);
+export const ProjectCards = ({ projects }: ProjectCardsProps) => {
+	const [projectsShowLength, setProjectsShowLength] = useState(INITIAL_PROJECTS_LENGTH);
+
+	if (!projects) {
+		return null;
+	}
+
 	const projectsToShow = projects.length - projectsShowLength;
 
 	const handleClick = () => {
-		if (projectsShowLength >= projects.length) return;
+		if (projectsShowLength >= projects?.length) return;
 		setProjectsShowLength(projectsShowLength + 3);
 	};
 
@@ -29,23 +35,25 @@ export const ProjectCards = ({ blurredImages, projects }: ProjectCardsProps) => 
 			>
 				{projects.slice(0, projectsShowLength).map((project, index) => (
 					<motion.div
+						key={project.id}
 						className='flex h-full'
 						initial='initial'
-						key={project.id}
-						transition={{ delay: index * 0.3 }}
 						variants={fadeInAnimationVariants}
-						viewport={{ once: true }}
 						whileInView='animate'
+						transition={{ delay: index * 0.3 }}
+						viewport={{ once: true }}
 					>
-						<Card blurredImage={blurredImages[index]} project={project} />
+						<Card project={project} />
 					</motion.div>
 				))}
 			</div>
 
 			{projectsShowLength <= projects.length && (
-				<Button className='mt-10' onClick={handleClick} size='large' variant='secondary'>
-					<span className='relative z-10'>More projects</span>
-					<sup className='ml-1'>{projectsToShow}</sup>
+				<Button className='mt-10' size='large' variant='secondary' onClick={handleClick}>
+					<span>
+						More projects
+						<sup className='ml-1'>{projectsToShow}</sup>
+					</span>
 				</Button>
 			)}
 		</>

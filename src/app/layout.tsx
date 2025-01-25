@@ -2,7 +2,7 @@ import type { Viewport } from 'next';
 
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { VercelToolbar } from '@vercel/toolbar/next';
+// import { VercelToolbar } from '@vercel/toolbar/next';
 
 import { Cta, Footer, Header } from '@/components/layout';
 
@@ -11,6 +11,9 @@ import { poppins } from './fonts';
 import { Providers } from './providers';
 
 import './globals.css';
+import 'react-notion/src/styles.css';
+import 'react-notion-x/src/styles.css';
+import 'katex/dist/katex.min.css';
 
 export const viewport: Viewport = {
 	width: 'device-width',
@@ -62,7 +65,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 					</>
 				)}
 
-				{process.env.NODE_ENV === 'development' && <VercelToolbar />}
+				{/* {process.env.NODE_ENV === 'development' && <VercelToolbar />} */}
 			</body>
 		</html>
 	);

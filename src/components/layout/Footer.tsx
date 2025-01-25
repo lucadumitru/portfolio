@@ -18,8 +18,8 @@ export const Footer = () => {
 					<div>
 						Designed by{' '}
 						<Link
-							className='bg-gradient-to-r from-cyan-500 to-fuchsia-500 bg-clip-text text-transparent'
 							href='https://www.figma.com/file/UD0kJT0EqQMk2wzxgwrYPo/Developer-Portfolio-Design-(Community)-(Copy)?type=design&node-id=0-1&mode=design&t=7Rmo8zH6QAL3CWkU-0'
+							className='bg-gradient-to-r from-cyan-500 to-fuchsia-500 bg-clip-text text-transparent'
 							target='_blank'
 						>
 							PavanMG

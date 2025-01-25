@@ -33,15 +33,15 @@ export const ThemeSwitcher = ({
 			{...props}
 			aria-label='theme switcher'
 			className={cn('size-8 overflow-hidden rounded-full', className)}
-			onKeyDown={(event) => event.key === 'Enter' && toggleDarkMode()}
 			type='button'
+			onKeyDown={(event) => event.key === 'Enter' && toggleDarkMode()}
 		>
 			<DarkModeSwitch
 				checked={theme === 'dark' || systemDark}
 				className='*:fill-current'
+				size={32}
 				color='currentColor'
 				onChange={systemDark ? () => setTheme('light') : toggleDarkMode}
-				size={32}
 			/>
 		</button>
 	);

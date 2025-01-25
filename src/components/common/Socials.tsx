@@ -45,10 +45,10 @@ export const Socials = ({ className }: SocialsProps) => {
 		<div className={`flex items-center justify-center gap-x-[10px] md:gap-x-[20px] ${className}`}>
 			{socialLinks.map(({ label, href, icon: Icon, iconHoverColor }) => (
 				<Link
-					aria-label={`${label} link`}
-					className='rounded-full transition-transform hover:scale-110'
 					href={href}
 					key={label}
+					aria-label={`${label} link`}
+					className='rounded-full transition-transform hover:scale-110'
 					target='_blank'
 				>
 					<Icon className={`size-8 text-gray transition-all ${iconHoverColor}`} />

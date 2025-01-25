@@ -1,0 +1,90 @@
+{
+	"ignore": [],
+	"databases": {
+		"183cb760-62e3-80c7-bf5d-c202090fa7c0": {
+			"_name": "projects",
+			"varName": "projects",
+			"pathName": "projects",
+			"properties": {
+				"Kd%7Dc": {
+					"_name": "Slug",
+					"_type": "rich_text",
+					"varName": "slug",
+					"readOnly": false
+				},
+				"P%3B%3A%40": {
+					"_name": "Stack",
+					"_type": "rich_text",
+					"varName": "stack",
+					"readOnly": false
+				},
+				"P%3FFB": {
+					"_name": "Main Image",
+					"_type": "files",
+					"varName": "mainImage",
+					"readOnly": false
+				},
+				"i%60B%7D": {
+					"_name": "Preview Link",
+					"_type": "url",
+					"varName": "previewLink",
+					"readOnly": false
+				},
+				"pC%3Di": {
+					"_name": "Description",
+					"_type": "rich_text",
+					"varName": "description",
+					"readOnly": false
+				},
+				"yGBU": {
+					"_name": "Git Link",
+					"_type": "url",
+					"varName": "gitLink",
+					"readOnly": false
+				},
+				"title": {
+					"_name": "Title",
+					"_type": "title",
+					"varName": "title",
+					"readOnly": false
+				},
+				"%40lwB": {
+					"_name": "ID",
+					"_type": "unique_id",
+					"varName": "id",
+					"readOnly": false
+				},
+				"O%3CfP": {
+					"_name": "Vide Preview",
+					"_type": "files",
+					"varName": "videPreview",
+					"readOnly": false
+				},
+				"j%3D%3Fc": {
+					"_name": "Text",
+					"_type": "rich_text",
+					"varName": "text",
+					"readOnly": false
+				},
+				"kBv%5D": {
+					"_name": "Mac Preview",
+					"_type": "files",
+					"varName": "macPreview",
+					"readOnly": false
+				},
+				"aS%7Bi": {
+					"_name": "Status",
+					"_type": "status",
+					"varName": "status",
+					"readOnly": false
+				},
+				"%7DUjn": {
+					"_name": "Created time",
+					"_type": "created_time",
+					"varName": "createdTime",
+					"readOnly": true
+				}
+			}
+		}
+	}
+}

@@ -3,9 +3,9 @@ export const TelegramIcon: React.FC<React.SVGAttributes<SVGSVGElement>> = ({ ...
 		<svg
 			fill='none'
 			height='29'
-			viewBox='0 0 29 29'
 			width='29'
 			xmlns='http://www.w3.org/2000/svg'
+			viewBox='0 0 29 29'
 			{...props}
 		>
 			<g clipPath='url(#clip0_381_198)'>

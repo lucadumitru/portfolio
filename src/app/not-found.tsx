@@ -13,7 +13,7 @@ const GlobalNotFoundPage = () => {
 			<h1 className='text-2xl'>
 				<span className='font-bold'>404</span> | Page not found
 			</h1>
-			<Link className='hover:underline' href={'/'}>
+			<Link href={'/'} className='hover:underline'>
 				Go to <span className='font-semibold'>Main Page</span>
 			</Link>
 		</main>

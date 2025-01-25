@@ -49,9 +49,9 @@ export const ThemedImg = ({
 			alt={alt}
 			className={className}
 			height={height}
-			priority
 			src={src || srcLight}
 			width={width}
+			priority
 			{...props}
 		/>
 	);
