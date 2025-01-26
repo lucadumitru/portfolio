@@ -22,7 +22,7 @@
 			"@/*": ["./*"],
 			"@/components/*": ["./src/components/*"]
 		},
-		"target": "ES2017"
+		"target": "ESNext"
 	},
 	"include": [
 		"next-env.d.ts",
@@ -32,5 +32,5 @@
 		"eslint.config.js",
 		"next.config.js"
 	],
-	"exclude": ["node_modules", "./src/notion-sdk/**/*.ts"]
+	"exclude": ["node_modules", "src/notion-sdk"]
 }
