@@ -48,12 +48,6 @@
 					"varName": "title",
 					"readOnly": false
 				},
-				"%40lwB": {
-					"_name": "ID",
-					"_type": "unique_id",
-					"varName": "id",
-					"readOnly": false
-				},
 				"O%3CfP": {
 					"_name": "Vide Preview",
 					"_type": "files",

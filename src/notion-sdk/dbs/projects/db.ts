@@ -8,7 +8,7 @@ import { PROJECTS_PROPS_TO_IDS, PROJECTS_PROPS_TO_TYPES } from './constants';
 
 export class ProjectsDatabase extends GenericDatabaseClass<
 	ProjectsResponse,
-	// @ts-expect-error:  generated error
+	// @ts-expect-error
 	ProjectsPatchDTO,
 	ProjectsQuery,
 	ProjectsQueryResponse,

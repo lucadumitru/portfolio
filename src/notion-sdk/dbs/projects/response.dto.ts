@@ -71,7 +71,6 @@ export class ProjectsPropertiesResponseDTO {
 			description: this.__props.Description,
 			gitLink: this.__props['Git Link'],
 			title: this.__props.Title,
-			id: this.__props.ID,
 			videPreview: this.__props['Vide Preview'],
 			text: this.__props.Text,
 			macPreview: this.__props['Mac Preview'],
@@ -152,10 +151,6 @@ export class ProjectsPropertiesResponseDTO {
 				: [],
 			title: this.__props.Title?.title,
 		};
-	}
-
-	get id() {
-		return this.__props.ID?.unique_id;
 	}
 
 	get videPreview() {

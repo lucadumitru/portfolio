@@ -18,7 +18,7 @@ async function acquireLock(
 	onLockAcquired: (lockTimeoutValue: number) => void,
 ) {
 	function retry() {
-		// eslint-disable-next-lin @typescript-eslint/no-misused-promises
+		// eslint-disable-next-line @typescript-eslint/no-misused-promises
 		setTimeout(async () => {
 			await acquireLock(client, lockName, timeout, retryDelay, onLockAcquired);
 		}, retryDelay);

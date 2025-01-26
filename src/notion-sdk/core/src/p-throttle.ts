@@ -61,6 +61,7 @@ export default function pThrottle(config: ThrottleConfig) {
 	}
 
 	return <A extends unknown[], R>(function_: (...args: A) => Promise<R>) => {
+		// eslint-disable-next-line @typescript-eslint/promise-function-async
 		const throttled = (...arguments_: A): Promise<R> => {
 			return new Promise((resolve, reject) => {
 				const execute = () => {

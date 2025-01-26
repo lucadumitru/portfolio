@@ -5,7 +5,6 @@ import type {
 	DatePropertyFilter,
 	ExistencePropertyFilter,
 	FilesPropertyItemObjectResponse,
-	NumberPropertyFilter,
 	QueryDatabaseBodyParameters,
 	RichTextPropertyItemObjectResponse,
 	StatusPropertyItemObjectResponse,
@@ -14,7 +13,6 @@ import type {
 	TimestampCreatedTimeFilter,
 	TimestampLastEditedTimeFilter,
 	TitlePropertyItemObjectResponse,
-	UniqueIdPropertyItemObjectResponse,
 	UrlPropertyItemObjectResponse,
 } from '../../core/types/notion-api.types';
 import type { PROJECTS_PROPS_TO_IDS } from './constants';
@@ -32,7 +30,6 @@ export interface ProjectsResponse
 		Description: RichTextPropertyItemObjectResponse;
 		'Git Link': UrlPropertyItemObjectResponse;
 		Title: TitlePropertyItemObjectResponse;
-		ID: UniqueIdPropertyItemObjectResponse;
 		'Vide Preview': FilesPropertyItemObjectResponse;
 		Text: RichTextPropertyItemObjectResponse;
 		'Mac Preview': FilesPropertyItemObjectResponse;
@@ -55,7 +52,6 @@ type ProjectsPreviewLinkPropertyFilter = TextPropertyFilter;
 type ProjectsDescriptionPropertyFilter = TextPropertyFilter;
 type ProjectsGitLinkPropertyFilter = TextPropertyFilter;
 type ProjectsTitlePropertyFilter = TextPropertyFilter;
-type ProjectsIdPropertyFilter = NumberPropertyFilter;
 type ProjectsVidePreviewPropertyFilter = ExistencePropertyFilter;
 type ProjectsTextPropertyFilter = TextPropertyFilter;
 type ProjectsMacPreviewPropertyFilter = ExistencePropertyFilter;
@@ -77,7 +73,6 @@ export type ProjectsPropertyFilter =
 	| { createdTime: ProjectsCreatedTimePropertyFilter }
 	| { description: ProjectsDescriptionPropertyFilter }
 	| { gitLink: ProjectsGitLinkPropertyFilter }
-	| { id: ProjectsIdPropertyFilter }
 	| { macPreview: ProjectsMacPreviewPropertyFilter }
 	| { mainImage: ProjectsMainImagePropertyFilter }
 	| { previewLink: ProjectsPreviewLinkPropertyFilter }

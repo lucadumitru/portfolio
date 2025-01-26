@@ -7,7 +7,6 @@ type TypeFromRecord<Obj, Type> = Obj extends Record<string, infer T> ? Extract<T
 
 export interface ProjectsPropertiesPatch {
 	gitLink?: TypeFromRecord<UpdatePageBodyParameters['properties'], { type?: 'url' }>['url'];
-	id?: TypeFromRecord<UpdatePageBodyParameters['properties'], { type?: 'unique_id' }>['unique_id'];
 	macPreview?: TypeFromRecord<UpdatePageBodyParameters['properties'], { type?: 'files' }>['files'];
 	mainImage?: TypeFromRecord<UpdatePageBodyParameters['properties'], { type?: 'files' }>['files'];
 	previewLink?: TypeFromRecord<UpdatePageBodyParameters['properties'], { type?: 'url' }>['url'];
@@ -167,14 +166,6 @@ export class ProjectsPatchDTO {
 											annotations: props.title.annotations,
 										},
 									],
-			};
-		}
-
-		if (props?.id !== undefined) {
-			// @ts-expect-error: generated error
-			this.__data.properties['%40lwB'] = {
-				type: 'unique_id',
-				unique_id: props.id,
 			};
 		}
 
