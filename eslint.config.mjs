@@ -33,5 +33,5 @@ export default eslint({
 			},
 		],
 	},
-	ignores: ['./src/notion-sdk/**/*.ts'],
+	ignores: ['src/notion-sdk/**/*.ts'],
 });
