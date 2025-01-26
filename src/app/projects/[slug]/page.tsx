@@ -17,7 +17,7 @@ interface ProjectPageProps {
 	params: Promise<{ slug: string }>;
 }
 
-export const revalidate = 3600;
+export const revalidate = 600;
 
 export const dynamicParams = true;
 
@@ -165,28 +165,20 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 
 					{!!project.properties.__data.macPreview.files.length && (
 						<div className='relative w-full bg-macbook bg-contain bg-no-repeat pb-[50%]'>
-							{project.properties.__data.macPreview.files[0].type === 'file' ? (
-								<video
-									muted
-									playsInline
-									className='absolute left-1/2 top-[3%] z-[-1] aspect-video w-[80%] -translate-x-2/4 rounded-md'
-									autoPlay
-									loop
-									preload='auto'
-								>
-									<source
-										src={getFileUrl(project.properties.__data.macPreview.files)}
-										type='video/mp4'
-									/>
-									Your browser does not support the video tag.
-								</video>
-							) : (
-								<iframe
-									className='absolute left-1/2 top-[2.8%] aspect-video w-[80.3%] -translate-x-1/2 rounded-t-[3%]'
+							<video
+								muted
+								playsInline
+								className='absolute left-1/2 top-[3%] z-[-1] aspect-video w-[80.5%] -translate-x-2/4 rounded-md'
+								autoPlay
+								loop
+								preload='auto'
+							>
+								<source
 									src={getFileUrl(project.properties.__data.macPreview.files)}
-									title='Macbook preview'
+									type='video/mp4'
 								/>
-							)}
+								Your browser does not support the video tag.
+							</video>
 						</div>
 					)}
 					{!!project.properties.__data.text.rich_text.length && (
