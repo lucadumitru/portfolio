@@ -1,17 +1,15 @@
+import { notFound } from 'next/navigation';
+
 import { Container, Title } from '@/components/ui';
 import { getProjects } from '@/src/lib/api/data';
 
 import { ProjectCards } from './components/ProjectCards';
 
 export const Projects = async () => {
-	// const revercedProjects = projects.toReversed();
-	// const images = revercedProjects.map((project) => project.img.jpg);
-	// const blurredImages = await Promise.all(images.map((image) => getBase64(image)));
-
 	const projects = await getProjects();
 
 	if (!projects) {
-		return <section>No projects found</section>;
+		return notFound();
 	}
 
 	return (
