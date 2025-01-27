@@ -4,6 +4,8 @@ import React from 'react';
 
 import { Hero, Projects, Stack } from '@/components/sections';
 
+export const revalidate = 600;
+
 const jsonLd: Person = {
 	'@type': 'Person',
 	name: 'Dumitru Luca',
@@ -28,12 +30,12 @@ const jsonLd: Person = {
 	},
 };
 
-const Home = () => {
+const HomePage = () => {
 	return (
 		<main className='flex flex-col gap-[3.125rem] pt-[4.375rem] md:gap-[9.375rem]' role='main'>
 			<script
-				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 				type='application/ld+json'
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
 			<Hero />
 			<Stack />
@@ -42,4 +44,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default HomePage;

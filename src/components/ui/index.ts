@@ -4,6 +4,7 @@ export * from './Container';
 export * from './LogoLink';
 export * from './NavLinks';
 export * from './NextProjectBtn';
+export * from './NotionRichText';
 export * from './ResumeBtn';
 export * from './ThemedImg';
 export * from './ThemeSwitcher';

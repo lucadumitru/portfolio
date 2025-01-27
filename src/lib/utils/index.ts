@@ -1,2 +1,3 @@
 export * from './cn';
-export * from './getBase64';
+export * from './getFileUrl';
+export * from './getImage';

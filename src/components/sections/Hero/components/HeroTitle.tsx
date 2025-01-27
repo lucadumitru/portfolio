@@ -14,8 +14,8 @@ export const HeroTitle = () => {
 				className='inline h-10 w-10 md:h-14 md:w-14'
 				height='25'
 				src='https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png'
-				unoptimized
 				width='25'
+				unoptimized
 			/>
 			, My name is <br />
 			<strong className='bg-gradient-to-r from-cyan-500 to-fuchsia-500 bg-clip-text text-transparent'>
@@ -23,8 +23,6 @@ export const HeroTitle = () => {
 			</strong>
 			<br />I build{' '}
 			<TypeAnimation
-				className='will-change-content'
-				repeat={Infinity}
 				sequence={[
 					'things for web',
 					1000,
@@ -35,6 +33,8 @@ export const HeroTitle = () => {
 					'user-friendly interfaces',
 					1000,
 				]}
+				className='will-change-content'
+				repeat={Infinity}
 				speed={50}
 				wrapper='span'
 			/>

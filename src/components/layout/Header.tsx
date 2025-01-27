@@ -37,16 +37,16 @@ export const Header = ({ children }: HeaderProps) => {
 					<LogoLink className='relative z-10' />
 				) : (
 					<Link
-						className={`flex items-center gap-2 hover:underline ${dmSans.className}`}
 						href={'/'}
+						className={`flex items-center gap-2 hover:underline ${dmSans.className}`}
 					>
 						<Image
 							alt='Back icon'
 							height={30}
-							priority
 							src='https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Backhand%20Index%20Pointing%20Left.png'
-							unoptimized
 							width={30}
+							priority
+							unoptimized
 						/>
 						<span className='relative top-0.5 block'>Main Page</span>
 					</Link>
@@ -70,11 +70,11 @@ export const Header = ({ children }: HeaderProps) => {
 				</div>
 			</Container>
 			<motion.div
-				className='absolute -bottom-0.5 left-0 right-0 z-10 h-0.5 origin-left bg-gradient-to-r from-cyan-500 to-fuchsia-500'
-				id='scroll-indicator'
 				style={{
 					scaleX: scrollYProgress,
 				}}
+				className='absolute -bottom-0.5 left-0 right-0 z-10 h-0.5 origin-left bg-gradient-to-r from-cyan-500 to-fuchsia-500'
+				id='scroll-indicator'
 			/>
 		</header>
 	);

@@ -1,99 +1,138 @@
+'use client';
+
+import type { HTMLMotionProps } from 'framer-motion';
 import type { Article } from 'schema-dts';
 
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import React from 'react';
+
+import type { ProjectsResponseDTO } from '@/src/notion-sdk/dbs/projects';
+
+import { fadeInAnimationVariants } from '@/src/lib/constants';
+import { getFileUrl } from '@/src/lib/utils';
 
 import { GitIcon, LinkIcon } from './icons';
 
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-	blurredImage?: string;
-	project: Project;
+interface CardProps extends HTMLMotionProps<'article'> {
+	imagePlaceholder?: string;
+	index: number;
+	project: ProjectsResponseDTO;
 }
 
-export const Card = ({ blurredImage, project, ...props }: CardProps) => {
+export const Card = ({ imagePlaceholder, index, project, ...props }: CardProps) => {
 	const jsonLd: Article = {
 		'@type': 'Article',
 		about: {
 			'@type': 'Project',
-			description: project.description,
-			image: project.img?.svg,
-			name: project.title,
-			url: `https://lucadevelop.com/projects/${project.slug}`,
+			description: project.properties.__data.description.rich_text[0].plain_text,
+			image: getFileUrl(project.properties.__data.mainImage.files),
+			name: project.properties.__data.title.title[0].plain_text,
+			url: `https://lucadevelop.com/projects/${project.properties.__data.slug.rich_text[0].plain_text}`,
 		},
-		articleBody: project.description,
-		description: project.description,
-		image: project.img?.svg,
+		description: project.properties.__data.description.rich_text[0].plain_text,
+		image: getFileUrl(project.properties.__data.mainImage.files),
 		inLanguage: 'en',
-		keywords: project.stack,
-		name: project.title,
-		url: `https://lucadevelop.com`,
+		keywords: project.properties.__data.stack.rich_text[0].plain_text,
+		name: project.properties.__data.title.title[0].plain_text,
+		url: `https://lucadevelop.com/projects/${project.properties.__data.slug.rich_text[0].plain_text}`,
+		datePublished: project.createdTime,
+		author: {
+			'@type': 'Person',
+			name: 'Luca Dumitru',
+		},
 	};
 
 	return (
-		<article
+		<motion.article
 			{...props}
-			className='relative flex flex-col rounded-2xl bg-white shadow-card will-change-transform dark:bg-[#363636]'
+			className='relative flex w-full flex-col rounded-2xl bg-white shadow-card will-change-transform dark:bg-[#363636]'
+			initial='initial'
+			variants={fadeInAnimationVariants}
+			whileInView='animate'
+			transition={{ delay: index * 0.3 }}
+			viewport={{ once: true }}
 		>
 			<script
-				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 				type='application/ld+json'
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
+
 			<Link
-				aria-label={`${project.title} link'`}
+				href={`/projects/${project.properties.__data.slug.rich_text[0].plain_text}`}
+				prefetch
+				aria-label={`${project.properties.__data.title.title[0].plain_text} link'`}
 				className='overflow-hidden rounded-t-2xl'
-				href={`/projects/${project.slug}`}
 			>
-				{project?.video?.preview ? (
+				{!!project?.properties.__data.videPreview.files.length ? (
 					<video
-						autoPlay
-						className='aspect-video max-h-[12.5rem] w-full object-cover transition hover:scale-105'
-						loop
 						muted
 						playsInline
-						preload='auto'
+						className='aspect-video max-h-[12.5rem] w-full object-cover transition hover:scale-105'
+						autoPlay
+						loop
+						poster={imagePlaceholder}
+						preload='metadata'
 					>
-						<source src={project.video.preview} />
-						<track kind='captions' />
+						<source
+							src={getFileUrl(project.properties.__data.videPreview.files)}
+							type='video/mp4'
+						/>
+						Your browser does not support the video tag.
 					</video>
 				) : (
 					<Image
-						alt={`${project.title} img'`}
-						blurDataURL={blurredImage}
+						alt={`${project.properties.__data.title.title[0].plain_text} img'`}
+						blurDataURL={imagePlaceholder}
 						className='aspect-video max-h-[12.5rem] min-w-full object-cover transition hover:scale-105'
 						height={200}
-						placeholder='blur'
-						src={project.img.svg || project.img.jpg}
+						src={getFileUrl(project.properties.__data.mainImage.files)}
 						width={200}
+						placeholder={imagePlaceholder ? 'blur' : 'empty'}
+						priority
 					/>
 				)}
 			</Link>
 			<div className='flex grow flex-col items-start gap-3 p-6'>
 				<h3 className='text-xl font-medium dark:text-lightGray md:text-2xl'>
-					<Link className='hover:underline' href={`/projects/${project.slug}`}>
-						{project.title}
+					<Link
+						href={`/projects/${project.properties.__data.slug.rich_text[0].plain_text}`}
+						className='hover:underline'
+					>
+						{project.properties.__data.title.title[0].plain_text}
 					</Link>
 				</h3>
 				<p className='line-clamp-4 grow font-light dark:text-lightGray'>
-					{project.description}
+					{project.properties.__data.description.rich_text[0].plain_text}
 				</p>
 				<div className='text-textSecondary dark:text-lightGray'>
-					Tech stack: <span className='line-clamp-2 font-light'>{project.stack}</span>
+					Tech stack:{' '}
+					<span className='line-clamp-2 font-light'>
+						{project.properties.__data.stack.rich_text[0].plain_text}
+					</span>
 				</div>
 				<div className='mt-1 flex w-full items-center justify-between gap-x-3 text-sm'>
-					{project.preview && (
-						<Link className='flex items-center gap-2 hover:underline' href={project.preview}>
+					{project.properties.__data.previewLink.url && (
+						<Link
+							href={project.properties.__data.previewLink.url}
+							className='flex items-center gap-2 hover:underline'
+						>
 							<LinkIcon className='size-5' />
 							Live Preview
 						</Link>
 					)}
-					{project.git && (
-						<Link className='flex items-center gap-2 hover:underline' href={project.git}>
+					{project.properties.__data.gitLink.url && (
+						<Link
+							href={project.properties.__data.gitLink.url}
+							className='flex items-center gap-2 hover:underline'
+						>
 							<GitIcon className='size-5' />
 							View Code
 						</Link>
 					)}
 				</div>
 			</div>
-		</article>
+		</motion.article>
 	);
 };

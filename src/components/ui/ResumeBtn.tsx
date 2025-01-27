@@ -19,10 +19,10 @@ export const ResumeBtn = ({
 	return (
 		<Link
 			{...props}
+			href={href}
 			aria-label='download resume'
 			className={cn(className, buttonVariants({ variant: 'tertiary', size: 'small' }))}
 			download
-			href={href}
 		>
 			Resume
 		</Link>

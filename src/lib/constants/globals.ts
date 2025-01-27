@@ -1,0 +1,1 @@
+export const INITIAL_PROJECTS_LENGTH = 6;

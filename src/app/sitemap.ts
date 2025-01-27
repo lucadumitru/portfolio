@@ -1,10 +1,12 @@
 import type { MetadataRoute } from 'next';
 
-import { projects } from '@/src/data/data';
+import { getProjects } from '@/src/lib/api/data';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
+	const projects = await getProjects();
+
 	const generatedUrls = projects.map((project) => ({
-		url: `https://lucadevelop.com/projects/${project.slug}`,
+		url: `https://lucadevelop.com/projects/${project.properties.__data.slug.rich_text[0].plain_text}`,
 		lastModified: new Date(),
 		changeFrequency: 'monthly' as const,
 		priority: 0.8,
@@ -18,4 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		},
 		...generatedUrls,
 	];
-}
+};
+
+export default sitemap;

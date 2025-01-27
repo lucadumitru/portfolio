@@ -36,7 +36,7 @@ export const buttonVariants = cva('rounded', {
 export const Button = ({ className, size, variant, children, ...props }: ButtonProps) => {
 	return (
 		<button {...props} className={buttonVariants({ variant, size, className })} type='button'>
-			{children}
+			<span className='relative z-10'>{children}</span>
 		</button>
 	);
 };

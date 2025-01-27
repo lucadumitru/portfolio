@@ -75,20 +75,20 @@ export const NavLinks = () => {
 			>
 				<ul
 					className='flex flex-col justify-between gap-x-3 gap-y-5 md:flex-row md:flex-wrap md:gap-x-5 md:gap-y-0'
-					itemScope
 					itemType='https://schema.org/SiteNavigationElement'
+					itemScope
 				>
 					{navLinks.map((navLink) => (
 						<li key={navLink.href}>
 							<Link
-								aria-label={`${navLink.name} link`}
+								href={navLink.href}
 								className={cn(
 									'relative block transition-all hover:underline dark:text-white',
 									isOpen && 'text-2xl',
 									navLink.name.toLowerCase() === activeSection &&
 										'scale-110 font-semibold text-textSecondary',
 								)}
-								href={navLink.href}
+								aria-label={`${navLink.name} link`}
 								itemProp='url'
 								onClick={onClick}
 							>

@@ -5,24 +5,33 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-import { buttonVariants, Container, NextProjectBtn } from '@/components/ui';
+import { buttonVariants, Container, NextProjectBtn, NotionRichText } from '@/components/ui';
 import { GitIcon, LinkIcon } from '@/src/components/ui/icons';
-import { projects } from '@/src/data/data';
-import { cn, getBase64 } from '@/src/lib/utils';
+import { getNextProject, getProject, getProjects } from '@/src/lib/api/data';
+import { cn, getFileUrl, getImage } from '@/src/lib/utils';
+
+import 'react-notion/src/styles.css';
+import 'prismjs/themes/prism-tomorrow.css';
 
 interface ProjectPageProps {
 	params: Promise<{ slug: string }>;
 }
 
-export const generateStaticParams = () => {
+export const revalidate = 600;
+
+export const dynamicParams = true;
+
+export const generateStaticParams = async () => {
+	const projects = await getProjects();
+
 	return projects.map((project) => ({
-		slug: project.slug,
+		slug: project.properties.__data.slug.rich_text[0].plain_text,
 	}));
 };
 
 export const generateMetadata = async ({ params }: ProjectPageProps): Promise<Metadata> => {
 	const { slug } = await params;
-	const project = projects.find((project) => project.slug === slug);
+	const project = await getProject(slug);
 
 	if (!project) {
 		return {
@@ -31,11 +40,11 @@ export const generateMetadata = async ({ params }: ProjectPageProps): Promise<Me
 	}
 
 	return {
-		title: `${project.title} - Luca Dumitru's web project`,
+		title: `${project.properties.__data.title.title[0].plain_text} - Luca Dumitru's web project`,
 		description: `${project.description}`,
 		keywords: [
-			`${project.stack}`,
-			`${project.title}`,
+			`${project.properties.__data.stack.rich_text[0].plain_text}`,
+			`${project.properties.__data.title.title[0].plain_text}`,
 			'lucadevelop',
 			'portfolio',
 			'projects',
@@ -43,14 +52,14 @@ export const generateMetadata = async ({ params }: ProjectPageProps): Promise<Me
 			'reactjs',
 		],
 		openGraph: {
-			images: `${project.img?.jpg || ''}`,
-			description: `${project.description}`,
-			title: `${project.title} - Luca Dumitru's web project`,
+			images: getFileUrl(project.properties.__data.mainImage.files),
+			description: project.properties.__data.description.rich_text[0].plain_text,
+			title: `${project.properties.__data.title.title[0].plain_text} - Luca Dumitru's web project`,
 			type: 'website',
-			url: `https://lucadevelop.com/projects/${project.slug}`,
+			url: `https://lucadevelop.com/projects/${project.properties.__data.slug.rich_text[0].plain_text}`,
 		},
 		alternates: {
-			canonical: `/projects/${project.slug}`,
+			canonical: `/projects/${project.properties.__data.slug.rich_text[0].plain_text}`,
 		},
 	};
 };
@@ -58,131 +67,136 @@ export const generateMetadata = async ({ params }: ProjectPageProps): Promise<Me
 const ProjectPage = async ({ params }: ProjectPageProps) => {
 	const { slug } = await params;
 
-	const currentProject: Project | undefined = projects.find((project) => project.slug === slug);
-	const nextProject: Project | undefined = currentProject && projects[+currentProject.id - 2];
+	const project = await getProject(slug);
+	const nextProject = await getNextProject(project.createdTime);
 
-	if (!currentProject) {
+	const { base64, img: mainImage } = await getImage(
+		getFileUrl(project.properties.__data.mainImage.files),
+	);
+
+	if (!project) {
 		return notFound();
 	}
 
-	const blurredImage = await getBase64(currentProject?.img.jpg);
-
 	const jsonLd: Article = {
 		'@type': 'Article',
-		name: currentProject.title,
-		description: currentProject.description,
-		image: currentProject.img?.svg,
-		url: `https://lucadevelop.com/projects/${currentProject.slug}`,
-		keywords: currentProject.stack,
 		about: {
 			'@type': 'Project',
-			name: currentProject.title,
-			description: currentProject.description,
-			image: currentProject.img?.svg,
-			url: `https://lucadevelop.com/projects/${currentProject.slug}`,
+			description: project.properties.__data.description.rich_text[0].plain_text,
+			image: getFileUrl(project.properties.__data.mainImage.files),
+			name: project.properties.__data.title.title[0].plain_text,
+			url: `https://lucadevelop.com/projects/${project.properties.__data.slug.rich_text[0].plain_text}`,
 		},
-		articleBody: currentProject.description,
+		description: project.properties.__data.description.rich_text[0].plain_text,
+		image: getFileUrl(project.properties.__data.mainImage.files),
 		inLanguage: 'en',
+		keywords: project.properties.__data.stack.rich_text[0].plain_text,
+		name: project.properties.__data.title.title[0].plain_text,
+		url: `https://lucadevelop.com/projects/${project.properties.__data.slug.rich_text[0].plain_text}`,
+		datePublished: project.createdTime,
+		author: {
+			'@type': 'Person',
+			name: 'Luca Dumitru',
+		},
 	};
 
 	return (
 		<main className='pt-[110px]'>
 			<script
-				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 				type='application/ld+json'
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
 			<Container className='flex flex-col items-center'>
-				<div className='max-w-4xl'>
+				<section className='max-w-4xl'>
 					<h1 className='text-center text-3xl font-bold text-textSecondary dark:text-white md:text-6xl'>
-						{currentProject.title}
+						{project.properties.__data.title.title[0].plain_text}
 					</h1>
-					{currentProject.stack && (
+					{project.properties.__data.stack && (
 						<div className='mt-10 text-center text-xl font-semibold text-textSecondary dark:text-white md:text-xl'>
-							{currentProject.stack}
+							{project.properties.__data.stack.rich_text[0].plain_text}
 						</div>
 					)}
-					<p className='mt-3 text-justify text-gray md:mt-10'>{currentProject.description}</p>
+					<p className='mt-3 text-justify text-gray md:mt-10'>
+						{project.properties.__data.description.rich_text[0].plain_text}
+					</p>
 
 					<div className='mt-10 flex justify-between gap-5'>
-						{currentProject.preview && (
+						{project.properties.__data.previewLink.url && (
 							<Link
+								href={project.properties.__data.previewLink.url}
 								className={cn(
 									'mx-auto flex items-center gap-2',
 									buttonVariants({ variant: 'primary', size: 'medium' }),
 								)}
-								href={currentProject.preview}
 							>
 								<LinkIcon className='size-5' />
 								Live Preview
 							</Link>
 						)}
-						{currentProject.git && (
+						{project.properties.__data.gitLink.url && (
 							<Link
+								href={project.properties.__data.gitLink.url}
 								className={cn(
 									'mx-auto flex items-center gap-2',
 									buttonVariants({ variant: 'primary', size: 'medium' }),
 								)}
-								href={currentProject.git}
 							>
 								<GitIcon className='size-5' />
 								View Code
 							</Link>
 						)}
 					</div>
-				</div>
-				<div className='mt-[5%] flex w-full flex-col gap-[50px] md:gap-[70px]'>
+				</section>
+				<section className='mt-[5%] flex w-full flex-col gap-[50px] md:gap-[70px]'>
 					<Link
+						href={project.properties.__data.previewLink.url ?? ''}
 						className='mx-auto overflow-hidden rounded-2xl'
-						href={currentProject?.preview ?? ''}
 					>
 						<Image
-							alt={`${currentProject.title} img`}
-							blurDataURL={blurredImage}
+							alt={`${project.properties.__data.title.title[0].plain_text} img`}
+							blurDataURL={base64}
 							height={700}
-							placeholder='blur'
-							priority
-							src={currentProject.img.svg ?? currentProject.img.jpg}
+							src={mainImage.src}
 							width={1000}
+							placeholder={base64 ? 'blur' : 'empty'}
+							priority
 						/>
 					</Link>
-					{currentProject.video?.macbook && (
+
+					{!!project.properties.__data.macPreview.files.length && (
 						<div className='relative w-full bg-macbook bg-contain bg-no-repeat pb-[50%]'>
 							<video
-								autoPlay
-								className='absolute left-1/2 top-[3%] z-[-1] aspect-video w-[80%] -translate-x-2/4 rounded-md'
-								loop
 								muted
 								playsInline
+								className='absolute left-1/2 top-[3%] z-[-1] aspect-video w-[80.5%] -translate-x-2/4 rounded-md'
+								autoPlay
+								loop
 								preload='auto'
-								src={currentProject.video.macbook}
-							/>
+							>
+								<source
+									src={getFileUrl(project.properties.__data.macPreview.files)}
+									type='video/mp4'
+								/>
+								Your browser does not support the video tag.
+							</video>
 						</div>
 					)}
-					{currentProject.keyfeatures && (
-						<div className='space-y-5'>
-							<div className='text-center text-2xl font-semibold'>Key features:</div>
-							<ul className='flex list-inside list-disc flex-col gap-3'>
-								{currentProject.keyfeatures.map((keyfeature, index) => (
-									<li className='inline-block text-gray' key={index}>
-										<span className='font-bold'>
-											● {`${keyfeature.key ? `${keyfeature.key}:` : ''}`}{' '}
-										</span>
-										<p className='inline'>{keyfeature.description}</p>
-									</li>
-								))}
-							</ul>
-						</div>
+					{!!project.properties.__data.text.rich_text.length && (
+						<NotionRichText
+							className='text-gray'
+							richText={project.properties.__data.text.rich_text}
+						/>
 					)}
-					{currentProject.id !== 1 && (
+					{nextProject && (
 						<div className='relative mb-[100px] mt-10 flex flex-col justify-center'>
 							<NextProjectBtn
-								nextProjectImg={nextProject?.img?.jpg ?? ''}
-								nextProjectSlug={nextProject?.slug ?? ''}
-								nextProjectTitle={nextProject?.title ?? ''}
+								nextProjectImg={getFileUrl(nextProject.properties.__data.mainImage.files)}
+								nextProjectSlug={nextProject.properties.__data.slug.rich_text[0].plain_text}
+								nextProjectTitle={nextProject.properties.__data.title.title[0].plain_text}
 							/>
 						</div>
 					)}
-				</div>
+				</section>
 			</Container>
 		</main>
 	);
