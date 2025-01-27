@@ -1,20 +1,27 @@
+'use client';
+
+import type { HTMLMotionProps } from 'framer-motion';
 import type { Article } from 'schema-dts';
 
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
 import type { ProjectsResponseDTO } from '@/src/notion-sdk/dbs/projects';
 
+import { fadeInAnimationVariants } from '@/src/lib/constants';
 import { getFileUrl } from '@/src/lib/utils';
 
 import { GitIcon, LinkIcon } from './icons';
 
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+interface CardProps extends HTMLMotionProps<'article'> {
+	imagePlaceholder?: string;
+	index: number;
 	project: ProjectsResponseDTO;
 }
 
-export const Card = ({ project, ...props }: CardProps) => {
+export const Card = ({ imagePlaceholder, index, project, ...props }: CardProps) => {
 	const jsonLd: Article = {
 		'@type': 'Article',
 		about: {
@@ -38,9 +45,14 @@ export const Card = ({ project, ...props }: CardProps) => {
 	};
 
 	return (
-		<article
+		<motion.article
 			{...props}
-			className='relative flex flex-col rounded-2xl bg-white shadow-card will-change-transform dark:bg-[#363636]'
+			className='relative flex w-full flex-col rounded-2xl bg-white shadow-card will-change-transform dark:bg-[#363636]'
+			initial='initial'
+			variants={fadeInAnimationVariants}
+			whileInView='animate'
+			transition={{ delay: index * 0.3 }}
+			viewport={{ once: true }}
 		>
 			<script
 				type='application/ld+json'
@@ -60,18 +72,24 @@ export const Card = ({ project, ...props }: CardProps) => {
 						className='aspect-video max-h-[12.5rem] w-full object-cover transition hover:scale-105'
 						autoPlay
 						loop
-						preload='auto'
+						poster={imagePlaceholder}
+						preload='metadata'
 					>
-						<source src={getFileUrl(project.properties.__data.videPreview.files)} />
-						<track kind='captions' />
+						<source
+							src={getFileUrl(project.properties.__data.videPreview.files)}
+							type='video/mp4'
+						/>
+						Your browser does not support the video tag.
 					</video>
 				) : (
 					<Image
 						alt={`${project.properties.__data.title.title[0].plain_text} img'`}
+						blurDataURL={imagePlaceholder}
 						className='aspect-video max-h-[12.5rem] min-w-full object-cover transition hover:scale-105'
 						height={200}
 						src={getFileUrl(project.properties.__data.mainImage.files)}
 						width={200}
+						placeholder={imagePlaceholder ? 'blur' : 'empty'}
 						priority
 					/>
 				)}
@@ -115,6 +133,6 @@ export const Card = ({ project, ...props }: CardProps) => {
 					)}
 				</div>
 			</div>
-		</article>
+		</motion.article>
 	);
 };

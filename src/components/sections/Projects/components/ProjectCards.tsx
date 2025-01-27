@@ -1,24 +1,22 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 import type { ProjectsResponseDTO } from '@/src/notion-sdk/dbs/projects';
 
 import { Button, Card } from '@/components/ui';
-import { fadeInAnimationVariants } from '@/src/lib/constants/animations';
+import { INITIAL_PROJECTS_LENGTH } from '@/src/lib/constants';
 
 interface ProjectCardsProps {
+	imagesPlaceholders?: string[];
 	projects: ProjectsResponseDTO[] | undefined;
 }
 
-const INITIAL_PROJECTS_LENGTH = 6;
-
-export const ProjectCards = ({ projects }: ProjectCardsProps) => {
+export const ProjectCards = ({ imagesPlaceholders, projects }: ProjectCardsProps) => {
 	const [projectsShowLength, setProjectsShowLength] = useState(INITIAL_PROJECTS_LENGTH);
 
 	if (!projects) {
-		return null;
+		return <div>Projects not found</div>;
 	}
 
 	const projectsToShow = projects.length - projectsShowLength;
@@ -34,21 +32,16 @@ export const ProjectCards = ({ projects }: ProjectCardsProps) => {
 				className={`mt-6 grid grid-cols-1 gap-11 gap-y-5 md:mt-20 md:grid-cols-2 md:gap-y-10 lg:grid-cols-3 xl:mt-[7.5rem]`}
 			>
 				{projects.slice(0, projectsShowLength).map((project, index) => (
-					<motion.div
+					<Card
 						key={project.id}
-						className='flex h-full'
-						initial='initial'
-						variants={fadeInAnimationVariants}
-						whileInView='animate'
-						transition={{ delay: index * 0.3 }}
-						viewport={{ once: true }}
-					>
-						<Card project={project} />
-					</motion.div>
+						index={index}
+						imagePlaceholder={imagesPlaceholders?.[index] ?? ''}
+						project={project}
+					/>
 				))}
 			</div>
 
-			{projectsShowLength <= projects.length && (
+			{projectsToShow > 0 && (
 				<Button className='mt-10' size='large' variant='secondary' onClick={handleClick}>
 					<span>
 						More projects

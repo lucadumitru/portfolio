@@ -2,11 +2,18 @@ import { notFound } from 'next/navigation';
 
 import { Container, Title } from '@/components/ui';
 import { getProjects } from '@/src/lib/api/data';
+import { getFileUrl, getImage } from '@/src/lib/utils';
 
 import { ProjectCards } from './components/ProjectCards';
 
 export const Projects = async () => {
 	const projects = await getProjects();
+
+	const projectsImgPlaceholders = await Promise.all(
+		projects.map(async (project) => {
+			return (await getImage(getFileUrl(project.properties.__data.mainImage.files))).base64;
+		}),
+	);
 
 	if (!projects) {
 		return notFound();
@@ -26,7 +33,7 @@ export const Projects = async () => {
 				<div className='mt-3 text-center text-[1.125rem] text-gray md:mt-8 md:text-[2rem]'>
 					Things I’ve built so far
 				</div>
-				<ProjectCards projects={projects} />
+				<ProjectCards imagesPlaceholders={projectsImgPlaceholders} projects={projects} />
 			</Container>
 		</section>
 	);
