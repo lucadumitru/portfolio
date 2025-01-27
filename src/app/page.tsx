@@ -30,7 +30,7 @@ const jsonLd: Person = {
 	},
 };
 
-const Home = () => {
+const HomePage = () => {
 	return (
 		<main className='flex flex-col gap-[3.125rem] pt-[4.375rem] md:gap-[9.375rem]' role='main'>
 			<script
@@ -44,4 +44,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default HomePage;
