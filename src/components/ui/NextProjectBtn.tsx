@@ -22,8 +22,9 @@ export const NextProjectBtn: React.FC<NextProjectBtnProps> = ({
 		target: ref,
 	});
 	const bottomToTop = useTransform(scrollYProgress, [0, 1], [150, 0]);
+
 	return (
-		<div className="relative text-center before:absolute before:-bottom-[100px] before:left-0 before:z-10 before:h-[100px] before:w-full before:border-t-[2px] before:border-gray/30 before:bg-white before:content-[''] before:dark:bg-bgDark">
+		<div className='relative max-h-[18.75rem] overflow-hidden border-b-[0.125rem] border-lightGray/15 text-center'>
 			<Link
 				href={`/projects/${nextProjectSlug}`}
 				ref={ref}
