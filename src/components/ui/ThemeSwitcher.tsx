@@ -36,7 +36,7 @@ export const ThemeSwitcher = ({
 			type='button'
 			onKeyDown={(event) => event.key === 'Enter' && toggleDarkMode()}
 		>
-			{/* @ts-expect-error: not compatible with react-node */}
+			{/* @ts-expect-error */}
 			<DarkModeSwitch
 				checked={theme === 'dark' || systemDark}
 				className='*:fill-current'
