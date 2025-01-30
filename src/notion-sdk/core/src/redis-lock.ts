@@ -1,14 +1,14 @@
 export const REDIS_LOCK_DEFAULT_TIMEOUT = 5000;
 export const REDIS_LOCK_DEFAULT_RETRY_DELAY = 50;
 
-interface RedisClient {
-	del: (key: string) => Promise<number>;
+type RedisClient = {
 	set: (
 		key: string,
-		value: number | string,
+		value: string | number,
 		options: { PX: number; NX: true },
 	) => Promise<string | null>;
-}
+	del: (key: string) => Promise<number>;
+};
 
 async function acquireLock(
 	client: RedisClient,
@@ -53,6 +53,7 @@ export function redisLock(client: RedisClient, retryDelay = REDIS_LOCK_DEFAULT_R
 		);
 	}
 
+	// eslint-disable-next-line require-await
 	async function lock(lockName: string, timeout = REDIS_LOCK_DEFAULT_TIMEOUT) {
 		return new Promise((resolve, reject) => {
 			if (!lockName) {

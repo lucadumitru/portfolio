@@ -1,26 +1,26 @@
-import type { Join, PathsToStringProps, WithOptional } from '../../core/types/helper.types';
-import type {
-	CreatedTimePropertyItemObjectResponse,
+import { WithOptional, Join, PathsToStringProps } from '../../core/types/helper.types';
+import {
 	DatabaseObjectResponse,
-	DatePropertyFilter,
-	ExistencePropertyFilter,
+	StringRequest,
+	CreatedTimePropertyItemObjectResponse,
 	FilesPropertyItemObjectResponse,
-	QueryDatabaseBodyParameters,
 	RichTextPropertyItemObjectResponse,
 	StatusPropertyItemObjectResponse,
-	StringRequest,
-	TextPropertyFilter,
-	TimestampCreatedTimeFilter,
-	TimestampLastEditedTimeFilter,
 	TitlePropertyItemObjectResponse,
 	UrlPropertyItemObjectResponse,
+	ExistencePropertyFilter,
+	QueryDatabaseBodyParameters,
+	TimestampCreatedTimeFilter,
+	TimestampLastEditedTimeFilter,
+	DatePropertyFilter,
+	TextPropertyFilter,
 } from '../../core/types/notion-api.types';
-import type { PROJECTS_PROPS_TO_IDS } from './constants';
+import { PROJECTS_PROPS_TO_IDS } from './constants';
 
 export interface ProjectsResponse
 	extends WithOptional<
 		Omit<DatabaseObjectResponse, 'properties'>,
-		'description' | 'is_inline' | 'public_url' | 'title' | 'url'
+		'title' | 'description' | 'is_inline' | 'url' | 'public_url'
 	> {
 	properties: {
 		Slug: RichTextPropertyItemObjectResponse;
@@ -59,29 +59,29 @@ type ProjectsMacPreviewPropertyFilter = ExistencePropertyFilter;
 export type ProjectsStatusPropertyType = ProjectsResponse['properties']['Status']['status']['name'];
 
 type ProjectsStatusPropertyFilter =
-	| ExistencePropertyFilter
+	| {
+			equals: ProjectsStatusPropertyType;
+	  }
 	| {
 			does_not_equal: ProjectsStatusPropertyType;
 	  }
-	| {
-			equals: ProjectsStatusPropertyType;
-	  };
+	| ExistencePropertyFilter;
 
 type ProjectsCreatedTimePropertyFilter = DatePropertyFilter;
 
 export type ProjectsPropertyFilter =
-	| { createdTime: ProjectsCreatedTimePropertyFilter }
-	| { description: ProjectsDescriptionPropertyFilter }
-	| { gitLink: ProjectsGitLinkPropertyFilter }
-	| { macPreview: ProjectsMacPreviewPropertyFilter }
-	| { mainImage: ProjectsMainImagePropertyFilter }
-	| { previewLink: ProjectsPreviewLinkPropertyFilter }
 	| { slug: ProjectsSlugPropertyFilter }
 	| { stack: ProjectsStackPropertyFilter }
-	| { status: ProjectsStatusPropertyFilter }
-	| { text: ProjectsTextPropertyFilter }
+	| { mainImage: ProjectsMainImagePropertyFilter }
+	| { previewLink: ProjectsPreviewLinkPropertyFilter }
+	| { description: ProjectsDescriptionPropertyFilter }
+	| { gitLink: ProjectsGitLinkPropertyFilter }
 	| { title: ProjectsTitlePropertyFilter }
-	| { videPreview: ProjectsVidePreviewPropertyFilter };
+	| { videPreview: ProjectsVidePreviewPropertyFilter }
+	| { text: ProjectsTextPropertyFilter }
+	| { macPreview: ProjectsMacPreviewPropertyFilter }
+	| { status: ProjectsStatusPropertyFilter }
+	| { createdTime: ProjectsCreatedTimePropertyFilter };
 
 export type ProjectsQuery = Omit<QueryDatabaseBodyParameters, 'filter' | 'sorts'> & {
 	sorts?: Array<
@@ -95,45 +95,45 @@ export type ProjectsQuery = Omit<QueryDatabaseBodyParameters, 'filter' | 'sorts'
 		  }
 	>;
 	filter?:
-		| ProjectsPropertyFilter
-		| TimestampCreatedTimeFilter
-		| TimestampLastEditedTimeFilter
-		| {
-				and: Array<
-					| ProjectsPropertyFilter
-					| TimestampCreatedTimeFilter
-					| TimestampLastEditedTimeFilter
-					| {
-							// and: ProjectsQuery['filter']
-							and: Array<ProjectsPropertyFilter>;
-					  }
-					| {
-							// or: ProjectsQuery['filter']
-							or: Array<ProjectsPropertyFilter>;
-					  }
-				>;
-		  }
 		| {
 				or: Array<
 					| ProjectsPropertyFilter
 					| TimestampCreatedTimeFilter
 					| TimestampLastEditedTimeFilter
 					| {
+							// or: ProjectsQuery['filter']
+							or: Array<ProjectsPropertyFilter>;
+					  }
+					| {
 							// and: ProjectsQuery['filter']
 							and: Array<ProjectsPropertyFilter>;
 					  }
+				>;
+		  }
+		| {
+				and: Array<
+					| ProjectsPropertyFilter
+					| TimestampCreatedTimeFilter
+					| TimestampLastEditedTimeFilter
 					| {
 							// or: ProjectsQuery['filter']
 							or: Array<ProjectsPropertyFilter>;
 					  }
+					| {
+							// and: ProjectsQuery['filter']
+							and: Array<ProjectsPropertyFilter>;
+					  }
 				>;
-		  };
+		  }
+		| ProjectsPropertyFilter
+		| TimestampCreatedTimeFilter
+		| TimestampLastEditedTimeFilter;
 };
 
 export type ProjectsQueryFilter = ProjectsQuery['filter'];
 
-export interface ProjectsQueryResponse {
-	has_more: boolean;
-	next_cursor: string | null;
+export type ProjectsQueryResponse = {
 	results: ProjectsResponse[];
-}
+	next_cursor: string | null;
+	has_more: boolean;
+};

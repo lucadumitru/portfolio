@@ -1,41 +1,39 @@
-import type {
-	RichTextItemRequest,
-	UpdatePageBodyParameters,
-} from '../../core/types/notion-api.types';
+import { ProjectsResponse } from './types';
+import { UpdatePageBodyParameters, RichTextItemRequest } from '../../core/types/notion-api.types';
 
 type TypeFromRecord<Obj, Type> = Obj extends Record<string, infer T> ? Extract<T, Type> : never;
 
-export interface ProjectsPropertiesPatch {
-	gitLink?: TypeFromRecord<UpdatePageBodyParameters['properties'], { type?: 'url' }>['url'];
-	macPreview?: TypeFromRecord<UpdatePageBodyParameters['properties'], { type?: 'files' }>['files'];
-	mainImage?: TypeFromRecord<UpdatePageBodyParameters['properties'], { type?: 'files' }>['files'];
-	previewLink?: TypeFromRecord<UpdatePageBodyParameters['properties'], { type?: 'url' }>['url'];
-	status?: TypeFromRecord<UpdatePageBodyParameters['properties'], { type?: 'status' }>['status'];
-	description?:
-		| string
-		| RichTextItemRequest[]
-		| { text: string; url?: string; annotations?: RichTextItemRequest['annotations'] };
+export type ProjectsPropertiesPatch = {
 	slug?:
 		| string
-		| RichTextItemRequest[]
-		| { text: string; url?: string; annotations?: RichTextItemRequest['annotations'] };
+		| { text: string; url?: string; annotations?: RichTextItemRequest['annotations'] }
+		| RichTextItemRequest[];
 	stack?:
 		| string
-		| RichTextItemRequest[]
-		| { text: string; url?: string; annotations?: RichTextItemRequest['annotations'] };
-	text?:
+		| { text: string; url?: string; annotations?: RichTextItemRequest['annotations'] }
+		| RichTextItemRequest[];
+	mainImage?: TypeFromRecord<UpdatePageBodyParameters['properties'], { type?: 'files' }>['files'];
+	previewLink?: TypeFromRecord<UpdatePageBodyParameters['properties'], { type?: 'url' }>['url'];
+	description?:
 		| string
-		| RichTextItemRequest[]
-		| { text: string; url?: string; annotations?: RichTextItemRequest['annotations'] };
+		| { text: string; url?: string; annotations?: RichTextItemRequest['annotations'] }
+		| RichTextItemRequest[];
+	gitLink?: TypeFromRecord<UpdatePageBodyParameters['properties'], { type?: 'url' }>['url'];
 	title?:
 		| string
-		| RichTextItemRequest[]
-		| { text: string; url?: string; annotations?: RichTextItemRequest['annotations'] };
+		| { text: string; url?: string; annotations?: RichTextItemRequest['annotations'] }
+		| RichTextItemRequest[];
 	videPreview?: TypeFromRecord<
 		UpdatePageBodyParameters['properties'],
 		{ type?: 'files' }
 	>['files'];
-}
+	text?:
+		| string
+		| { text: string; url?: string; annotations?: RichTextItemRequest['annotations'] }
+		| RichTextItemRequest[];
+	macPreview?: TypeFromRecord<UpdatePageBodyParameters['properties'], { type?: 'files' }>['files'];
+	status?: TypeFromRecord<UpdatePageBodyParameters['properties'], { type?: 'status' }>['status'];
+};
 
 export class ProjectsPatchDTO {
 	__data: UpdatePageBodyParameters;
@@ -140,14 +138,14 @@ export class ProjectsPatchDTO {
 		}
 
 		if (props?.gitLink !== undefined) {
-			this.__data.properties.yGBU = {
+			this.__data.properties['yGBU'] = {
 				type: 'url',
 				url: props.gitLink,
 			};
 		}
 
 		if (props?.title !== undefined) {
-			this.__data.properties.title = {
+			this.__data.properties['title'] = {
 				type: 'title',
 				title:
 					typeof props.title === 'string'

@@ -1,14 +1,10 @@
-import type { DatabaseOptions } from '../../core/src/generic-db';
-import type { ProjectsDTOProperties } from './constants';
-import type { ProjectsPatchDTO } from './patch.dto';
-import type { ProjectsQuery, ProjectsQueryResponse, ProjectsResponse } from './types';
-
-import { GenericDatabaseClass } from '../../core/src/generic-db';
-import { PROJECTS_PROPS_TO_IDS, PROJECTS_PROPS_TO_TYPES } from './constants';
+import { ProjectsResponse, ProjectsQuery, ProjectsQueryResponse } from './types';
+import { ProjectsPatchDTO } from './patch.dto';
+import { GenericDatabaseClass, DatabaseOptions } from '../../core/src/generic-db';
+import { PROJECTS_PROPS_TO_TYPES, PROJECTS_PROPS_TO_IDS, ProjectsDTOProperties } from './constants';
 
 export class ProjectsDatabase extends GenericDatabaseClass<
 	ProjectsResponse,
-	// @ts-expect-error
 	ProjectsPatchDTO,
 	ProjectsQuery,
 	ProjectsQueryResponse,
@@ -34,7 +30,7 @@ export class ProjectsDatabase extends GenericDatabaseClass<
 				if (Array.isArray(value)) {
 					notionFilter[key] = value.map((v) => this.queryRemapFilter(v));
 				} else {
-					throw new TypeError(`Projects: Invalid filter value for ${key}: ${value}`);
+					throw new Error(`Projects: Invalid filter value for ${key}: ${value}`);
 				}
 			} else {
 				if (!(key in PROJECTS_PROPS_TO_TYPES)) {
@@ -44,7 +40,7 @@ export class ProjectsDatabase extends GenericDatabaseClass<
 				const propType = PROJECTS_PROPS_TO_TYPES[key as keyof typeof PROJECTS_PROPS_TO_TYPES];
 				const propId = PROJECTS_PROPS_TO_IDS[key as keyof typeof PROJECTS_PROPS_TO_IDS];
 
-				notionFilter.property = propId;
+				notionFilter['property'] = propId;
 				notionFilter[propType] = value;
 			}
 		});
