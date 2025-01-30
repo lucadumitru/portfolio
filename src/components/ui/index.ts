@@ -1,4 +1,4 @@
-export * from './Button/Button';
+export * from './Button';
 export * from './Card';
 export * from './Container';
 export * from './LogoLink';
@@ -8,4 +8,4 @@ export * from './NotionRichText';
 export * from './ResumeBtn';
 export * from './ThemedImg';
 export * from './ThemeSwitcher';
-export * from './Title';
+export * from './Typography';
