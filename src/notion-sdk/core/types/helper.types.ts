@@ -17,13 +17,13 @@ type ArrayElement<ArrayType extends readonly unknown[]> =
 
 export type PathsToStringProps<T> = T extends unknown[]
 	? ['']
-	: T extends boolean | number | string
+	: T extends string | boolean | number
 		? []
 		:
+				| ['']
 				| {
 						[K in StringKeys<T>]: [K, ...PathsToStringProps<T[K]>];
-				  }[StringKeys<T>]
-				| [''];
+				  }[StringKeys<T>];
 
 export type Join<T extends string[], D extends string = '/'> = T extends []
 	? never

@@ -1,84 +1,158 @@
 {
-	"ignore": [],
-	"databases": {
-		"183cb760-62e3-80c7-bf5d-c202090fa7c0": {
-			"_name": "projects",
-			"varName": "projects",
-			"pathName": "projects",
-			"properties": {
-				"Kd%7Dc": {
-					"_name": "Slug",
-					"_type": "rich_text",
-					"varName": "slug",
-					"readOnly": false
-				},
-				"P%3B%3A%40": {
-					"_name": "Stack",
-					"_type": "rich_text",
-					"varName": "stack",
-					"readOnly": false
-				},
-				"P%3FFB": {
-					"_name": "Main Image",
-					"_type": "files",
-					"varName": "mainImage",
-					"readOnly": false
-				},
-				"i%60B%7D": {
-					"_name": "Preview Link",
-					"_type": "url",
-					"varName": "previewLink",
-					"readOnly": false
-				},
-				"pC%3Di": {
-					"_name": "Description",
-					"_type": "rich_text",
-					"varName": "description",
-					"readOnly": false
-				},
-				"yGBU": {
-					"_name": "Git Link",
-					"_type": "url",
-					"varName": "gitLink",
-					"readOnly": false
-				},
-				"title": {
-					"_name": "Title",
-					"_type": "title",
-					"varName": "title",
-					"readOnly": false
-				},
-				"O%3CfP": {
-					"_name": "Vide Preview",
-					"_type": "files",
-					"varName": "videPreview",
-					"readOnly": false
-				},
-				"j%3D%3Fc": {
-					"_name": "Text",
-					"_type": "rich_text",
-					"varName": "text",
-					"readOnly": false
-				},
-				"kBv%5D": {
-					"_name": "Mac Preview",
-					"_type": "files",
-					"varName": "macPreview",
-					"readOnly": false
-				},
-				"aS%7Bi": {
-					"_name": "Status",
-					"_type": "status",
-					"varName": "status",
-					"readOnly": false
-				},
-				"%7DUjn": {
-					"_name": "Created time",
-					"_type": "created_time",
-					"varName": "createdTime",
-					"readOnly": true
-				}
-			}
-		}
-	}
+  "ignore": [],
+  "databases": {
+    "183cb760-62e3-80c7-bf5d-c202090fa7c0": {
+      "_name": "projects",
+      "varName": "projects",
+      "pathName": "projects",
+      "properties": {
+        "Kd%7Dc": {
+          "_name": "Slug",
+          "_type": "rich_text",
+          "varName": "slug",
+          "readOnly": false
+        },
+        "P%3B%3A%40": {
+          "_name": "Stack",
+          "_type": "rich_text",
+          "varName": "stack",
+          "readOnly": false
+        },
+        "P%3FFB": {
+          "_name": "Main Image",
+          "_type": "files",
+          "varName": "mainImage",
+          "readOnly": false
+        },
+        "i%60B%7D": {
+          "_name": "Preview Link",
+          "_type": "url",
+          "varName": "previewLink",
+          "readOnly": false
+        },
+        "pC%3Di": {
+          "_name": "Description",
+          "_type": "rich_text",
+          "varName": "description",
+          "readOnly": false
+        },
+        "yGBU": {
+          "_name": "Git Link",
+          "_type": "url",
+          "varName": "gitLink",
+          "readOnly": false
+        },
+        "title": {
+          "_name": "Title",
+          "_type": "title",
+          "varName": "title",
+          "readOnly": false
+        },
+        "O%3CfP": {
+          "_name": "Vide Preview",
+          "_type": "files",
+          "varName": "videPreview",
+          "readOnly": false
+        },
+        "j%3D%3Fc": {
+          "_name": "Text",
+          "_type": "rich_text",
+          "varName": "text",
+          "readOnly": false
+        },
+        "kBv%5D": {
+          "_name": "Mac Preview",
+          "_type": "files",
+          "varName": "macPreview",
+          "readOnly": false
+        },
+        "aS%7Bi": {
+          "_name": "Status",
+          "_type": "status",
+          "varName": "status",
+          "readOnly": false
+        },
+        "%7DUjn": {
+          "_name": "Created time",
+          "_type": "created_time",
+          "varName": "createdTime",
+          "readOnly": true
+        }
+      }
+    },
+    "189cb760-62e3-80de-be43-d59ae1360f70": {
+      "_name": "Educations",
+      "varName": "educations",
+      "pathName": "educations",
+      "properties": {
+        "Z%3B%60R": {
+          "_name": "Location",
+          "_type": "rich_text",
+          "varName": "location",
+          "readOnly": false
+        },
+        "g%3E%5CT": {
+          "_name": "Period",
+          "_type": "date",
+          "varName": "period",
+          "readOnly": false
+        },
+        "gor%7B": {
+          "_name": "Institution",
+          "_type": "rich_text",
+          "varName": "institution",
+          "readOnly": false
+        },
+        "siEY": {
+          "_name": "Study Type",
+          "_type": "select",
+          "varName": "studyType",
+          "readOnly": false
+        },
+        "title": {
+          "_name": "Title",
+          "_type": "title",
+          "varName": "title",
+          "readOnly": false
+        }
+      }
+    },
+    "189cb760-62e3-806b-bc9f-d268da5a8b43": {
+      "_name": "Experiences",
+      "varName": "experiences",
+      "pathName": "experiences",
+      "properties": {
+        "K%5EJF": {
+          "_name": "Period",
+          "_type": "date",
+          "varName": "period",
+          "readOnly": false
+        },
+        "TtT~": {
+          "_name": "Company",
+          "_type": "rich_text",
+          "varName": "company",
+          "readOnly": false
+        },
+        "io_g": {
+          "_name": "Job Type",
+          "_type": "select",
+          "varName": "jobType",
+          "readOnly": false
+        },
+        "njiw": {
+          "_name": "Location",
+          "_type": "rich_text",
+          "varName": "location",
+          "readOnly": false
+        },
+        "title": {
+          "_name": "Title",
+          "_type": "title",
+          "varName": "title",
+          "readOnly": false
+        }
+      }
+    }
+  }
 }

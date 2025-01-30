@@ -1,8 +1,10 @@
 'use server';
 
+import { EducationsResponseDTO } from '@/src/notion-sdk/dbs/educations/response.dto';
+import { ExperiencesResponseDTO } from '@/src/notion-sdk/dbs/experiences';
 import { ProjectsResponseDTO } from '@/src/notion-sdk/dbs/projects';
 
-import { projectsDb } from './db';
+import { educationsDb, experiencesDb, projectsDb } from './dbs';
 
 export const getProjects = async () => {
 	const response = await projectsDb.query({
@@ -23,12 +25,16 @@ export const getProject = async (slug: string) => {
 		},
 		page_size: 1,
 	});
+
 	const result = new ProjectsResponseDTO(response.results[0]);
 	const data = JSON.parse(JSON.stringify(result)) as ProjectsResponseDTO;
 	return data;
 };
 
 export const getNextProject = async (createdTime: string) => {
+	if (!createdTime) {
+		return;
+	}
 	try {
 		const response = await projectsDb.query({
 			filter: {
@@ -36,14 +42,33 @@ export const getNextProject = async (createdTime: string) => {
 			},
 		});
 
+		if (!response.results.length) {
+			return;
+		}
+
 		const result = new ProjectsResponseDTO(response.results[0]);
 
-		if (result) {
-			const data = JSON.parse(JSON.stringify(result)) as ProjectsResponseDTO;
-			return data;
-		}
-		return null;
+		const data = JSON.parse(JSON.stringify(result)) as ProjectsResponseDTO;
+		return data;
 	} catch (error) {
 		console.error(error);
 	}
+};
+
+export const getEducations = async () => {
+	const response = await educationsDb.query({
+		sorts: [{ property: 'period', direction: 'descending' }],
+	});
+	const results = response.results.map((result) => new EducationsResponseDTO(result));
+	const data = JSON.parse(JSON.stringify(results)) as EducationsResponseDTO[];
+	return data;
+};
+
+export const getExperiences = async () => {
+	const response = await experiencesDb.query({
+		sorts: [{ property: 'period', direction: 'descending' }],
+	});
+	const results = response.results.map((result) => new ExperiencesResponseDTO(result));
+	const data = JSON.parse(JSON.stringify(results)) as ExperiencesResponseDTO[];
+	return data;
 };

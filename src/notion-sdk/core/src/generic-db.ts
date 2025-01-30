@@ -1,4 +1,4 @@
-import type {
+import {
 	AppendBlockChildrenBodyParameters,
 	BlockObjectRequest,
 	BlockObjectResponse,
@@ -7,21 +7,19 @@ import type {
 	ListBlockChildrenResponse,
 	UpdatePageBodyParameters,
 } from '../types/notion-api.types';
-import type { ThrottleConfig } from './p-throttle';
-
 import {
 	normId,
 	notionBlockApiURL,
-	notionBlockChildrenApiURL,
 	notionDatabaseQueryURL,
 	notionPageApiURL,
+	notionBlockChildrenApiURL,
 } from './notion-urls';
-import pThrottle from './p-throttle';
+import pThrottle, { ThrottleConfig } from './p-throttle';
 
-export interface DatabaseOptions {
+export type DatabaseOptions = {
 	// firebaseSecret: string
 	notionSecret: string;
-}
+};
 
 export type BlockObjectResponseWithChildren = BlockObjectResponse & {
 	children?: BlockObjectResponseWithChildren[];
@@ -121,8 +119,8 @@ export abstract class GenericDatabaseClass<
 	): Promise<DatabaseQueryResponse> {
 		const notionQuery = {
 			...query,
-			filter: this.queryRemapFilter(query.filter),
-			sorts: this.queryRemapSorts(query.sorts),
+			filter: this.queryRemapFilter(query['filter']),
+			sorts: this.queryRemapSorts(query['sorts']),
 		};
 		// console.log('Querying Notion database with:', JSON.stringify(notionQuery, null, 2))
 		const rateLimitedQuery = await rateLimitedFetch('query');
@@ -237,7 +235,7 @@ export abstract class GenericDatabaseClass<
 	 * await db.createPage(meta)
 	 */
 	async createPage(
-		meta: CreatePageBodyParameters | DatabasePatchDTO,
+		meta: DatabasePatchDTO | CreatePageBodyParameters,
 		content?: BlockObjectRequest[],
 	): Promise<DatabaseResponse> {
 		const data = '__data' in meta ? meta.__data : meta;
@@ -365,7 +363,7 @@ export abstract class GenericDatabaseClass<
 			}
 
 			if (JSON.stringify(blockContent) !== JSON.stringify(updateBlockContent)) {
-				delete (updateBlockContent as BlockObjectRequest).type;
+				delete (updateBlockContent as BlockObjectRequest)['type'];
 
 				const rateLimitedUpdateBlock = await rateLimitedFetch(`updateBlock(${id})`);
 				const res = await rateLimitedUpdateBlock(notionBlockApiURL(block.id), {
@@ -443,7 +441,7 @@ export abstract class GenericDatabaseClass<
 
 			for (const block of list.results as BlockObjectResponseWithChildren[]) {
 				if (block.has_children) {
-					block.children = await this.getPageBlocks(block.id);
+					block['children'] = await this.getPageBlocks(block.id);
 				}
 
 				blocks.push(block);

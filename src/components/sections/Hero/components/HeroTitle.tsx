@@ -3,11 +3,11 @@
 import Image from 'next/image';
 import { TypeAnimation } from 'react-type-animation';
 
-import { Title } from '@/components/ui';
+import { Typography } from '@/components/ui';
 
 export const HeroTitle = () => {
 	return (
-		<Title className='text-[28px] font-bold md:text-left md:text-[40px] lg:text-[55px]' tag='h1'>
+		<Typography className='md:text-left' tag='h1' variant='title'>
 			Hi{' '}
 			<Image
 				alt='Waving Hand'
@@ -38,6 +38,6 @@ export const HeroTitle = () => {
 				speed={50}
 				wrapper='span'
 			/>
-		</Title>
+		</Typography>
 	);
 };

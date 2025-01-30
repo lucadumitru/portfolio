@@ -2,9 +2,9 @@ import type { Person } from 'schema-dts';
 
 import React from 'react';
 
-import { Hero, Projects, Stack } from '@/components/sections';
+import { HeroSection, ProjectsSection, StackSection } from '@/components/sections';
 
-export const revalidate = 600;
+export const revalidate = 3600; // 1 hour
 
 const jsonLd: Person = {
 	'@type': 'Person',
@@ -37,9 +37,9 @@ const HomePage = () => {
 				type='application/ld+json'
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
-			<Hero />
-			<Stack />
-			<Projects />
+			<HeroSection />
+			<StackSection />
+			<ProjectsSection />
 		</main>
 	);
 };

@@ -17,6 +17,7 @@ module.exports = {
 			colors: {
 				gray: '#666',
 				lightGray: '#CCC',
+				lightContent: '#A7A7A7',
 				textSecondary: '#42446E',
 				bgDark: '#191919',
 				telegram: '#0088cc',

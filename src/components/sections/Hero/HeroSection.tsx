@@ -6,7 +6,7 @@ import heroImg from '@/public/profile.webp';
 
 import { HeroTitle } from './components/HeroTitle';
 
-export const Hero = () => {
+export const HeroSection = () => {
 	return (
 		<section
 			className='flex min-h-[calc(100dvh-4.5rem)] snap-center scroll-mt-20 flex-col short:py-[40px]'

@@ -1,4 +1,4 @@
-import type { ListBlockChildrenQueryParameters } from '../types/notion-api.types';
+import { ListBlockChildrenQueryParameters } from '../types/notion-api.types';
 
 export const normId = (id: string) => id.replace(/-/g, '');
 

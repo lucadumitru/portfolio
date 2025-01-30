@@ -2,9 +2,8 @@ import type { LinkProps } from 'next/link';
 
 import Link from 'next/link';
 
+import { buttonVariantsCVA } from '@/components/ui';
 import { cn } from '@/src/lib/utils';
-
-import { buttonVariants } from './Button/Button';
 
 interface ResumeBtnProps extends Omit<LinkProps, 'href'> {
 	className?: string;
@@ -21,7 +20,7 @@ export const ResumeBtn = ({
 			{...props}
 			href={href}
 			aria-label='download resume'
-			className={cn(className, buttonVariants({ variant: 'tertiary', size: 'small' }))}
+			className={cn(className, buttonVariantsCVA({ variant: 'tertiary', size: 'small' }))}
 			download
 		>
 			Resume

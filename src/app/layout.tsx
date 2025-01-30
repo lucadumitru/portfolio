@@ -1,26 +1,24 @@
-import type { Viewport } from 'next';
+import type { Metadata, Viewport } from 'next';
 
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-// import { VercelToolbar } from '@vercel/toolbar/next';
+import { VercelToolbar } from '@vercel/toolbar/next';
 
+import { Socials } from '@/components/common';
 import { Cta, Footer, Header } from '@/components/layout';
+import { siteConfig } from '@/site.config';
+import { poppins } from '@/src/assets/fonts';
 
-import { Socials } from '../components';
-import { poppins } from './fonts';
 import { Providers } from './providers';
 
-import './globals.css';
-import 'react-notion/src/styles.css';
-import 'react-notion-x/src/styles.css';
-import 'katex/dist/katex.min.css';
+import '@/src/assets/styles/globals.css';
 
 export const viewport: Viewport = {
 	width: 'device-width',
 	initialScale: 1,
 };
 
-export const metadata = {
+export const metadata: Metadata = {
 	metadataBase: new URL('https://lucadevelop.com'),
 	alternates: {
 		canonical: 'https://lucadevelop.com',
@@ -39,7 +37,7 @@ export const metadata = {
 		url: 'https://lucadevelop.com',
 	},
 	other: {
-		'google-site-verification': 'h8NXcWJd10wnCYsE9VzIXd6dFmoj1zDUcNLTEgAc6YA',
+		'google-site-verification': process.env.GOOGLE_SITE_VERIFICATION ?? '',
 	},
 };
 
@@ -58,14 +56,14 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 					<Footer />
 				</Providers>
 
-				{process.env.NODE_ENV === 'production' && (
+				{siteConfig.isProduction && (
 					<>
 						<Analytics />
 						<SpeedInsights />
 					</>
 				)}
 
-				{/* {process.env.NODE_ENV === 'development' && <VercelToolbar />} */}
+				{siteConfig.isDev && siteConfig.vercelToolbar.enabled && <VercelToolbar />}
 			</body>
 		</html>
 	);

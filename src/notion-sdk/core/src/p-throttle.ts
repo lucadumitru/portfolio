@@ -7,10 +7,10 @@ import {
 export interface ThrottleConfig {
 	// The name of the environment, all throttled functions with the same `env` name share the same rate limit
 	env: string;
-	// The length of the interval (window) in milliseconds
-	interval: number;
 	// The maximum number of calls allowed within the interval
 	limit: number;
+	// The length of the interval (window) in milliseconds
+	interval: number;
 	// The Redis client instance to use for environment state storage
 	redis?: RedisClient;
 	// The Redis URL to use for environment state storage
@@ -100,17 +100,17 @@ function validateConfig(config: ThrottleConfig) {
 	}
 }
 
-interface RedisClient {
-	del: (key: string) => Promise<number>;
-	get: (key: string) => Promise<string | null>;
+type RedisClient = {
 	set: (
 		key: string,
-		value: number | string,
+		value: string | number,
 		options?: { PX: number; NX: true },
 	) => Promise<string | null>;
-}
+	get: (key: string) => Promise<string | null>;
+	del: (key: string) => Promise<number>;
+};
 
-type RunEnvironmentProps = 'activeCount' | 'currentTick';
+type RunEnvironmentProps = 'currentTick' | 'activeCount';
 
 class RunEnvironment {
 	config: ThrottleConfig;
@@ -118,6 +118,7 @@ class RunEnvironment {
 	keyPrefix: string;
 	fallbackLock: boolean = false;
 
+	// eslint-disable-next-line require-await
 	lock: ReturnType<typeof redisLock> = async (
 		_name: string,
 		timeout = REDIS_LOCK_DEFAULT_TIMEOUT,
@@ -162,7 +163,7 @@ class RunEnvironment {
 	}
 
 	async getNumValue(key: RunEnvironmentProps): Promise<number> {
-		let value: string | null | undefined;
+		let value: string | undefined | null;
 
 		if (this.config.redis) {
 			value = await this.config.redis.get(this.keyPrefix + key);
@@ -170,10 +171,10 @@ class RunEnvironment {
 			value = this.values.get(key);
 		}
 
-		return Number.parseInt(value ?? '0');
+		return parseInt(value ?? '0');
 	}
 
-	async setValue(key: RunEnvironmentProps, value: number | string) {
+	async setValue(key: RunEnvironmentProps, value: string | number) {
 		if (this.config.redis) {
 			await this.config.redis.set(this.keyPrefix + key, value.toString());
 		} else {

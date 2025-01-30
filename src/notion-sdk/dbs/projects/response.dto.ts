@@ -1,4 +1,4 @@
-import type { ProjectsResponse } from './types';
+import { ProjectsResponse } from './types';
 
 export class ProjectsResponseDTO {
 	__data: ProjectsResponse;
@@ -64,46 +64,46 @@ export class ProjectsPropertiesResponseDTO {
 	constructor(props: ProjectsResponse['properties']) {
 		this.__props = props;
 		this.__data = {
-			slug: this.__props.Slug,
-			stack: this.__props.Stack,
+			slug: this.__props['Slug'],
+			stack: this.__props['Stack'],
 			mainImage: this.__props['Main Image'],
 			previewLink: this.__props['Preview Link'],
-			description: this.__props.Description,
+			description: this.__props['Description'],
 			gitLink: this.__props['Git Link'],
-			title: this.__props.Title,
+			title: this.__props['Title'],
 			videPreview: this.__props['Vide Preview'],
-			text: this.__props.Text,
+			text: this.__props['Text'],
 			macPreview: this.__props['Mac Preview'],
-			status: this.__props.Status,
+			status: this.__props['Status'],
 			createdTime: this.__props['Created time'],
 		};
 	}
 
 	get slug() {
 		return {
-			text: this.__props.Slug?.rich_text
-				? this.__props.Slug.rich_text.reduce((acc, item) => acc + item.plain_text, '')
+			text: this.__props['Slug']?.rich_text
+				? this.__props['Slug'].rich_text.reduce((acc, item) => acc + item.plain_text, '')
 				: undefined,
-			links: this.__props.Slug?.rich_text
-				? this.__props.Slug.rich_text
+			links: this.__props['Slug']?.rich_text
+				? this.__props['Slug'].rich_text
 						.filter((item) => item.href?.length)
 						.map((item) => item.href)
 				: [],
-			rich_text: this.__props.Slug?.rich_text,
+			rich_text: this.__props['Slug']?.rich_text,
 		};
 	}
 
 	get stack() {
 		return {
-			text: this.__props.Stack?.rich_text
-				? this.__props.Stack.rich_text.reduce((acc, item) => acc + item.plain_text, '')
+			text: this.__props['Stack']?.rich_text
+				? this.__props['Stack'].rich_text.reduce((acc, item) => acc + item.plain_text, '')
 				: undefined,
-			links: this.__props.Stack?.rich_text
-				? this.__props.Stack.rich_text
+			links: this.__props['Stack']?.rich_text
+				? this.__props['Stack'].rich_text
 						.filter((item) => item.href?.length)
 						.map((item) => item.href)
 				: [],
-			rich_text: this.__props.Stack?.rich_text,
+			rich_text: this.__props['Stack']?.rich_text,
 		};
 	}
 
@@ -125,15 +125,15 @@ export class ProjectsPropertiesResponseDTO {
 
 	get description() {
 		return {
-			text: this.__props.Description?.rich_text
-				? this.__props.Description.rich_text.reduce((acc, item) => acc + item.plain_text, '')
+			text: this.__props['Description']?.rich_text
+				? this.__props['Description'].rich_text.reduce((acc, item) => acc + item.plain_text, '')
 				: undefined,
-			links: this.__props.Description?.rich_text
-				? this.__props.Description.rich_text
+			links: this.__props['Description']?.rich_text
+				? this.__props['Description'].rich_text
 						.filter((item) => item.href?.length)
 						.map((item) => item.href)
 				: [],
-			rich_text: this.__props.Description?.rich_text,
+			rich_text: this.__props['Description']?.rich_text,
 		};
 	}
 
@@ -143,13 +143,15 @@ export class ProjectsPropertiesResponseDTO {
 
 	get title() {
 		return {
-			text: this.__props.Title?.title
-				? this.__props.Title.title.reduce((acc, item) => acc + item.plain_text, '')
+			text: this.__props['Title']?.title
+				? this.__props['Title'].title.reduce((acc, item) => acc + item.plain_text, '')
 				: undefined,
-			links: this.__props.Title?.title
-				? this.__props.Title.title.filter((item) => item.href?.length).map((item) => item.href)
+			links: this.__props['Title']?.title
+				? this.__props['Title'].title
+						.filter((item) => item.href?.length)
+						.map((item) => item.href)
 				: [],
-			title: this.__props.Title?.title,
+			title: this.__props['Title']?.title,
 		};
 	}
 
@@ -167,15 +169,15 @@ export class ProjectsPropertiesResponseDTO {
 
 	get text() {
 		return {
-			text: this.__props.Text?.rich_text
-				? this.__props.Text.rich_text.reduce((acc, item) => acc + item.plain_text, '')
+			text: this.__props['Text']?.rich_text
+				? this.__props['Text'].rich_text.reduce((acc, item) => acc + item.plain_text, '')
 				: undefined,
-			links: this.__props.Text?.rich_text
-				? this.__props.Text.rich_text
+			links: this.__props['Text']?.rich_text
+				? this.__props['Text'].rich_text
 						.filter((item) => item.href?.length)
 						.map((item) => item.href)
 				: [],
-			rich_text: this.__props.Text?.rich_text,
+			rich_text: this.__props['Text']?.rich_text,
 		};
 	}
 
@@ -192,7 +194,7 @@ export class ProjectsPropertiesResponseDTO {
 	}
 
 	get status() {
-		return this.__props.Status?.status;
+		return this.__props['Status']?.status;
 	}
 
 	get createdTime() {

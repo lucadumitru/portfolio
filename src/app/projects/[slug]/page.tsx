@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-import { buttonVariants, Container, NextProjectBtn, NotionRichText } from '@/components/ui';
+import { buttonVariantsCVA, Container, NextProjectBtn, NotionRichText } from '@/components/ui';
 import { GitIcon, LinkIcon } from '@/src/components/ui/icons';
 import { getNextProject, getProject, getProjects } from '@/src/lib/api/data';
 import { cn, getFileUrl, getImage } from '@/src/lib/utils';
@@ -17,7 +17,7 @@ interface ProjectPageProps {
 	params: Promise<{ slug: string }>;
 }
 
-export const revalidate = 600;
+export const revalidate = 3600; // 1 hour
 
 export const dynamicParams = true;
 
@@ -126,7 +126,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 								href={project.properties.__data.previewLink.url}
 								className={cn(
 									'mx-auto flex items-center gap-2',
-									buttonVariants({ variant: 'primary', size: 'medium' }),
+									buttonVariantsCVA({ variant: 'primary', size: 'medium' }),
 								)}
 							>
 								<LinkIcon className='size-5' />
@@ -138,7 +138,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 								href={project.properties.__data.gitLink.url}
 								className={cn(
 									'mx-auto flex items-center gap-2',
-									buttonVariants({ variant: 'primary', size: 'medium' }),
+									buttonVariantsCVA({ variant: 'primary', size: 'medium' }),
 								)}
 							>
 								<GitIcon className='size-5' />
@@ -171,6 +171,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 								className='absolute left-1/2 top-[3%] z-[-1] aspect-video w-[80.5%] -translate-x-2/4 rounded-md'
 								autoPlay
 								loop
+								poster='https://res.cloudinary.com/dl13jfh2s/image/upload/v1738145581/loader_fxzfpw.gif'
 								preload='auto'
 							>
 								<source
@@ -188,7 +189,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 						/>
 					)}
 					{nextProject && (
-						<div className='relative mb-[100px] mt-10 flex flex-col justify-center'>
+						<div className='relative my-6 flex flex-col justify-center md:my-10'>
 							<NextProjectBtn
 								nextProjectImg={getFileUrl(nextProject.properties.__data.mainImage.files)}
 								nextProjectSlug={nextProject.properties.__data.slug.rich_text[0].plain_text}
