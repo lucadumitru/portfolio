@@ -1,40 +1,46 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React from 'react';
 
+import { Socials } from '@/components/common';
 import { ResumeBtn } from '@/components/ui';
-import { dmSans } from '@/src/app/fonts';
+import { dmSans } from '@/src/assets/fonts/fonts';
 import { MenuContext } from '@/src/contexts/MenuContext';
 import { cn } from '@/src/lib/utils';
 
-import { Socials } from '../common';
+interface NavLink {
+	href: string;
+	name: string;
+}
 
-const navLinks = [
+const navLinks: NavLink[] = [
 	{
-		href: '#home',
-		name: 'Home',
-	},
-	{
-		href: '#stack',
-		name: 'Stack',
-	},
-	{
-		href: '#projects',
-		name: 'Projects',
-	},
-	{
-		href: '#contact',
-		name: 'Contact',
+		href: '/about',
+		name: 'About',
 	},
 ];
 
 export const NavLinks = () => {
 	const { isOpen, toggleIsOpen } = React.useContext(MenuContext);
+	const pathName = usePathname();
+	const isHomePage = pathName === '/';
+	const [sectionLinks, setSectionLinks] = React.useState<NavLink[]>([]);
 	const [activeSection, setActiveSection] = React.useState('');
 
 	React.useEffect(() => {
+		if (!isHomePage) return;
+
 		const sectionsTitles = document.querySelectorAll('[data-section-title]');
+		if (!sectionsTitles) return;
+
+		setSectionLinks(
+			Array.from(sectionsTitles).map((sectionTitle) => ({
+				href: `#${sectionTitle.id}`,
+				name: sectionTitle.id,
+			})),
+		);
 
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -52,7 +58,7 @@ export const NavLinks = () => {
 		return () => {
 			observer.disconnect();
 		};
-	}, []);
+	}, [pathName]);
 
 	const onClick = () => {
 		if (isOpen) {
@@ -74,10 +80,47 @@ export const NavLinks = () => {
 				}`}
 			>
 				<ul
-					className='flex flex-col justify-between gap-x-3 gap-y-5 md:flex-row md:flex-wrap md:gap-x-5 md:gap-y-0'
+					className='flex flex-col justify-start gap-x-3 gap-y-5 md:flex-row md:flex-wrap md:gap-x-5 md:gap-y-0'
 					itemType='https://schema.org/SiteNavigationElement'
 					itemScope
 				>
+					{isHomePage &&
+						sectionLinks.map((sectionLink) => (
+							<li key={sectionLink.href}>
+								<Link
+									href={sectionLink.href}
+									className={cn(
+										'relative block transition-all hover:underline dark:text-white',
+										isOpen && 'text-2xl',
+										{
+											'scale-110 text-textSecondary':
+												sectionLink.name.toLowerCase() === activeSection,
+										},
+									)}
+									aria-label={`${sectionLink.name} link`}
+									itemProp='url'
+									onClick={onClick}
+								>
+									<span className='capitalize'>{sectionLink.name}</span>
+								</Link>
+							</li>
+						))}
+					{!isHomePage && (
+						<li>
+							<Link
+								href={'/'}
+								className={cn(
+									'relative block transition-all hover:underline dark:text-white',
+									isOpen && 'text-2xl',
+								)}
+								aria-label={`home page link`}
+								itemProp='url'
+								onClick={onClick}
+							>
+								Home
+							</Link>
+						</li>
+					)}
 					{navLinks.map((navLink) => (
 						<li key={navLink.href}>
 							<Link
@@ -85,8 +128,6 @@ export const NavLinks = () => {
 								className={cn(
 									'relative block transition-all hover:underline dark:text-white',
 									isOpen && 'text-2xl',
-									navLink.name.toLowerCase() === activeSection &&
-										'scale-110 font-semibold text-textSecondary',
 								)}
 								aria-label={`${navLink.name} link`}
 								itemProp='url'
