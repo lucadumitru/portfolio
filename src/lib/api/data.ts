@@ -4,7 +4,8 @@ import { EducationsResponseDTO } from '@/src/notion-sdk/dbs/educations/response.
 import { ExperiencesResponseDTO } from '@/src/notion-sdk/dbs/experiences';
 import { ProjectsResponseDTO } from '@/src/notion-sdk/dbs/projects';
 
-import { educationsDb, experiencesDb, projectsDb } from './dbs';
+import { TechnologiesResponseDTO } from './../../notion-sdk/dbs/technologies/response.dto';
+import { educationsDb, experiencesDb, projectsDb, technologiesDb } from './dbs';
 
 export const getProjects = async () => {
 	const response = await projectsDb.query({
@@ -70,5 +71,15 @@ export const getExperiences = async () => {
 	});
 	const results = response.results.map((result) => new ExperiencesResponseDTO(result));
 	const data = JSON.parse(JSON.stringify(results)) as ExperiencesResponseDTO[];
+	return data;
+};
+
+export const getTechnologies = async () => {
+	const response = await technologiesDb.query({
+		sorts: [{ timestamp: 'created_time', direction: 'ascending' }],
+	});
+
+	const results = response.results.map((result) => new TechnologiesResponseDTO(result));
+	const data = JSON.parse(JSON.stringify(results)) as TechnologiesResponseDTO[];
 	return data;
 };

@@ -1,9 +1,11 @@
 import { Container, Typography } from '@/components/ui';
-import { technologies } from '@/src/data/data';
+import { getTechnologies } from '@/src/lib/api/data';
 
 import { StackItems } from './components/StackItems';
 
-export const StackSection = () => {
+export const StackSection = async () => {
+	const technologies = await getTechnologies();
+
 	return (
 		<Container as='section' className='md:scroll-mt-[150px]'>
 			<Typography
