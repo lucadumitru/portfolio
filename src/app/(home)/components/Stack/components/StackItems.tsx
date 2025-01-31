@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 
-import { ThemedImg } from '@/components/ui';
+import { ThemedImg } from '@/src/components/common';
 import { fadeInAnimationVariants } from '@/src/lib/constants/animations';
 
 interface StackItemsProps {

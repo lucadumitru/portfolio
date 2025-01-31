@@ -2,7 +2,7 @@ import type { Person } from 'schema-dts';
 
 import React from 'react';
 
-import { HeroSection, ProjectsSection, StackSection } from '@/components/sections';
+import { HeroSection, ProjectsSection, StackSection } from './components';
 
 export const revalidate = 3600; // 1 hour
 

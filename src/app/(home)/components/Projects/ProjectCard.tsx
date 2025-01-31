@@ -13,15 +13,15 @@ import type { ProjectsResponseDTO } from '@/src/notion-sdk/dbs/projects';
 import { fadeInAnimationVariants } from '@/src/lib/constants';
 import { getFileUrl } from '@/src/lib/utils';
 
-import { GitIcon, LinkIcon } from './icons';
+import { GitIcon, LinkIcon } from '../../../../components/ui/icons';
 
-interface CardProps extends HTMLMotionProps<'article'> {
+interface ProjectCardProps extends HTMLMotionProps<'article'> {
 	imagePlaceholder?: string;
 	index: number;
 	project: ProjectsResponseDTO;
 }
 
-export const Card = ({ imagePlaceholder, index, project, ...props }: CardProps) => {
+export const ProjectCard = ({ imagePlaceholder, index, project, ...props }: ProjectCardProps) => {
 	const jsonLd: Article = {
 		'@type': 'Article',
 		about: {

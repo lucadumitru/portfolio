@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container, Typography } from '@/components/ui';
 
-import { Projects } from './components/Projects';
+import { Projects } from './Projects';
 
 export const ProjectsSection = () => {
 	return (

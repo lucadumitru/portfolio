@@ -4,8 +4,10 @@ import { useState } from 'react';
 
 import type { ProjectsResponseDTO } from '@/src/notion-sdk/dbs/projects';
 
-import { Button, Card } from '@/components/ui';
+import { Button } from '@/components/ui';
 import { INITIAL_PROJECTS_LENGTH } from '@/src/lib/constants';
+
+import { ProjectCard } from './ProjectCard';
 
 interface ProjectCardsProps {
 	imagesPlaceholders?: string[];
@@ -32,7 +34,7 @@ export const ProjectCards = ({ imagesPlaceholders, projects }: ProjectCardsProps
 				className={`mt-6 grid grid-cols-1 gap-11 gap-y-5 md:mt-20 md:grid-cols-2 md:gap-y-10 lg:grid-cols-3 xl:mt-[7.5rem]`}
 			>
 				{projects.slice(0, projectsShowLength).map((project, index) => (
-					<Card
+					<ProjectCard
 						key={project.id}
 						index={index}
 						imagePlaceholder={imagesPlaceholders?.[index] ?? ''}

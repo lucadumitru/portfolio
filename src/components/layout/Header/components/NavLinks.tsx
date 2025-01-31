@@ -5,10 +5,11 @@ import { usePathname } from 'next/navigation';
 import React from 'react';
 
 import { Socials } from '@/components/common';
-import { ResumeBtn } from '@/components/ui';
 import { dmSans } from '@/src/assets/fonts/fonts';
 import { MenuContext } from '@/src/contexts/MenuContext';
 import { cn } from '@/src/lib/utils';
+
+import { ResumeBtn } from './ResumeBtn';
 
 interface NavLink {
 	href: string;

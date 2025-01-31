@@ -4,8 +4,11 @@ import { motion, useScroll } from 'framer-motion';
 import { Fade as Hamburger } from 'hamburger-react';
 import React from 'react';
 
-import { Container, LogoLink, NavLinks, ResumeBtn, ThemeSwitcher } from '@/components/ui';
+import { LogoLink } from '@/components/common';
+import { Container } from '@/components/ui';
 import { MenuContext } from '@/src/contexts/MenuContext';
+
+import { NavLinks, ResumeBtn, ThemeSwitcher } from './components';
 
 interface HeaderProps {
 	children?: React.ReactNode;

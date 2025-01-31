@@ -5,10 +5,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-import { buttonVariantsCVA, Container, NextProjectBtn, NotionRichText } from '@/components/ui';
+import { buttonVariantsCVA, Container } from '@/components/ui';
+import { NotionRichText } from '@/src/components/common';
 import { GitIcon, LinkIcon } from '@/src/components/ui/icons';
 import { getNextProject, getProject, getProjects } from '@/src/lib/api/data';
 import { cn, getFileUrl, getImage } from '@/src/lib/utils';
+
+import { NextProjectBtn } from './(components)';
 
 import 'react-notion/src/styles.css';
 import 'prismjs/themes/prism-tomorrow.css';
