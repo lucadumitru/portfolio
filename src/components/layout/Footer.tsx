@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
-import { Socials } from '@/components/common';
-import { Container, LogoLink } from '@/components/ui';
+import { LogoLink, Socials } from '@/components/common';
+import { Container } from '@/components/ui';
 import { dmSans } from '@/src/assets/fonts/fonts';
 
 export const Footer = () => {
