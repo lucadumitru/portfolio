@@ -6,34 +6,18 @@ import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import React from 'react';
 
-interface ThemedImgProps extends Omit<ImageProps, 'src'> {
-	src?: string;
+interface ThemedImgProps extends ImageProps {
 	srcDark: string;
-	srcLight: string;
 }
 
-export const ThemedImg = ({
-	alt,
-	className,
-	height,
-	src,
-	srcDark,
-	srcLight,
-	width,
-	...props
-}: ThemedImgProps) => {
+export const ThemedImg = ({ alt, src, srcDark, ...props }: ThemedImgProps) => {
 	const [isMounted, setIsMounted] = React.useState(false);
 	const { resolvedTheme } = useTheme();
 
 	switch (resolvedTheme) {
-		case 'light':
-			src = srcLight;
-			break;
 		case 'dark':
-			src = srcDark || srcLight;
+			src = srcDark || src;
 			break;
-
-		default:
 	}
 
 	React.useEffect(() => {
@@ -44,15 +28,5 @@ export const ThemedImg = ({
 		return null;
 	}
 
-	return (
-		<Image
-			alt={alt}
-			className={className}
-			height={height}
-			src={src || srcLight}
-			width={width}
-			priority
-			{...props}
-		/>
-	);
+	return <Image alt={alt} src={src || srcDark} priority {...props} />;
 };
