@@ -47,7 +47,7 @@ export const ProjectCard = ({ imagePlaceholder, index, project, ...props }: Proj
 	return (
 		<motion.article
 			{...props}
-			className='relative flex w-full flex-col rounded-2xl bg-white shadow-card will-change-transform dark:bg-[#363636]'
+			className='shadow-card relative flex w-full flex-col rounded-2xl bg-white will-change-transform dark:bg-[#363636]'
 			initial='initial'
 			variants={fadeInAnimationVariants}
 			whileInView='animate'
@@ -95,7 +95,7 @@ export const ProjectCard = ({ imagePlaceholder, index, project, ...props }: Proj
 				)}
 			</Link>
 			<div className='flex grow flex-col items-start gap-3 p-6'>
-				<h3 className='text-xl font-medium dark:text-lightGray md:text-2xl'>
+				<h3 className='dark:text-lightGray text-xl font-medium md:text-2xl'>
 					<Link
 						href={`/projects/${project.properties.__data.slug.rich_text[0].plain_text}`}
 						className='hover:underline'
@@ -103,7 +103,7 @@ export const ProjectCard = ({ imagePlaceholder, index, project, ...props }: Proj
 						{project.properties.__data.title.title[0].plain_text}
 					</Link>
 				</h3>
-				<p className='line-clamp-4 grow font-light dark:text-lightGray'>
+				<p className='dark:text-lightGray line-clamp-4 grow font-light'>
 					{project.properties.__data.description.rich_text[0].plain_text}
 				</p>
 				<div className='text-textSecondary dark:text-lightGray'>

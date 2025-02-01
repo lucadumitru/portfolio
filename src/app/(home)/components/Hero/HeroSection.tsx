@@ -9,7 +9,7 @@ import { HeroTitle } from './components/HeroTitle';
 export const HeroSection = () => {
 	return (
 		<section
-			className='flex min-h-[calc(100dvh-4.5rem)] snap-center scroll-mt-20 flex-col short:py-[40px]'
+			className='short:py-[40px] flex min-h-[calc(100dvh-4.5rem)] snap-center scroll-mt-20 flex-col'
 			id='home'
 			data-section-title
 		>
@@ -18,7 +18,7 @@ export const HeroSection = () => {
 					<HeroTitle />
 				</div>
 				<div className='flex justify-center md:justify-end'>
-					<div className='flex h-[370px] w-[370px] items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-cyan-500 to-fuchsia-500'>
+					<div className='flex h-[370px] w-[370px] items-center justify-center overflow-hidden rounded-full bg-linear-to-r from-cyan-500 to-fuchsia-500'>
 						<Image
 							alt='Luca Dumitru profile img'
 							className='h-[350px] w-[350px] shrink-0 rounded-full object-cover'
@@ -31,7 +31,7 @@ export const HeroSection = () => {
 			<div className='mx-auto'>
 				<Link
 					href='#stack'
-					className='mt-4 hidden items-center justify-center short:inline-flex'
+					className='short:inline-flex mt-4 hidden items-center justify-center'
 				>
 					<Image
 						alt='Scroll down icon'

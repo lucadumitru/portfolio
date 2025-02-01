@@ -13,7 +13,7 @@ const AboutPage = async () => {
 	const educations = await getEducations();
 
 	return (
-		<Container as='main' className='max-w-screen-md grow space-y-12 pt-[7rem]'>
+		<Container as='main' className='max-w-3xl grow space-y-12 pt-[7rem]'>
 			<section className='space-y-7'>
 				<Typography tag='h1' variant='section-title'>
 					About Me
