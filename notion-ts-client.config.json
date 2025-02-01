@@ -153,6 +153,31 @@
           "readOnly": false
         }
       }
+    },
+    "18ccb760-62e3-80fe-8226-cd3fa85607ea": {
+      "_name": "technologies",
+      "varName": "technologies",
+      "pathName": "technologies",
+      "properties": {
+        "OZN%3D": {
+          "_name": "Image",
+          "_type": "files",
+          "varName": "image",
+          "readOnly": false
+        },
+        "knbN": {
+          "_name": "Dark Theme Image",
+          "_type": "files",
+          "varName": "darkThemeImage",
+          "readOnly": false
+        },
+        "title": {
+          "_name": "Name",
+          "_type": "title",
+          "varName": "name",
+          "readOnly": false
+        }
+      }
     }
   }
 }

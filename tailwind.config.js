@@ -15,11 +15,6 @@ module.exports = {
 				short: { raw: '(min-height: 680px)' },
 			},
 			colors: {
-				gray: '#666',
-				lightGray: '#CCC',
-				lightContent: '#A7A7A7',
-				textSecondary: '#42446E',
-				bgDark: '#191919',
 				telegram: '#0088cc',
 				linkedin: '#0E76A8',
 				instagram: '#DD2A7B',

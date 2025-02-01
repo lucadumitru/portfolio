@@ -1,6 +1,7 @@
 import { format } from 'date-fns';
 
 import { Container, Typography } from '@/src/components';
+import { SpotifyPlayList } from '@/src/components/common/SpotifyPlayList';
 import { getEducations, getExperiences } from '@/src/lib/api/data';
 
 import { ExperienceItem } from './components/ExperienceItem';
@@ -12,7 +13,7 @@ const AboutPage = async () => {
 	const educations = await getEducations();
 
 	return (
-		<Container as='main' className='max-w-screen-md grow space-y-12 pt-[7rem]'>
+		<Container as='main' className='max-w-3xl grow space-y-12 pt-[7rem]'>
 			<section className='space-y-7'>
 				<Typography tag='h1' variant='section-title'>
 					About Me
@@ -28,7 +29,7 @@ const AboutPage = async () => {
 			</section>
 			{!!experiences.length && (
 				<section className='space-y-8'>
-					<Typography tag='h1' variant='section-title'>
+					<Typography tag='h2' variant='section-title'>
 						Work Experience
 					</Typography>
 					<ul className='space-y-7'>
@@ -54,7 +55,7 @@ const AboutPage = async () => {
 			)}
 			{!!educations.length && (
 				<section className='space-y-8'>
-					<Typography tag='h1' variant='section-title'>
+					<Typography tag='h2' variant='section-title'>
 						Education
 					</Typography>
 					<ul className='space-y-7'>
@@ -78,6 +79,12 @@ const AboutPage = async () => {
 					</ul>
 				</section>
 			)}
+			<section className='space-y-8'>
+				<Typography tag='h2' variant='section-title'>
+					Some music that I like
+				</Typography>
+				<SpotifyPlayList />
+			</section>
 		</Container>
 	);
 };
