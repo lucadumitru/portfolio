@@ -51,7 +51,7 @@ export const Socials = ({ className }: SocialsProps) => {
 					className='rounded-full transition-transform hover:scale-110'
 					target='_blank'
 				>
-					<Icon className={`size-8 text-gray transition-all ${iconHoverColor}`} />
+					<Icon className={`text-gray size-8 transition-all ${iconHoverColor}`} />
 				</Link>
 			))}
 		</div>

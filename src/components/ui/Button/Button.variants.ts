@@ -6,9 +6,10 @@ export type ButtonVariantProps = VariantProps<typeof buttonVariantsCVA>;
 
 export const buttonVariants = {
 	variant: {
-		primary: 'p-3 border rounded-full hover:shadow-md transition-shadow dark:hover:shadow-white',
+		primary:
+			'p-3 border border-gray rounded-full hover:shadow-md transition-shadow dark:hover:shadow-white',
 		secondary:
-			'border before:content-[" "] relative flex cursor-pointer items-center justify-center place-self-center overflow-hidden whitespace-nowrap rounded-[6.25rem] border-gray bg-white from-cyan-500 to-fuchsia-500 p-4 transition-all before:absolute before:h-full before:w-full before:bg-gradient-to-r before:opacity-0 before:transition-opacity hover:border-white hover:text-white hover:before:opacity-100 dark:bg-bgDark sm:inline-flex md:w-auto md:hover:no-underline',
+			'border relative flex cursor-pointer items-center justify-center place-self-center overflow-hidden whitespace-nowrap rounded-[6.25rem] border-gray bg-white before:from-cyan-500 before:to-fuchsia-500 p-4 transition-all before:absolute before:h-full before:w-full before:bg-gradient-to-r before:opacity-0 before:transition-opacity hover:border-white hover:text-white hover:before:opacity-100 dark:bg-bgDark sm:inline-flex md:w-auto md:hover:no-underline',
 		tertiary:
 			'rounded-3xl bg-green-200  text-green-900 transition hover:bg-[#018C0F] hover:text-[#D7FFE0]',
 	},
@@ -23,7 +24,7 @@ export const buttonVariants = {
 	},
 };
 
-export const buttonVariantsCVA = cva('rounded', {
+export const buttonVariantsCVA = cva('', {
 	variants: buttonVariants,
 	defaultVariants: {
 		variant: 'primary',

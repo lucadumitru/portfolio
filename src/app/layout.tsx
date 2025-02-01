@@ -45,7 +45,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<html className='overflow-x-hidden scroll-smooth' lang='en-US' suppressHydrationWarning>
 			<body
-				className={`${poppins.className} flex min-h-screen min-w-[390px] flex-col overflow-x-hidden bg-white antialiased dark:bg-bgDark`}
+				className={`${poppins.className} dark:bg-bgDark flex min-h-screen min-w-[390px] flex-col overflow-x-hidden bg-white antialiased`}
 			>
 				<Providers>
 					<Header>

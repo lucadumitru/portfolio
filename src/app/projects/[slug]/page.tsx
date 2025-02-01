@@ -111,15 +111,15 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 			/>
 			<Container className='flex flex-col items-center'>
 				<section className='max-w-4xl'>
-					<h1 className='text-center text-3xl font-bold text-textSecondary dark:text-white md:text-6xl'>
+					<h1 className='text-textSecondary text-center text-3xl font-bold md:text-6xl dark:text-white'>
 						{project.properties.__data.title.title[0].plain_text}
 					</h1>
 					{project.properties.__data.stack && (
-						<div className='mt-10 text-center text-xl font-semibold text-textSecondary dark:text-white md:text-xl'>
+						<div className='text-textSecondary mt-10 text-center text-xl font-semibold md:text-xl dark:text-white'>
 							{project.properties.__data.stack.rich_text[0].plain_text}
 						</div>
 					)}
-					<p className='mt-3 text-justify text-gray md:mt-10'>
+					<p className='text-gray mt-3 text-justify md:mt-10'>
 						{project.properties.__data.description.rich_text[0].plain_text}
 					</p>
 
@@ -167,11 +167,11 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 					</Link>
 
 					{!!project.properties.__data.macPreview.files.length && (
-						<div className='relative w-full bg-macbook bg-contain bg-no-repeat pb-[50%]'>
+						<div className='bg-macbook relative w-full bg-contain bg-no-repeat pb-[50%]'>
 							<video
 								muted
 								playsInline
-								className='absolute left-1/2 top-[3%] z-[-1] aspect-video w-[80.5%] -translate-x-2/4 rounded-md'
+								className='absolute top-[3%] left-1/2 z-[-1] aspect-video w-[80.5%] -translate-x-2/4 rounded-md'
 								autoPlay
 								loop
 								poster='https://res.cloudinary.com/dl13jfh2s/image/upload/v1738145581/loader_fxzfpw.gif'

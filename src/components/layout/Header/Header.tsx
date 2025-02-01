@@ -25,7 +25,7 @@ export const Header = ({ children }: HeaderProps) => {
 
 	return (
 		<header
-			className='fixed z-50 w-full border-b-[0.125rem] border-lightGray/15 bg-white dark:bg-bgDark'
+			className='border-lightGray/15 dark:bg-bgDark fixed z-50 w-full border-b-[0.125rem] bg-white'
 			role='banner'
 		>
 			<Container className='flex min-h-[4.5rem] items-center justify-between gap-3 py-3 md:py-4'>
@@ -47,7 +47,7 @@ export const Header = ({ children }: HeaderProps) => {
 				style={{
 					scaleX: scrollYProgress,
 				}}
-				className='absolute -bottom-0.5 left-0 right-0 z-10 h-0.5 origin-left bg-gradient-to-r from-cyan-500 to-fuchsia-500'
+				className='absolute right-0 -bottom-0.5 left-0 z-10 h-0.5 origin-left bg-linear-to-r from-cyan-500 to-fuchsia-500'
 				id='scroll-indicator'
 			/>
 		</header>

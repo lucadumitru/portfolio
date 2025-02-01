@@ -70,9 +70,9 @@ export const NavLinks = () => {
 	};
 
 	return (
-		<nav className='flex items-center md:min-w-[18.75rem] md:gap-x-12' role='navigation'>
+		<nav className='flex items-center md:min-w-[21rem] md:gap-x-12' role='navigation'>
 			<div
-				className={`fixed top-0 h-full w-full bg-white transition-[left] before:fixed before:top-0 before:z-20 before:h-[4.62rem] before:w-full before:border-b-[0.125rem] before:border-solid before:border-lightGray/15 before:bg-white before:transition-[left] before:content-[''] dark:bg-bgDark dark:before:bg-bgDark md:relative md:left-0 md:bg-transparent md:before:hidden ${
+				className={`before:border-lightGray/15 dark:bg-bgDark dark:before:bg-bgDark fixed top-0 h-full w-full bg-white transition-[left] before:fixed before:top-0 before:z-20 before:h-[4.62rem] before:w-full before:border-b-[0.125rem] before:border-solid before:bg-white before:transition-[left] before:content-[''] md:relative md:left-0 md:bg-transparent md:before:hidden ${
 					dmSans.className
 				} ${
 					!isOpen
@@ -94,7 +94,7 @@ export const NavLinks = () => {
 										'relative block transition-all hover:underline dark:text-white',
 										isOpen && 'text-2xl',
 										{
-											'scale-110 text-textSecondary':
+											'text-textSecondary scale-110':
 												sectionLink.name.toLowerCase() === activeSection,
 										},
 									)}

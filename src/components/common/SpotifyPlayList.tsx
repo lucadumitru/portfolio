@@ -26,7 +26,7 @@ export const SpotifyPlayList = ({
 	return (
 		<iframe
 			{...props}
-			className={cn('rounded-xl [&>html>body]:!m-0', className)}
+			className={cn('rounded-xl [&>html>body]:m-0!', className)}
 			height={height}
 			src={src}
 			title={title}

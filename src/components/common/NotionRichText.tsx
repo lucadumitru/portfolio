@@ -11,7 +11,7 @@ interface NotionTextProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const NotionRichText = ({ richText, className, ...props }: NotionTextProps) => {
 	return (
-		<section {...props} className={cn('mx-auto max-w-screen-md space-y-4', className)}>
+		<section {...props} className={cn('mx-auto max-w-(--breakpoint-md) space-y-4', className)}>
 			{richText.map((text, index) => {
 				if (text.plain_text.toLocaleLowerCase().includes('image') && text.href) {
 					return (
@@ -31,7 +31,7 @@ export const NotionRichText = ({ richText, className, ...props }: NotionTextProp
 					return (
 						<h3
 							key={index}
-							className='text-center text-2xl font-semibold text-textSecondary dark:text-white'
+							className='text-textSecondary text-center text-2xl font-semibold dark:text-white'
 							style={{ color: text.annotations.color }}
 						>
 							{text.plain_text}

@@ -18,7 +18,7 @@ export const StackItems = ({ technologies }: StackItemsProps) => {
 			{technologies.map((technology, index) => (
 				<motion.li
 					key={technology.id}
-					className='will-change-transform [&:nth-of-type(10n-1)]:hidden md:[&:nth-of-type(10n-1)]:block'
+					className='will-change-transform nth-of-type-[10n-1]:hidden md:nth-of-type-[10n-1]:block'
 					initial='initial'
 					variants={fadeInAnimationVariants}
 					whileInView='animate'

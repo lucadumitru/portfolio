@@ -18,7 +18,7 @@ export const HeroTitle = () => {
 				unoptimized
 			/>
 			, My name is <br />
-			<strong className='bg-gradient-to-r from-cyan-500 to-fuchsia-500 bg-clip-text text-transparent'>
+			<strong className='bg-linear-to-r from-cyan-500 to-fuchsia-500 bg-clip-text text-transparent'>
 				Luca Dumitru
 			</strong>
 			<br />I build{' '}
