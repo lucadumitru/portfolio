@@ -28,5 +28,5 @@ export const ThemedImg = ({ alt, src, srcDark, ...props }: ThemedImgProps) => {
 		return null;
 	}
 
-	return <Image alt={alt} src={src || srcDark} priority {...props} />;
+	return <Image alt={alt} src={src} priority {...props} />;
 };
