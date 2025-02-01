@@ -10,7 +10,7 @@ interface ResumeBtnProps extends Omit<LinkProps, 'href'> {
 }
 
 export const ResumeBtn = ({
-	href = '/resume/resume_luca_dumitru-eng.pdf',
+	href = '/resume/Resume_Luca_Dumitru-eng.pdf',
 	className,
 	...props
 }: ResumeBtnProps) => {
