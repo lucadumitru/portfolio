@@ -1,6 +1,8 @@
 import { cn } from '@/src/lib/utils';
 
-import { type TypographyVariantProps, typographyVariantsCVA } from './Typography.variants';
+import type { TypographyVariantProps } from './Typography.variants';
+
+import { typographyVariantsCVA } from './Typography.variants';
 
 export interface TypographyProps
 	extends React.HTMLAttributes<HTMLElement>,

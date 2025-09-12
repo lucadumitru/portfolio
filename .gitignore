@@ -5,6 +5,7 @@
 /backend
 /.pnp
 .pnp.js
+/package-lock.json 
 
 # testing
 /coverage
@@ -39,3 +40,4 @@ yarn-error.log*
 next-env.d.ts
 
 *storybook.log
+

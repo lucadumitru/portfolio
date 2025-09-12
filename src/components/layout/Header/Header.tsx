@@ -15,7 +15,7 @@ interface HeaderProps {
 }
 
 export const Header = ({ children }: HeaderProps) => {
-	const { isOpen, toggleIsOpen } = React.useContext(MenuContext);
+	const { isOpen, toggleIsOpen } = React.use(MenuContext);
 	const { scrollYProgress } = useScroll();
 
 	const onClick = () => {

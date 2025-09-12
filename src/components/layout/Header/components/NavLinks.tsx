@@ -24,7 +24,7 @@ const navLinks: NavLink[] = [
 ];
 
 export const NavLinks = () => {
-	const { isOpen, toggleIsOpen } = React.useContext(MenuContext);
+	const { isOpen, toggleIsOpen } = React.use(MenuContext);
 	const pathName = usePathname();
 	const isHomePage = pathName === '/';
 	const [sectionLinks, setSectionLinks] = React.useState<NavLink[]>([]);
