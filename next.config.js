@@ -2,13 +2,8 @@
 
 const nextConfig = {
 	images: {
-		remotePatterns: [
-			{
-				protocol: 'https',
-				hostname: '***',
-				port: '',
-			},
-		],
+		remotePatterns: [{ protocol: 'https', hostname: 'res.cloudinary.com', port: '' }],
+		minimumCacheTTL: 2678400,
 	},
 	experimental: {},
 };
