@@ -27,3 +27,20 @@
 	--color-lightContent: oklch(72.84% 0 0);
 	--color-textSecondary: oklch(40.44% 0.0702 280.69);
 }
+
+::view-transition-old(root) {
+	animation-delay: 500ms;
+}
+
+::view-transition-new(root) {
+	animation: circle-in 500ms ease-in-out;
+}
+
+@keyframes circle-in {
+	from {
+		clip-path: circle(0% at 90% -10%);
+	}
+	to {
+		clip-path: circle(200% at 90% -10%);
+	}
+}

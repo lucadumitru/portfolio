@@ -13,9 +13,6 @@ import { cn, getFileUrl, getImage } from '@/src/lib/utils';
 
 import { NextProjectBtn } from './(components)';
 
-import 'react-notion/src/styles.css';
-import 'prismjs/themes/prism-tomorrow.css';
-
 interface ProjectPageProps {
 	params: Promise<{ slug: string }>;
 }

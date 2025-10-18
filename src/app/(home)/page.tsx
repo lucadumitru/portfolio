@@ -4,8 +4,6 @@ import React from 'react';
 
 import { HeroSection, ProjectsSection, StackSection } from './components';
 
-export const revalidate = 3600; // 1 hour
-
 const jsonLd: Person = {
 	'@type': 'Person',
 	name: 'Dumitru Luca',

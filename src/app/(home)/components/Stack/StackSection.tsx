@@ -3,6 +3,8 @@ import { getTechnologies } from '@/src/lib/api/data';
 
 import { StackItems } from './components/StackItems';
 
+export const revalidate = 3600; // 1 hour
+
 export const StackSection = async () => {
 	const technologies = await getTechnologies();
 
