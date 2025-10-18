@@ -21,7 +21,14 @@ export const ThemeSwitcher = ({
 		theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 	const toggleDarkMode = () => {
-		setTheme(theme === 'dark' ? 'light' : 'dark');
+		if (!document.startViewTransition) {
+			setTheme(theme === 'dark' ? 'light' : 'dark');
+			return;
+		}
+
+		document.startViewTransition(() => {
+			setTheme(theme === 'dark' ? 'light' : 'dark');
+		});
 	};
 
 	if (!isMounted) {
@@ -36,7 +43,6 @@ export const ThemeSwitcher = ({
 			type='button'
 			onKeyDown={(event) => event.key === 'Enter' && toggleDarkMode()}
 		>
-			{/* @ts-expect-error */}
 			<DarkModeSwitch
 				checked={theme === 'dark' || systemDark}
 				className='*:fill-current'

@@ -1,4 +1,6 @@
-import { type ButtonVariantProps, buttonVariantsCVA } from './Button.variants';
+import type { ButtonVariantProps } from './Button.variants';
+
+import { buttonVariantsCVA } from './Button.variants';
 
 export interface ButtonProps
 	extends React.ButtonHTMLAttributes<HTMLButtonElement>,
