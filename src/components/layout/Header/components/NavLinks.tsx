@@ -37,7 +37,7 @@ export const NavLinks = () => {
 		if (!sectionsTitles) return;
 
 		setSectionLinks(
-			Array.from(sectionsTitles).map((sectionTitle) => ({
+			Array.from(sectionsTitles, (sectionTitle) => ({
 				href: `#${sectionTitle.id}`,
 				name: sectionTitle.id,
 			})),

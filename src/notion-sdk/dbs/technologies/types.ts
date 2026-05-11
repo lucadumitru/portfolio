@@ -12,11 +12,10 @@ import {
 } from '../../core/types/notion-api.types';
 import { TECHNOLOGIES_PROPS_TO_IDS } from './constants';
 
-export interface TechnologiesResponse
-	extends WithOptional<
-		Omit<DatabaseObjectResponse, 'properties'>,
-		'title' | 'description' | 'is_inline' | 'url' | 'public_url'
-	> {
+export interface TechnologiesResponse extends WithOptional<
+	Omit<DatabaseObjectResponse, 'properties'>,
+	'title' | 'description' | 'is_inline' | 'url' | 'public_url'
+> {
 	properties: {
 		Image: FilesPropertyItemObjectResponse;
 		'Dark Theme Image': FilesPropertyItemObjectResponse;

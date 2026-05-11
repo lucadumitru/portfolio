@@ -24,14 +24,14 @@ export const NextProjectBtn: React.FC<NextProjectBtnProps> = ({
 	const bottomToTop = useTransform(scrollYProgress, [0, 1], [150, 0]);
 
 	return (
-		<div className='relative max-h-[18.75rem] overflow-hidden border-b-[0.125rem] border-lightGray/15 text-center'>
+		<div className='border-lightGray/15 relative max-h-[18.75rem] overflow-hidden border-b-[0.125rem] text-center'>
 			<Link
 				href={`/projects/${nextProjectSlug}`}
 				ref={ref}
 				className='group inline-flex w-[70%] flex-col items-center'
 			>
 				<span className='text-gray'>Next project</span>
-				<span className='-mb-5 mt-2 text-3xl font-semibold text-textSecondary transition group-hover:opacity-30 dark:text-white md:-mb-10 md:mt-5 md:text-8xl'>
+				<span className='text-textSecondary mt-2 -mb-5 text-3xl font-semibold transition group-hover:opacity-30 md:mt-5 md:-mb-10 md:text-8xl dark:text-white'>
 					{nextProjectTitle}
 				</span>
 				<motion.div
