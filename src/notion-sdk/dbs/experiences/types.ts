@@ -15,11 +15,10 @@ import {
 } from '../../core/types/notion-api.types';
 import { EXPERIENCES_PROPS_TO_IDS } from './constants';
 
-export interface ExperiencesResponse
-	extends WithOptional<
-		Omit<DatabaseObjectResponse, 'properties'>,
-		'title' | 'description' | 'is_inline' | 'url' | 'public_url'
-	> {
+export interface ExperiencesResponse extends WithOptional<
+	Omit<DatabaseObjectResponse, 'properties'>,
+	'title' | 'description' | 'is_inline' | 'url' | 'public_url'
+> {
 	properties: {
 		Period: DatePropertyItemObjectResponse;
 		Company: RichTextPropertyItemObjectResponse;

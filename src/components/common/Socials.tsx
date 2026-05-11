@@ -40,20 +40,18 @@ const socialLinks: SocialLink[] = [
 	},
 ];
 
-export const Socials = ({ className }: SocialsProps) => {
-	return (
-		<div className={`flex items-center justify-center gap-x-[10px] md:gap-x-[20px] ${className}`}>
-			{socialLinks.map(({ label, href, icon: Icon, iconHoverColor }) => (
-				<Link
-					href={href}
-					key={label}
-					aria-label={`${label} link`}
-					className='rounded-full transition-transform hover:scale-110'
-					target='_blank'
-				>
-					<Icon className={`text-gray size-8 transition-all ${iconHoverColor}`} />
-				</Link>
-			))}
-		</div>
-	);
-};
+export const Socials = ({ className }: SocialsProps) => (
+	<div className={`flex items-center justify-center gap-x-[10px] md:gap-x-[20px] ${className}`}>
+		{socialLinks.map(({ label, href, icon: Icon, iconHoverColor }) => (
+			<Link
+				href={href}
+				key={label}
+				aria-label={`${label} link`}
+				className='rounded-full transition-transform hover:scale-110'
+				target='_blank'
+			>
+				<Icon className={`text-gray size-8 transition-all ${iconHoverColor}`} />
+			</Link>
+		))}
+	</div>
+);

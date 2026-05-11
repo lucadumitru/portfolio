@@ -2,14 +2,11 @@
 
 import { useTheme } from 'next-themes';
 import React from 'react';
-import { DarkModeSwitch } from 'react-toggle-dark-mode';
 
+import { Switch } from '@/components/ui';
 import { cn } from '@/src/lib/utils';
 
-export const ThemeSwitcher = ({
-	className,
-	...props
-}: React.HtmlHTMLAttributes<HTMLButtonElement>) => {
+export const ThemeSwitcher = ({ className }: React.HtmlHTMLAttributes<HTMLButtonElement>) => {
 	const [isMounted, setIsMounted] = React.useState(false);
 	const { setTheme, theme } = useTheme();
 
@@ -36,20 +33,12 @@ export const ThemeSwitcher = ({
 	}
 
 	return (
-		<button
-			{...props}
+		<Switch
 			aria-label='theme switcher'
-			className={cn('size-8 overflow-hidden rounded-full', className)}
-			type='button'
-			onKeyDown={(event) => event.key === 'Enter' && toggleDarkMode()}
-		>
-			<DarkModeSwitch
-				checked={theme === 'dark' || systemDark}
-				className='*:fill-current'
-				size={32}
-				color='currentColor'
-				onChange={systemDark ? () => setTheme('light') : toggleDarkMode}
-			/>
-		</button>
+			checked={theme === 'dark' || systemDark}
+			className={cn('cursor-pointer overflow-hidden', className)}
+			defaultChecked={theme === 'dark' || systemDark}
+			onCheckedChange={systemDark ? () => setTheme('light') : toggleDarkMode}
+		/>
 	);
 };

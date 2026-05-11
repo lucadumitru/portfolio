@@ -1,6 +1,6 @@
 # Portfolio
 
-### The project represents my portfolio webpage.
+## The project represents my portfolio webpage.
 
 ### **Author** - Frontend Developer `Dumitru Luca`.
 

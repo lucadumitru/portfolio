@@ -13,16 +13,14 @@ export const ResumeBtn = ({
 	href = '/resume/Resume_Luca_Dumitru-eng.pdf',
 	className,
 	...props
-}: ResumeBtnProps) => {
-	return (
-		<Link
-			{...props}
-			href={href}
-			aria-label='download resume'
-			className={buttonVariantsCVA({ variant: 'tertiary', size: 'small', className })}
-			download
-		>
-			Resume
-		</Link>
-	);
-};
+}: ResumeBtnProps) => (
+	<Link
+		{...props}
+		href={href}
+		aria-label='download resume'
+		className={buttonVariantsCVA({ variant: 'tertiary', size: 'small', className })}
+		download
+	>
+		Resume
+	</Link>
+);
