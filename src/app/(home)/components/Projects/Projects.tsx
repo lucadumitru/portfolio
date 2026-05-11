@@ -11,9 +11,10 @@ export const Projects = async () => {
 	const projects = await getProjects();
 
 	const projectsImgPlaceholders = await Promise.all(
-		projects.map(async (project) => {
-			return (await getImage(getFileUrl(project.properties.__data.mainImage.files))).base64;
-		}),
+		projects.map(
+			async (project) =>
+				(await getImage(getFileUrl(project.properties.__data.mainImage.files))).base64,
+		),
 	);
 
 	if (!projects) {

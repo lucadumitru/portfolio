@@ -17,11 +17,10 @@ import {
 } from '../../core/types/notion-api.types';
 import { PROJECTS_PROPS_TO_IDS } from './constants';
 
-export interface ProjectsResponse
-	extends WithOptional<
-		Omit<DatabaseObjectResponse, 'properties'>,
-		'title' | 'description' | 'is_inline' | 'url' | 'public_url'
-	> {
+export interface ProjectsResponse extends WithOptional<
+	Omit<DatabaseObjectResponse, 'properties'>,
+	'title' | 'description' | 'is_inline' | 'url' | 'public_url'
+> {
 	properties: {
 		Slug: RichTextPropertyItemObjectResponse;
 		Stack: RichTextPropertyItemObjectResponse;

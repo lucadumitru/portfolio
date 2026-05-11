@@ -3,15 +3,19 @@ import type { Metadata, Viewport } from 'next';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { VercelToolbar } from '@vercel/toolbar/next';
+import { Geist } from 'next/font/google';
 
 import { Socials } from '@/components/common';
 import { Cta, Footer, Header } from '@/components/layout';
 import { siteConfig } from '@/site.config';
 import { poppins } from '@/src/assets/fonts';
+import { cn } from '@/src/lib/utils';
 
 import { Providers } from './providers';
 
 import '@/src/assets/styles/globals.css';
+
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 export const viewport: Viewport = {
 	width: 'device-width',
@@ -41,32 +45,34 @@ export const metadata: Metadata = {
 	},
 };
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
-	return (
-		<html className='overflow-x-hidden scroll-smooth' lang='en-US' suppressHydrationWarning>
-			<body
-				className={`${poppins.className} dark:bg-bgDark flex min-h-screen min-w-[390px] flex-col overflow-x-hidden bg-white antialiased`}
-			>
-				<Providers>
-					<Header>
-						<Socials className='hidden md:flex' />
-					</Header>
-					{children}
-					<Cta />
-					<Footer />
-				</Providers>
+const RootLayout = ({ children }: { children: React.ReactNode }) => (
+	<html
+		className={cn('overflow-x-hidden scroll-smooth', 'font-sans', geist.variable)}
+		lang='en-US'
+		suppressHydrationWarning
+	>
+		<body
+			className={`${poppins.className} dark:bg-bgDark flex min-h-screen min-w-[320px] flex-col overflow-x-hidden bg-white antialiased`}
+		>
+			<Providers>
+				<Header>
+					<Socials className='hidden md:flex' />
+				</Header>
+				{children}
+				<Cta />
+				<Footer />
+			</Providers>
 
-				{siteConfig.isProduction && (
-					<>
-						<Analytics />
-						<SpeedInsights />
-					</>
-				)}
+			{siteConfig.isProduction && (
+				<>
+					<Analytics />
+					<SpeedInsights />
+				</>
+			)}
 
-				{siteConfig.isDev && siteConfig.vercelToolbar.enabled && <VercelToolbar />}
-			</body>
-		</html>
-	);
-};
+			{siteConfig.isDev && siteConfig.vercelToolbar.enabled && <VercelToolbar />}
+		</body>
+	</html>
+);
 
 export default RootLayout;

@@ -28,18 +28,16 @@ const jsonLd: Person = {
 	},
 };
 
-const HomePage = () => {
-	return (
-		<main className='flex flex-col gap-[3.125rem] pt-[4.375rem] md:gap-[9.375rem]' role='main'>
-			<script
-				type='application/ld+json'
-				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-			/>
-			<HeroSection />
-			<StackSection />
-			<ProjectsSection />
-		</main>
-	);
-};
+const HomePage = () => (
+	<main className='flex flex-col gap-[3.125rem] pt-[4.375rem] md:gap-[9.375rem]' role='main'>
+		<script
+			type='application/ld+json'
+			dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+		/>
+		<HeroSection />
+		<StackSection />
+		<ProjectsSection />
+	</main>
+);
 
 export default HomePage;
