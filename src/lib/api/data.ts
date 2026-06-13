@@ -1,5 +1,6 @@
 'use server';
 
+import { serialize } from '@/src/lib/utils';
 import { EducationsResponseDTO } from '@/src/notion-sdk/dbs/educations/response.dto';
 import { ExperiencesResponseDTO } from '@/src/notion-sdk/dbs/experiences';
 import { ProjectsResponseDTO } from '@/src/notion-sdk/dbs/projects';
@@ -15,9 +16,7 @@ export const getProjects = async (): Promise<ProjectsResponseDTO[]> => {
 		sorts: [{ timestamp: 'created_time', direction: 'descending' }],
 	});
 
-	const result = response.results.map((result) => new ProjectsResponseDTO(result));
-	const data = JSON.parse(JSON.stringify(result)) as ProjectsResponseDTO[];
-	return data;
+	return serialize(response.results.map((result) => new ProjectsResponseDTO(result)));
 };
 
 export const getProject = async (slug: string): Promise<ProjectsResponseDTO> => {
@@ -28,9 +27,7 @@ export const getProject = async (slug: string): Promise<ProjectsResponseDTO> => 
 		page_size: 1,
 	});
 
-	const result = new ProjectsResponseDTO(response.results[0]);
-	const data = JSON.parse(JSON.stringify(result)) as ProjectsResponseDTO;
-	return data;
+	return serialize(new ProjectsResponseDTO(response.results[0]));
 };
 
 export const getNextProject = async (
@@ -51,7 +48,7 @@ export const getNextProject = async (
 			return;
 		}
 
-		return new ProjectsResponseDTO(response.results[0]);
+		return serialize(new ProjectsResponseDTO(response.results[0]));
 	} catch (error) {
 		console.error(error);
 	}
@@ -61,18 +58,14 @@ export const getEducations = async (): Promise<EducationsResponseDTO[]> => {
 	const response = await educationsDb.query({
 		sorts: [{ property: 'period', direction: 'descending' }],
 	});
-	const results = response.results.map((result) => new EducationsResponseDTO(result));
-	const data = JSON.parse(JSON.stringify(results)) as EducationsResponseDTO[];
-	return data;
+	return serialize(response.results.map((result) => new EducationsResponseDTO(result)));
 };
 
 export const getExperiences = async (): Promise<ExperiencesResponseDTO[]> => {
 	const response = await experiencesDb.query({
 		sorts: [{ property: 'period', direction: 'descending' }],
 	});
-	const results = response.results.map((result) => new ExperiencesResponseDTO(result));
-	const data = JSON.parse(JSON.stringify(results)) as ExperiencesResponseDTO[];
-	return data;
+	return serialize(response.results.map((result) => new ExperiencesResponseDTO(result)));
 };
 
 export const getTechnologies = async (): Promise<TechnologiesResponseDTO[]> => {
@@ -80,7 +73,5 @@ export const getTechnologies = async (): Promise<TechnologiesResponseDTO[]> => {
 		sorts: [{ timestamp: 'created_time', direction: 'ascending' }],
 	});
 
-	const results = response.results.map((result) => new TechnologiesResponseDTO(result));
-	const data = JSON.parse(JSON.stringify(results)) as TechnologiesResponseDTO[];
-	return data;
+	return serialize(response.results.map((result) => new TechnologiesResponseDTO(result)));
 };

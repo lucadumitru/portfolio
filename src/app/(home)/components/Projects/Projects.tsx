@@ -5,7 +5,7 @@ import { getFileUrl, getImage } from '@/src/lib/utils';
 
 import { ProjectCards } from './ProjectCards';
 
-export const revalidate = 3600; // 1 hour
+export const revalidate = 3600;
 
 export const Projects = async () => {
 	const projects = await getProjects();
